@@ -1,0 +1,249 @@
+;; PartnerTron 3000S
+;; Program to pair lab partners
+;; T. Fossum
+;; Last modified: Wed Mar 24 13:34:36 CST 2004
+
+(require 'stdio)
+(require 'hash-table)
+(require 'line-i/o)
+(require 'common-list-functions)
+(require 'random)
+(require 'string-case)
+
+;; Define the hash function operators (we don't really use hrem!)
+;; Since all the keys are symbols, we could use eq? instead of equal?
+(define hget (hash-inquirer equal?))
+(define hset! (hash-associator equal?))
+(define hrem! (hash-remover equal?))
+
+;; Procedure: read-line-crunch [port]
+;; Like read-line, but skips whitespace and downcases all alphabetics
+(define (read-line-crunch . port)
+  (let ((char (apply read-char port)))
+    (if (eof-object? char)
+        char
+        (do ((char char (apply read-char port))
+             (clist
+               '()
+               (let ((char (char-downcase char)))
+                  (if (char-whitespace? char)
+                    clist
+                    (cons char clist)))))
+             ((or (eof-object? char) (char=? #\newline char))
+              (list->string (reverse clist)))))))
+
+;; Procedure: Check-File Prompt Quit
+;; Prompt=String used to prompt the user
+;; Quit=String to use to quit (returns empty string in this case)
+;; Checks to see if the file exists, and repeatedly asks the user
+;;   to enter a new filename if not
+(define (Check-File Prompt Quit)
+  (let repeat
+    ((filename (Prompt-For Prompt)))
+    (if (string=? filename Quit)
+      ""
+      (if (stat filename)
+        filename
+        (begin
+          (display filename)
+          (display ": no such file")
+          (newline)
+          (repeat (Prompt-For Prompt)))))))
+
+
+(define (Build-Empty-Pairs)
+  (begin
+    (let
+      ((Class-File (Check-File "Class File [q=quit]: " "q")))
+      (if (string=? Class-File "")
+        #t
+        (let*
+          ((Class-List (Get-Class-List Class-File))
+           (Pairs-File (Prompt-For "Pairs File [q=quit]: ")))
+          (if (string=? Pairs-File "q")
+            #t
+            (Make-Empty-Pairs Class-List Pairs-File)))))))
+
+(define (Display-Pairs New-Pairs)
+  (if (null? New-Pairs)
+    #t
+    (let
+      ((pair (car New-Pairs)))
+      (display (car pair))
+      (display " ")
+      (display (cadr pair))
+      (if (not (cadr pair))
+	  (display " <====="))
+      (newline)
+      (Display-Pairs (cdr New-Pairs)))))
+
+(define (New-Lab)
+  (let
+    ((Class-File (Check-File "Class File [q=quit]: " "q")))
+    (if (string=? Class-File "")
+      (exit)
+      (let*
+        ((Class-List (Get-Class-List Class-File))
+         (Pairs-File (Check-File "Old All Pairs File [q=quit]: " "q")))
+        (if (string=? Pairs-File "")
+          (exit)
+          (let*
+            ((Hash-Table (make-hash-table 100)))
+            (Get-Input-Pairs Hash-Table Pairs-File)
+            (let repeat
+              ((New-Pairs (Get-New-Pairs Hash-Table Class-List)))
+              (newline)
+              (Display-Pairs New-Pairs)
+              (let repeat-OK-prompt
+                ((YNQ (string-downcase (Prompt-For "OK [y/n/q]? "))))
+                (cond
+                  ((string=? YNQ "q")
+                   (exit))
+                  ((string=? YNQ "n")
+                   (repeat (Get-New-Pairs Hash-Table Class-List)))
+                  ((string=? YNQ "y")
+                    (begin
+                      (Enter-New-Pairs Hash-Table New-Pairs)
+                      (let
+                         ((New-Pairs-File
+                            (Prompt-For "This Partner File [q=quit]: ")))
+                         (if
+                           (string=? (string-downcase New-Pairs-File) "q")
+                           (exit)
+                           (begin
+                             (Write-New-Pairs New-Pairs New-Pairs-File)
+			     (let
+			       ((All-Pairs-File
+    				  (Prompt-For
+				    "New All Pairs File [q=quit]: ")))
+			       (if
+				 (string=?
+                                   (string-downcase All-Pairs-File)
+				   "q")
+				 (exit)
+				 (begin
+				   (Write-All-Pairs
+				     Class-List
+				     Hash-Table
+				     All-Pairs-File)
+				   (exit)))))))))
+		  (else
+                    (repeat-OK-prompt
+		      (string-downcase
+                        (Prompt-For "OK [y/n/q]? ")))))))))))))
+
+(define (Make-Empty-Pairs Class-List Pairs-File)
+  (call-with-output-file Pairs-File
+    (lambda (p)
+      (let f
+        ((lst Class-List))
+        (if (null? lst)
+          #t
+          (begin
+            (write (list (car lst) ()) p)
+            (newline p)
+            (f (cdr lst))))))))
+
+(define (Enter-New-Pairs Hash-Table Pairs)
+  (if (null? Pairs)
+    #t
+    (let*
+      ((pair (car Pairs))
+       (Student1 (car pair))
+       (Student2 (cadr pair)))
+      (hset! Hash-Table Student1 (cons Student2 (hget Hash-Table Student1)))
+      (hset! Hash-Table Student2 (cons Student1 (hget Hash-Table Student2)))
+      (Enter-New-Pairs Hash-Table (cdr Pairs)))))
+         
+(define (Get-Random L)
+  (if (null? L)
+    ()
+    (list-ref L (random (length L)))))
+
+(define (Get-New-Pairs Hash-Table Candidates)
+  (if (null? Candidates)
+    ()
+    (if (null? (cdr Candidates))
+      (list (list (car Candidates) 'xxxxx))   ;no partner available
+      (let* ; Candidates has at least two members
+        ((Student (Get-Random Candidates))
+         (Avail
+           (set-difference
+             Candidates
+             (cons Student (hget Hash-Table Student)))))
+        (let*
+          ((Partner
+             (if (null? Avail)
+               #f
+               (Get-Random Avail)))
+           (pair (list Student Partner)))
+          (cons 
+            pair
+            (Get-New-Pairs Hash-Table (set-difference Candidates pair))))))))
+
+(define (Get-Input-Pairs Hash-Table Pairs-File)
+  (call-with-input-file Pairs-File
+    (lambda (p)
+      (let f ((x (read p)))
+        (if (eof-object? x)
+          0
+          (begin
+;           (display x) (newline)
+            (hset! Hash-Table (car x) (cadr x))
+            (+ (f (read p)) 1)))))))
+  
+(define (Get-Class-List In-File)
+  (call-with-input-file In-File
+    (lambda (p)
+      (let f ((x (read-line-crunch p)))
+        (if (eof-object? x)
+          ()
+          (let ((nxt (f (read-line-crunch p))))
+            (if (zero? (string-length x))
+              nxt 
+              (cons (string->symbol x) nxt))))))))
+
+(define (Prompt-For str)
+  (display str)
+  (let f ((c (peek-char)))
+    (if (eq? c #\newline)
+      (begin
+        (read-char)
+        (f (peek-char)))
+      (read-line))))
+  
+(define (Write-All-Pairs Class-List Hash-Table Out-File)
+  (call-with-output-file Out-File
+    (lambda (p)
+      (let f ((lst Class-List))
+        (if (null? lst)
+          #t
+          (let ((student (car lst)) (rest (cdr lst)))
+;            (display student)
+;            (display ": ")
+;            (display (hget Hash-Table student))
+;            (newline)
+            (write (list student (hget Hash-Table student)) p)
+            (newline p)
+            (f rest)))))))
+
+(define (Write-New-Pairs New-Pairs Out-File)
+  (call-with-output-file Out-File
+    (lambda (p)
+      (let f
+        ((Pairs New-Pairs))
+        (if (null? Pairs)
+          #t
+          (let*
+            ((pair (car Pairs))
+             (student1 (car pair))
+             (student2 (cadr pair)))
+            (display student1 p)
+            (display " " p)
+            (display student2 p)
+            (newline p)
+            (f (cdr Pairs))))))))
+
+(newline)
+(display "Run (build-empty-pairs) to initialize the files") (newline)
+(display "Run (new-lab) to create a new pairing") (newline)

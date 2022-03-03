@@ -1,0 +1,15 @@
+4 billy bob -2 18
+   15 31
+	19.2
+45.2
+
+more junk 
+27
+This is an extraneous line of text,
+as is this. Your program should ignore them
+-4.8   32   19
+-3.7   44   17
+-4.4   51   11
+17    -43.1 12
+
+Done. End of file.

@@ -1,0 +1,968 @@
+%!PS-Adobe-2.0
+%%Creator: dvips(k) 5.95a Copyright 2005 Radical Eye Software
+%%Title: lab03.dvi
+%%Pages: 8
+%%PageOrder: Ascend
+%%BoundingBox: 0 0 612 792
+%%DocumentFonts: Times-Bold Times-Roman Courier Times-Italic Symbol
+%%+ CMR10 CMMI10 CMSY10
+%%DocumentPaperSizes: Letter
+%%EndComments
+%DVIPSWebPage: (www.radicaleye.com)
+%DVIPSCommandLine: dvips -Ppdf -t letter -G0 lab03
+%DVIPSParameters: dpi=8000
+%DVIPSSource:  TeX output 2009.02.03:1444
+%%BeginProcSet: tex.pro 0 0
+%!
+/TeXDict 300 dict def TeXDict begin/N{def}def/B{bind def}N/S{exch}N/X{S
+N}B/A{dup}B/TR{translate}N/isls false N/vsize 11 72 mul N/hsize 8.5 72
+mul N/landplus90{false}def/@rigin{isls{[0 landplus90{1 -1}{-1 1}ifelse 0
+0 0]concat}if 72 Resolution div 72 VResolution div neg scale isls{
+landplus90{VResolution 72 div vsize mul 0 exch}{Resolution -72 div hsize
+mul 0}ifelse TR}if Resolution VResolution vsize -72 div 1 add mul TR[
+matrix currentmatrix{A A round sub abs 0.00001 lt{round}if}forall round
+exch round exch]setmatrix}N/@landscape{/isls true N}B/@manualfeed{
+statusdict/manualfeed true put}B/@copies{/#copies X}B/FMat[1 0 0 -1 0 0]
+N/FBB[0 0 0 0]N/nn 0 N/IEn 0 N/ctr 0 N/df-tail{/nn 8 dict N nn begin
+/FontType 3 N/FontMatrix fntrx N/FontBBox FBB N string/base X array
+/BitMaps X/BuildChar{CharBuilder}N/Encoding IEn N end A{/foo setfont}2
+array copy cvx N load 0 nn put/ctr 0 N[}B/sf 0 N/df{/sf 1 N/fntrx FMat N
+df-tail}B/dfs{div/sf X/fntrx[sf 0 0 sf neg 0 0]N df-tail}B/E{pop nn A
+definefont setfont}B/Cw{Cd A length 5 sub get}B/Ch{Cd A length 4 sub get
+}B/Cx{128 Cd A length 3 sub get sub}B/Cy{Cd A length 2 sub get 127 sub}
+B/Cdx{Cd A length 1 sub get}B/Ci{Cd A type/stringtype ne{ctr get/ctr ctr
+1 add N}if}B/CharBuilder{save 3 1 roll S A/base get 2 index get S
+/BitMaps get S get/Cd X pop/ctr 0 N Cdx 0 Cx Cy Ch sub Cx Cw add Cy
+setcachedevice Cw Ch true[1 0 0 -1 -.1 Cx sub Cy .1 sub]{Ci}imagemask
+restore}B/D{/cc X A type/stringtype ne{]}if nn/base get cc ctr put nn
+/BitMaps get S ctr S sf 1 ne{A A length 1 sub A 2 index S get sf div put
+}if put/ctr ctr 1 add N}B/I{cc 1 add D}B/bop{userdict/bop-hook known{
+bop-hook}if/SI save N @rigin 0 0 moveto/V matrix currentmatrix A 1 get A
+mul exch 0 get A mul add .99 lt{/QV}{/RV}ifelse load def pop pop}N/eop{
+SI restore userdict/eop-hook known{eop-hook}if showpage}N/@start{
+userdict/start-hook known{start-hook}if pop/VResolution X/Resolution X
+1000 div/DVImag X/IEn 256 array N 2 string 0 1 255{IEn S A 360 add 36 4
+index cvrs cvn put}for pop 65781.76 div/vsize X 65781.76 div/hsize X}N
+/p{show}N/RMat[1 0 0 -1 0 0]N/BDot 260 string N/Rx 0 N/Ry 0 N/V{}B/RV/v{
+/Ry X/Rx X V}B statusdict begin/product where{pop false[(Display)(NeXT)
+(LaserWriter 16/600)]{A length product length le{A length product exch 0
+exch getinterval eq{pop true exit}if}{pop}ifelse}forall}{false}ifelse
+end{{gsave TR -.1 .1 TR 1 1 scale Rx Ry false RMat{BDot}imagemask
+grestore}}{{gsave TR -.1 .1 TR Rx Ry scale 1 1 false RMat{BDot}
+imagemask grestore}}ifelse B/QV{gsave newpath transform round exch round
+exch itransform moveto Rx 0 rlineto 0 Ry neg rlineto Rx neg 0 rlineto
+fill grestore}B/a{moveto}B/delta 0 N/tail{A/delta X 0 rmoveto}B/M{S p
+delta add tail}B/b{S p tail}B/c{-4 M}B/d{-3 M}B/e{-2 M}B/f{-1 M}B/g{0 M}
+B/h{1 M}B/i{2 M}B/j{3 M}B/k{4 M}B/w{0 rmoveto}B/l{p -4 w}B/m{p -3 w}B/n{
+p -2 w}B/o{p -1 w}B/q{p 1 w}B/r{p 2 w}B/s{p 3 w}B/t{p 4 w}B/x{0 S
+rmoveto}B/y{3 2 roll p a}B/bos{/SS save N}B/eos{SS restore}B end
+
+%%EndProcSet
+%%BeginProcSet: alt-rule.pro 0 0
+%!
+% Patch by TVZ
+% Makes dvips files draw rules with stroke rather than fill.
+% Makes narrow rules more predictable at low resolutions
+% after distilling to PDF.
+% May have unknown consequences for very thick rules.
+% Tested only with dvips 5.85(k).
+TeXDict begin
+/QV {
+  gsave newpath /ruleY X /ruleX X
+  Rx Ry gt
+  { ruleX ruleY Ry 2 div sub moveto Rx 0 rlineto Ry }
+  { ruleX Rx 2 div add ruleY moveto 0 Ry neg rlineto Rx }
+  ifelse
+  setlinewidth 0 setlinecap stroke grestore
+} bind def
+end
+
+%%EndProcSet
+%%BeginProcSet: 8r.enc 0 0
+% File 8r.enc  TeX Base 1 Encoding  Revision 2.0  2002-10-30
+%
+% @@psencodingfile@{
+%   author    = "S. Rahtz, P. MacKay, Alan Jeffrey, B. Horn, K. Berry,
+%                W. Schmidt, P. Lehman",
+%   version   = "2.0",
+%   date      = "30 October 2002",
+%   filename  = "8r.enc",
+%   email     = "tex-fonts@@tug.org",
+%   docstring = "This is the encoding vector for Type1 and TrueType
+%                fonts to be used with TeX.  This file is part of the
+%                PSNFSS bundle, version 9"
+% @}
+% 
+% The idea is to have all the characters normally included in Type 1 fonts
+% available for typesetting. This is effectively the characters in Adobe
+% Standard encoding, ISO Latin 1, Windows ANSI including the euro symbol,
+% MacRoman, and some extra characters from Lucida.
+% 
+% Character code assignments were made as follows:
+% 
+% (1) the Windows ANSI characters are almost all in their Windows ANSI
+% positions, because some Windows users cannot easily reencode the
+% fonts, and it makes no difference on other systems. The only Windows
+% ANSI characters not available are those that make no sense for
+% typesetting -- rubout (127 decimal), nobreakspace (160), softhyphen
+% (173). quotesingle and grave are moved just because it's such an
+% irritation not having them in TeX positions.
+% 
+% (2) Remaining characters are assigned arbitrarily to the lower part
+% of the range, avoiding 0, 10 and 13 in case we meet dumb software.
+% 
+% (3) Y&Y Lucida Bright includes some extra text characters; in the
+% hopes that other PostScript fonts, perhaps created for public
+% consumption, will include them, they are included starting at 0x12.
+% These are /dotlessj /ff /ffi /ffl.
+% 
+% (4) hyphen appears twice for compatibility with both ASCII and Windows.
+%
+% (5) /Euro was assigned to 128, as in Windows ANSI
+%
+% (6) Missing characters from MacRoman encoding incorporated as follows:
+%
+%     PostScript      MacRoman        TeXBase1
+%     --------------  --------------  --------------
+%     /notequal       173             0x16
+%     /infinity       176             0x17
+%     /lessequal      178             0x18
+%     /greaterequal   179             0x19
+%     /partialdiff    182             0x1A
+%     /summation      183             0x1B
+%     /product        184             0x1C
+%     /pi             185             0x1D
+%     /integral       186             0x81
+%     /Omega          189             0x8D
+%     /radical        195             0x8E
+%     /approxequal    197             0x8F
+%     /Delta          198             0x9D
+%     /lozenge        215             0x9E
+%
+/TeXBase1Encoding [
+% 0x00
+ /.notdef /dotaccent /fi /fl
+ /fraction /hungarumlaut /Lslash /lslash
+ /ogonek /ring /.notdef /breve
+ /minus /.notdef /Zcaron /zcaron
+% 0x10
+ /caron /dotlessi /dotlessj /ff
+ /ffi /ffl /notequal /infinity
+ /lessequal /greaterequal /partialdiff /summation
+ /product /pi /grave /quotesingle
+% 0x20
+ /space /exclam /quotedbl /numbersign
+ /dollar /percent /ampersand /quoteright
+ /parenleft /parenright /asterisk /plus
+ /comma /hyphen /period /slash
+% 0x30
+ /zero /one /two /three
+ /four /five /six /seven
+ /eight /nine /colon /semicolon
+ /less /equal /greater /question
+% 0x40
+ /at /A /B /C
+ /D /E /F /G
+ /H /I /J /K
+ /L /M /N /O
+% 0x50
+ /P /Q /R /S
+ /T /U /V /W
+ /X /Y /Z /bracketleft
+ /backslash /bracketright /asciicircum /underscore
+% 0x60
+ /quoteleft /a /b /c
+ /d /e /f /g
+ /h /i /j /k
+ /l /m /n /o
+% 0x70
+ /p /q /r /s
+ /t /u /v /w
+ /x /y /z /braceleft
+ /bar /braceright /asciitilde /.notdef
+% 0x80
+ /Euro /integral /quotesinglbase /florin
+ /quotedblbase /ellipsis /dagger /daggerdbl
+ /circumflex /perthousand /Scaron /guilsinglleft
+ /OE /Omega /radical /approxequal
+% 0x90
+ /.notdef /.notdef /.notdef /quotedblleft
+ /quotedblright /bullet /endash /emdash
+ /tilde /trademark /scaron /guilsinglright
+ /oe /Delta /lozenge /Ydieresis
+% 0xA0
+ /.notdef /exclamdown /cent /sterling
+ /currency /yen /brokenbar /section
+ /dieresis /copyright /ordfeminine /guillemotleft
+ /logicalnot /hyphen /registered /macron
+% 0xD0
+ /degree /plusminus /twosuperior /threesuperior
+ /acute /mu /paragraph /periodcentered
+ /cedilla /onesuperior /ordmasculine /guillemotright
+ /onequarter /onehalf /threequarters /questiondown
+% 0xC0
+ /Agrave /Aacute /Acircumflex /Atilde
+ /Adieresis /Aring /AE /Ccedilla
+ /Egrave /Eacute /Ecircumflex /Edieresis
+ /Igrave /Iacute /Icircumflex /Idieresis
+% 0xD0
+ /Eth /Ntilde /Ograve /Oacute
+ /Ocircumflex /Otilde /Odieresis /multiply
+ /Oslash /Ugrave /Uacute /Ucircumflex
+ /Udieresis /Yacute /Thorn /germandbls
+% 0xE0
+ /agrave /aacute /acircumflex /atilde
+ /adieresis /aring /ae /ccedilla
+ /egrave /eacute /ecircumflex /edieresis
+ /igrave /iacute /icircumflex /idieresis
+% 0xF0
+ /eth /ntilde /ograve /oacute
+ /ocircumflex /otilde /odieresis /divide
+ /oslash /ugrave /uacute /ucircumflex
+ /udieresis /yacute /thorn /ydieresis
+] def
+
+
+%%EndProcSet
+%%BeginProcSet: texps.pro 0 0
+%!
+TeXDict begin/rf{findfont dup length 1 add dict begin{1 index/FID ne 2
+index/UniqueID ne and{def}{pop pop}ifelse}forall[1 index 0 6 -1 roll
+exec 0 exch 5 -1 roll VResolution Resolution div mul neg 0 0]FontType 0
+ne{/Metrics exch def dict begin Encoding{exch dup type/integertype ne{
+pop pop 1 sub dup 0 le{pop}{[}ifelse}{FontMatrix 0 get div Metrics 0 get
+div def}ifelse}forall Metrics/Metrics currentdict end def}{{1 index type
+/nametype eq{exit}if exch pop}loop}ifelse[2 index currentdict end
+definefont 3 -1 roll makefont/setfont cvx]cvx def}def/ObliqueSlant{dup
+sin S cos div neg}B/SlantFont{4 index mul add}def/ExtendFont{3 -1 roll
+mul exch}def/ReEncodeFont{CharStrings rcheck{/Encoding false def dup[
+exch{dup CharStrings exch known not{pop/.notdef/Encoding true def}if}
+forall Encoding{]exch pop}{cleartomark}ifelse}if/Encoding exch def}def
+end
+
+%%EndProcSet
+%%BeginFont: CMSY10
+%!PS-AdobeFont-1.1: CMSY10 1.0
+%%CreationDate: 1991 Aug 15 07:20:57
+% Copyright (C) 1997 American Mathematical Society. All Rights Reserved.
+11 dict begin
+/FontInfo 7 dict dup begin
+/version (1.0) readonly def
+/Notice (Copyright (C) 1997 American Mathematical Society. All Rights Reserved) readonly def
+/FullName (CMSY10) readonly def
+/FamilyName (Computer Modern) readonly def
+/Weight (Medium) readonly def
+/ItalicAngle -14.035 def
+/isFixedPitch false def
+end readonly def
+/FontName /CMSY10 def
+/PaintType 0 def
+/FontType 1 def
+/FontMatrix [0.001 0 0 0.001 0 0] readonly def
+/Encoding 256 array
+0 1 255 {1 index exch /.notdef put} for
+dup 0 /minus put
+dup 15 /bullet put
+readonly def
+/FontBBox{-29 -960 1116 775}readonly def
+currentdict end
+currentfile eexec
+D9D66F633B846A97B686A97E45A3D0AA052F09F9C8ADE9D907C058B87E9B6964
+7D53359E51216774A4EAA1E2B58EC3176BD1184A633B951372B4198D4E8C5EF4
+A213ACB58AA0A658908035BF2ED8531779838A960DFE2B27EA49C37156989C85
+E21B3ABF72E39A89232CD9F4237FC80C9E64E8425AA3BEF7DED60B122A52922A
+221A37D9A807DD01161779DDE7D31FF2B87F97C73D63EECDDA4C49501773468A
+27D1663E0B62F461F6E40A5D6676D1D12B51E641C1D4E8E2771864FC104F8CBF
+5B78EC1D88228725F1C453A678F58A7E1B7BD7CA700717D288EB8DA1F57C4F09
+0ABF1D42C5DDD0C384C7E22F8F8047BE1D4C1CC8E33368FB1AC82B4E96146730
+DE3302B2E6B819CB6AE455B1AF3187FFE8071AA57EF8A6616B9CB7941D44EC7A
+71A7BB3DF755178D7D2E4BB69859EFA4BBC30BD6BB1531133FD4D9438FF99F09
+4ECC068A324D75B5F696B8688EEB2F17E5ED34CCD6D047A4E3806D000C199D7C
+515DB70A8D4F6146FE068DC1E5DE8BC57036431151EC603C8BCFE359BBD953AD
+5F3D9983B036D9202C8FCC4FA88AF960E1E49914EC809263862931DB14B61EEE
+6D37A389B488D0B64CFB7DA527AAED80494F79A073D895AA287BB47BD5246090
+A76CE91680C1F37E6597E5E218364221B1905B9A039AC299F630788E5BF4FB76
+0B085608F3775AFF14697B68F221B3ACCF1F1D22AC1B36CB0097C1D107687140
+7ADD3D30FD8024497E249E45A48D4963235ED0352CC111C1FAAE249EC9582BA2
+3953C6C05294F5BFA481FDEFE541223EEDDDC45BB0F787D9958700AD538C045F
+71EC9ADF07C3DA6F0CDB1BD600B7F4EEF95A88A5A611CBF47A59F8539AF2927E
+832CB63AC57101AD75A7E49EE625CFFC9DD948910ACAEE750C58D8B43A233916
+FB3E7945B8
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+cleartomark
+%%EndFont 
+%%BeginFont: CMMI10
+%!PS-AdobeFont-1.1: CMMI10 1.100
+%%CreationDate: 1996 Jul 23 07:53:57
+% Copyright (C) 1997 American Mathematical Society. All Rights Reserved.
+11 dict begin
+/FontInfo 7 dict dup begin
+/version (1.100) readonly def
+/Notice (Copyright (C) 1997 American Mathematical Society. All Rights Reserved) readonly def
+/FullName (CMMI10) readonly def
+/FamilyName (Computer Modern) readonly def
+/Weight (Medium) readonly def
+/ItalicAngle -14.04 def
+/isFixedPitch false def
+end readonly def
+/FontName /CMMI10 def
+/PaintType 0 def
+/FontType 1 def
+/FontMatrix [0.001 0 0 0.001 0 0] readonly def
+/Encoding 256 array
+0 1 255 {1 index exch /.notdef put} for
+dup 59 /comma put
+readonly def
+/FontBBox{-32 -250 1048 750}readonly def
+currentdict end
+currentfile eexec
+D9D66F633B846A97B686A97E45A3D0AA0529731C99A784CCBE85B4993B2EEBDE
+3B12D472B7CF54651EF21185116A69AB1096ED4BAD2F646635E019B6417CC77B
+532F85D811C70D1429A19A5307EF63EB5C5E02C89FC6C20F6D9D89E7D91FE470
+B72BEFDA23F5DF76BE05AF4CE93137A219ED8A04A9D7D6FDF37E6B7FCDE0D90B
+986423E5960A5D9FBB4C956556E8DF90CBFAEC476FA36FD9A5C8175C9AF513FE
+D919C2DDD26BDC0D99398B9F4D03D5993DFC0930297866E1CD0A319B6B1FD958
+9E394A533A081C36D456A09920001A3D2199583EB9B84B4DEE08E3D12939E321
+990CD249827D9648574955F61BAAA11263A91B6C3D47A5190165B0C25ABF6D3E
+6EC187E4B05182126BB0D0323D943170B795255260F9FD25F2248D04F45DFBFB
+DEF7FF8B19BFEF637B210018AE02572B389B3F76282BEB29CC301905D388C721
+59616893E774413F48DE0B408BC66DCE3FE17CB9F84D205839D58014D6A88823
+D9320AE93AF96D97A02C4D5A2BB2B8C7925C4578003959C46E3CE1A2F0EAC4BF
+8B9B325E46435BDE60BC54D72BC8ACB5C0A34413AC87045DC7B84646A324B808
+6FD8E34217213E131C3B1510415CE45420688ED9C1D27890EC68BD7C1235FAF9
+1DAB3A369DD2FC3BE5CF9655C7B7EDA7361D7E05E5831B6B8E2EEC542A7B38EE
+03BE4BAC6079D038ACB3C7C916279764547C2D51976BABA94BA9866D79F13909
+95AA39B0F03103A07CBDF441B8C5669F729020AF284B7FF52A29C6255FCAACF1
+74109050FBA2602E72593FBCBFC26E726EE4AEF97B7632BC4F5F353B5C67FED2
+3EA752A4A57B8F7FEFF1D7341D895F0A3A0BE1D8E3391970457A967EFF84F6D8
+47750B1145B8CC5BD96EE7AA99DDC9E06939E383BDA41175233D58AD263EBF19
+AFC0E2F840512D321166547B306C592B8A01E1FA2564B9A26DAC14256414E4C8
+42616728D918C74D13C349F4186EC7B9708B86467425A6FDB3A396562F7EE4D8
+40B43621744CF8A23A6E532649B66C2A0002DD04F8F39618E4F572819DD34837
+B5A08E643FDCA1505AF6A1FA3DDFD1FA758013CAED8ACDDBBB334D664DFF5B53
+9560176676ABB71BBD0EE56B4CC492C0652750227CEC7F412A029C762C56D6E2
+B18C69A7DBAC8CF57D10127EC2A14AA2CA1C58FE0B33A49F450F3EEBBA68082A
+505AC0D350F707C29B0E57456A81DC59099996F246A790C8423BBEF2DA4E911F
+2E27A395AA4D480B015D7E47BFDD146F1CCA76B648424BE24BC0CB9DD68F804E
+A124809A40A24A09C981D1A71187C151558C4FF7C8D7A34D4677A6E8258CD9D5
+90648ADC6F9D220CFC1D4B452B4627FBECB1DD38DFCC84F26FE7BB0087F7C6C7
+C501CF1627396AC78F9383F376259E83B4F9AD34AD13EC9E74197B1D657CB0F9
+A052F94CB7E8701C8DEC8871FB72D6470A408DA6858F009407F681EB8C0B7DE0
+
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+cleartomark
+%%EndFont 
+%%BeginFont: CMR10
+%!PS-AdobeFont-1.1: CMR10 1.00B
+%%CreationDate: 1992 Feb 19 19:54:52
+% Copyright (C) 1997 American Mathematical Society. All Rights Reserved.
+11 dict begin
+/FontInfo 7 dict dup begin
+/version (1.00B) readonly def
+/Notice (Copyright (C) 1997 American Mathematical Society. All Rights Reserved) readonly def
+/FullName (CMR10) readonly def
+/FamilyName (Computer Modern) readonly def
+/Weight (Medium) readonly def
+/ItalicAngle 0 def
+/isFixedPitch false def
+end readonly def
+/FontName /CMR10 def
+/PaintType 0 def
+/FontType 1 def
+/FontMatrix [0.001 0 0 0.001 0 0] readonly def
+/Encoding 256 array
+0 1 255 {1 index exch /.notdef put} for
+dup 40 /parenleft put
+dup 41 /parenright put
+dup 43 /plus put
+dup 61 /equal put
+readonly def
+/FontBBox{-251 -250 1009 969}readonly def
+currentdict end
+currentfile eexec
+D9D66F633B846A97B686A97E45A3D0AA052A014267B7904EB3C0D3BD0B83D891
+016CA6CA4B712ADEB258FAAB9A130EE605E61F77FC1B738ABC7C51CD46EF8171
+9098D5FEE67660E69A7AB91B58F29A4D79E57022F783EB0FBBB6D4F4EC35014F
+D2DECBA99459A4C59DF0C6EBA150284454E707DC2100C15B76B4C19B84363758
+469A6C558785B226332152109871A9883487DD7710949204DDCF837E6A8708B8
+2BDBF16FBC7512FAA308A093FE5CF7158F1163BC1F3352E22A1452E73FECA8A4
+87100FB1FFC4C8AF409B2067537220E605DA0852CA49839E1386AF9D7A1A455F
+D1F017CE45884D76EF2CB9BC5821FD25365DDEA6E45F332B5F68A44AD8A530F0
+92A36FAC8D27F9087AFEEA2096F839A2BC4B937F24E080EF7C0F9374A18D565C
+295A05210DB96A23175AC59A9BD0147A310EF49C551A417E0A22703F94FF7B75
+409A5D417DA6730A69E310FA6A4229FC7E4F620B0FC4C63C50E99E179EB51E4C
+4BC45217722F1E8E40F1E1428E792EAFE05C5A50D38C52114DFCD24D54027CBF
+2512DD116F0463DE4052A7AD53B641A27E81E481947884CE35661B49153FA19E
+0A2A860C7B61558671303DE6AE06A80E4E450E17067676E6BBB42A9A24ACBC3E
+B0CA7B7A3BFEA84FED39CCFB6D545BB2BCC49E5E16976407AB9D94556CD4F008
+24EF579B6800B6DC3AAF840B3FC6822872368E3B4274DD06CA36AF8F6346C11B
+43C772CC242F3B212C4BD7018D71A1A74C9A94ED0093A5FB6557F4E0751047AF
+D72098ECA301B8AE68110F983796E581F106144951DF5B750432A230FDA3B575
+5A38B5E7972AABC12306A01A99FCF8189D71B8DBF49550BAEA9CF1B97CBFC7CC
+96498ECC938B1A1710B670657DE923A659DB8757147B140A48067328E7E3F9C3
+7D1888B284904301450CE0BC15EEEA00E48CCD6388F3FC3C8578EF9A20A0E06E
+4F7ADDAF0E7D1E182D115BF1AD931977325AD391E72E2B13CC108E3726C11099
+E2000623188AAAC9F3E233EB253BDD8B0A4759A66A113E066238B0086AC1B634
+5ABFF90E4B5ED3FA69C22541981B2BFC9710AEF6B50A8BB53431C7B4D380D721
+639E005D6B4688EE16BFF48443E7C9E5FB5BC5883E271CB03428948F9221D912
+2E2F3750D1A1AE5FF546535E1DEBF69B458DF49EA3817D9612E5C9A0B7A698E7
+5F576FB653DE1297A8C417599917F9D75D42234E54B4B1E99669BA5A40B4AA21
+43CE5634719D8F3536694F15E4F8E5B7D9CFE15B68A7D53FF47B923F0AB3CD4F
+FEC1BAA7036B5936213BB109CA9425C69A28B7221E68FC79848CD6AFB220F45A
+A0D21EC1020DA99816247E6B49FE263926782D00E5B3A57151761303FEA24487
+F85FB9B6E6C83B05B38B3BA7F81776B082204C032D467B91767AAD865BBF0F1C
+271649C2ED9F8111C5637017470B3F6C3DAA3AF1705DF2B7838968B4EA7F9E62
+BE7DA1AD8D81D3608EE86352BEA38DB87A0D57A5DD28829D8728077ED4C16931
+59E158F9155CFCD1CE098395826D7D29C56EE27BF71132F6E6EF1F3FC99449E9
+9AD5D11275FFCA914FC866BBCBE9E978201D3A78A9B9EF3D50694AB260ACE9B7
+64011370C48D51ED6EA297309F3CCE8946BD55D98C7A4EE3959AC8AAAC99510A
+3A57B04AC3E0C54B6021D1BD5209BBE0E945DDB019FB41BC593530222F36624D
+6D9D1E58580CC3F0CBD119EAF06A2A544D5B05FC33D8595ECCCD38B44C3D5961
+56E7F2F827FC7B10480D5FB076172FAFEA2AD59113E544311526DE5DA56A64AE
+7F0E6297D1EA3B9F87F85FED1A4D554F76113A59052406E6E76BAB34699797DB
+8E39F197FC3513F562411AE4A4A066CFEF879C9263E3031CE1FF731205268033
+0E4A7FE0596990542D316611B20C00ACA89845F1D16B4BC73426EA8A13E0AC86
+0D08143FA619F8D7F944F01E624C1FED2AD0A81EE44C1F396F62740EAE45EEC1
+9BE659970777EF2C0C038DD25BE74B59124FA9C96905604BAB7C4DAF564FD2D0
+4BB75557ACF7B855A07AD09891F9AF
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+cleartomark
+%%EndFont 
+TeXDict begin 40258431 52099146 1000 8000 8000 (lab03.dvi)
+@start /Fa 240[606 14[943{}2 1212.12 /CMSY10 rf /Fb 205[443
+50[{TeXBase1Encoding ReEncodeFont}1 885.568 /Times-Roman
+rf /Fd 196[337 59[{}1 1212.12 /CMMI10 rf /Fe 194[943
+17[943 1[471 471 40[{}4 1212.12 /CMR10 rf /Ff 142[632
+665 9[632 102[{}3 1212.12 /Symbol rf /Fg 134[606 1[875
+1[674 404 472 538 1[674 606 674 1010 337 674 1[337 674
+606 404 538 674 538 674 606 13[674 875 1[741 12[875 808
+875 18[303 1[303 2[404 404 40[{TeXBase1Encoding ReEncodeFont}31
+1212.12 /Times-Bold rf /Fh 134[538 538 808 538 606 337
+472 472 1[606 606 606 875 337 2[337 606 606 337 538 606
+538 606 606 12[674 5[808 6[875 741 4[741 14[606 1[606
+1[303 1[303 44[{TeXBase1Encoding ReEncodeFont}31 1212.12
+/Times-Italic rf /Fi 130[618 1[618 1[618 618 618 618
+618 618 618 618 1[618 618 618 618 618 1[618 618 618 618
+618 618 618 618 618 618 7[618 618 3[618 618 618 2[618
+1[618 618 4[618 1[618 1[618 5[618 1[618 5[618 1[618 1[618
+618 618 618 618 618 618 618 618 618 5[618 34[{
+.85 ExtendFont TeXBase1Encoding ReEncodeFont}51 1212.12
+/Courier rf /Fj 137[677 1[677 677 677 2[677 677 3[677
+677 3[677 677 677 677 677 17[677 2[677 29[677 46[{
+.85 ExtendFont TeXBase1Encoding ReEncodeFont}16 1328.35
+/Courier rf /Fk 137[664 739 442 517 590 1[739 664 739
+1107 369 739 1[369 739 664 1[590 739 590 739 664 16[812
+1033 1[1254 6[812 886 1[959 1[959 10[664 664 1[664 664
+664 46[739 2[{TeXBase1Encoding ReEncodeFont}32 1328.35
+/Times-Bold rf /Fl 105[606 1[538 538 24[538 606 606 875
+606 606 337 472 404 606 606 606 606 943 337 606 337 337
+606 606 404 538 606 538 606 538 7[875 1[1144 875 1[741
+674 808 1[674 875 875 1078 741 1[472 404 875 875 674
+1[875 808 808 875 1[538 3[337 337 1[606 606 606 606 606
+606 606 606 606 337 303 404 303 2[404 404 404 5[404 29[674
+674 2[{TeXBase1Encoding ReEncodeFont}71 1212.12 /Times-Roman
+rf /Fm 105[797 28[797 797 1[797 886 531 620 708 1[886
+797 886 1328 1[886 1[443 886 797 531 708 886 708 886
+797 12[1063 886 4[1151 1505 1063 2[620 2[974 1063 1151
+1151 1[1151 12[797 797 797 797 797 3[399 44[{
+TeXBase1Encoding ReEncodeFont}39 1594.02 /Times-Bold
+rf end
+%%EndProlog
+%%BeginSetup
+%%Feature: *Resolution 8000dpi
+TeXDict begin
+%%BeginPaperSize: Letter
+letter
+%%EndPaperSize
+ end
+%%EndSetup
+%%Page: 1 1
+TeXDict begin 1 0 bop 15751 9487 a Fm(CIS)398 b(201)h(\226)f(Computer)g
+(Science)g(I)17278 11480 y(Laboratory)g(Assignment)g(3)0
+16409 y(Intr)-29 b(oduction)0 20213 y Fl(In)303 b(this)f(lab,)h(you)h
+(will)f(produce)g(a)g(simulation)g(of)g(the)g(earth)g(orbiting)g(the)g
+(sun.)0 25143 y Fm(First,)398 b(the)g(sun)0 28991 y Fk(Cr)-24
+b(eating)332 b(the)g(\002le)g Fj(Orbits.java)0 32358
+y Fl(Mak)-12 b(e)312 b(a)g(directory)g Fi(Lab03)h Fl(in)f(which)h(you)f
+(will)g(do)g(your)g(w)-12 b(ork.)403 b(It)312 b(should)g(be)g(a)g
+(subdirectory)g(of)f(your)h Fi(CS1)h Fl(directory)-79
+b(,)0 33864 y(as)303 b(you)g(ha)-24 b(v)-18 b(e)303 b(done)g(with)h
+(pre)-30 b(vious)302 b(labs.)375 b(Change)304 b(directory)f(to)g
+Fi(Lab03)p Fl(.)0 36413 y(Create)401 b(a)f(Ja)-24 b(v)-30
+b(a)400 b(program)f(named)i Fi(Orbits.java)h Fl(in)e(your)g
+Fi(Lab3)h Fl(directory)-79 b(.)667 b(Y)-133 b(our)400
+b(program)g(should)g(de\002ne)g(a)h(class)0 37918 y Fi(Orbits)304
+b Fl(that)f(e)-18 b(xtends)303 b(the)g(F)-90 b(ANG)304
+b Fi(Game)g Fl(class.)375 b(Y)-133 b(our)302 b(program)h(should)g(look)
+g(lik)-12 b(e)303 b(this:)3030 41385 y Fi(import)620
+b(fang.core.Game;)3030 44396 y(public)g(class)f(Orbits)g(extends)g
+(Game)g({)3030 47407 y(})0 50873 y Fl(Compile)326 b(your)e(program)h
+(to)f(be)h(sure)g(you)g(ha)-24 b(v)-18 b(e)324 b(no)h(typos.)441
+b(Y)-133 b(ou)325 b(can)g(run)g(your)f(program,)330 b(too,)h(b)-24
+b(ut)324 b(don')-22 b(t)325 b(e)-18 b(xpect)325 b(it)g(to)0
+52378 y(do)303 b(much.)0 56729 y Fk(Cr)-24 b(eate)332
+b(appr)-24 b(opriate)331 b(v)-13 b(ariables)0 60096 y
+Fl(Modify)302 b(your)h(program)g(so)f(that)i(it)f(includes)g(the)g
+(follo)-30 b(wing)302 b(pri)-30 b(v)g(ate)303 b(instance)g(v)-30
+b(ariable)303 b(declaration:)3030 63562 y Fi(private)620
+b(OvalSprite)g(sun;)0 67028 y Fl(Put)342 b(this)f(as)h(the)g(\002rst)f
+(line)i(inside)e(your)h Fi(Orbits)h Fl(class.)492 b(Be)343
+b(sure)f(to)g(indent)g(it)g(properly)g(\226)g(use)f(the)i
+Fi(Tab)f Fl(k)-12 b(e)-18 b(y)342 b(to)g(do)g(so.)0 68534
+y(Y)-133 b(ou')-12 b(ll)302 b(also)h(ha)-24 b(v)-18 b(e)303
+b(to)g(import)g(the)g(F)-90 b(ANG)304 b Fi(OvalSprite)h
+Fl(class,)d(so)h(add)g(the)g(line)3030 72000 y Fi(import)620
+b(fang.sprites.OvalSprite;)25697 75321 y Fl(1)p eop end
+%%Page: 2 2
+TeXDict begin 2 1 bop 0 1218 a Fl(to)303 b(the)g(top)g(of)g(your)g
+(program.)0 3767 y(A)261 b(F)-90 b(ANG)262 b('g)-6 b(ame')261
+b(automatically)h(calls)f(a)h Fi(setup)g Fl(method)g(whose)f(purpose)g
+(is)g(to)g(do)h(an)-18 b(y)261 b(initialization)h(in)f(preparation)0
+5272 y(to)279 b(start)e(the)i('g)-6 b(ame'.)368 b(\(W)-97
+b(e)278 b(will)h(use)f(the)h(term)f('g)-6 b(ame')279
+b(here,)k(e)-30 b(v)-18 b(en)279 b(though)g(what)g(we)f(are)h(creating)
+g(is)f(a)h(simulation,)k(not)0 6778 y(a)303 b(real)g(g)-6
+b(ame.\))0 9327 y(Put)303 b(your)g Fi(setup)h Fl(method)f(belo)-30
+b(w)303 b(the)g(declaration)h(of)f(your)f Fi(sun)i Fl(v)-30
+b(ariable.)376 b(It)302 b(should)h(look)g(lik)-12 b(e)303
+b(this:)3030 12873 y Fi(public)620 b(void)e(setup\(\))i({)4267
+14378 y(//)e(code)h(for)g(setup)g(goes)g(here)3030 15883
+y(})0 19429 y Fl(This)302 b(method)i(has)e(the)h(follo)-30
+b(wing)303 b(signature:)664 21900 y(V)-73 b(isibility)859
+b(:)376 b Fi(public)664 23405 y Fl(Return)2068 b(:)376
+b Fi(void)664 24911 y Fl(Name)2473 b(:)376 b Fi(setup)664
+26416 y Fl(P)-18 b(arameters:)375 b(none)0 28844 y(No)-30
+b(w)364 b(start)f(to)h(\002ll)g(in)g(the)g Fi(setup)h
+Fl(method)f(body)h(by)f(de\002ning)g(\(also)f(called)i
+Fh(instantiating)p Fl(\))e(the)h Fi(sun)h Fl(v)-30 b(ariable)364
+b(to)g(be)g(a)0 30349 y(circle)275 b(with)h(diameter)f(0.1.)367
+b(A)275 b(circle)g(is)g(an)g Fi(OvalSprite)i Fl(with)f(the)f(same)g
+(height)h(and)f(width.)367 b(Set)275 b(its)g(color)g(to)g
+Fi(red)h Fl(and)0 31855 y(its)313 b(location)g(to)h Fi(\(0.5,)619
+b(0.5\))314 b Fl(\226)f(the)h(center)f(of)g(the)h(g)-6
+b(ame)313 b(can)-48 b(v)-30 b(as.)406 b(Finally)-79 b(,)316
+b(we)e(will)f(add)h(the)f Fi(sun)h Fl(sprite)f(to)g(the)h(g)-6
+b(ame)0 33360 y(can)-48 b(v)-30 b(as.)375 b(Here)303
+b(is)g(the)g(code)h(you)f(should)f(insert)h(into)g(the)g
+Fi(setup)h Fl(method)f(body:)3030 36906 y Fi(sun)619
+b(=)f(new)h(OvalSprite\(0.1,)i(0.1\);)3030 38411 y
+(sun.setLocation\(0.5,)h(0.5\);)3030 39917 y
+(sun.setColor\(getColor\("red"\)\);)3030 42928 y(addSprite\(sun\);)0
+46473 y Fl(Compile)304 b(your)f Fi(Orbits.java)i Fl(program)d(and)i
+(\002x)f(an)-18 b(y)303 b(problems)f(until)h(it)g(compiles)g(without)g
+(error)-67 b(.)0 50839 y Fk(Checkpoint)331 b(1)0 54207
+y Fg(Run)346 b(y)-30 b(our)346 b(pr)-22 b(ogram,)357
+b(and)346 b(sho)-12 b(w)346 b(us)g(y)-30 b(our)346 b(r)-22
+b(esults.)504 b(Be)347 b(pr)-22 b(epar)g(ed)347 b(to)f(tell)f(us)h
+(about)g(the)g(method)f(signatur)-22 b(es)345 b(of)0
+55712 y Fi(setup)p Fg(.)0 60658 y Fm(Next,)397 b(the)i(earth)0
+64506 y Fk(A)332 b(simpli\002ed)f(orbit)0 67873 y Fl(Since)394
+b(the)g(earth)f(will)h(be)g(orbiting)f(the)h(sun,)416
+b(we)394 b(will)g(need)g(to)f(understand)h(ho)-30 b(w)393
+b(orbits)g(w)-12 b(ork.)647 b(T)-97 b(o)394 b(simplify)e(things)0
+69379 y(for)320 b(no)-30 b(w)-79 b(,)326 b(we)c(will)f(assume)g(that)g
+(the)g(orbit)g(consists)f(of)h(points)f(on)i(the)f Fh(unit)g(cir)-45
+b(cle)p Fl(:)412 b(those)321 b(points)g Fe(\()p Fh(x)t
+Fd(;)135 b Fh(y)p Fe(\))318 b Fl(satisfying)i(the)0 70884
+y(condition)353 b(that)f Fh(x)7644 70444 y Fb(2)8329
+70884 y Fe(+)187 b Fh(y)9997 70444 y Fb(2)10791 70884
+y Fe(=)295 b Fl(1.)524 b(Since)353 b(you')-61 b(v)-18
+b(e)353 b(had)f(trigonometry)h(\(let)f(us)g(kno)-30 b(w)352
+b(if)g(this)g(is)g(not)h(the)f(case\),)365 b(you)352
+b(should)25697 75321 y(2)p eop end
+%%Page: 3 3
+TeXDict begin 3 2 bop 0 1218 a Fl(kno)-30 b(w)303 b(that)g(all)g(such)g
+(points)g Fe(\()p Fh(x)t Fd(;)135 b Fh(y)p Fe(\))300
+b Fl(are)j(of)g(the)g(form)20222 3825 y Fe(\()p Fh(x)t
+Fd(;)135 b Fh(y)p Fe(\))266 b(=)i(\()p Fl(cos)o Fe(\()p
+Ff(f)p Fe(\))p Fd(;)135 b Fl(sin)l Fe(\()p Ff(f)p Fe(\)\))0
+6432 y Fl(where)299 b Ff(f)f Fl(is)g(the)g(angle)h(between)g(the)g
+(points)f Fe(\()p Fl(1)p Fd(;)135 b Fl(0)p Fe(\))296
+b Fl(and)j Fe(\()p Fh(x)t Fd(;)135 b Fh(y)p Fe(\))295
+b Fl(along)k(the)g(unit)f(circle.)374 b(\(Normally)-79
+b(,)300 b(the)e(angle)h Ff(f)f Fl(will)h(be)0 7938 y(measured)k(in)g
+Fh(r)-18 b(adians)302 b Fl(\226)h(remember)g(that)g(there)g(are)g(2)p
+Ff(p)h Fl(radians)e(along)i(the)f(circumference)g(of)g(the)g(circle.\))
+0 12285 y Fk(Orbital)333 b(mo)-13 b(v)g(ement)0 15652
+y Fl(W)-97 b(e)311 b(w)-12 b(ant)310 b(to)h(simulate)f(the)g(mo)-18
+b(v)g(ement)311 b(of)f(a)g(point)g Fe(\()p Fh(x)t Fd(;)135
+b Fh(y)p Fe(\))308 b Fl(along)i(the)h(unit)f(circle)h(orbit,)g(by)g(mo)
+-18 b(ving)310 b(it)g(a)h(small)f(amount)0 17158 y(around)424
+b(the)g(circle)g(at)h(each)f(time)g(interv)-30 b(al.)739
+b(The)424 b Fi(advance)h Fl(method)f(will)g(be)h(used)e(to)h(animate)h
+(the)f(earth)g(orbit)g(by)0 18663 y(changing)448 b(the)g(location)g(of)
+f(the)h(earh)f(a)h(small)f(amount)h(each)g(time)f(interv)-30
+b(al.)809 b Fh(The)448 b(F)-139 b(ANG)447 b(game)h(engine)g(calls)f
+(the)0 20169 y Fi(advance)304 b Fh(method)g(about)f(20)g(times)g(per)g
+(second,)g(so)f(the)i(animation)f(should)g(be)g(r)-45
+b(easonably)303 b(smooth.)0 22718 y Fl(If)323 b(the)g(point)h
+Fe(\()p Fh(x)t Fd(;)135 b Fh(y)p Fe(\))320 b Fl(on)j(the)h(unit)f
+(circle)h(has)f(the)g(form)g Fe(\()p Fl(cos)o Fe(\()p
+Ff(f)p Fe(\))p Fd(;)135 b Fl(sin)l Fe(\()p Ff(f)p Fe(\)\))321
+b Fl(and)j(if)f(we)g(w)-12 b(ant)324 b(to)f(rotate)h(the)f(point)h
+Fe(\()p Fh(x)t Fd(;)135 b Fh(y)p Fe(\))320 b Fl(by)0
+24223 y(the)343 b(amount)g Ff(q)f Fl(radians)h(\(where)f
+Ff(q)h Fl(is)f(a)h(small)f(number\))h(around)f(the)h(circle,)353
+b(we)343 b(w)-12 b(ould)343 b(w)-12 b(ant)343 b(the)g(ne)-30
+b(w)343 b(point)g Fe(\()p Fh(x)t(x)t Fd(;)135 b Fh(yy)p
+Fe(\))0 25729 y Fl(to)303 b(be)g(at)g(location)h Fe(\()p
+Fl(cos)o Fe(\()p Ff(f)168 b Fe(+)g Ff(q)p Fe(\))p Fd(;)135
+b Fl(sin)-5 b Fe(\()p Ff(f)168 b Fe(+)g Ff(q)p Fe(\)\))p
+Fl(.)0 28278 y(Do)303 b(you)g(remember)g(your)g(trigonometry)g(sum)f
+(formulas?)375 b(Here)304 b(the)-18 b(y)303 b(are:)14480
+30885 y Fh(x)t(x)273 b Fe(=)c Fl(cos)o Fe(\()p Ff(f)168
+b Fe(+)g Ff(q)p Fe(\))267 b(=)h Fl(cos)p Fe(\()p Ff(f)p
+Fe(\))135 b Fl(cos)m Fe(\()p Ff(q)p Fe(\))168 b Fa(\000)g
+Fl(sin)m Fe(\()p Ff(f)p Fe(\))135 b Fl(sin)m Fe(\()p
+Ff(q)p Fe(\))14585 33493 y Fh(yy)269 b Fe(=)g Fl(sin)o
+Fe(\()p Ff(f)168 b Fe(+)g Ff(q)p Fe(\))266 b(=)j Fl(sin)o
+Fe(\()p Ff(f)p Fe(\))135 b Fl(cos)n Fe(\()p Ff(q)p Fe(\))168
+b(+)g Fl(cos)m Fe(\()p Ff(f)p Fe(\))135 b Fl(sin)m Fe(\()p
+Ff(q)p Fe(\))0 35660 y Fl(Since)303 b Fh(x)273 b Fe(=)c
+Fl(cos)o Fe(\()p Ff(f)p Fe(\))301 b Fl(and)j Fh(y)269
+b Fe(=)f Fl(sin)p Fe(\()p Ff(f)p Fe(\))p Fl(,)301 b(these)i(formulas)f
+(can)i(be)f(written)g(as)20148 38267 y Fh(x)t(x)273 b
+Fe(=)c Fh(x)306 b Fl(cos)p Fe(\()p Ff(q)p Fe(\))168 b
+Fa(\000)g Fh(y)301 b Fl(sin)o Fe(\()p Ff(q)p Fe(\))20152
+40875 y Fh(yy)270 b Fe(=)e Fh(y)303 b Fl(cos)p Fe(\()p
+Ff(q)p Fe(\))168 b(+)g Fh(x)304 b Fl(sin)p Fe(\()p Ff(q)p
+Fe(\))0 45222 y Fk(Pr)-24 b(ogramming)331 b(an)h(earth)f(orbit)0
+48589 y Fl(No)-30 b(w)384 b(you)g(will)f(create)h(an)g
+Fi(earth)h Fl(sprite)e(to)h(follo)-30 b(w)383 b(an)h(orbit)f(around)h
+(the)g(unit)g(circle.)618 b(Just)382 b(lea)-24 b(v)-18
+b(e)384 b(the)g(sun)f(on)h(your)0 50095 y(g)-6 b(ame)303
+b(can)-48 b(v)-30 b(as)303 b(for)f(the)h(time)g(being.)0
+52644 y(First,)f(create)h(an)h Fi(earth)g Fl(instance)f(v)-30
+b(ariable,)303 b(simlar)f(to)h(your)g Fi(sun)g Fl(v)-30
+b(ariable:)3030 56093 y Fi(private)620 b(OvalSprite)g(earth;)0
+59542 y Fl(W)-97 b(e)303 b(also)g(need)h(instance)f(v)-30
+b(ariables)302 b(to)h(store)g(the)g Fe(\()p Fh(x)t Fd(;)135
+b Fh(y)p Fe(\))300 b Fl(coordinates)j(of)f(the)i(earth.)375
+b(W)-97 b(e')-12 b(ll)303 b(call)h(them)f Fi(ex)g Fl(and)g
+Fi(ey)p Fl(:)3030 62991 y Fi(private)620 b(double)f(ex;)3030
+64496 y(private)h(double)f(ey;)0 67945 y Fl(Put)303 b(these)g(instance)
+g(v)-30 b(ariables)302 b(together)h(with)h(the)f Fi(sun)g
+Fl(instance)g(v)-30 b(ariable)303 b(at)h(the)f(top)g(of)g(your)f
+Fi(Orbits)j Fl(class.)0 70495 y(In)455 b(your)g Fi(setup)h
+Fl(code,)493 b(de\002ne)456 b(\(instantiate\))e(an)h
+Fi(earth)h Fl(object)g(to)f(be)g(an)g Fi(OvalSprite)i
+Fl(with)e(diameter)h(0.03)f(\(it')-67 b(s)0 72000 y(smaller)410
+b(than)h(the)g(sun!\),)436 b(mak)-12 b(e)411 b(it)g(green)g(\(what)f
+(else?\),)438 b(and)410 b(de\002ne)i(the)e Fi(ex)h Fl(and)g
+Fi(ey)g Fl(v)-30 b(ariables)410 b(to)h(be)g(1.0)g(and)g(0.0,)25697
+75321 y(3)p eop end
+%%Page: 4 4
+TeXDict begin 4 3 bop 0 1218 a Fl(respecti)-30 b(v)-18
+b(ely)323 b(\226)i(this)e(means)h(that)g(the)h(earth)f(will)g(start)f
+(of)-30 b(f)323 b(at)i(coordinates)f(\(1,0\),)k(which)d(is)e(the)i
+(upper)f(right)f(corner)h(of)0 2723 y(the)303 b(screen.)376
+b(\(W)-97 b(e)303 b(call)g(the)g(v)-30 b(ariables)303
+b Fi(ex)g Fl(and)g Fi(ey)h Fl(because)f(the)-18 b(y)303
+b(represent)g(the)g Fe(\()p Fh(x)t Fd(;)135 b Fh(y)p
+Fe(\))300 b Fl(coordinates)j(of)f(the)i(earth.\))0 5272
+y(Set)365 b(the)h(location)f(of)g(your)g Fi(earth)h Fl(object)g(to)f
+Fi(\(ex,)619 b(ey\))p Fl(,)382 b(right)364 b(after)h(your)g
+(assignments)f(to)i Fi(ex)f Fl(and)h Fi(ey)p Fl(.)563
+b(Be)365 b(sure)g(to)0 6778 y(add)303 b(the)h Fi(earth)f
+Fl(sprite)g(to)g(your)g(can)-48 b(v)-30 b(as,)302 b(along)h(with)h
+(what)f(you)g(did)g(for)g(the)g Fi(sun)p Fl(.)0 11144
+y Fk(Checkpoint)331 b(2)0 14511 y Fg(Compile)364 b(and)h(run)f(y)-30
+b(our)364 b(pr)-22 b(ogram)365 b(at)f(this)g(point,)379
+b(and)364 b(sho)-12 b(w)364 b(us)g(y)-30 b(our)364 b(r)-22
+b(esults.)559 b(\(And)364 b(be)h(pr)-22 b(epar)g(ed)365
+b(to)f(tell)h(us)0 16017 y(y)-30 b(ou)303 b(knew)g(the)g(sum)f(f)-30
+b(ormulas)302 b(f)-30 b(or)302 b Fl(cos)h Fg(and)g Fl(sin)o
+Fg(.\))0 20962 y Fm(Mo)-16 b(ving)399 b(the)f(earth)0
+24810 y Fk(Adv)-13 b(ancing)331 b(on)h Fj(advance)0 28178
+y Fl(No)-30 b(w)303 b(write)g(an)g(empty)h Fi(advance)g
+Fl(method)f(with)g(the)h(proper)e(signature:)3030 31723
+y Fi(public)620 b(void)e(advance\(double)j(dT\))0 35269
+y Fl(By)377 b Fh(empty)p Fl(,)396 b(we)376 b(mean)h(that)g(there)g
+(should)f(still)g(be)h(a)f(set)h(of)f(curle)-18 b(y)376
+b(braces)h(after)f(the)g(method)h(signature)g(to)f(hold)h(the)0
+36774 y(body)360 b(of)g(the)g(method,)375 b(b)-24 b(ut)360
+b(there)g(should)g(be)g(no)g(code)g(\(yet\))g(inside)g(the)g(method)g
+(body)-79 b(.)548 b(Put)360 b(this)f(method)h(follo)-30
+b(wing)0 38280 y(the)377 b(end)g(of)f(the)g Fi(setup)i
+Fl(method)f(b)-24 b(ut)376 b(before)g(the)h(\002nal)g(curle)-18
+b(y)376 b(brace)h(at)g(the)f(end)h(of)f(the)h Fi(Orbits)h
+Fl(class.)595 b(Remember)0 39785 y(that)274 b(the)g Fi(advance)619
+b(method)275 b Fl(has)e(a)h Fi(double)h Fl(parameter)-48
+b(,)279 b(which)274 b(we)g(ha)-24 b(v)-18 b(e)273 b(called)h
+Fi(dT)p Fl(.)g(\(Y)-133 b(ou)274 b(could)f(gi)-30 b(v)-18
+b(e)274 b(it)f(an)-18 b(y)274 b(v)-30 b(ariable)0 41291
+y(name)285 b(you)f(lik)-12 b(e,)288 b(for)283 b(that)i(matter)-48
+b(,)287 b(b)-24 b(ut)284 b(it')-67 b(s)284 b(best)g(to)g(choose)g(a)g
+(name)h(that)f(is)g(descripti)-30 b(v)-18 b(e.\))368
+b(Compile)285 b(and)g(run)f(your)g(code)0 42796 y(to)303
+b(be)g(sure)g(that)g(you)g(ha)-24 b(v)-18 b(en')c(t)303
+b(typed)g(an)-18 b(ything)304 b(incorrectly)-79 b(.)0
+47162 y Fk(Mo)-13 b(ving)332 b(the)g(earth)0 50530 y
+Fl(At)318 b(each)g(call)g(to)g Fi(advance)p Fl(,)323
+b(we)318 b(w)-12 b(ant)318 b(to)g(mo)-18 b(v)g(e)318
+b(the)g(earth')-67 b(s)317 b Fi(\(ex,ey\))i Fl(coordinates)f(a)g(small)
+f(amount)h(around)g(the)g(unit)0 52035 y(circle,)303
+b(by)g Ff(q)g Fl(radians.)375 b(The)303 b(v)-30 b(alue)303
+b(we)h(choose)f(for)f Ff(q)g Fl(will)i(depend)f(on)g(ho)-30
+b(w)303 b(f)-12 b(ast)302 b(we)i(w)-12 b(ant)303 b(the)g(earth)g(to)g
+(mo)-18 b(v)g(e.)0 54584 y(Declare)303 b(the)h(follo)-30
+b(wing)302 b(ne)-30 b(w)303 b(v)-30 b(ariable)303 b(in)g(your)g
+(instance)g(v)-30 b(ariable)303 b(section:)3030 58130
+y Fi(private)620 b(double)f(eThetaSpeed;)h(//)f(how)g(fast)f(to)h
+(advance)g(earth,)h(in)e(radians/second)0 61675 y Fl(In)360
+b(your)g Fi(setup)h Fl(code,)375 b(gi)-30 b(v)-18 b(e)360
+b(the)g(v)-30 b(alue)361 b(of)f(0.1)g(to)g Fi(eThetaSpeed)p
+Fl(.)549 b(This)360 b(will)g(mo)-18 b(v)g(e)360 b(the)h(earth)f(along)g
+(the)h(unit)f(circle)0 63181 y(orbit)293 b(a)g(small)f(amount)h(each)h
+(time)f(the)g Fi(advance)h Fl(method)g(is)e(called.)373
+b(Since)293 b(there)g(are)g(2)p Ff(p)g Fl(radians)g(in)g(a)g(circle,)i
+(a)e(speed)0 64686 y(of)328 b(0.1)h(radians/second)f(w)-12
+b(ould)329 b(mean)g(that)g(the)g(time)f(to)h(go)g(around)f(a)h
+(complete)g(circle)g(w)-12 b(ould)329 b(be)g(20)p Ff(p)g
+Fl(seconds,)335 b(or)328 b(a)0 66192 y(little)303 b(more)g(than)g(half)
+g(a)g(minute.)0 68741 y(In)263 b(your)h Fi(advance)h
+Fl(method,)271 b(you)264 b(can)g(no)-30 b(w)264 b(write)f(the)h(code)g
+(to)g(mo)-18 b(v)g(e)264 b(the)f(earth)h(by)g Fi(eThetaSpeed)h
+Fl(radians)e(per)h(second)0 70247 y(along)410 b(the)f(unit)g(circle.)
+695 b(Because)410 b(of)f(the)g(orientation)h(of)f(the)g
+Fh(x)t Fl(-)g(and)g Fh(y)p Fl(-ax)-18 b(es)409 b(in)g(our)g(g)-6
+b(ame)410 b(can)-48 b(v)-30 b(as,)435 b(mo)-18 b(ving)410
+b(in)f(the)0 71752 y(positi)-30 b(v)-18 b(e)269 b(direction)g(around)h
+(the)f(unit)h(circle)f(\(since)g Fi(eThetaSpeed)j Fl(is)d(positi)-30
+b(v)-18 b(e\))268 b(will)h(appear)h(to)g(be)f(mo)-18
+b(ving)270 b(clockwise)25697 75321 y(4)p eop end
+%%Page: 5 5
+TeXDict begin 5 4 bop 0 1218 a Fl(on)357 b(our)f(g)-6
+b(ame)356 b(can)-48 b(v)-30 b(as.)536 b(If)355 b(you)i(w)-12
+b(ant)356 b(to)h(look)f(at)h(it)f(lik)-12 b(e)357 b(most)e
+(mathematicians)i(do,)370 b(you')-12 b(ll)356 b(ha)-24
+b(v)-18 b(e)357 b(to)f(go)g(behind)h(your)0 2723 y(computer)303
+b(screen)g(and)g(stand)g(on)g(your)g(head,)h(in)f(which)g(case)g(the)g
+(earh)g(will)g(appear)h(to)f(be)g(going)g(counter)-24
+b(-clockwise.)0 5272 y(Remember)304 b(the)f(formulas)f(from)g(abo)-18
+b(v)g(e:)20148 7995 y Fh(x)t(x)273 b Fe(=)c Fh(x)306
+b Fl(cos)p Fe(\()p Ff(q)p Fe(\))168 b Fa(\000)g Fh(y)301
+b Fl(sin)o Fe(\()p Ff(q)p Fe(\))20152 10719 y Fh(yy)270
+b Fe(=)e Fh(y)303 b Fl(cos)p Fe(\()p Ff(q)p Fe(\))168
+b(+)g Fh(x)304 b Fl(sin)p Fe(\()p Ff(q)p Fe(\))0 12944
+y Fl(Also)330 b(remember)h(that)g Fi(eThetaSpeed)i Fl(is)d(in)h
+(radians)f(per)h(second,)337 b(so)331 b(we)g(multiply)g(this)f(by)h
+Fi(dT)g Fl(to)g(get)g(the)g(number)f(of)0 14449 y(radians)303
+b(to)g(mo)-18 b(v)g(e.)375 b(W)-97 b(e)304 b(can)f(compute)h(this)e(v)
+-30 b(alue)303 b(and)h(store)e(it)h(in)g(a)g(local)h(v)-30
+b(ariable)303 b Fi(eTheta)p Fl(,)h(as)e(follo)-30 b(ws:)3030
+17995 y Fi(double)620 b(eTheta)f(=)f(eThetaSpeed)i(*)f(dT;)0
+21540 y Fl(Put)315 b(this)f(at)h(the)g(be)-18 b(ginning)315
+b(of)g(your)f Fi(advance)i Fl(method.)412 b(\(The)314
+b(use)h(of)f Fi(double)i Fl(here)f(creates)f(a)h(ne)-30
+b(w)315 b(v)-30 b(ariable)315 b Fi(eTheta)0 23046 y Fl(\223on)327
+b(the)h(\003y\224.)448 b(Such)327 b(a)g(v)-30 b(ariable)327
+b(is)g(called)g(a)h Fh(local)f(variable)p Fl(.)448 b(This)326
+b(v)-30 b(ariable)327 b(will)g(e)-18 b(xist)327 b(throughout)g(the)g(e)
+-18 b(x)g(ecution)327 b(of)0 24551 y(the)303 b Fi(advance)i
+Fl(method)e(and)g(will)g(be)g(discarded)g(when)h Fi(advance)g
+Fl(\002nishes.\))0 27100 y(Since)f(we)h(will)f(also)f(need)i(cos)f(and)
+g(sin)g(v)-30 b(alues)302 b(of)h Fi(eTheta)p Fl(,)h(add)f(these)g
+(lines)g(as)g(well:)3030 30646 y Fi(double)620 b(ecosTheta)f(=)g
+(Math.cos\(eTheta\);)3030 32151 y(double)h(esinTheta)f(=)g
+(Math.sin\(eTheta\);)0 35697 y Fl(The)303 b Fi(Math.cos)h
+Fl(and)g Fi(Math.sin)g Fl(functions)f(are)g(b)-24 b(uilt)302
+b(in)h(to)g(Ja)-24 b(v)-30 b(a,)303 b(so)f(you)i(don')-22
+b(t)303 b(need)g(to)g(import)g(an)-18 b(ything.)0 38246
+y(Since)320 b(we)h(are)f(using)f Fi(ex)i Fl(and)f Fi(ey)h
+Fl(as)e(the)i Fh(x)t Fl(-)e(and)h Fh(y)p Fl(-coordinates)g(of)g(the)g
+(earth)g(on)g(the)h(unit)f(circle,)k(formulas)319 b(described)0
+39751 y(abo)-18 b(v)g(e)303 b(for)g Fh(x)t(x)j Fl(and)e
+Fh(yy)f Fl(abo)-18 b(v)g(e)303 b(no)-30 b(w)303 b(become:)3030
+43297 y Fi(double)620 b(exx)e(=)h(ex*ecosTheta)h(-)e(ey*esinTheta;)3030
+44802 y(double)i(eyy)e(=)h(ey*ecosTheta)h(+)e(ex*esinTheta;)0
+48348 y Fl(Here)349 b(we)g(ha)-24 b(v)-18 b(e)350 b(substituted)e(the)h
+(v)-30 b(ariable)349 b Fi(ecosTheta)i Fl(for)d(cos)p
+Fe(\()p Ff(q)p Fe(\))f Fl(and)i(so)g(forth.)513 b(Also,)360
+b(we)349 b(ha)-24 b(v)-18 b(e)349 b(de\002ned)h(tw)-12
+b(o)349 b(ne)-30 b(w)0 49853 y(local)303 b(v)-30 b(ariables)303
+b(in)g(the)g(process:)375 b Fi(exx)303 b Fl(and)h Fi(eyy)p
+Fl(.)0 52403 y(Once)g(you)f(ha)-24 b(v)-18 b(e)303 b(identifed)g(the)g
+(ne)-30 b(w)303 b(earth)g(coordinates,)g(you)g(will)g(need)h(to)f
+(re-position)f(the)h(earth:)3030 55948 y Fi(ex)619 b(=)f(exx;)3030
+57454 y(ey)h(=)f(eyy;)3030 58959 y(earth.setLocation\(ex,)k(ey\);)0
+62504 y Fl(Put)303 b(this)f(code)i(as)f(part)g(of)f Fi(advance)p
+Fl(,)j(immediately)e(after)g(your)g(e)-30 b(v)g(aluation)303
+b(of)f Fi(exx)i Fl(and)f Fi(eyy)p Fl(;)0 65054 y(Compile)393
+b(your)g(program)f(and)g(run)h(the)f(g)-6 b(ame.)645
+b(Y)-133 b(ou)392 b(should)h(see)f(the)h(earth)f(slo)-30
+b(wly)392 b(adv)-30 b(ance)393 b(clockwise)g(in)f(a)h(circle)0
+66559 y(with)299 b(origin)f(at)h(the)g(top-left)f(corner)g(with)h
+(coordinates)g(\(0,0\).)374 b(If)297 b(you)i(let)g(it)g(run)f(for)g(a)h
+(while,)h(the)f(earth)f(will)h(disappear)0 68065 y(from)319
+b(the)g(screen)g(on)h(its)f(w)-12 b(ay)319 b(to)h(the)f(second)h
+(quadrant.)425 b(If)318 b(you)i(w)-12 b(ait)319 b(long)h(enough,)k(it)
+319 b(will)g(reappear)h(at)f(\(1,0\))g(and)h(be)0 69570
+y(visible)303 b(ag)-6 b(ain.)25697 75321 y(5)p eop end
+%%Page: 6 6
+TeXDict begin 6 5 bop 0 1218 a Fk(Checkpoint)331 b(3)0
+4585 y Fg(Sho)-12 b(w)303 b(us)f(y)-30 b(our)303 b(w)-12
+b(ork)304 b(at)e(this)g(point.)0 9530 y Fm(Earth)399
+b(orbits)f(the)g(sun)0 13334 y Fl(Of)303 b(course,)f(the)i(earth)f
+(should)f(be)i(orbiting)e(the)i(sun,)e(not)h(the)h(origin)e(of)h(our)g
+(g)-6 b(ame)303 b(can)-48 b(v)-30 b(as.)375 b(Y)-133
+b(ou)303 b(need)h(to)f(\002x)g(this.)0 17700 y Fk(Earth)332
+b(radius)f(ar)-24 b(ound)331 b(the)h(sun)0 21068 y Fl(Y)-133
+b(ou)345 b(\002rst)f(need)h(to)g(determine)g(ho)-30 b(w)345
+b(f)-12 b(ar)345 b(the)g(earth)g(should)f(be)i(from)e(the)h(sun)g(as)f
+(it)h(orbits)f(the)h(sun.)501 b(Create)346 b(a)f(v)-30
+b(ariable)0 22573 y Fi(eRadius)295 b Fl(that)e(will)g(hold)h(this)e(v)
+-30 b(alue.)373 b(Since)294 b(the)f(sun)g(starts)f(out)h(at)h
+(\(0.5,0.5\))f(and)g(we)h(w)-12 b(ant)293 b(the)h(earth)f(to)g(be)h
+(visible)f(on)0 24079 y(the)303 b(can)-48 b(v)-30 b(as)303
+b(as)f(it)h(orbits)f(the)i(sun,)e(a)i(reasonable)f(radius)f(of)h
+(rotation)g(around)g(the)g(sun)g(w)-12 b(ould)303 b(be)g(0.45.)0
+26628 y(As)384 b(you)g(ha)-24 b(v)-18 b(e)385 b(done)f(before,)405
+b(create)384 b(a)h(pri)-30 b(v)g(ate)383 b(double)i(instance)g(v)-30
+b(ariable)384 b(named)g Fi(eRadius)i Fl(\(along)e(with)h(the)f(other)0
+28134 y(instance)367 b(v)-30 b(ariables\))367 b(and)g(assign)g(its)g(v)
+-30 b(alue)367 b(to)h(be)f(0.45)h(\(in)f Fi(setup)p Fl(\).)569
+b(Put)368 b(this)f(assignment)f(immediately)i(after)f(your)0
+29639 y(assignments)302 b(to)h Fi(ex)g Fl(and)h Fi(ey)p
+Fl(.)0 32188 y(No)-30 b(w)-79 b(,)383 b(whene)-30 b(v)-18
+b(er)367 b(you)h(set)e(the)i(location)f(of)g(the)g(earth)g(\(there)g
+(are)g Fh(two)g(places)g Fl(you)h(need)f(to)g(do)g(this:)504
+b(once)367 b(in)g Fi(setup)0 33694 y Fl(and)303 b(a)h(second)f(time)g
+(in)g Fi(advance)p Fl(\))h(do)f(the)g(follo)-30 b(wing:)3030
+37239 y Fi(earth.setLocation\(sun.getX\(\))623 b(+)c(ex*eRadius,)h
+(sun.getY\(\))g(+)e(ey*eRadius\);)0 40785 y Fl(This)381
+b(will)g(put)h(the)f(earth')-67 b(s)381 b(location)h
+Fh(r)-45 b(elative)381 b(to)h(that)f(of)h(the)g(sun)p
+Fl(.)610 b(Since)382 b Fi(\(ex,ey\))h Fl(are)e(al)-12
+b(w)g(ays)381 b(on)h(the)f(unit)h(circle,)0 42290 y Fi(\(ex*eRadius,)
+620 b(ey*eRadius\))305 b Fl(will)e(al)-12 b(w)g(ays)303
+b(be)g(on)h(a)f(circle)g(of)g(radius)f Fi(eRadius)p Fl(.)0
+44839 y(Mak)-12 b(e)303 b(these)g(changes)g(and)g(run)g(your)g(g)-6
+b(ame.)376 b(Y)-133 b(ou)303 b(should)g(see)g(the)g(earth)g(stadily)g
+(progress)e(around)i(the)h(sun.)0 49206 y Fk(F)-33 b(actoring)332
+b(out)g(the)g Fj(setLocation)337 b Fk(calls)0 52573 y
+Fl(In)303 b(the)g(code)g(abo)-18 b(v)g(e,)304 b(you)f(will)g(ha)-24
+b(v)-18 b(e)303 b(tw)-12 b(o)303 b(places)g(where)g(you)h(call)3030
+56119 y Fi(earth.setLocation\(...\))0 59664 y Fl(where)378
+b(the)h(code)f(is)g Fh(e)-24 b(xactly)378 b(the)h(same)p
+Fl(.)601 b(Instead)378 b(of)f(ha)-24 b(ving)379 b(entered)f(this)g
+(twice)g(\226)g(which)h(increases)e(the)i(lik)-12 b(elihood)0
+61169 y(that)303 b(you)g(will)g(mak)-12 b(e)304 b(a)f(mistak)-12
+b(e)303 b(\226)g(you)g(will)g(create)g(a)h(separate)e(method)i(that)f
+(does)g(this.)0 63719 y(Create)h(a)f(method)g(as)g(follo)-30
+b(ws:)3030 67264 y Fi(private)620 b(void)f(locateEarth\(\))h({)4267
+68770 y(earth.setLocation\(...\))3030 70275 y(})25697
+75321 y Fl(6)p eop end
+%%Page: 7 7
+TeXDict begin 7 6 bop 0 1218 a Fl(where)354 b(the)f Fi(setLocation)j
+Fl(parameters)d(are)h(the)f(same)h(as)f(in)g(your)h(current)f(program.)
+527 b(Put)353 b(this)g(method)h(some)-30 b(where)0 2723
+y(in)344 b(your)g(program,)354 b(probably)344 b(between)g(the)h(end)f
+(of)g Fi(setup)h Fl(and)f(the)g(be)-18 b(ginning)344
+b(of)g Fi(advance)p Fl(.)500 b(Y)-133 b(ou)344 b(can)g(put)g(it)g
+(pretty)0 4229 y(much)303 b(an)-18 b(ywhere)304 b(in)f(your)g
+Fi(Orbits)h Fl(class)e(de\002nition,)h(b)-24 b(ut)303
+b(it)g(can')-22 b(t)303 b(be)h Fh(within)f Fl(an)-18
+b(y)303 b(of)g(the)g(other)g(methods.)0 6778 y(Then,)362
+b(in)351 b(the)f(tw)-12 b(o)351 b(places)f(where)h(you)f(had)h
+Fi(earth.setLocation\(...\))522 b Fl(\226)350 b(once)h(in)f
+Fi(setup)i Fl(and)e(a)h(second)f(time)h(in)0 8283 y Fi(advance)304
+b Fl(\226)f(replace)h(these)f(with)3030 11829 y Fi(locateEarth\(\);)0
+15374 y Fl(In)348 b(general,)359 b(if)348 b(you)g(\002nd)g(yourself)f
+(doing)h(a)g(complicated)h(line)f(or)f(lines)h(of)g(code)g(more)g(than)
+g(once)h(in)f(your)f(program,)0 16880 y(you)327 b(can)g(write)g(a)g
+(method)h(that)f(does)f(the)h(same)g(stuf)-30 b(f,)332
+b(and)327 b(you)g(can)g(replace)h(the)f(lines)f(where)h(it)g
+(originally)g(occurred)0 18385 y(with)303 b(method)h(calls.)0
+20934 y(Compile)g(and)f(run)g(your)g(program)f(to)h(v)-18
+b(erify)303 b(that)g(your)g(change)g(hasn')-22 b(t)303
+b(af)-30 b(fected)303 b(the)g(w)-12 b(ay)303 b(your)g(g)-6
+b(ame)304 b(runs.)0 25880 y Fm(Checkpoint)399 b(4)0 29684
+y Fg(Sho)-12 b(w)303 b(us)f(y)-30 b(our)303 b(w)-12 b(ork)304
+b(at)e(this)g(point.)0 34629 y Fm(The)399 b(moon)f(and)h(earth)0
+38433 y Fl(W)-97 b(ell,)299 b(no)-30 b(w)298 b(that)g(you)g(ha)-24
+b(v)-18 b(e)298 b(the)g(earth)g(orbiting)f(the)h(sun,)h(you)f(can)g(ha)
+-24 b(v)-18 b(e)298 b(the)g(moon)g(orbit)f(the)h(earth.)374
+b(Y)-133 b(ou)298 b(ha)-24 b(v)-18 b(e)298 b(already)0
+39938 y(done)395 b(all)g(the)f(w)-12 b(ork)395 b(for)f(the)g(earth)h
+(orbiting)f(the)h(sun:)558 b(all)395 b(you)g(need)g(to)f(do)h(is)f
+(write)h(almost)f(identical)h(code)g(for)f(the)0 41444
+y(moon)303 b(orbiting)g(the)g(earth.)0 43993 y(Y)-133
+b(ou')-12 b(ll)302 b(need)i(the)f(follo)-30 b(wing)303
+b(v)-30 b(ariables:)3030 47538 y Fi(private)620 b(OvalSprite)g(moon;)
+3030 49044 y(private)g(double)f(mx;)3030 50549 y(private)h(double)f
+(my;)3030 52055 y(private)h(double)f(mRadius;)3030 53560
+y(private)h(double)f(mThetaSpeed;)0 57106 y Fl(Mak)-12
+b(e)271 b(the)h(moon)f(be)h(a)g(white)f(circle)h(with)f(diameter)h
+(0.01)f(and)h(orbit)f(radius)g(0.045.)365 b(As)271 b(with)h(the)f
+(earth,)278 b(the)272 b Fi(\(mx,)618 b(my\))0 58611 y
+Fl(coordinates)280 b(will)g(be)g(on)g(the)g(unit)f(circle,)285
+b(starting)279 b(at)h(\(1.0,)k(0.0\);)k(Choose)280 b
+Fi(mThetaSpeed)i Fl(to)e(be)g(1.0,)k(so)c(that)g(the)g(moon)0
+60117 y(rotates)382 b(around)g(the)g(earth)g(f)-12 b(aster)381
+b(than)h(the)h(earth)f(rotates)f(around)h(the)h(sun.)612
+b(The)382 b(rest)f(is)h(just)f(cop)-12 b(ying)383 b(the)f(code)h(for)0
+61622 y(the)326 b(earth)h(and)f(doing)g(the)h(same)f(for)f(the)i(moon.)
+445 b(Y)-133 b(ou')-12 b(ll)326 b(need)h(to)f(ha)-24
+b(v)-18 b(e)326 b(moon-related)g(code)h(in)f Fi(setup)h
+Fl(and)g Fi(advance)p Fl(.)0 63128 y(Y)-133 b(ou)255
+b(can)g(practically)g(duplicate)h(the)f(earth-related)f(code,)265
+b(only)255 b(with)g(appropriate)g(modi\002cations)g(to)g(be)g
+(moon-related.)0 64633 y(Inside)302 b Fi(advance)p Fl(,)j(you')-12
+b(ll)302 b(need)i(local)f(v)-30 b(ariables)303 b(named)3030
+68179 y Fi(double)620 b(mTheta)3030 69684 y(double)g(mcosTheta)3030
+71190 y(double)g(msinTheta)25697 75321 y Fl(7)p eop end
+%%Page: 8 8
+TeXDict begin 8 7 bop 0 1218 a Fl(de\002ned)303 b(appropriately)-79
+b(,)304 b(just)e(as)h(we)g(did)g(for)g(the)g(earth.)0
+3767 y(Oh,)g(tw)-12 b(o)303 b(things)g(to)g(remember:)1818
+7312 y Fa(\017)606 b Fl(the)304 b(location)f(of)g(the)g(moon)g(is)g
+(relati)-30 b(v)-18 b(e)302 b(to)h(that)g(of)g(the)g(earth,)g(so)g
+(you')-12 b(ll)303 b(w)-12 b(ant)303 b(to)g(say)g(something)g(lik)-12
+b(e)5697 9814 y Fi(moon.setLocation\(earth.getX\(\))623
+b(+)c(mx*mRadius,)h(earth.getY\(\))g(+)f(my*mRadius\);)1818
+12316 y Fa(\017)606 b Fl(Y)-133 b(ou')-12 b(ll)303 b(w)-12
+b(ant)303 b(to)g(mak)-12 b(e)303 b(a)h Fi(locateMoon)g
+Fl(method)g(that)f(does)g(this.)0 16682 y Fk(Checkpoint)331
+b(5)0 20049 y Fl(Sho)-30 b(w)303 b(us)g(your)f(running)h(g)-6
+b(ame)304 b(at)f(this)f(point.)0 24995 y Fm(Documentation)398
+b(and)h(f)-40 b(ormatting)0 28799 y Fl(Be)259 b(sure)f(that)g(your)h
+(code)g(is)f(properly)g(indented)h(and)f(that)h(you)g(ha)-24
+b(v)-18 b(e)258 b(used)g(spaces)g(appropriately)-79 b(.)361
+b(Y)-133 b(ou)259 b(will)f(lose)g(points)0 30304 y(if)303
+b(you)g(do)g(not)g(do)g(so.)0 32853 y(Put)g(documentation)h(on)f(top)g
+(of)g(each)g(of)g(your)g(method)g(de\002nitions.)376
+b(Brie\003y)303 b(describe)g(what)g(the)g(method)h(does.)0
+35403 y(Also,)459 b(be)428 b(sure)f(your)h(code)g(has)g(the)g(ID)f
+(block)h(at)g(the)g(top)g(\(follo)-30 b(wing)427 b(your)h
+Fi(import)h Fl(lines\))e(with)h(your)g(names)g(\(as)0
+36908 y(author\))303 b(and)g(other)g(required)g(items)f(as)h(described)
+g(in)g(Lab)g(2.)0 41274 y Fk(Checkpoint)331 b(6)0 44642
+y Fg(Print)302 b(y)-30 b(ou)303 b(code)g(and)g(include)g(it)g(with)g(y)
+-30 b(our)303 b(checksheet)g(document.)25697 75321 y
+Fl(8)p eop end
+%%Trailer
+
+userdict /end-hook known{end-hook}if
+%%EOF

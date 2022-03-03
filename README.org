@@ -1,0 +1,7 @@
+#+STARTUP: showall
+#+TITLE: 201901 - CIS 443 - Programming Languages
+#+AUTHOR: Brian C. Ladd
+
+* Course Source Code Repository
+** The folders contain their own README files.
+** Code may be freely used by students in the course.

@@ -1,0 +1,134 @@
+import fang.core.Game;
+import fang.core.Sprite;
+import fang.sprites.*;
+
+import java.util.ArrayList;
+
+public class TicTacToe
+    extends Game {
+
+    String turn;
+    ArrayList<TicTacToeSquare> board;
+
+    StringSprite statusLine;
+
+    boolean waiting = false;
+    
+    
+    public void setup() {
+	board = new ArrayList<TicTacToeSquare>();
+	for (int i = 0; i < 9; ++i) {
+	    TicTacToeSquare sq = new TicTacToeSquare(this);
+	    sq.setLocation(0.25 + column(i) * 0.25, 0.1 + row(i) * 0.25);
+	    sq.setScale(0.20);
+	    board.add(sq);
+	    addSprite(sq);
+	}
+	
+	statusLine = new StringSprite(0.1);
+	statusLine.setLocation(0.5, 0.9);
+	addSprite(statusLine);
+	
+	turn = "X";
+	announceTurn();
+    }
+
+    public void announceTurn() {
+	statusLine.setColor(getColor("white"));
+	statusLine.setText(turn + "'s Turn");
+    }
+
+    public void announceWinner() {
+	statusLine.setText(turn + " WINS!");
+	statusLine.setColor(getColor("yellow"));
+    }
+    
+    public void announceCats() {
+	statusLine.setText("Cat's Game");
+	statusLine.setColor(getColor("green"));
+    }
+
+    public int ndx(int row, int column) {
+	return row * 3 + column;
+    }
+
+    public boolean winner(String turn) {
+	boolean retval = false;
+	for (int i = 0; i < 3; ++i) {
+	    retval = retval || 
+		(board.get(ndx(i, 0)).getContent().equals(turn) &&
+		 board.get(ndx(i, 1)).getContent().equals(turn) &&
+		 board.get(ndx(i, 2)).getContent().equals(turn)) ||
+		(board.get(ndx(0, i)).getContent().equals(turn) &&
+		 board.get(ndx(1, i)).getContent().equals(turn) &&
+		 board.get(ndx(2, i)).getContent().equals(turn));
+	}
+	retval = retval || 
+	    (board.get(ndx(0, 0)).getContent().equals(turn) &&
+	     board.get(ndx(1, 1)).getContent().equals(turn) &&
+	     board.get(ndx(2, 2)).getContent().equals(turn)) ||
+	    (board.get(ndx(2, 0)).getContent().equals(turn) &&
+	     board.get(ndx(1, 1)).getContent().equals(turn) &&
+	     board.get(ndx(0, 2)).getContent().equals(turn));
+	
+	return retval;
+    }
+
+    public boolean catsGame() {
+	for (int i = 0; i < 9; ++i) {
+	    if (board.get(i).getContent().equals(" "))
+		return false;
+	}
+	return true;
+    }
+    
+
+
+
+    public int row(int ndx) {
+	return ndx / 3;
+    }
+
+    public int column(int ndx) {
+	return ndx % 3;
+    }
+
+    public String getTurn() {
+	return turn;
+    }
+
+    public String nextTurn() {
+	if (turn.equals("X")) 
+	    return "O";
+	else
+	    return "X";
+    }
+    
+
+    public void finishTurn() {
+	if (winner(turn)) {
+	    announceWinner();
+	    waiting = true;
+	} else if (catsGame()) {
+	    announceCats();
+	    waiting = true;
+	} else {
+	    turn = nextTurn();
+	    announceTurn();
+	}
+    }
+
+    public void advance(double dT) {
+	if (!waiting) {
+	    for (int i = 0; i < board.size(); ++i) {
+		board.get(i).advance(dT);
+	    }    
+	} else {
+	    if (mousePressed()) {
+		waiting = false;
+		startOver();
+	    }
+	}
+    }
+    
+}

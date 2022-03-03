@@ -1,0 +1,8 @@
+(angiulo (turnbull frank))
+(frank (hayes angiulo))
+(hayes (frank . #f))
+(joness (wood ryczak))
+(ryczak (scranton joness))
+(scranton (ryczak turnbull))
+(turnbull (angiulo scranton))
+(wood (joness xxxxx))

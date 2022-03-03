@@ -1,0 +1,233 @@
+\documentclass[12pt]{article}
+
+\pagestyle{plain}
+\oddsidemargin 0in       %   Left margin on odd-numbered pages.
+\evensidemargin 0in        %   Left margin on even-numbered pages.
+\textwidth 6.5in
+\textheight 9in
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+
+\usepackage[T1]{fontenc}
+\usepackage{pslatex}
+%\renewcommand*{\familydefault}{\sfdefault}
+
+\usepackage{verbatim}
+\newenvironment{qv}%
+  {\quote
+   \verbatim}%
+  {\endverbatim
+   \endquote}
+
+\newcommand{\exx}{\\[2ex]}
+\newcommand{\code}{\texttt}
+\newcommand{\fname}{\texttt}
+\newcommand{\eg}{{\em e.g.}}
+
+\parskip 2ex
+\parindent 0em
+
+
+\begin{document}
+\sloppypar
+
+\begin{center}
+\Large\bf
+CIS 201 -- Computer Science I\\
+Laboratory Assignment 7\\
+\end{center}
+
+\section*{Introduction}
+
+In this lab you will:
+\begin{itemize}
+\item Implement a class
+\item Use a \code{CompositeSprite}
+\item Practice using \code{ArrayList}
+\item Do timed animation
+\end{itemize}
+
+
+Create a directory, \fname{Lab7} in your \fname{CS1} directory. Into
+that directory, download the game \fname{EasyDice.java} from
+our class directory:
+\begin{qv}
+/home/student/Classes/201/Labs/Lab07/EasyDice.java
+\end{qv} 
+
+Look at the contents of the game.
+It is functional
+\emph{except} that it relies on a class,
+\code{OneDie}, that does not exist.
+Your job, in this lab, is to
+create the \code{OneDie} class so that \code{EasyDice} can be run.
+
+Create a new Java source file to implement the class \code{OneDie}.
+Insert a header comment for the file with both
+your lab partners' names.
+The \code{OneDie} class should extend the \code{CompositeSprite} class
+in exactly the same way
+that the \code{EasyDice} class extends the \code{Game} class.
+Be sure that your source file is in the same directory as
+\fname{EasyDice.java}.
+
+Look at the code for \code{EasyDice}. 
+In your \code{OneDie} source file,
+document (in your header block)
+the signatures
+all of those methods that are used by \code{EasyDice}
+on any object of type \code{OneDie} in the game.
+You know that they must all have \code{public} access rights.
+(Hint: The class \code{EasyDice} must be able to call them from
+outside the class \code{OneDie}.)
+
+Don't forget the \code{OneDie} constructor:
+it will have a signature, too.
+You can tell what parameters this constructor requires
+by looking at where the \fname{EasyDice} program
+creates new instances of \code{OneDie}.
+Note that the \code{this} variable
+always refers to an object of the same type
+as the class in which the variable is used.
+In the \code{EasyDice} class,
+the \code{this} variable is an object of type \code{EasyDice}
+but is {\em also} an object of type \code{Game} --
+since an \code{EasyDice} object {\em is} a \code{Game} object
+because of inheritance.
+Fo your \code{OneDie} constructor, then,
+the constructor's parameter should be a variable of type \code{Game}.
+
+\subsection*{Checkpoint 1}
+{\bf
+Show us your \fname{OneDie.java} so far.
+}
+
+\section*{Composite sprites}
+
+Look at the documentation for \code{CompositeSprite}.
+You will see that some of the \code{CompositeSprite} methods
+already implement the methods signatures you have documented,
+so in fact you don't need to implement these!
+Separate those method signatures that are not implemented
+in the \code{CompositeSprite} class
+from those that are.
+
+Now write stubs for all of the methods that need to be implemented.
+At this point, you should have code that compiles!
+
+\subsection*{Checkpoint 2}
+{\bf
+Show us your work at this point, and that both
+the \fname{EasyDice.java} and \fname{OneDie.java} files compile correctly.
+}
+
+\section*{Working with one die}
+
+Your \code{OneDie} object will need fields.
+You need to keep track of the value shown
+on the die (an \code{int}), the game the die is in
+(this is the thing you pass in the constructor,
+and it is needed
+for \code{randomInt}), and the
+sprites that are the pips and the white background.
+
+You will need 7 pips; you can use the
+\code{setVisibile} method to turn them on or off depending on the
+face that is showing.
+The pips will be located as follows:
+
+\begin{qv}
+p   p
+p p p
+p   p
+\end{qv}
+
+A \code{CompositeSprite} is like the \code{Game} canvas
+in that you can add sprites to it.
+However, unlike the \code{Game} canvas,
+the geometry of a \code{CompositeSprite}
+is centered at (0,0),
+and you need to add items to the \code{CompositeSprite}
+relative to that center.
+
+In the constructor for your die, you should add eight sprites to it.
+First add the background as a white rectangle,
+centered at (0, 0) with size 1.0.
+The pips are 0.2 by 0.2 and located as shown in the diagram above.
+You should imagine that the display area of the sprite
+will have its upper left corner at (-0.5, -0.5)
+and its lower right corner at (0.5, 0.5).
+Note that the \code{addSprite} method in the \code{CompositeSprite} will
+add the sprites to the \code{CompositeSprite},
+not to the \code{Game} canvas.
+Each of the pips should have its visibility set to \code{false}.
+
+You constructor will also need to save the \code{Game}
+
+Now implement the \code{setValue} method.
+It should check which number (between 1 and 6)
+that value is being set to and set the value field \emph{and} turn
+on the right pips. You probably want to turn all the pips off first
+and then turn on just the ones you want.
+
+Also implement the \code{getValue} method to return the current value.
+
+\subsection*{Roll the dice}
+
+\code{roll} takes a time parameter, the amount of time you want the
+die to roll. It is 2.0 seconds in the \code{EasyDice} game,
+but the parameter will determine how long it should roll.
+When I call \code{roll}, change the face (randomly...this is why you need the \code{Game}) and
+start counting down. Every eighth to quarter of a second, change the
+face. This means you will be running two different countdown timers,
+one for the current face and one for the roll.
+These countdown timers should be declared
+as \code{double} field variables.
+
+You will need an \code{advance} method (like the \code{move} method in
+\code{BallSprite}) so that the timers can be updated.
+Your logic for the \code{advance} method will
+look like this:
+
+\begin{qv}
+if (animationTimer > 0) {
+  // decrement animationTimer by dT
+  // decrement faceTimer by dT
+  if (faceTimer < 0) {
+    // show new random face and update the die value
+    faceTimer = // time to show one face
+}
+\end{qv}
+
+Also fix up \code{isRolling} to return true so long as there is time
+remaining in the current die roll,
+in other words, as long as \code{animationTimer} is positive.
+
+\subsection*{Checkpoint 3}
+{\bf
+Show us your work at this point.
+Your \fname{EasyDice} game should now work as advertised!
+}
+
+\section*{Two dice!}
+
+Modify your \fname{EasyDice.java} file
+so that it has two dice on the game canvas,
+one on the left side and another on the right,
+scaled appropriately.
+You will need to create a new field variable
+for the second die -- perhaps name the two dice
+\code{die1} and \code{die2}.
+
+In your \code{advance} method,
+have the left arrow key roll the left die
+and the right arrow key roll the right die.
+Don't print anything in this version.
+
+\subsection*{Checkpoint 4}
+{\bf
+Show us your work at this point.
+}
+
+\end{document}

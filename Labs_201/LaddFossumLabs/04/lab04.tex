@@ -1,0 +1,537 @@
+\documentclass[11pt]{memoir}
+\usepackage{graphicx}
+\usepackage[usenames]{color}
+\usepackage{listings}[2000/08/23] 
+\usepackage{hyperref}
+\usepackage{verbatim}
+
+\usepackage{exercise}
+
+\newcounter{ckpt}
+\newcommand{\checkpoint}[1]{
+\addtocounter{ckpt}{1}%
+\textbf{%
+Checkpoint \arabic{ckpt}: %
+#1%
+}%
+}
+
+\newenvironment{Activity}[1]
+{%
+\vspace{2ex}
+\begin{Exercise}[name={Activity},title={#1}]%
+%\vspace{-4ex}
+}
+{%
+\end{Exercise}
+\vspace{2ex}
+}
+
+\definecolor{nicered}{rgb}{.647,.129,.149}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{templategrey}{gray}{0.30}
+\definecolor{commandlinebackground}{gray}{0.25}
+\definecolor{commandlineforeground}{gray}{0.85}
+\definecolor{commandpromptforeground}{gray}{0.55}
+
+
+\DeclareGraphicsExtensions{.eps,.pdf,.png,.gif,.jpg}
+
+
+% ---------- listing code parameters
+\lstset{language=java,
+  basicstyle=\small\ttfamily,
+  numbers=none, 
+  numberstyle=\tiny, 
+  stepnumber=1, 
+  numbersep=5pt,
+  frame=single,
+  captionpos=b,
+  showstringspaces=false,
+  showspaces=false,
+  showtabs=false,
+  rulecolor=\color{nicered}
+}
+
+% ----- Command-line listing language
+\lstdefinelanguage{cline}
+{
+  morecomment=[s][\color{commandpromptforeground}]{\~}{\%},
+}
+
+% ----- Command-line environment 
+\lstnewenvironment{commandline}[1][]
+  {\lstset{language=cline,numbers=none,frame=none,backgroundcolor=\color{commandlinebackground},basicstyle=\color{commandlineforeground},nolol,#1}}
+  {}
+
+\newcommand{\artDir}{../art}
+\newcommand{\lab}[1]{%
+\title{CIS 201 Computer Science I\\Fall 2009 Lab #1}%
+\maketitle%
+}
+
+\setlength{\hoffset}{0in}
+\setlength{\voffset}{0in}
+\settypeblocksize{9in}{6.5in}{*}
+\setlrmargins{*}{*}{1}
+\setulmargins{*}{*}{1}
+\setheadfoot{\onelineskip}{2\onelineskip}
+\checkandfixthelayout
+
+%\setlength{\parindent}{0.0in}
+%\setlength{\parskip}{2\baselineskip}
+
+\begin{document}
+\lab{04}
+
+In this lab, we will experiment with:
+\begin{itemize}
+\item local variables and field variables.
+\item primitive data types and object references.
+\item private and public fields and methods.
+
+\end{itemize}
+
+\begin{Activity}{All methods in the class can access fields}
+
+A {\em field} is a variable that is declared
+inside the class but outside of any method defined in the class.
+You will normally put field declarations
+near the top of your Java source file,
+just after the open brace following your \texttt{class} declaration.
+
+Fields can have \texttt{public} and \texttt{private} visibility.
+You will normally want to give fields \texttt{private} visibility
+in order to follow the software engineering principle
+of {\em information hiding},
+a topic that will make more sense to you
+as you learn more about computer science.
+
+\paragraph{Set up.}
+Create a directory named \texttt{Lab04} in your CIS 201 directory.
+In the \texttt{Lab04} directory,
+create a Java source file named \texttt{Fields.java}
+that defines a \texttt{class} named \texttt{Fields}
+and that extends the FANG \texttt{Game} class.
+As usual, you will need to \texttt{import} the appropriate FANG library
+at the top of your file.
+The body of the \texttt{Fields} class should be empty:
+there should be no code between the opening and closing curley braces.
+
+Your Java source file should be complete enough at this point
+to compile and run --
+so \textbf{compile and run your program}
+to be sure you don't have any errors.
+Close out the game window before you proceed.
+
+\paragraph{One integer variable.}
+Inside your \texttt{Fields} class,
+put the following code:
+
+\begin{lstlisting}
+private int x;
+
+public void setup() {
+    x = 3;
+    System.out.println("x=" + x);
+}
+\end{lstlisting}
+
+On a blank sheet of paper,
+draw a diagram representing the memory cell
+that contains the integer variable \texttt{x}.
+Use a rectangle for the memory cell,
+and label the rectangle with the name \texttt{x}.
+
+A diagram such as this can help you
+to visualize the values of the variables in your program
+by displaying them in the diagram's memory cells
+as your program executes.
+The contents of the cells change over time,
+so you will need to cross off or erase the old values
+and replace them with new values
+as you step through your program.
+The contents of the memory cells at any moment in time
+is called the {\em state} of your running program,
+and the diagram is often called a {\em state diagram}.
+
+When a field such as \texttt{x} is declared,
+a memory cell gets created,
+and the Java runtime system associates the name \texttt{x}
+with that cell.
+Numeric fields (such as integers and doubles)
+always get initialized with the value zero --
+unless otherwise defined.
+
+\checkpoint{
+Show us your diagram illustrating the state of your running program
+after executing the assignment statement in \texttt{setup}.
+Also, show us the results of running your program.
+}
+
+\paragraph{Two integer variables.}
+Change your code by adding a second integer variable \texttt{y},
+so that the body of the class looks like this:
+
+\begin{lstlisting}
+private int x;
+private int y;
+
+public void setup() {
+    x = 3;
+    y = x;
+    System.out.println("x=" + x + " y=" + y);
+}
+\end{lstlisting}
+
+On your state diagram,
+add a memory cell for \texttt{y}.
+
+\checkpoint{
+Show us your state diagram
+after the second assignment statement in \texttt{setup}.
+Also, show us the results of running your program.
+}
+
+\paragraph{Modify a variable.}
+Add one line to your \texttt{setup} method, so that it looks like this:
+
+\begin{lstlisting}
+public void setup() {
+    x = 3;
+    y = x;
+    x = x + 1;
+    System.out.println("x=" + x + " y=" + y);
+}
+\end{lstlisting}
+
+Start with a fresh, new state diagram for this program.
+with memory cells for \texttt{x} and \texttt{y}.
+Then step through the \texttt{setup} method
+and modify the contents of the memory cells appropriately
+as each of the assignment statements is executed.
+
+\checkpoint{
+Show us your resulting state diagram.
+Be prepared to explain the changes, if any,
+to the values of \texttt{x} and \texttt{y}.
+}
+
+\paragraph{Add a method.}
+Create a \texttt{void} method \texttt{setup1}
+that does exactly the same as \texttt{setup},
+and have \texttt{setup} simply call this method.
+Here is what the entire body of the \texttt{Fields} class should look like:
+
+\begin{lstlisting}
+private int x;
+pritave int y;
+
+public void setup() {
+    setup1(); // call the setup1 method
+}
+
+private void setup1() {
+    x = 3;
+    y = x;
+    x = x + 1;
+    System.out.println("x=" + x + " y=" + y);
+}
+\end{lstlisting}
+
+The \texttt{setup} method is declared \texttt{public}
+since the FANG engine needs to call it when the ``game'' runs.
+The \texttt{setup1} method is declared \texttt{private}
+since it is called only inside the \texttt{Fields} class
+and nothing outside of this class needs to know of its existence.
+
+\checkpoint{
+Show us that, with this change,
+the output of your program is the same as before.
+}
+
+\paragraph{Move fields to local variables.}
+Let's move the \texttt{x} and \texttt{y} variables
+from being fields (belonging to the entire class)
+to being local variables belonging only to the \texttt{setup} method.
+To do this,
+remove the \texttt{x} and \texttt{y} field variable declarations,
+and change the \texttt{setup} method to look like this:
+
+\begin{lstlisting}
+public void setup() {
+    int x = 0;
+    int y = 0;
+    setup1(); // call the setup1 method
+}
+\end{lstlisting}
+
+Now your state diagram will look different.
+Start with a fresh sheet of paper,
+and draw a large box labeled \texttt{setup}.
+This large box represents the environment
+that \texttt{setup} may create.
+In this example, \texttt{setup} creates two variables
+\texttt{x} and \texttt{y}
+before calling the \texttt{setup1} method.
+So inside the \texttt{setup} box,
+put smaller boxes representing memory cells
+\texttt{x} and \texttt{y}.
+When the \texttt{setup} method is called (by FANG, when it starts up),
+the {\em local} variables \texttt{x} and \texttt{y} spring into existence --
+but with undefined values.
+You can show this by putting a question mark \verb'?'
+inside of the boxes.
+In this code, we initialize both \texttt{x} and \texttt{y} to zero.
+
+Draw another large box labeled \texttt{setup1}.
+This box will represent the environment
+created by \texttt{setup1} when it is called.
+Since \texttt{setup1} doesn't create any variables
+(it does {\em use} variables, though),
+you will not put any smaller boxes inside of it.
+
+So here is the \textbf{rule for accessing variables in methods}:
+\begin{enumerate}
+\item If the variable by that name is defined in the method,
+use that variable.
+\item Otherwise use the field variable by that name in the class.
+\item Otherwise it's an error.
+\end{enumerate}
+
+\checkpoint{
+Show us your state diagram showing boxes
+for \texttt{setup} and \texttt{setup1}.
+Compile this program,
+and explain to us what happens and why.
+}
+
+\paragraph{Move the variables into \texttt{setup1}.}
+Change your code so that it looks like this:
+
+\begin{lstlisting}
+public void setup() {
+    setup1(); // call the setup1 method
+}
+
+private void setup1() {
+    int x = 0;
+    int y = 0;
+
+    x = 3;
+    y = x;
+    x = x + 1;
+    System.out.println("x=" + x + " y=" + y);
+}
+\end{lstlisting}
+
+Draw a new state diagram showing boxes
+for \texttt{setup} and \texttt{setup1}.
+
+\checkpoint{
+Show us your state diagram showing boxes
+for \texttt{setup} and \texttt{setup1}
+and the values of variables just before the \texttt{println} statement.
+Compile this program,
+and explain to us what happens and why.
+Show us the results of running your program.
+}
+
+\paragraph{Parameterize things.}
+Change your code to look like this:
+
+\begin{lstlisting}
+public void setup() {
+    int x = 0;
+    int y = 0;
+
+    setup1(x, y); // call the setup1 method
+
+    // print the values of x and y
+    System.out.println("x=" + x + " y=" + y);
+}
+
+private void setup1(int x, int y) {
+    x = 3;
+    y = x;
+    x = x + 1;
+}
+\end{lstlisting}
+
+\textbf{Do not compile your program yet!}
+
+Your \texttt{setup1} method
+has {\em formal parameters} \texttt{x} and \texttt{y},
+so your state diagram for this method should also have boxes
+for \texttt{x} and \texttt{y}.
+When the method is called,
+the contents of these cells will be populated
+with the values of the {\em actual parameters}.
+
+The variables \texttt{x} and \texttt{y} are referred to
+inside the body of \texttt{setup1}.
+They are not local variables, but they are formal parameters.
+So we need to expand slightly the
+\textbf{rule for accessing variables in methods}:
+\begin{enumerate}
+\item If the variable by that name is defined in the method
+or is a formal parameter,
+use that variable.
+\item Otherwise use the field variable by that name in the class.
+\item Otherwise it's an error.
+\end{enumerate}
+
+\textbf{Do not compile your program
+until we come over for your checkpoint!}
+
+\checkpoint{
+Show us your state diagram
+when \texttt{setup} calls \texttt{setup1},
+just before \texttt{setup1} returns.
+Predict what output your program should produce.
+Compile and run your program,
+and compare your prediction with the program's output.
+}
+
+\end{Activity}
+
+\begin{Activity}{Object references as variables}
+
+Replace the entire code in the body of your \texttt{Fields} class
+with the following:
+
+\begin{lstlisting}
+private RectangleSprite r;
+
+public void setup() {
+    r = new RectangleSprite(0.2, 0.2);
+    r.setColor(getColor("red"));
+    r.setLocation(0.5, 0.5); // center of canvas
+
+    addSprite(r);
+}
+\end{lstlisting}
+
+You will need to add an \texttt{import} statement
+at the top of your program file
+to use the \texttt{RectangleSprite} class.
+
+Compile and run your program
+and verify that a red rectangle appears
+in the middle of the game canvas.
+
+\paragraph{Move the field to a local variable.}
+Modify your code so that the field variable \texttt{r}
+becomes a local variable in the \texttt{setup} method.
+Here is what your entire class code will look like:
+
+\begin{lstlisting}
+public void setup() {
+    RectangleSprite r;
+
+    r = new RectangleSprite(0.2, 0.2);
+    r.setColor(getColor("red"));
+    r.setLocation(0.5, 0.5); // center of canvas
+
+    addSprite(r);
+}
+\end{lstlisting}
+
+\checkpoint{
+Predict what will happen when you run this program.
+Explain your prediction to us,
+and show us your actual results.
+}
+
+\paragraph{Create a new method, again.}
+Next create a \texttt{setup1} method,
+similar to what we did before,
+so that your program code will look like this:
+
+\begin{lstlisting}
+public void setup() {
+    RectangleSprite r;
+    r = new RectangleSprite(0.2, 0.2);
+
+    setup1();
+
+    addSprite(r);
+}
+
+private void setup1() {
+    r.setColor(getColor("red"));
+    r.setLocation(0.5, 0.5); // center of canvas
+}
+\end{lstlisting}
+
+Compile this program.
+
+\checkpoint{
+Explain what is happening here, and why.
+}
+
+\paragraph{Parameterize the \texttt{setup1} method.}
+Now add a parameter to \texttt{setup1}, as follows:
+
+\begin{lstlisting}
+public void setup() {
+    RectangleSprite r;
+    r = new RectangleSprite(0.2, 0.2);
+
+    setup1(r);
+
+    addSprite(r);
+}
+
+private void setup1(RectangleSprite r) {
+    r.setColor(getColor("red"));
+    r.setLocation(0.5, 0.5); // center of canvas
+}
+\end{lstlisting}
+
+Draw a state diagram
+showing the values of variables
+just before the \texttt{setup1} method returns.
+Compile this program and run it.
+
+\checkpoint{
+Show us your state diagram.
+Explain what happens here, and why.
+}
+
+\paragraph{A final weirdness.}
+Change your \texttt{setup1} method as follows.
+Do {\em not} make any changes to \texttt{setup}:
+
+\begin{lstlisting}
+private void setup1(RectangleSprite r) {
+    r = new RectangleSprite(0.2, 0.2);
+    r.setColor(getColor("red"));
+    r.setLocation(0.5, 0.5); // center of canvas
+}
+\end{lstlisting}
+
+Draw a state diagram
+showing the values of variables
+just before the \texttt{setup1} method returns.
+Predict what will happen when you run this program.
+
+\checkpoint{
+Show us your state diagram.
+Explain what happens, and why.
+}
+\end{Activity}
+
+\begin{Activity}{Clean up!}
+Log off your session,
+clean up your debris,
+and push your chairs in.
+\end{Activity}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
+

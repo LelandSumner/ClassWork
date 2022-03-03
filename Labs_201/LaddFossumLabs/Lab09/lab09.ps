@@ -1,0 +1,549 @@
+%!PS-Adobe-2.0
+%%Creator: dvips(k) 5.95a Copyright 2005 Radical Eye Software
+%%Title: lab09.dvi
+%%Pages: 5
+%%PageOrder: Ascend
+%%BoundingBox: 0 0 612 792
+%%DocumentFonts: Times-Bold Times-Roman Times-Italic Courier
+%%DocumentPaperSizes: Letter
+%%EndComments
+%DVIPSWebPage: (www.radicaleye.com)
+%DVIPSCommandLine: dvips -Ppdf -t letter -G0 lab09
+%DVIPSParameters: dpi=8000
+%DVIPSSource:  TeX output 2009.04.14:1639
+%%BeginProcSet: tex.pro 0 0
+%!
+/TeXDict 300 dict def TeXDict begin/N{def}def/B{bind def}N/S{exch}N/X{S
+N}B/A{dup}B/TR{translate}N/isls false N/vsize 11 72 mul N/hsize 8.5 72
+mul N/landplus90{false}def/@rigin{isls{[0 landplus90{1 -1}{-1 1}ifelse 0
+0 0]concat}if 72 Resolution div 72 VResolution div neg scale isls{
+landplus90{VResolution 72 div vsize mul 0 exch}{Resolution -72 div hsize
+mul 0}ifelse TR}if Resolution VResolution vsize -72 div 1 add mul TR[
+matrix currentmatrix{A A round sub abs 0.00001 lt{round}if}forall round
+exch round exch]setmatrix}N/@landscape{/isls true N}B/@manualfeed{
+statusdict/manualfeed true put}B/@copies{/#copies X}B/FMat[1 0 0 -1 0 0]
+N/FBB[0 0 0 0]N/nn 0 N/IEn 0 N/ctr 0 N/df-tail{/nn 8 dict N nn begin
+/FontType 3 N/FontMatrix fntrx N/FontBBox FBB N string/base X array
+/BitMaps X/BuildChar{CharBuilder}N/Encoding IEn N end A{/foo setfont}2
+array copy cvx N load 0 nn put/ctr 0 N[}B/sf 0 N/df{/sf 1 N/fntrx FMat N
+df-tail}B/dfs{div/sf X/fntrx[sf 0 0 sf neg 0 0]N df-tail}B/E{pop nn A
+definefont setfont}B/Cw{Cd A length 5 sub get}B/Ch{Cd A length 4 sub get
+}B/Cx{128 Cd A length 3 sub get sub}B/Cy{Cd A length 2 sub get 127 sub}
+B/Cdx{Cd A length 1 sub get}B/Ci{Cd A type/stringtype ne{ctr get/ctr ctr
+1 add N}if}B/CharBuilder{save 3 1 roll S A/base get 2 index get S
+/BitMaps get S get/Cd X pop/ctr 0 N Cdx 0 Cx Cy Ch sub Cx Cw add Cy
+setcachedevice Cw Ch true[1 0 0 -1 -.1 Cx sub Cy .1 sub]{Ci}imagemask
+restore}B/D{/cc X A type/stringtype ne{]}if nn/base get cc ctr put nn
+/BitMaps get S ctr S sf 1 ne{A A length 1 sub A 2 index S get sf div put
+}if put/ctr ctr 1 add N}B/I{cc 1 add D}B/bop{userdict/bop-hook known{
+bop-hook}if/SI save N @rigin 0 0 moveto/V matrix currentmatrix A 1 get A
+mul exch 0 get A mul add .99 lt{/QV}{/RV}ifelse load def pop pop}N/eop{
+SI restore userdict/eop-hook known{eop-hook}if showpage}N/@start{
+userdict/start-hook known{start-hook}if pop/VResolution X/Resolution X
+1000 div/DVImag X/IEn 256 array N 2 string 0 1 255{IEn S A 360 add 36 4
+index cvrs cvn put}for pop 65781.76 div/vsize X 65781.76 div/hsize X}N
+/p{show}N/RMat[1 0 0 -1 0 0]N/BDot 260 string N/Rx 0 N/Ry 0 N/V{}B/RV/v{
+/Ry X/Rx X V}B statusdict begin/product where{pop false[(Display)(NeXT)
+(LaserWriter 16/600)]{A length product length le{A length product exch 0
+exch getinterval eq{pop true exit}if}{pop}ifelse}forall}{false}ifelse
+end{{gsave TR -.1 .1 TR 1 1 scale Rx Ry false RMat{BDot}imagemask
+grestore}}{{gsave TR -.1 .1 TR Rx Ry scale 1 1 false RMat{BDot}
+imagemask grestore}}ifelse B/QV{gsave newpath transform round exch round
+exch itransform moveto Rx 0 rlineto 0 Ry neg rlineto Rx neg 0 rlineto
+fill grestore}B/a{moveto}B/delta 0 N/tail{A/delta X 0 rmoveto}B/M{S p
+delta add tail}B/b{S p tail}B/c{-4 M}B/d{-3 M}B/e{-2 M}B/f{-1 M}B/g{0 M}
+B/h{1 M}B/i{2 M}B/j{3 M}B/k{4 M}B/w{0 rmoveto}B/l{p -4 w}B/m{p -3 w}B/n{
+p -2 w}B/o{p -1 w}B/q{p 1 w}B/r{p 2 w}B/s{p 3 w}B/t{p 4 w}B/x{0 S
+rmoveto}B/y{3 2 roll p a}B/bos{/SS save N}B/eos{SS restore}B end
+
+%%EndProcSet
+%%BeginProcSet: alt-rule.pro 0 0
+%!
+% Patch by TVZ
+% Makes dvips files draw rules with stroke rather than fill.
+% Makes narrow rules more predictable at low resolutions
+% after distilling to PDF.
+% May have unknown consequences for very thick rules.
+% Tested only with dvips 5.85(k).
+TeXDict begin
+/QV {
+  gsave newpath /ruleY X /ruleX X
+  Rx Ry gt
+  { ruleX ruleY Ry 2 div sub moveto Rx 0 rlineto Ry }
+  { ruleX Rx 2 div add ruleY moveto 0 Ry neg rlineto Rx }
+  ifelse
+  setlinewidth 0 setlinecap stroke grestore
+} bind def
+end
+
+%%EndProcSet
+%%BeginProcSet: 8r.enc 0 0
+% File 8r.enc  TeX Base 1 Encoding  Revision 2.0  2002-10-30
+%
+% @@psencodingfile@{
+%   author    = "S. Rahtz, P. MacKay, Alan Jeffrey, B. Horn, K. Berry,
+%                W. Schmidt, P. Lehman",
+%   version   = "2.0",
+%   date      = "30 October 2002",
+%   filename  = "8r.enc",
+%   email     = "tex-fonts@@tug.org",
+%   docstring = "This is the encoding vector for Type1 and TrueType
+%                fonts to be used with TeX.  This file is part of the
+%                PSNFSS bundle, version 9"
+% @}
+% 
+% The idea is to have all the characters normally included in Type 1 fonts
+% available for typesetting. This is effectively the characters in Adobe
+% Standard encoding, ISO Latin 1, Windows ANSI including the euro symbol,
+% MacRoman, and some extra characters from Lucida.
+% 
+% Character code assignments were made as follows:
+% 
+% (1) the Windows ANSI characters are almost all in their Windows ANSI
+% positions, because some Windows users cannot easily reencode the
+% fonts, and it makes no difference on other systems. The only Windows
+% ANSI characters not available are those that make no sense for
+% typesetting -- rubout (127 decimal), nobreakspace (160), softhyphen
+% (173). quotesingle and grave are moved just because it's such an
+% irritation not having them in TeX positions.
+% 
+% (2) Remaining characters are assigned arbitrarily to the lower part
+% of the range, avoiding 0, 10 and 13 in case we meet dumb software.
+% 
+% (3) Y&Y Lucida Bright includes some extra text characters; in the
+% hopes that other PostScript fonts, perhaps created for public
+% consumption, will include them, they are included starting at 0x12.
+% These are /dotlessj /ff /ffi /ffl.
+% 
+% (4) hyphen appears twice for compatibility with both ASCII and Windows.
+%
+% (5) /Euro was assigned to 128, as in Windows ANSI
+%
+% (6) Missing characters from MacRoman encoding incorporated as follows:
+%
+%     PostScript      MacRoman        TeXBase1
+%     --------------  --------------  --------------
+%     /notequal       173             0x16
+%     /infinity       176             0x17
+%     /lessequal      178             0x18
+%     /greaterequal   179             0x19
+%     /partialdiff    182             0x1A
+%     /summation      183             0x1B
+%     /product        184             0x1C
+%     /pi             185             0x1D
+%     /integral       186             0x81
+%     /Omega          189             0x8D
+%     /radical        195             0x8E
+%     /approxequal    197             0x8F
+%     /Delta          198             0x9D
+%     /lozenge        215             0x9E
+%
+/TeXBase1Encoding [
+% 0x00
+ /.notdef /dotaccent /fi /fl
+ /fraction /hungarumlaut /Lslash /lslash
+ /ogonek /ring /.notdef /breve
+ /minus /.notdef /Zcaron /zcaron
+% 0x10
+ /caron /dotlessi /dotlessj /ff
+ /ffi /ffl /notequal /infinity
+ /lessequal /greaterequal /partialdiff /summation
+ /product /pi /grave /quotesingle
+% 0x20
+ /space /exclam /quotedbl /numbersign
+ /dollar /percent /ampersand /quoteright
+ /parenleft /parenright /asterisk /plus
+ /comma /hyphen /period /slash
+% 0x30
+ /zero /one /two /three
+ /four /five /six /seven
+ /eight /nine /colon /semicolon
+ /less /equal /greater /question
+% 0x40
+ /at /A /B /C
+ /D /E /F /G
+ /H /I /J /K
+ /L /M /N /O
+% 0x50
+ /P /Q /R /S
+ /T /U /V /W
+ /X /Y /Z /bracketleft
+ /backslash /bracketright /asciicircum /underscore
+% 0x60
+ /quoteleft /a /b /c
+ /d /e /f /g
+ /h /i /j /k
+ /l /m /n /o
+% 0x70
+ /p /q /r /s
+ /t /u /v /w
+ /x /y /z /braceleft
+ /bar /braceright /asciitilde /.notdef
+% 0x80
+ /Euro /integral /quotesinglbase /florin
+ /quotedblbase /ellipsis /dagger /daggerdbl
+ /circumflex /perthousand /Scaron /guilsinglleft
+ /OE /Omega /radical /approxequal
+% 0x90
+ /.notdef /.notdef /.notdef /quotedblleft
+ /quotedblright /bullet /endash /emdash
+ /tilde /trademark /scaron /guilsinglright
+ /oe /Delta /lozenge /Ydieresis
+% 0xA0
+ /.notdef /exclamdown /cent /sterling
+ /currency /yen /brokenbar /section
+ /dieresis /copyright /ordfeminine /guillemotleft
+ /logicalnot /hyphen /registered /macron
+% 0xD0
+ /degree /plusminus /twosuperior /threesuperior
+ /acute /mu /paragraph /periodcentered
+ /cedilla /onesuperior /ordmasculine /guillemotright
+ /onequarter /onehalf /threequarters /questiondown
+% 0xC0
+ /Agrave /Aacute /Acircumflex /Atilde
+ /Adieresis /Aring /AE /Ccedilla
+ /Egrave /Eacute /Ecircumflex /Edieresis
+ /Igrave /Iacute /Icircumflex /Idieresis
+% 0xD0
+ /Eth /Ntilde /Ograve /Oacute
+ /Ocircumflex /Otilde /Odieresis /multiply
+ /Oslash /Ugrave /Uacute /Ucircumflex
+ /Udieresis /Yacute /Thorn /germandbls
+% 0xE0
+ /agrave /aacute /acircumflex /atilde
+ /adieresis /aring /ae /ccedilla
+ /egrave /eacute /ecircumflex /edieresis
+ /igrave /iacute /icircumflex /idieresis
+% 0xF0
+ /eth /ntilde /ograve /oacute
+ /ocircumflex /otilde /odieresis /divide
+ /oslash /ugrave /uacute /ucircumflex
+ /udieresis /yacute /thorn /ydieresis
+] def
+
+
+%%EndProcSet
+%%BeginProcSet: texps.pro 0 0
+%!
+TeXDict begin/rf{findfont dup length 1 add dict begin{1 index/FID ne 2
+index/UniqueID ne and{def}{pop pop}ifelse}forall[1 index 0 6 -1 roll
+exec 0 exch 5 -1 roll VResolution Resolution div mul neg 0 0]FontType 0
+ne{/Metrics exch def dict begin Encoding{exch dup type/integertype ne{
+pop pop 1 sub dup 0 le{pop}{[}ifelse}{FontMatrix 0 get div Metrics 0 get
+div def}ifelse}forall Metrics/Metrics currentdict end def}{{1 index type
+/nametype eq{exit}if exch pop}loop}ifelse[2 index currentdict end
+definefont 3 -1 roll makefont/setfont cvx]cvx def}def/ObliqueSlant{dup
+sin S cos div neg}B/SlantFont{4 index mul add}def/ExtendFont{3 -1 roll
+mul exch}def/ReEncodeFont{CharStrings rcheck{/Encoding false def dup[
+exch{dup CharStrings exch known not{pop/.notdef/Encoding true def}if}
+forall Encoding{]exch pop}{cleartomark}ifelse}if/Encoding exch def}def
+end
+
+%%EndProcSet
+TeXDict begin 40258431 52099146 1000 8000 8000 (lab09.dvi)
+@start /Fa 135[976 2[976 976 976 976 2[976 976 4[976
+3[976 31[976 69[{.85 ExtendFont TeXBase1Encoding ReEncodeFont}10
+1912.83 /Courier rf /Fb 134[664 664 959 664 739 442 517
+590 1[739 664 739 1107 369 739 1[369 739 664 442 590
+739 590 1[664 13[739 959 1[812 1[959 9[959 959 20[332
+43[739 2[{TeXBase1Encoding ReEncodeFont}30 1328.35 /Times-Bold
+rf /Fc 139[531 3[886 797 886 2[886 1[443 886 2[708 1[708
+31[1151 14[797 797 797 797 797 1[399 46[{TeXBase1Encoding ReEncodeFont}
+16 1594.02 /Times-Bold rf /Fd 130[677 1[677 677 677 677
+677 677 677 677 677 677 677 677 677 677 677 677 677 677
+677 677 677 677 677 677 677 677 677 7[677 677 677 2[677
+677 677 1[677 677 677 1[677 2[677 1[677 677 677 677 677
+677 3[677 677 677 677 1[677 6[677 677 677 677 677 1[677
+2[677 677 5[677 34[{.85 ExtendFont TeXBase1Encoding ReEncodeFont}59
+1328.35 /Courier rf /Fe 138[664 1[517 517 3[664 4[369
+1[664 1[590 664 2[664 97[{TeXBase1Encoding ReEncodeFont}9
+1328.35 /Times-Italic rf /Ff 105[664 1[590 590 25[664
+664 959 664 664 369 517 442 664 664 664 664 1033 369
+664 369 369 664 664 442 590 664 590 664 590 7[959 1[1254
+1[959 812 739 886 1[739 959 959 1181 812 1[517 442 959
+959 739 812 959 886 886 959 1[590 3[369 369 4[664 664
+664 664 664 2[332 442 332 2[442 442 442 5[442 30[739
+2[{TeXBase1Encoding ReEncodeFont}65 1328.35 /Times-Roman
+rf /Fg 105[956 28[956 1[1381 1[1064 637 744 849 1[1064
+956 1064 1593 532 2[532 1064 956 1[849 1064 849 1064
+956 9[1913 2[1276 1064 1381 1[1169 1[1381 1[1276 2[744
+4[1381 1381 1[1381 1[956 5[956 6[956 956 956 45[1064
+2[{TeXBase1Encoding ReEncodeFont}37 1912.83 /Times-Bold
+rf end
+%%EndProlog
+%%BeginSetup
+%%Feature: *Resolution 8000dpi
+TeXDict begin
+%%BeginPaperSize: Letter
+letter
+%%EndPaperSize
+ end
+%%EndSetup
+%%Page: 1 1
+TeXDict begin 1 0 bop 13701 1328 a Fg(CIS)477 b(201)j(\226)f(Computer)f
+(Science)g(I)15533 3764 y(Laboratory)i(Assignment)e(9)0
+9487 y(Intr)-34 b(oduction)0 13662 y Ff(In)333 b(this)f(lab)g(you)h
+(will)g(create)f(a)g(g)-7 b(ame)332 b(that)h(reads)f(its)g
+(con\002guration)h(from)h(a)d(\002le.)0 19385 y Fg(Reading)478
+b(a)h(\002le)0 23561 y Ff(Consider)381 b(the)g(process)f(of)h(writing)h
+(a)e(pinball)i(g)-7 b(ame.)557 b(Gi)-33 b(v)-20 b(en)381
+b(a)f(screen)g(and)h(a)f(ball)h(that)g(bounces,)393 b(dif)-33
+b(ferent)0 25166 y(le)g(v)-20 b(els)332 b(or)h(pinball)g(g)-7
+b(ames)332 b(frequently)i(dif)-33 b(fer)333 b(in)f(ho)-33
+b(w)333 b(their)g(b)-27 b(umpers)333 b(\(and)f(other)h(things\))g(are)f
+(laid)h(out.)0 27966 y(What)422 b(we)f(really)i(w)-13
+b(ant,)444 b(then,)g(is)422 b(to)g(b)-27 b(uild)423 b(a)e(pinball)i
+Fe(engine)p Ff(,)445 b(a)421 b(program)i(that)f(can)g(simulate)g(an)-20
+b(y)422 b(pinball)0 29571 y(machine)314 b(described)g(in)g(an)g
+(appropriate)h(w)-13 b(ay)-86 b(.)405 b(Y)-146 b(ou)314
+b(will)h(be)-20 b(gin)314 b(with)h(a)f(simulator)h(that)f(has)g(ball)g
+(ph)-7 b(ysics)314 b(b)-27 b(ut)0 31176 y(no)304 b(balls)h(or)f(b)-27
+b(umpers.)404 b(Y)-146 b(our)304 b(job)h(is)f(to)g(e)-20
+b(xtend)305 b(the)f(program)h(so)f(that)h(it)f(prompts)h(the)g(user)f
+(for)g(the)h(name)f(of)g(a)0 32782 y(\002le)317 b(\(format)j(described)
+d(belo)-33 b(w\))319 b(and)e(then)h(creates)f(the)h(appropriate)h
+(sprites)f(in)g(the)g(machine)g(before)g(setting)0 34387
+y(the)332 b(ball\(s\))h(loose.)0 37187 y(Cop)-13 b(y)410
+b(the)g(\002les)f Fd(Pinball.java)416 b Ff(and)410 b
+Fd(PinballGame.java)417 b Ff(into)411 b(a)e(directory)j
+Fd(Lab09)p Ff(.)647 b(Y)-146 b(ou)410 b(can)g(\002nd)g(the)0
+38792 y(\002les)331 b(to)i(cop)-13 b(y)332 b(in)h(the)f(directory)3252
+42700 y Fd(/home/student/Classes/201/Labs/Lab09)0 46607
+y Ff(Also)317 b(in)h(that)g(directory)g(is)f(a)g(\002le)g(named)g
+Fd(first.pnd)p Ff(.)411 b(W)-106 b(e)317 b(will)h(be)f(using)g(the)h(e)
+-20 b(xtension)317 b Fd(.pnd)i Ff(to)f(stand)f(for)0
+48213 y(a)332 b(\223Pinball)g(Description\224)h(\002le,)f(an)g(e)-20
+b(xtension)333 b(we)f(coined.)412 b(This)332 b(\002le)f(will)i(ha)-27
+b(v)-20 b(e)333 b(a)f(format)h(described)f(later)-73
+b(.)0 51013 y(Do)-33 b(wnload)359 b(the)f(Ja)-27 b(v)-33
+b(a)358 b(and)g(pinball)i(\002les)d(into)i(your)g(lab)g(directory)-86
+b(.)491 b(Compile)359 b(and)f(run)h(the)f(pinball)i(g)-7
+b(ame.)490 b(It)0 52618 y(should)333 b(compile)g(b)-27
+b(ut)333 b(it)g(should)f(not)h(do)f(an)-20 b(ything)334
+b(because)d(there)i(is)f(no)g(description)h(of)g(a)f(pinball)h(g)-7
+b(ame.)0 55419 y(Look)378 b(at)g(the)g Fd(PinballGame)383
+b Ff(class.)548 b(Find)378 b(all)g(of)h(the)f(stub)g(functions)h(\(the)
+-20 b(y)378 b(are)g(the)g(ones)g(with)g(little)h(or)g(no)0
+57024 y(code)332 b(in)h(them\).)412 b(In)333 b(this)g(lab,)f(you)h
+(will)g(replace)e(the)i(stubs)f(with)h(w)-13 b(orking)333
+b(code.)0 59825 y(Modify)288 b Fd(getFileName)k Ff(so)287
+b(that)h(it)f(displays)h(the)f(prompt)h(that)g(is)f(passed)f(into)i(it)
+g(follo)-33 b(wed)288 b(by)f(a)g(single)h(space)0 61430
+y(and)332 b(then)h(reads)f(a)f(string)i(from)h(the)e(user)-53
+b(,)332 b(returning)i(that)f(v)-33 b(alue.)0 64230 y(Reading)357
+b(information)i(from)e(the)g(user')-73 b(s)356 b(k)-13
+b(e)-20 b(yboard)357 b(is)f(some)-33 b(what)357 b(lik)-13
+b(e)357 b(printing)h(information)h(to)d(the)h(user')-73
+b(s)0 65835 y(screen.)532 b(Code)373 b(such)f(as)g Fd
+(System.out.print\(...\))382 b Ff(will)373 b(display)g(the)g(e)-20
+b(xpression)372 b(to)h(your)g(screen)f(based)0 67440
+y(on)351 b(the)h(type)f(of)h(the)f(e)-20 b(xpression)352
+b(\226)f(such)g(as)g(a)g Fd(String)p Ff(,)358 b(an)352
+b Fd(int)p Ff(,)357 b(or)351 b(whate)-33 b(v)-20 b(er)-73
+b(.)470 b(Reading)351 b(information)j(from)0 69046 y(your)366
+b(k)-13 b(e)-20 b(yboard)366 b(uses)f Fd(System.in)p
+Ff(,)378 b(which)366 b(should)g(not)g(be)f(surprising.)513
+b(But)366 b(ho)-33 b(w)366 b(will)g(the)g(program)h(kno)-33
+b(w)0 70651 y(the)332 b(type)h(of)f(the)h(v)-33 b(alue)332
+b(to)g(be)g(read?)412 b(Here)332 b(is)g(where)g(the)h(notion)g(of)g(a)e
+Fd(Scanner)336 b Ff(comes)c(in.)25668 75321 y(1)p eop
+end
+%%Page: 2 2
+TeXDict begin 2 1 bop 0 1328 a Ff(A)335 b Fd(Scanner)j
+Ff(is)d(a)f(Ja)-27 b(v)-33 b(a)334 b(object)i(that)f(tak)-13
+b(es)334 b(ra)-20 b(w)335 b(input)h(from)g(the)f(k)-13
+b(e)-20 b(yboard)335 b(\(or)h(from)g(a)e(\002le,)i(as)e(we)g(shall)h
+(see\))0 2933 y(and)d(interprets)h(it)g(as)f(a)f(string)j(or)e(inte)-20
+b(ger)333 b(or)g(whate)-33 b(v)-20 b(er)-53 b(,)332 b(depending)h(on)f
+(what)h(the)f(program)i(asks)d(it)i(to)f(do.)0 5734 y(Ho)-33
+b(w)345 b(does)g(one)g(read)h(a)e(string)j(from)f(the)f(k)-13
+b(e)-20 b(yboard,)349 b(for)d(e)-20 b(xample?)451 b(Here)346
+b(is)f(a)f(snippet)i(of)g(code)f(that)g(w)-13 b(ould)0
+7339 y(do)332 b(so:)3252 11116 y Fd(Scanner)680 b(kbd)f(=)f(new)h
+(Scanner\(System.in\);)686 b(//)678 b(tokenize)k(raw)c(input)i(from)f
+(the)g(keyboard)3252 12721 y(String)h(str)f(=)f(kbd.next\(\);)k(//)c
+(interpret)k(the)d(next)g(token)h(from)f(the)g(keyboard)0
+16498 y Ff(F)-20 b(or)374 b(a)g Fd(Scanner)k Ff(object,)385
+b(the)375 b(term)g(\223tok)-13 b(en\224)374 b(means)g(a)g(string)h(of)g
+(input)g(characters)f(that)h(does)f(not)h(ha)-27 b(v)-20
+b(e)375 b(an)-20 b(y)0 18103 y(whitespace)448 b(\(such)g(as)f(spaces,)
+476 b(tabs,)h(or)448 b(ne)-33 b(wlines\).)759 b(The)448
+b Fd(next\(\))i Ff(method)f(skips)f(an)-20 b(y)448 b(whitespace)g
+(until)0 19709 y(it)494 b(encounters)g(a)f(non-whitespace)i(character)e
+(and)h(then)g(collects)f(all)h(of)g(the)g(follo)-33 b(wing)495
+b(non-whitespace)0 21314 y(characters)332 b(into)h(a)f(single)g(string)
+h(that)g(it)f(returns)h(to)g(the)f(caller)-73 b(.)0 24114
+y(A)262 b Fd(Scanner)j Ff(can)c(also)h(return)h Fd(int)p
+Ff(s)g(using)f Fd(nextInt\(\))k Ff(and)c Fd(double)p
+Ff(s)i(using)e Fd(nextDouble\(\))p Ff(,)282 b(for)262
+b(e)-20 b(xample.)0 25719 y(Y)-146 b(ou)409 b(should)g(look)h(at)f(the)
+g Fd(Scanner)j Ff(class)407 b(documentation)k(to)e(see)f(all)h(of)g
+(the)g(things)h(that)f(a)f Fd(Scanner)k Ff(can)0 27324
+y(process.)0 30125 y(Use)332 b(a)g Fd(Scanner)j Ff(as)c(described)i
+(abo)-20 b(v)g(e)332 b(to)h(implement)g(the)g Fd(getFileName)k
+Ff(method.)0 35232 y Fc(Checkpoint)399 b(1)0 38930 y
+Fb(Compile)332 b(and)f(run)g(y)-33 b(our)332 b(pr)-24
+b(ogram)331 b(and)g(sho)-13 b(w)332 b(us)f(y)-33 b(our)332
+b(r)-24 b(esults.)0 44629 y Fg(The)478 b Fa(ensureExtension)471
+b Fg(method)0 48805 y Ff(The)406 b Fd(ensureExtension)412
+b Ff(method)407 b(is)f(passed)f(a)h(\002le)g(name)g(and)g(returns)h
+(that)f(\002le)g(name)g(with)h(a)e(gi)-33 b(v)-20 b(en)407
+b(e)-20 b(x-)0 50410 y(tension.)715 b(F)-20 b(or)433
+b(e)-20 b(xample,)459 b(if)434 b Fd(ensureExtension)440
+b Ff(were)433 b(passed)f(the)h(parameters)h Fd(something)j
+Ff(and)c Fd(txt)p Ff(,)459 b(it)0 52015 y(w)-13 b(ould)352
+b(return)g(the)g(string)g Fd(something.txt)p Ff(.)475
+b(The)351 b(method)h(is)f(called)g Fe(ensur)-49 b(e)p
+Ff(Extension)351 b(because)g(it)g(should)0 53620 y(only)e(add)f(the)h
+(e)-20 b(xtension)349 b(if)g(the)f(\002le)g(name)h(does)f(not)h
+(already)f(end)g(with)i(it.)460 b(Thus)348 b(calling)h(the)g(method)g
+(with)0 55225 y(parameters)332 b Fd(something.txt)339
+b Ff(and)332 b Fd(txt)h Ff(should)g(also)f(return)h Fd(something.txt)p
+Ff(.)0 58025 y(Before)377 b(you)g(implement)i(the)e Fd(ensureExtension)
+383 b Ff(method,)389 b(look)378 b(at)e(the)h(documentation)i(for)e(the)
+g Fd(String)0 59631 y Ff(class)331 b(and)i(study)f(the)g(follo)-33
+b(wing)334 b(methods:)3252 63408 y Fd(equals)3252 65013
+y(endsWith)0 68790 y Ff(The)327 b Fd(ensureExtension)334
+b Ff(method)329 b(tak)-13 b(es)327 b(tw)-13 b(o)328 b
+Fd(String)i Ff(parameters.)411 b(The)327 b(\002rst)g(parameter)h(is)g
+(the)g(\002le)f(name)0 70395 y(\(which)416 b(you)g(get)f(using)h(the)f
+Fd(getFileName)421 b Ff(method\),)437 b(and)415 b(the)h(second)f(is)g
+(the)h(desired)f(e)-20 b(xtension.)662 b(If)416 b(the)0
+72000 y(\002le)497 b(name)g(does)g(not)h(end)f(with)h(a)e(dot)i(and)f
+(the)h(gi)-33 b(v)-20 b(en)497 b(e)-20 b(xtension,)539
+b(it)498 b(needs)e(\002xing;)581 b(otherwise)497 b(return)h(it)25668
+75321 y(2)p eop end
+%%Page: 3 3
+TeXDict begin 3 2 bop 0 1328 a Ff(unchanged.)950 b(T)-106
+b(o)511 b(\002x)g(a)h(\002le)f(name,)556 b(if)512 b(it)g(ends)f(with)i
+(a)e(dot,)557 b(just)512 b(return)g(\002le)f(name)h(plus)f(the)h(e)-20
+b(xtension;)0 2933 y(otherwise)263 b(return)h(\002le)e(name)g(plus)h
+(dot)g(plus)g(e)-20 b(xtension.)390 b(Here)262 b(are)g(possible)h
+(inputs)h(and)e(their)i(corresponding)0 4539 y(return)333
+b(v)-33 b(alues:)16881 5786 y Fb(fname)3883 b(ext)p 26981
+6268 45 1606 v 1665 w(r)-24 b(etur)k(n)331 b(v)-13 b(alue)p
+16217 6312 19567 45 v 16881 7435 a Fd(abcde)4040 b(pnd)p
+26981 7917 45 1606 v 1330 w(abcde.pnd)p 16217 7961 19567
+45 v 16881 9085 a(abcde.)3363 b(pnd)p 26981 9566 45 1606
+v 1330 w(abcde.pnd)p 16217 9611 19567 45 v 16881 10734
+a(abcde.x)2686 b(pnd)p 26981 11216 45 1606 v 1330 w(abcde.x.pnd)p
+16217 11260 19567 45 v 16881 12384 a(abcde.pnd)1332 b(pnd)p
+26981 12865 45 1606 v 1330 w(abcde.pnd)0 15072 y Ff(After)1117
+b(you)g(get)f(the)h(\002le)f(name)g(\(from)i Fd(getFileName)j
+Ff(abo)-20 b(v)g(e\))1117 b(b)-27 b(ut)1118 b(before)e(passing)h(it)g
+(to)0 16677 y Fd(connectScannerToFile)p Ff(,)566 b(you)513
+b(should)f(ensure)g(that)h(it)f(has)g(the)g(e)-20 b(xtension)512
+b(for)h(a)f(pinball)h(description)0 18282 y(\002le;)332
+b(something)h(lik)-13 b(e)333 b(this:)3252 22522 y Fd(fname)679
+b(=)f(ensureExtension\(fname,)688 b("pnd"\);)0 27652
+y Fc(Checkpoint)399 b(2)0 31350 y Fb(Sho)-13 b(w)331
+b(us)h(y)-33 b(our)331 b(w)-13 b(orking)331 b(code.)0
+37073 y Fg(Reading)478 b(the)g(con\002guration)g(\002le)0
+41248 y Ff(No)-33 b(w)470 b(you)g(are)f(prepared)h(to)g(read)f(the)h
+(whole)g(con\002guration)h(\002le)e(by)g(implementing)j(the)e
+Fd(readPNDFile)p Ff(.)0 42853 y(Y)-146 b(ou)332 b(will)h(write)g(a)f
+(loop)h(that)f(reads)g(the)h(ne)-20 b(xt)332 b(tok)-13
+b(en)333 b(from)g(the)f(\002le)g(\(a)g(tok)-13 b(en)333
+b(is,)f(in)g(this)h(case,)e(a)h(w)-13 b(ord\).)0 45654
+y(Reading)419 b(from)h(a)e Fd(Scanner)k Ff(associated)c(with)h(a)g
+(\002le)f(using)h(a)f(loop)i(normally)g(looks)f(something)h(lik)-13
+b(e)418 b(this,)0 47259 y(where)332 b Fd(in)h Ff(is)f(assumed)g(to)h
+(be)f(a)g Fd(Scanner)j Ff(object)d(\(your)i(mileage)e(may)h(v)-33
+b(ary\):)3252 51167 y Fd(while)679 b(\(in.hasNext\(\)\))684
+b({)5961 52772 y(String)d(obj)e(=)e(in.next\(\);)682
+b(//)d(get)g(the)f(next)i(string)5961 54377 y(...)3252
+55982 y(})0 59889 y Ff(This)290 b(loop)h(will)h(continue)f(to)g(read)f
+(strings)h(from)h(the)f(\002le)f(until)h(there)g(are)f(no)h(more)g
+(strings)g(to)g(read)g(\226)f(in)h(other)0 61494 y(w)-13
+b(ords,)332 b(until)i(all)e(the)g(contents)h(of)f(the)h(\002le)e(ha)-27
+b(v)-20 b(e)333 b(been)f(read)g(and)g(processed.)0 64295
+y(If)407 b(the)g(string)h(that)f(the)g Fd(Scanner)j Ff(sees)405
+b(is)i(\223Ball\224,)425 b(\223Ov)-33 b(al\224,)425 b(or)408
+b(\223Rectangle\224)e(you,)426 b(will)407 b(call)g(a)g(routine)h(that)0
+65900 y(reads)332 b(the)g(rest)g(of)h(the)f(information)j(for)e(that)f
+(type)h(of)f(sprite)h(and)f(adds)g(one)g(to)h(the)f(scene.)0
+68701 y(That)446 b(is,)475 b(in)447 b Fd(readPNDFile)452
+b Ff(you)447 b(will)g(use)f(the)h(pro)-20 b(vided)447
+b(code)g(to)f(prompt)i(the)f(user)f(and)h(get)g(a)f Fd(Scanner)0
+70306 y Ff(hook)-13 b(ed)385 b(up)g(to)g(a)g(\002le.)569
+b(Then,)398 b(while)385 b(there)g(is)g(another)g(w)-13
+b(ord)386 b(to)f(read,)398 b(read)385 b(it.)570 b(If)385
+b(the)g(w)-13 b(ord)385 b(is)g(\223Ball\224,)398 b(call)0
+71911 y(the)332 b Fd(handlePinball)338 b Ff(method)333
+b(\(and)g(so)f(on)g(for)h(the)g(other)g(tw)-13 b(o)332
+b(types\).)25668 75321 y(3)p eop end
+%%Page: 4 4
+TeXDict begin 4 3 bop 0 1328 a Ff(Lines)332 b(in)g(a)g(PND)g(\002le)g
+(are)f(of)i(the)f(form:)3252 5568 y Fd(Ball)679 b(<color>)i(<x>)d(<y>)h
+(<w>)g(<h>)g(<dX>)g(<dY>)3252 7173 y(Oval)g(<color>)i(<x>)d(<y>)h(<w>)g
+(<h>)3252 8778 y(Rectangle)i(<color>)g(<x>)e(<y>)g(<w>)f(<h>)0
+13018 y Ff(When)429 b(using)h(a)f(scanner)-53 b(,)453
+b(if)430 b(you)g(kno)-33 b(w)430 b(what)f(the)h(ne)-20
+b(xt)430 b(item)g(from)g(to)g(be)f(read)g(will)i(be,)453
+b(you)430 b(can)f(simply)0 14623 y(call)i(the)g(appropriate)g(method)h
+(such)f(as)f Fd(nextInt\(\))k Ff(\(for)e(an)f Fd(int)p
+Ff(\),)457 b Fd(nextDouble\(\))436 b Ff(\(for)c(a)e Fd(double)p
+Ff(\),)458 b(or)0 16228 y(just)511 b Fd(next\(\))i Ff(\(for)f(a)f
+Fd(String)p Ff(\).)950 b(F)-20 b(or)511 b(e)-20 b(xample,)556
+b(if)511 b(you)g(ha)-27 b(v)-20 b(e)511 b(a)f(line)h(that)h(be)-20
+b(gins)510 b(with)i Fd(Oval)p Ff(,)557 b(you)511 b(will)0
+17833 y(call)397 b(the)g Fd(handleOval)402 b Ff(method)c(that)f(will)h
+(then)f(get)h(a)e Fd(String)k Ff(\(the)e(color\))g(and)f(four)h
+Fd(double)p Ff(s,)415 b(create)397 b(an)0 19438 y Fd(OvalSprite)431
+b Ff(object)d(with)f(the)g(appropriate)h(width)g(and)f(height,)452
+b(set)426 b(its)h(color)h(to)f(the)g(gi)-33 b(v)-20 b(en)427
+b(color)h(v)-33 b(alue,)0 21043 y(locate)426 b(it)h(at)f(the)h
+(appropriate)g(x)g(and)f(y)g(v)-33 b(alues,)450 b(and)426
+b(add)h(it)f(to)h(the)f(g)-7 b(ame)427 b(can)-53 b(v)-33
+b(as.)693 b(\(Note)427 b(that)g(you)g(got)g(to)0 22648
+y(the)393 b Fd(handleOval)398 b Ff(method)c(because)e(you)i(already)f
+(sa)-20 b(w)393 b(the)g(string)h Fd(Oval)h Ff(in)f(the)f
+Fd(readPNDFile)p Ff(.\))600 b(Similar)0 24253 y(remarks)371
+b(apply)h(to)f(lines)g(that)g(be)-20 b(gin)372 b(with)f
+Fd(Rectangle)p Ff(.)532 b(F)-20 b(or)371 b Fd(Ball)i
+Ff(lines,)381 b(you)371 b(need)g(to)g(create)f(a)h Fd(Pinball)0
+25859 y Ff(object)350 b(\(look)g(at)g Fd(Pinball.java)355
+b Ff(to)350 b(see)e(what)i(the)f(constructor)i(requires)f(for)g(this)g
+(class!\),)k(adjust)c(its)f(color)0 27464 y(and)332 b(location,)h(add)g
+(it)f(to)h(the)f(g)-7 b(ame)333 b(can)-53 b(v)-33 b(as,)331
+b Fe(and)h Ff(add)h(it)f(to)h(the)f Fd(pinballs)k Ff(list.)0
+30264 y(The)341 b(w)-13 b(ord)341 b Fd(<color>)k Ff(can)c(be)g(passed)f
+(to)i Fd(getColor)i Ff(to)e(return)g(a)f(color)h(and)f(all)h(the)f
+(rest)g(are)g(double)h(v)-33 b(alues.)0 31869 y(The)375
+b(v)-33 b(ariables)376 b Fd(x)g Ff(and)g Fd(y)g Ff(are)g(the)g
+(location)g(of)g(the)g(b)-27 b(umper)378 b(\(or)e(ball\);)399
+b Fd(w)376 b Ff(and)g Fd(h)g Ff(are)f(width)i(and)f(height.)543
+b(The)0 33474 y Fd(dX)378 b Ff(and)g Fd(dY)g Ff(are)f(the)h(v)-20
+b(elocity)378 b(of)g(the)g(ball.)548 b(Y)-146 b(ou)377
+b(should)h(use)f(the)h Fd(Scanner)i Ff(v)-33 b(ariable)378
+b Fd(in)g Ff(to)g(do)g(most)g(of)g(the)0 35080 y(w)-13
+b(ork)333 b(of)f(reading)h(all)f(the)h(\002elds)e(of)i(a)f(gi)-33
+b(v)-20 b(en)332 b(b)-27 b(umper)334 b(or)e(ball.)0 40210
+y Fc(0.1)1594 b(Checkpoint)398 b(3)0 43908 y Fb(Sho)-13
+b(w)331 b(us)h(y)-33 b(our)331 b(code)g(at)i(this)f(point.)0
+49631 y Fg(Write)478 b(y)-48 b(our)479 b(o)-19 b(wn)478
+b(PND)g(\002le)0 53806 y Ff(Create)335 b(a)f(PND)g(\002le)h(of)g(your)g
+(o)-33 b(wn)335 b(choosing)g(that)g(describes)g(a)f(pinball)i(le)-33
+b(v)-20 b(el)335 b(with)g(tw)-13 b(o)335 b(balls)g(\(starting)h(near)0
+55411 y(the)371 b(left)g(and)f(right)i(edges)e(of)h(the)g(screen)f
+(heading)h(to)-33 b(w)-13 b(ard)370 b(the)h(center)g(of)g(the)f
+(screen\))h(and)f(tw)-13 b(o)371 b(o)-20 b(v)-33 b(al)370
+b(sprite)0 57016 y(e)-20 b(yes)365 b(and)g(one)h(rectangle)g(sprite)g
+(\223mouth\224)g(to)g(mak)-13 b(e)365 b(a)g(\223smile)-20
+b(y)366 b(f)-13 b(ace\224.)511 b(Y)-146 b(our)366 b(PND)f(\002le)g
+(should)h(end)g(with)g(a)0 58621 y Fd(.pnd)334 b Ff(e)-20
+b(xtension.)0 63752 y Fc(Checkpoint)399 b(4)0 67449 y
+Fb(Run)331 b(y)-33 b(our)332 b Fd(PinballGame)337 b Fb(\002le)332
+b(and)f(enter)g(y)-33 b(our)332 b(PND)g(\002le)f(as)h(the)g
+(\002lename.)411 b(Sho)-13 b(w)331 b(us)g(y)-33 b(our)332
+b(r)-24 b(esults.)25668 75321 y Ff(4)p eop end
+%%Page: 5 5
+TeXDict begin 5 4 bop 0 1328 a Fg(Ar)-34 b(e)478 b(y)-48
+b(ou)479 b(done?)0 5504 y Ff(If)333 b(you)f(ha)-27 b(v)-20
+b(e)333 b(\002nished)f(with)h(the)f(checkpoints,)h(start)f(w)-13
+b(orking)333 b(on)g(your)g(Assignment)g(5.)25668 75321
+y(5)p eop end
+%%Trailer
+
+userdict /end-hook known{end-hook}if
+%%EOF

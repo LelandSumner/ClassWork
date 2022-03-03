@@ -1,0 +1,227 @@
+import fang.core.Game;
+import fang.attributes.Location2D;
+import fang.sprites.RectangleSprite;
+import fang.sprites.StringSprite;
+
+public class EasyDice extends Game {
+
+  /** large, playing die */
+  private OneDie die;
+
+  /** are we waiting for a dice roll to finish? */
+  private boolean waiting;
+
+
+   // Advance the game one frame.
+   // Depending on the state of the game, check for button press, wait for 
+   * dice to stop spinning, or report results.
+   * 
+   * @param dT
+   *        time since last advance; used for animation
+   */
+  public void advance(double dT) {
+    /**
+     * The game is in one of several states: 
+     * - Waiting for player to place a bet 
+     * -Playing: 
+     *   - Rolling first roll 
+     *   - Finished first roll 
+     *   - Waiting to make subsequent roll 
+     *   - Rolling subsequent roll 
+     *   - Finished subsequent roll 
+     */
+    if (!playing) { // waiting for bet.
+      if (buttonPressed()) {
+        bet = 100;
+        bank -= 100;
+        updateBet();
+        updateBank();
+        bankDisplay.setColor(getColor("white"));
+
+        leftDie.roll(2.0);
+        rightDie.roll(2.0);
+        playing = true;
+        firstRoll = true;
+        waiting = true;
+      }
+    } else {
+      // waiting for some die roll to end
+      if (leftDie.isRolling() || rightDie.isRolling()) {
+        leftDie.advance(dT);
+        rightDie.advance(dT);
+      } else {
+        if (waiting) { // die roll just finished
+          waiting = false;
+          int roll = leftDie.getValue() + rightDie.getValue();
+          if (firstRoll) { // it's the first roll that ended
+            firstRoll = false;
+            if (roll == 7) { // win
+              win();
+            } else { // set point
+              leftPointDie.setValue(leftDie.getValue());
+              rightPointDie.setValue(rightDie.getValue());
+
+	      point = roll;
+              buttonMessage.setText("Roll for Point");
+            }
+          } else { // it's some subsequent roll that ended
+            if (roll == 7) { // lose
+              lose();
+            } else if (roll == point) { // win
+              win();
+            } else { // keep going
+              buttonMessage.setText("Roll for Point");
+            }
+          }
+        } else if (buttonPressed()) {
+          leftDie.roll(2.0);
+          rightDie.roll(2.0);
+          waiting = true;
+        }
+
+      }
+    } // !playing, else clause
+
+  } // advance
+
+  /**
+   * Set up the game for play. Initializes all of the sprites (either here or in
+   * other setup functions).
+   */
+  public void setup() {
+    buttonSetup();
+    bankSetup();
+    betSetup();
+
+    leftDie = new OneDie(this);
+    leftDie.scale(0.33);
+    leftDie.setLocation(5.0 / 18.0, 0.6);
+
+    rightDie = new OneDie(this);
+    rightDie.scale(0.33);
+    rightDie.setLocation(13.0 / 18.0, 0.6);
+
+    leftPointDie = new OneDie(this);
+    leftPointDie.scale(0.1);
+    leftPointDie.setLocation(0.75, 0.1);
+
+    rightPointDie = new OneDie(this);
+    rightPointDie.scale(0.1);
+    rightPointDie.setLocation(0.9, 0.1);
+
+    addSprite(leftDie);
+    addSprite(rightDie);
+    addSprite(leftPointDie);
+    addSprite(rightPointDie);
+  } // setup
+
+  /**
+   * Create sprite to show the bank and set its initial value. Fields bank and
+   * bankDisplay are initialized.
+   * 
+   */
+  private void bankSetup() {
+    bank = 1000;
+    bankDisplay = new StringSprite(0.1);
+    bankDisplay.leftJustify();
+    bankDisplay.setLocation(0.0, 0.1);
+    bankDisplay.setColor(getColor("white"));
+
+    updateBank();
+    addSprite(bankDisplay);
+  }
+
+  /**
+   * Create sprite to show bet and set its initial value. Fields bet and
+   * betDisplay are initialized.
+   * 
+   */
+  private void betSetup() {
+    bet = 0;
+    betDisplay = new StringSprite(0.05);
+    betDisplay.rightJustify();
+    betDisplay.setLocation(1.0, 0.2);
+    betDisplay.setColor(getColor("white"));
+
+    updateBet();
+    addSprite(betDisplay);
+  }
+
+  /**
+   * Check if the button (the big rectangle at the bottom of the screen) has
+   * been pressed.
+   * 
+   * @return true if mouse clicked within the button, false otherwise.
+   */
+  private boolean buttonPressed() {
+    Location2D mouseClick = getClick2D();
+    if ((mouseClick != null) && (button.intersects(mouseClick))) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  /**
+   * Create the button (at the bottom center of the screen). The fields button
+   * and message are initialized (and the text of message can subsequently be
+   * changed to change the function of the button)
+   * 
+   */
+  private void buttonSetup() {
+    button = new RectangleSprite(0.7, 0.2);
+    button.setLocation(0.5, 0.9);
+    button.setColor(getColor("red"));
+    addSprite(button);
+
+    buttonMessage = new StringSprite(0.1);
+    buttonMessage.setText("Bet $100");
+    buttonMessage.setLocation(0.5, 0.9);
+    buttonMessage.setColor(getColor("white"));
+    addSprite(buttonMessage);
+  }
+
+  /**
+   * Handle losing the bet. 
+   *
+   */
+  private void lose() {
+    bet = 0;
+    bankDisplay.setColor(getColor("red"));
+    updateBank();
+    updateBet();
+    playing = false;
+    buttonMessage.setText("Bet $100");
+  }
+
+  /**
+   * Display the current bank value
+   *
+   */
+  private void updateBank() {
+    bankDisplay.setText("Bank: " + bank);
+  }
+
+  /**
+   * Display the current bet value
+   *
+   */
+  private void updateBet() {
+    betDisplay.setText("Bet: " + bet);
+  }
+
+  /**
+   * Handle winning the bet.
+   *
+   */
+  private void win() {
+    bank += bet + bet; // win the bet
+    bet = 0;
+    bankDisplay.setColor(getColor("yellow"));
+    updateBank();
+    updateBet();
+    playing = false;
+    buttonMessage.setText("Bet $100");
+  }
+
+}

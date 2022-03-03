@@ -1,0 +1,14 @@
+import fang.core.Game;
+
+public class RakingLeaves extends Game {
+
+    public RakingLeaves {
+	super (640, 640);
+    }
+
+    public void setup() {
+    }
+
+    public void advance(double dT) {
+    }
+}

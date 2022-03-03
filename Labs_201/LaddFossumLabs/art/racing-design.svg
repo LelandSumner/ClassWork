@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="271"
+   height="181"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="racing-design.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   version="1.0">
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="EmptyTriangleOutL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="EmptyTriangleOutL"
+       style="overflow:visible">
+      <path
+         id="path3357"
+         d="M 5.77,0 L -2.88,5 L -2.88,-5 L 5.77,0 z"
+         style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;marker-start:none"
+         transform="matrix(0.8,0,0,0.8,-4.8,0)" />
+    </marker>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="3.5042806"
+     inkscape:cx="112.57729"
+     inkscape:cy="59.652686"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1910"
+     inkscape:window-height="1125"
+     inkscape:window-x="5"
+     inkscape:window-y="70" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-93.785713,-249.00504)">
+    <rect
+       style="font-size:12px;fill:#a62126;fill-opacity:0;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       id="rect2403"
+       width="270"
+       height="180"
+       x="94.285713"
+       y="249.50504" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Primer Print;-inkscape-font-specification:Primer Print Bold"
+       x="197.74806"
+       y="259.15036"
+       id="text2405"><tspan
+         sodipodi:role="line"
+         id="tspan2407"
+         x="197.74806"
+         y="259.15036"
+         style="font-weight:normal;-inkscape-font-specification:Primer Print Bold">Racing</tspan></text>
+    <path
+       id="path3981"
+       d="M 148.60158,399.59862 L 190.06602,399.59862"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;marker-end:url(#EmptyTriangleOutL);stroke-miterlimit:4;stroke-dasharray:2, 2;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       transform="matrix(0.9999795,-6.4083315e-3,6.4083315e-3,0.9999795,0,0)"
+       id="text3008"
+       y="392.82724"
+       x="117.13762"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Primer Print;-inkscape-font-specification:Primer Print Bold"
+       xml:space="preserve"><tspan
+         y="392.82724"
+         x="117.13762"
+         sodipodi:role="line"
+         id="tspan3012">Keyboard Controlled</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Primer Print;-inkscape-font-specification:Primer Print Bold"
+       x="106.62715"
+       y="270.77121"
+       id="text3024"><tspan
+         sodipodi:role="line"
+         id="tspan3026"
+         x="106.62715"
+         y="270.77121">0:10</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Primer Print;-inkscape-font-specification:Primer Print Bold"
+       x="31.061785"
+       y="277.862"
+       id="text3028"
+       transform="matrix(0.9659258,-0.258819,0.258819,0.9659258,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan3030"
+         x="31.061785"
+         y="277.862">Time</tspan></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 114.33201,400.89778 L 147.71975,400.32705 L 148.00512,400.04168"
+       id="path2410" />
+    <rect
+       style="opacity:1;fill:#999999;fill-opacity:1;stroke:#999999;stroke-width:3.27632403;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3216"
+       width="226.01834"
+       height="25.691917"
+       x="96.492165"
+       y="355.09213" />
+    <rect
+       y="294.88007"
+       x="136.15794"
+       height="25.691917"
+       width="226.01834"
+       id="rect3218"
+       style="opacity:1;fill:#999999;fill-opacity:1;stroke:#999999;stroke-width:3.27632403;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Primer Print;-inkscape-font-specification:Primer Print Bold"
+       x="202.32286"
+       y="370.25812"
+       id="text3212"
+       transform="matrix(0.9999795,-6.4083309e-3,6.4083309e-3,0.9999795,0,0)"><tspan
+         id="tspan3214"
+         sodipodi:role="line"
+         x="202.32286"
+         y="370.25812">Wall</tspan></text>
+    <text
+       transform="matrix(0.9999795,-6.4083307e-3,6.4083307e-3,0.9999795,0,0)"
+       id="text3220"
+       y="312.0448"
+       x="202.69592"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Primer Print;-inkscape-font-specification:Primer Print Bold"
+       xml:space="preserve"><tspan
+         y="312.0448"
+         x="202.69592"
+         sodipodi:role="line"
+         id="tspan3222">Wall</tspan></text>
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:1,4;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect3224"
+       width="69.058395"
+       height="33.387737"
+       x="191.19473"
+       y="5.5003552"
+       transform="translate(93.785713,249.00504)" />
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Primer Print;-inkscape-font-specification:Primer Print Bold"
+       x="299.67416"
+       y="274.99731"
+       id="text3226"
+       transform="matrix(0.9999795,-6.4083303e-3,6.4083303e-3,0.9999795,0,0)"><tspan
+         id="tspan3228"
+         sodipodi:role="line"
+         x="299.67416"
+         y="274.99731">Finish Zone</tspan></text>
+  </g>
+</svg>

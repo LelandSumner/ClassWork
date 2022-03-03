@@ -1,0 +1,15 @@
+;; Object Lab11/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "Lab11/"
+  :tables (list 
+   (semanticdb-table "checkSheet.html"
+    :major-mode 'html-mode
+    :tags '(("CIS 201 Labs: Lab 11" section (:members (("CIS 201 Labs: Lab 11<br>" section nil nil [112 115]))) nil [71 77]))
+    :file "checkSheet.html"
+    :pointmax 1347
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0pre3"
+  :semanticdb-version "2.0pre3"
+  )

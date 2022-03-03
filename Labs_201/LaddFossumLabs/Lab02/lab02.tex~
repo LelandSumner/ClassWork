@@ -1,0 +1,638 @@
+% book.tex -- Copyright (c) 2004, Brian C. Ladd
+%
+%  Author : Brian C. Ladd 
+%  Created: Wed Jul 07 12:03:49 2004 by blad
+%  Revised: Fri Dec 28 15:27:43 2007 by blad
+%  
+\def\FileCreated{Wed Jul 07 12:03:49 2004}
+\def\FileRevised{Fri Dec 28 15:27:43 2007}
+\documentclass[12pt,twoside]{memoir}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage[usenames]{color}
+\usepackage{xltxtra}
+\usepackage{fontspec}
+\usepackage{textcomp}
+\usepackage{pstricks}
+\usepackage{listings}[2000/08/23] 
+
+\usepackage{rotating}
+\usepackage{exercise}
+% ----- Fonts -----
+\defaultfontfeatures{Scale=MatchLowercase,Mapping=tex-text}
+\setmainfont{Gentium Book Basic}
+\setmonofont{Bitstream Vera Sans Mono}
+\setsansfont{Arial}
+% ----- Fonts -----
+
+\definecolor{nicered}{rgb}{.647,.129,.149}
+\definecolor{listinggray}{gray}{0.1}
+\definecolor{templategrey}{gray}{0.85}
+\definecolor{NewtonsApple}{gray}{.95}
+\definecolor{commandlinebackground}{gray}{.90}
+\definecolor{commandlineforeground}{gray}{0.20,}
+\definecolor{commandpromptforeground}{gray}{0.55}
+
+\newcommand\code[1]{\lstinline^#1^}
+\newcommand\fname[1]{\texttt{#1}}
+\newcommand\note[1]{\unskip\footnote{#1}}
+\newcommand\foreign[1]{\emph{#1}}
+\newcommand\ensurecomma{%
+  \@ifnextchar,{}{\@latex@error{Don’t forget the comma!}{}}}
+\newcommand\eg{\foreign{e.g.}\ensurecomma}
+\newcommand\ie{\foreign{i.e.}\ensurecomma}
+\newcommand\cf{\foreign{cf.\@}}
+
+\newcommand\ensuresingleperiod{\@ifnextchar.{}{.\@}}
+\newcommand\etc{\foreign{etc}\ensuresingleperiod}
+\newcommand\etal{\foreign{et al}\ensuresingleperiod}
+
+\DeclareGraphicsExtensions{.eps,.pdf,.png,.gif,.jpg}
+
+\newcounter{ProgrammingProblem}
+\setcounter{ProgrammingProblem}{0}%
+
+\newenvironment{LabExercises}{%
+\renewcommand{\ExerciseListName}{Question}%
+\renewcommand{\ExerciseListHeader}{\textbf{%
+   Checkpoint\ExerciseHeaderNB. }}
+\begin{ExerciseList}}%
+{\end{ExerciseList}}
+\newcommand{\LabExercise}{\Exercise[name={Lab Phase\ExerciseHeaderNB},counter={ProgrammingProblem}]}
+
+
+\lstset{language=java,
+  basicstyle=\small\ttfamily,
+  numbers=left, 
+  numberstyle=\tiny, 
+  stepnumber=1, 
+  numbersep=5pt,
+  frame=single,
+  captionpos=b,
+  rulecolor=\color{nicered}
+}
+
+\lstdefinelanguage{cline}
+{
+  morecomment=[s][\color{commandpromptforeground}]{ }{ },
+} 
+
+\lstnewenvironment{commandline}[1][]
+  {\lstset{language=cline,numbers=none,frame=none,backgroundcolor=\color{commandlinebackground},basicstyle=\color{commandlineforeground},nolol,#1}}
+  {}
+
+\setlength{\hoffset}{0in}
+\setlength{\voffset}{0in}
+\settypeblocksize{9.5in}{7.5in}{*}
+\setlrmargins{0.5in}{*}{1}
+\setulmargins{0.75in}{*}{*}
+\setheadfoot{\onelineskip}{2\onelineskip}
+\checkandfixthelayout
+
+\begin{document}
+
+\title{CIS 201 Fall 2008: Lab 2}
+\maketitle
+
+\begin{itemize}
+\item Creating a class in \fname{emacs}
+\item Using the keyboard in FANG
+\item Using variables
+\item Writing JavaDoc formatted comments
+\item \emph{What} to comment
+\item Identifying what code does what
+\item Looking up features in documentation
+\end{itemize}
+
+\begin{figure}[htb]
+  \begin{center}    
+    \includegraphics[width=6in]{Drawings/catnip-design}  
+    \caption{Catnip Game Design}
+  \label{fig:login}
+  \end{center}
+\end{figure}
+
+\begin{LabExercises}
+\LabExercise Create a new game called \code{Catnip}
+
+Remember: All Java programs are built in \emph{classes} (each new game
+is a new \emph{type}). A class file is a file with the same name as
+the class and a \fname{.java} extension. Go into your \fname{CS1}
+directory\note{Of course, if you were not the typing partner on Lab 1,
+you will want to \emph{create} the directory \fname{CS1} before you
+try changing to it.}, create a new directory for \fname{Lab2}:
+
+\begin{commandline}
+ laddbc@admin-156-97:~$ cd CS1
+ laddbc@admin-156-97:~/CS1$ mkdir Lab2
+ laddbc@admin-156-97:~/CS1$ cd Lab2
+ laddbc@admin-156-97:~/CS1/Lab2$ 
+\end{commandline}
+
+Starting \fname{emacs} is as easy as typing the name of the editor in
+the command shell. Last lab we saw that it is possible to include the
+name of a file on the command line (to open an existing file or, if
+the named file does not exist, to create an empty file with a given
+name). While that would work for this lab as well, we will try
+something a little bit different, creating the file through the
+various \fname{emacs} menus.
+
+When \fname{emacs} opens, it is about 35 lines high. This value was
+set as part of the initialization of \fname{emacs} so that the windows
+fit on the monitors in the classroom. You might be more productive
+if you're able to see more lines at a time. Move your mouse pointer
+over the bottom border of the \fname{emacs} window, click with the
+first mouse button, and pull it downward to about double the original
+height.
+
+Now, go to the \textbf{File $|$ JDE New} menu. Remember that
+\emph{JDE} is the Java Development Environment in \fname{emacs}. The
+new file types here are Java files of various types. Note in the
+submenu that appears when you select \textbf{JDE New} there are
+several choices. We want to create a new \code{class} so select
+\textbf{Class...}
+
+When you select the class entry, you will see the cursor in the
+minibuffer at the bottom of the \fname{emacs} window, prompting you
+for the name of the file to create. It should be in the \fname{Lab2}
+directory (where you launched \fname{emacs}). We want
+\fname{Catnip.java}.
+
+After you press \fname{<Enter>}, \fname{emacs} will prompt for the
+``package'' you want to put your new class in. Just press
+\fname{<Enter>} again. Then you will be asked what class this class
+``extends''; remember that our new class is based on some other
+class. In this case, \code{Catnip} is based on \code{Game}. Type
+\fname{Game} and press \fname{<Enter>}. There will be a pause as
+\code{emacs} fires up an internal Java compiler so that it can
+check out the class you named.
+
+A \fname{Dialog} window should open permitting you to select between
+two classes (with the name \fname{Game}): \fname{fang.core.Game},
+\fname{fang.experimental.Game}. You should select \fname{core} and
+move the cursor to  \fname{Ok} and press \fname{<Enter>}. Finally,
+you're asked what interfaces the new class ``implements''; just press
+\fname{<Enter>} to ignore the question. Your buffer should look
+something like this:
+
+\begin{lstlisting}
+import fang.core.Game;
+
+/**
+ * Describe class Catnip here.
+ *
+ *
+ * Created: Tue Sep  2 09:37:57 2008
+ *
+ * @author <a href="mailto:laddbc@potsdam.edu">Brian Ladd</a>
+ * @version 1.0
+ */
+public class Catnip extends Game {
+
+}  
+\end{lstlisting}
+
+\fname{emacs} took care of the \code{import} statement (which permits
+Java to find the definition of the \code{Game} class). It also
+inserted the main \code{class} container. 
+
+What are lines 3-11 all about? \fname{emacs} colors them
+just the same as it would all text after a \code{//} on a line. That
+was a \emph{comment}. In Java there are two different types of
+comments: end-of-line comments and multi-line comments. The \code{//}
+we saw before shows an end-of-line comment. These are for short
+comments explaining a single line. For longer comments, Java defines
+everything from \code{/*} to \code{*/} to be comment. Java views
+comments as empty lines; comments are there for human beings to read.
+
+The comment starting on line 3 is a \emph{header} comment for the
+whole file. It explains what this class is, what it does, and why it
+was written. This comment is the first place a new programmer on a
+project will go to find out if this is the right place to fix some
+problem they were assigned. Thus this comment is being written for
+someone \emph{just like you}. They know just as much Java as you do so
+you don't have to explain every little thing but they wonder what you
+were thinking when you wrote this comment.
+
+Thus you want to \emph{document your intent}. This means tell the
+human reader what the program (or method or variable) is
+\emph{for}. This program implements the game sketched in the diagram
+at the beginning of the lab; you want to briefly describe the game
+design and, perhaps, refer the reader to this lab document. You want
+to replace the ``Describe class Catnip here.'' text with something meaningful.
+
+If you're going to write a moderately long comment, you can just keep
+typing (\fname{emacs} will not start new lines for you in Java
+mode). When you're finished, select \textbf{Java $|$ Fill Comment
+  Paragraph} and it will wrap the comment and put in all the leading
+stars. You can use this whenever you change comments so that you don't
+get bogged down in formatting the comment. A possible comment (after
+formatting, might be something like: 
+
+\begin{lstlisting}[numbers=none]
+/**
+ * Catnip is a game using FANG. There are three sprites: a catsitter
+ * that bounces up and down on the left edge of the screen and a cat
+ * that bounces up and down on the right. The goal is to toss a bag of
+ * catnip to the cat. The catnip is launched by pressing <space>.
+ *
+ *
+ * Created: Tue Sep  2 08:00:57 2008
+ *
+ * @author <a href="mailto:laddbc@potsdam.edu">Brian Ladd</a>
+ * @version 1.0
+ */
+\end{lstlisting}
+
+The \code{\@author} and \code{\@version} lines are used by a special
+Java tool, \fname{javadoc}, when generating documentation from the
+Java code.
+
+\LabExercise Add variables
+
+This program has three sprites, two \code{RectangleSprite}s and one
+\code{OvalSprite}. Variables are labels that permit us to 
+refer to specific objects. Using the car analogy, a \code{class} is
+the design book for a make of car, an \emph{object} (created with
+\code{new}) is a specific car, and a variable is like a license plate,
+a way to refer to a specific car.
+
+Variables are declared by specifying their name and their type. They
+must be declared inside of a block (between two curly braces); they
+are generally \emph{visible} anywhere within the block where they are
+defined (including in sub-blocks defined within that block).
+
+We want to use our sprites in both the \code{setup} and \code{advance}
+methods, both of which will be defined within the class block. Thus
+our variables for these three sprites belong at the class level. You
+could put them between the \code{public class...} line and the
+closing curly brace of the class. Naming variables is important: you
+want to use meaningful variable names. Java is case sensitive in
+naming and permits any sequence of a letter or underscore followed by
+any number of letters, underscores, or digits for a valid name. 
+
+So, what should we name our three variables? One represents a cat, one
+a cat sitter, and on a bag of catnip. Variable names should begin with
+lowercase letters (\code{class} names should begin with uppercase
+letters) and we use internal capitalization to differentiate
+words. This is a convention, not a Java requirement. So, how about
+something like
+
+\begin{lstlisting}[numbers=none]
+private RectangleSprite catSitter;
+private RectangleSprite cat;
+private OvalSprite catnip;
+\end{lstlisting}
+
+Variable declarations take the name of a type, some space, and the
+name of the variable. This gives us a license plate (with the name
+``cat'' on it, for example). Now we need to build a car and attach the
+label to it.
+
+You should try to compile the code. If you, like me, forgot to add
+\code{import} statements for the types of these variables, you will
+get a lot of errors. Add the lines
+
+\begin{lstlisting}[numbers=none]
+import fang.sprites.OvalSprite;
+import fang.sprites.RectangleSprite;
+\end{lstlisting}
+
+\LabExercise Add the  \code{setup} method. 
+
+\code{setup} is defined (as an empty method) in \code{Game}. You can
+type in the signature for the method (if you remember what it is) or
+you can take a moment and look up what the method signature is. The
+local FANG library's documentation is stored on the \fname{db} server,
+just like Moodle (and there is a link from the class Moodle page,
+too): \fname{http://db.cs.potsdam.edu/fangdocs/}.
+
+The documentation comes up in a window that has a big list of lots of
+things. We are interested in the class \fname{fang.core.Game} so click
+on one of the \fname{fang.core} links to limit the view to that
+package\note{Yep, when \fname{emacs} asked what package you wanted
+  your class in, it was asking if you wanted some thing like
+  \fname{fang.core}; we will explore packages near the end of
+  class.}. Now you should see the \fname{Game} class in the right-hand
+pane. Click on it. This provides the documentation generated from
+comments in that class (bet it needs some more documentation...what do
+you think?).
+
+If you page down the page you will find that \code{setup} returns the
+\code{void} type and has an empty parameter list. We have to remember
+that the method must be \code{public} for the game to call it. So our
+method signature is 
+
+\begin{lstlisting}[numbers=none]
+public void setup() 
+\end{lstlisting}
+
+Add the block (paired curly braces) after that. You should now compile
+your program. It does nothing but if there are errors you don't have
+much code to check.
+
+\LabExercise Create the three sprites inside the \code{setup} method
+
+Looking at the \fname{fang.sprites} page of the documentation, the
+\code{OvalSprite} constructor takes a width and a height for the
+sprite. We want a small catnip bag so make it 0.05 in each dimension.
+
+Similarly, \code{RectangleSprite} takes width and height (in
+screens). Let's make the cat and the sitter each 0.10 screens square.
+
+Let's make the cat white, the sitter green, and the catnip red. Let's
+also add all three to the screen. 
+
+We should also set the locations. Let's put the cat and sitter 0.10
+screens from the right and left sides of the screen (refer to the
+design diagram if you need to) and start them centered vertically. We
+don't want to see the catnip right now so don't bother setting the
+location but do turn it invisible.
+
+How would you change the visibility of a \code{OvalSprite}? Looking at
+the documentation, there do not appear to be any methods defined for
+the type \code{OvalSprite}. But \code{OvalSprite extends Sprite}. That
+is, looking at the documentation for \code{OvalSprite}, there are a
+lot of methods \emph{inherited} from \code{fang.core.Sprite}. Look up
+\code{Sprite}  and scan the methods. Which would you use to set the
+visibility? \code{setVisible} seems like a good candidate. What is
+that ``boolean'' type of the parameter?
+
+Boolean values are truth values. They can be \code{true} or
+\code{false}. Here we want to set the sprite to not visible or make
+the call
+
+\begin{lstlisting}[numbers=none]
+catnip.setVisible(false);
+\end{lstlisting}
+
+Now \code{setup} should be about 11 lines of code. As with comments
+and indenting, you should use blank lines to make your code easier to
+read. So your method should look something like this:
+
+\begin{lstlisting}[numbers=none]
+  public void setup() {
+    cat = new RectangleSprite(0.10, 0.10); // create a square
+    cat.setLocation(0.9, 0.5);             // on the right
+    cat.setColor(getColor("white"));       // for white cat
+
+    catSitter = new RectangleSprite(0.10, 0.10); // square
+    catSitter.setLocation(0.1, 0.5);             // left
+    catSitter.setColor(getColor("green"));       // green sitter
+
+    catnip = new OvalSprite(0.05, 0.05);   // small circle
+    catnip.setVisible(false);              // initially invisible
+
+    addSprite(cat);
+    addSprite(catSitter);
+    addSprite(catnip);
+  }
+\end{lstlisting}
+
+\LabExercise Make the cat move
+
+We want the cat to move up and down. That means two things: we need to
+have code in the program to advance every frame \emph{and} we need to
+keep track of whether the cat is moving up or down.
+
+How do we keep track of anything? In the computer we use a
+variable. So, lets create a numeric variable to hold the cat's current
+speed. That way we can make it a positive number to move him down and
+a negative number to move him up. That makes bouncing easy (just
+change the sign). What units is speed measured in?
+
+That's right, distance per time. We will want to use screens per
+second. How about two seconds per screen? What is that in screens per
+second?
+
+Okay so we need a new variable (up with the other variables) and we
+need to initialize it in \code{setup} and we need a new method,
+\code{advance}.
+
+First the two lines for declaring and initializing:
+
+\begin{lstlisting}[numbers=none]
+private double catSpeed;
+\end{lstlisting}
+
+\begin{lstlisting}[numbers=none]
+catSpeed = 0.5;
+\end{lstlisting}
+
+The dots mean the two lines are not next to each other; the first is
+with the variable declarations, the other inside \code{setup}.
+
+Looking at the last lab, the signature for \code{advance} is 
+
+\begin{lstlisting}[numbers=none]
+public void advance(double secondsSinceLastCall)
+\end{lstlisting}
+
+So we add this method to our code and look at how to move a sprite
+(that is in the lab code, too):
+
+\begin{lstlisting}[numbers=none,  frame=TRBL,backgroundcolor=\color{NewtonsApple}]
+apple.translateY(0.33 * secondsSinceLastCall);
+\end{lstlisting}
+
+(from \code{advance} in \fname{NewtonsApple}). What does it mean? The
+dot notation says we are asking an object, \code{apple} to perform the
+\code{translateY} method (or follow the rules with that
+name). \code{translateY} (in \code{Sprite}) says that it `` moves
+sprite vertically relative to currrent location''. Thus we tell it how
+far, in screens, to move the sprite. So \code{secondsSinceLastCall} is
+provided by FANG and is used to make sure the sprite moves the right
+amount no matter how fast your computer. We multiply time (that
+parameter) by speed and we get...(distance/time * time =
+distance)...distance! Just what \code{translateY} expects.
+
+So, we can just put the line
+
+\begin{lstlisting}[numbers=none]
+cat.translateY(catSpeed * secondsSinceLastCall);
+\end{lstlisting}
+
+Do that and run your program. The cat runs off the bottom of the
+screen (and just keeps running where you cannot see it). 
+
+How do we make him bounce? How about looking at \fname{NewtonsApple}
+again. In there, which code makes the apple hit the ground? There is
+an \code{if} statement in the \code{advance} method that looks like
+this:
+
+\begin{lstlisting}[numbers=none,frame=TRBL,backgroundcolor=\color{NewtonsApple}]
+if (apple.getY() >= 1.0) {
+  updateScore();
+  dropApple();
+}
+\end{lstlisting}
+
+What happens is the position of the apple is checked and if its center
+has hit the ground (remember, bottom of screen's y-coordinate is 1.0;
+top is 0.0); if it \emph{has}, then the y-coordinate of the sprite is
+greater than or equal to (written in Java as \code{>=}) 1. If (and
+only if) the expression is true, the code inside the block of the
+\code{if} statement is executed.
+
+We need to figure out what we want to do when we hit bottom. Wait, we
+want the cat to turn around: change \code{catSpeed} to
+\code{-catSpeed} (half a screen a second down into half a screen a
+second up). 
+
+\begin{lstlisting}[numbers=none]
+if (cat.getY() >= 1.0) {
+  catSpeed = -catSpeed; // reverse the cat
+}
+\end{lstlisting}
+
+Run the program. What does the cat do now? Runs down the screen,
+turns, and runs up and off the screen. We only check for hitting the
+bottom edge. Let's change that. We want to revers the cat if it is
+below the bottom edge \emph{or} above the top edge. That can be
+written using the symbol \code{||} (two vertical bars) which means or
+in Java. So if cat is below bottom \emph{or} above the top is
+
+\begin{lstlisting}[numbers=none]
+((cat.getY() >= 1.0) || (cat.getY() <= 0.0))
+\end{lstlisting}
+
+This is true if either the first expression is true \emph{or} the
+second expression is true \emph{or} they are both true at the same
+time. They can't both be true in this case but we will see
+circumstances where they could both be true. Now the cat will bounce
+up and down (if we put that in the \code{if} statement).
+
+\LabExercise Make the sitter bounce; start sitter moving upwards.
+
+You will need another variable, another initialization, and another
+\code{if} statement. Have both bouncing.
+
+\LabExercise Throw catnip!
+
+How to throw catnip. We need to have catnip move horizontally. We can
+set up the catnip sprite so that it moves (at some speed) using a
+variable and the \code{translateX} method. So add a variable,
+\code{catnipSpeed}, initialize it to 1.0 screens per second (faster
+than our other sprites).
+
+The only difference is that we don't want the catnip moving unless it
+has been thrown. And if it has been thrown, the player cannot throw
+another until the current one goes to the cat (for a point) or goes
+off the screen (for no point). So, we will check whether or not the
+catnip is visible and if it is, move it and check if it hit the cat or
+went off the screen. Sounds familiar: this is just what happened with
+the apple in the last lab (with x-coordinates instead of
+y-coordinates).
+
+\begin{lstlisting}[numbers=none,caption=Need to handle score here]
+// inside advance
+if (catnip.isVisible()){
+  catnip.translateX(catnipSpeed * secondsSinceLastCall);
+  if (catnip.getX() >= 1.0) {
+    catnip.setVisible(false);
+  }
+  if (catnip.intersects(cat)) {
+    catnip.setVisible(false);
+    // NEED TO HANDLE SCORE HERE (filled in on last page)
+  }
+}  
+\end{lstlisting}
+
+Why do we just set visible to false when the catnip disappears? In the
+apple program we called \code{dropApple}. Here we don't want to launch
+more catnip until the user says so. So we just turn off the catnip.
+
+How do we launch catnip? We want the user to press \code{[Space]} to
+launch it. Thinking in terms of the main game loop, we want to check
+if they pressed that key \emph{when we are updating the game
+  state}. That means we want to check in \code{advance}.
+
+\code{Game} provides a \code{getKeyPressed()} method that gives us the
+character that the user pressed. We can check that against a space. If
+they are the same, then the user pressed space (and we handle it):
+
+\begin{lstlisting}[numbers=none]
+if (getKeyPressed() == ' ') {
+  // DO SOMETHING! (filled in below)
+}
+\end{lstlisting}
+
+First, \code{==} should be read as ``is equal to'' and it is a
+comparison. So, if the character pressed by the user is equal to a
+space (yep, a single space between those two single primes), then do
+the code in the \code{if}. No code to do, yet, hence the comment.
+
+What to do? Well, if the catnip is not already flying, make it fly
+from where the sitter is. That is, move the catnip to the sitter and
+make it visible \emph{if} it is not already visible.
+\begin{lstlisting}[numbers=none]
+if (getKeyPressed() == ' ') {
+  // DO SOMETHING!
+  if (!catnip.isVisible()) {
+    catnip.setLocation(catSitter.getLocation());
+    catnip.setVisible(true);
+}
+\end{lstlisting}
+
+So, compile and run.
+
+\LabExercise Keep score.
+
+Let's just keep track of successful catnip deliveries. So we make a
+\code{StringSprite}, position it, and we make and call an
+\code{updateScore} method.
+
+\code{score} is an integer (\code{int}) initialized to 0. Position the
+score string sprite near the bottom of the screen (create it in
+\code{setup} and call \code{updateScore} from there and whenever the
+score changes).
+
+The update method can almost be stolen from the last lab. We just want
+the number of hits, though, so we will just make the score from one
+integer variable. The \code{" "} on either side of the score is to
+make it compile right. Where on the screen does the score appear?
+Against the bottom edge means the y-coordinate of the center is half
+the height of the sprite \emph{above the bottom}. Centered
+horizontally is easy.
+
+\begin{lstlisting}[numbers=none]
+public void updateScore() {
+  displayScore.setText(" "+score+" ");
+  displayScore.setLocation(0.5, 
+                           1.0 - displayScore.getHeight() / 2);
+}
+\end{lstlisting}
+
+Now when the catnip hits the cat, increment score and call
+\code{updateScore}. If you look back to the listing labeled ``Need to
+handle score here'', you'll find that two lines (labeled 1 and 2
+below) need to be inserted, as shown here:
+
+\begin{lstlisting}[numbers=none]
+if (catnip.intersects(cat)) {
+  catnip.setVisible(false);
+  // NEED TO HANDLE SCORE HERE
+  score = score + 1; // <-- 1
+  updateScore();     // <-- 2
+}
+\end{lstlisting}
+
+Now you have a game. 
+
+\LabExercise Upload \fname{Catnip.java} 
+
+Go to Moodle; you will find an assignment in week 2 labeled
+\textbf{Lab2}. Go there and upload \fname{Catnip.java}. Note
+that there will be other files in that directory. You want to make
+sure you upload just the \fname{.java} file.
+
+\end{LabExercises}
+
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% End: 
+
+% LocalWords:  Moodle Ladd's login emacs

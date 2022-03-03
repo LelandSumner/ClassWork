@@ -1,0 +1,171 @@
+\documentclass[12pt,twoside]{memoir}
+\usepackage{graphicx}
+\usepackage[usenames]{color}
+\usepackage{listings}[2000/08/23] 
+
+\usepackage{exercise}
+
+\definecolor{nicered}{rgb}{.647,.129,.149}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{templategrey}{gray}{0.30}
+\definecolor{commandlinebackground}{gray}{0.25}
+\definecolor{commandlineforeground}{gray}{0.85}
+\definecolor{commandpromptforeground}{gray}{0.55}
+
+
+\DeclareGraphicsExtensions{.eps,.pdf,.png,.gif,.jpg}
+
+
+% ---------- listing code parameters
+\lstset{language=java,
+  basicstyle=\small\ttfamily,
+  numbers=left, 
+  numberstyle=\tiny, 
+  stepnumber=1, 
+  numbersep=5pt,
+  frame=single,
+  captionpos=b,
+  rulecolor=\color{nicered}
+}
+
+% ----- Command-line listing language
+\lstdefinelanguage{cline}
+{
+  morecomment=[s][\color{commandpromptforeground}]{\~}{\%},
+}
+
+% ----- Command-line environment 
+\lstnewenvironment{commandline}[1][]
+  {\lstset{language=cline,numbers=none,frame=none,backgroundcolor=\color{commandlinebackground},basicstyle=\color{commandlineforeground},nolol,#1}}
+  {}
+
+\newcommand{\artDir}{../art}
+\newcommand{\lab}[1]{%
+\title{CIS 201 Computer Science I\\Fall 2009 Lab #1}%
+\maketitle%
+}
+
+\setlength{\hoffset}{0in}
+\setlength{\voffset}{0in}
+\settypeblocksize{9.5in}{7.5in}{*}
+\setlrmargins{0.5in}{*}{1}
+\setulmargins{0.75in}{*}{*}
+\setheadfoot{\onelineskip}{2\onelineskip}
+\checkandfixthelayout
+
+\begin{document}
+
+\lab{01a}
+
+\begin{itemize}
+\item Learn to log into your Linux account.
+\item Learn to log into your Moodle account.
+\end{itemize}
+{\color{templategrey}
+\begin{itemize}
+\item Learn where class resources reside on the Linux boxes.
+\item Learn how to create and navigate directories.
+\item Learn how to start (and stop) the Emacs text editor.
+\item Learn how to start a \texttt{.java} file.
+\item Learn how to compile a \texttt{.java} file to produce a
+  \texttt{.class} file.
+\item Learn how to run a \texttt{.java} (or rather, \texttt{.class}) file.
+\item Learn how to use a Java class file as a \emph{template}.
+\item Learn how to correct \emph{compiler errors}.
+\end{itemize}
+}
+
+\begin{Exercise}[name={Checkpoint},title={Log into your Linux account.}]
+
+  All labs in CIS 201 are to be done in pairs. One student should log
+  on and create the appropriate directories and files in their
+  computer space. When the lab is done, the other partner should get a
+  copy of the files.
+
+  Find your partner: each week are assigned a partner selected
+  at random from the rest of the class (avoiding duplication of
+  previous partners if possible). The two of you should sit down in
+  front of one machine in Dunn 358 (\emph{aka} the ``Linux Lab'', the
+  ``CS Lab'', or just the ``Lab''). You may have to press a key on the
+  keyboard or move the mouse to ``wake up'' the machine.
+
+  \textbf{You should never turn off the computers in the lab.} They
+  are a departmental resource and others could be logged in to any
+  given machine remotely. You should never \emph{need} to turn a lab
+  machine on.
+
+  When the screen comes on there is a login prompt. Type in your
+  \emph{campus computing account} username and password (the password
+  types as dots to prevent anyone reading it over your
+  shoulder). Press \texttt{Enter} or click on the \texttt{Login} button.
+
+  You are now logged into the machine and see the \emph{XWindows
+    Desktop}. It is similar to other operating system's desktop: there
+  are windows, icons, a menus, and a pointer\footnote{a standard
+    W.I.M.P. interface}. The menu in the upper left corner contains
+  applications that you can run including the \textbf{Accessory $|$
+    Terminal} and the \emph{Firefox} Web browser.
+\end{Exercise}
+\noindent
+\textbf{Show your work on Checkpoint~\theExercise{} to the lab monitor;
+  have them sign off on it before continuing.}
+
+\begin{Exercise}[name={Checkpoint},title={Log into Moodle}]
+
+  Moodle is a Web-based classroom management system. What that means
+  is that slides, schedules, notes, resources, grades, and even labs
+  for this course (or any CS course, for that matter) can be stored on
+  Moodle. Navigate on the Web to the CS Department's Moodle pages,
+  to this class's Moodle site, create an account, log into
+  the class, and retrieve and print the remainder of this lab.
+
+  The Firefox Web browser is installed on the Linux machines. You can
+  find it in the \textbf{Applications} entry in the menu. Launch the
+  Web browser.
+
+  The Web address of Moodle is:
+  \texttt{http://db.cs.potsdam.edu/moodle/}. On that page are
+  find entries for several courses. You want to find \emph{CIS~201}
+  (it should be the first \textbf{Available Course}). Follow the link
+  to \emph{CIS~201}.
+
+  You need to create a \emph{New Account} on Moodle (button to the
+  lower right). Provide your \emph{campus computing account} user name
+  and your \emph{campus e-mail address} as your e-mail address. The
+  partner who is not logged in must also create an account on Moodle;
+  there is an assignment posted on Moodle due next week.
+
+  Moodle sends a registration e-mail to the e-mail address
+  provided. Follow the directions in it to finish creating your
+  account.
+
+  When you have an account and click on the course link, Moodle
+  prompts you for an \emph{Enrollment Key}. The key keeps random
+  people from reading our course content (and hopefully keeps spammers
+  out as well). The key for this course is \texttt{FANG} (one word, no
+  spaces). You should only be prompted for the key once per course at
+  the beginning of the semester.
+
+  The course homepage on Moodle has the  \textbf{Weekly
+    Outline} with the course schedule, assignments, readings, and
+  other resources by week. In the first week there are two links,
+  \textbf{Lab01a} (points to a \texttt{.pdf} version of this document)
+  and \textbf{Lab01b}. Download the \texttt{.pdf} file of the second
+  half of the lab and continue from there. 
+
+  If you go to the first week (, you will see a
+  link labeled \textbf{Lab 1b}. Download that link and continue your
+  lab from there.
+\end{Exercise}
+\noindent
+\textbf{Show your work on Checkpoint~\theExercise{} to the lab monitor;
+  have them sign off on it before continuing.}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
+
+% LocalWords:  Moodle Ladd's login

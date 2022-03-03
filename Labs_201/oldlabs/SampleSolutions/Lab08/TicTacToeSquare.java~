@@ -1,0 +1,36 @@
+import fang.sprites.*;
+
+public class TicTacToeSquare 
+    extends CompositeSprite {
+    
+    private TicTacToe theGame;
+    private RectangleSprite background;
+    private StringSprite displayContent;
+    private String content;
+
+    public TicTacToeSquare(TicTacToe someGame) {
+	theGame = someGame;
+	content = " ";
+	background = new RectangleSprite();
+	background.setColor(theGame.getColor("black"));
+	addSprite(background);
+	
+	displayContent = new StringSprite(content);
+	displayContent.setColor(theGame.getColor("red"));
+	addSprite(displayContent);
+    }
+
+    public String getContent() {
+	return content;
+    }
+
+    public void advance(double dT) {
+	if (content.equals(" ")) {
+	    if (theGame.mousePressed()) {
+		if (intersects(theGame.getMousePressed2D())) {
+		    content = theGame.getTurn();
+		    displayContent.setText(content);
+		}
+	    }
+	}
+    }

@@ -1,0 +1,386 @@
+\documentclass[12pt]{article}
+
+\pagestyle{plain}
+\oddsidemargin 0in       %   Left margin on odd-numbered pages.
+\evensidemargin 0in        %   Left margin on even-numbered pages.
+\textwidth 6.5in
+\textheight 9in
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+
+\usepackage[T1]{fontenc}
+\usepackage{pslatex}
+%\renewcommand*{\familydefault}{\sfdefault}
+
+\usepackage{verbatim}
+\newenvironment{qv}%
+  {\quote
+   \verbatim}%
+  {\endverbatim
+   \endquote}
+
+\newcommand{\exx}{\\[2ex]}
+\newcommand{\code}{\texttt}
+\newcommand{\fname}{\texttt}
+\newcommand{\eg}{{\em e.g.}}
+
+\parskip 2ex
+\parindent 0em
+
+\newcommand{\ttt}{Tic-Tac-Toe}
+
+
+\begin{document}
+\sloppypar
+
+\begin{center}
+\Large\bf
+CIS 201 -- Computer Science I\\
+Laboratory Assignment 11\\
+\end{center}
+
+\section*{Introduction}
+In this lab you will work with classes
+to implement a \ttt\ game in FANG.
+This game will use components with ``state'' --
+that is, components that contain information
+about themselves in relation to the game.
+\section*{Strategy}
+Consider how you might make a simple version of \ttt:
+your \code{Game} creates and positions nine sprites on the screen.
+Each sprite corresponds to one of the nine squares in the game.
+Then, in \code{advance}, you would check for mouse clicks,
+determining if any of the sprites was clicked on.
+If one is clicked \emph{and} it is empty,
+you would update the sprite with the current player's symbol
+and change whose turn it is.
+Along the way, you would check for winning and draws (Cat's game).
+
+Think about how your \code{advance} would look.
+Assuming the sprites are in an \code{ArrayList},
+there would be a big loop with many nested
+\code{if} statements in it to check for a winner or a draw.
+But this code would be too complex to hold in your mind, all at once.
+
+Programmers respond to this sort of complexity by {\em abstration}:
+that is, hiding the details of some rule or some component
+by writing methods with descriptive names
+that express a solution to the problem,
+and then by filling in the details of these methods at another time.
+Abstraction can also be achieved
+by breaking responsibility for the solution to the problem
+across multiple components.
+
+The ``simple'' approach given above is difficult
+because the \ttt\ game would be responsible
+for handling both game-level details
+\emph{and} square-level details.
+A {\em separation of responsibility} is possible
+if we build ``smart'' squares that can handle the square-level details
+and then let the game handle the game-level details.
+This is a standard technique in object-oriented design,
+the creation of objects that ``know what to do''.
+\vspace*{-1ex}
+
+\subsection*{Checkpoint 1}
+\vspace*{-1ex}
+{\bf
+Write down what activities a \ttt\ game must support.
+Divide up your list into game-level and square-level activities.
+Ask yourselves the following questions:
+}
+\vspace*{-2ex}
+\begin{itemize}
+\itemsep -1ex
+\item {\bf What should a square know (properties) and do (methods)?}
+\item {\bf What should the game know and do that a square doesn't?}
+\end{itemize}
+{\bf 
+Show us your work when you are done.
+} 
+\clearpage
+\section*{Desigining smart squares}
+
+We will assume that each {\em square} is responsible for:
+\begin{itemize}
+\item Advancing the state of the square:
+  \begin{itemize}
+  \item Checking if the square has been clicked.
+  \item If the square has been clicked,
+    checking whether it is legal to have clicked on the square
+    (it is not legal if the square is not empty)
+  \item If clicking on the square is legal,
+    updating the current state of the square (\verb'X' or \verb'O')
+    based on the current player,
+    and reporting that an update has been made.
+  \end{itemize}
+\item Reporting on the current state
+  of the square (blank, \verb'X', or \verb'O').
+\end{itemize}
+
+The {\em game} is then responsible for
+\begin{itemize}
+\item Setting up the game: creating the squares, scaling and
+  positioning them (in \code{setup}).
+\item Advancing every square every frame, and changing the player
+  if the square has been updated.
+\item Showing the game status (whose turn it is, etc.)
+\item Reporting on the current player (``X'', ``O'').
+\item Ending a turn.
+  \begin{itemize}
+  \item Checking if the current player has won.
+  \item Checking if there is a cat's game.
+  \item Otherwise, change which player's turn it is.
+  \end{itemize}
+\end{itemize}
+
+This lab builds two cooperating classes, \code{TicTacToe} and
+\code{TicTacToeSquare}, each fulfilling one of these sets of
+requirements.
+
+Note \emph{how} the two classes cooperate:
+A \code{TicTacToe} object will need
+references to all of the squares so that it can call \code{advance}
+for each of them;
+A \code{TicTacToeSquare} object needs a reference to the game
+of which it is a part to be able to check for mouse clicks
+and to determine whose turn it is,
+when it needs to be updated.
+This means that, like the \code{OneDie} class,
+squares will be constructed with a reference to the game object.
+
+Create a suitable directory (\verb'Lab11')
+in which you will do your work.
+
+Start editing the \code{TicTacToe} and \code{TicTacToeSquare} classes.
+The first class should extend \code{Game},
+and the second should extend \code{CompositeSprite}.
+You will be building this game one piece at a time.
+First, you will get the squares to draw in the right places.
+Then you will make the squares aware of mouse clicks.
+And finally you will make the game check for end-of-game
+conditions. 
+
+\code{TicTacToeSquare} should create a rectangle sprite of a somewhat dark
+(non-black) color. You will add the ``X'' and ``O'' sprites later.
+This means writing a \emph{constructor} for the class;
+there is no need for anything else right now.
+
+You will need to decide what \emph{parameters} the constructor requires.
+Since a \code{Game} is required for getting colors
+(and, eventually, checking for mouse clicks and determining whose turn it is),
+you should pass in the game when constructing a square.
+You will need a field of type \verb'Game'
+in the \code{TicTacToeSquare} class to refer to the game,
+perhaps something like this:
+
+\begin{qv}
+private Game theGame;
+\end{qv}
+
+In the \code{setup} method in the \code{TicTacToe} class,
+you will call the constructor with something like this:
+
+\begin{qv}
+TicTacToeSquare someSquare = new TicTacToeSquare(this);
+\end{qv}
+
+The reference to the \code{Game} makes it possible
+to get colors, to get mouse clicks, and to check whose turn it is.
+
+Your \code{setup} method in \code{TicTacToe}
+should construct nine \code{TicTacToeSquare} objects
+and put them in an \code{ArrayList}.
+The squares should be distributed in a 3-by-3
+grid centered at the top of the game canvas.
+(You will need some of the other canvas real estate
+to show the player status and other information.)
+Each of the objects should be 0.20 screens square
+(use the \code{setScale} method).
+The centers of the squares in the rows and columns
+should be 0.25 apart --
+at $x$-coordinates 0.25, 0.50, and 0.75 for the columns,
+and at $y$-coordinates 0.15, 0.40, and 0.65 for the rows.
+Add them to the \code{ArrayList}
+so that the top left square is the first to be added,
+the top middle square is next, and so forth,
+so that the bottom right is last.
+
+You should also need to create a field variable \code{turn} to keep track
+of which player's turn it is.
+Use zero (0) for ``X'', one (1) for ``O''.
+Finally you will need , a \code{StringSprite} field variable to hold a
+status message, scale to 0.10, position at the bottom-center of screen
+at 0.9 down -- this is the the reason the board is so high.
+
+\subsection*{Checkpoint 2}
+{\bf
+Show us when you have the nine somewhat dark boxes
+located properly on the screen.
+}
+
+\section*{Status message}
+
+Create methods to update the status message.
+You will need to be able to tell the user whose turn it is,
+who won, and that the game is a draw.
+Modify your \code{setup} program
+so that it displays that player 0 (``X'') is the first to play.
+
+\section*{Square contents}
+
+A \code{TicTacToeSquare} object needs a field \code{content}
+to track its own contents --
+that is, a blank,  ``X'', or ``O''.
+You should use -1, 0, and 1 to correspond
+to blank, ``X'', and ``O'', respectively.
+Initially, make the content equal to -1 for empty.
+
+Implement \code{isEmpty} (a public, Boolean method)
+in your \code{TicTacToeSquare} class and a getter
+method for the content.
+
+To display the content, add a \code{StringSprite} field
+to your \code{TicTacToeSquare} class.
+The scale should be 1.0,
+and it should initially contain the empty string.
+Set its color to some light color
+and make sure the sprite is added to the composite sprite.
+When you set the content of your square, you will set the
+text to either \verb'X' or \verb'O'.
+
+For testing purposes,
+set the string to something like \verb'#' for testing,
+and verify that your squares will all have big \verb'#'s 
+displaying on the screen when you run your game.
+
+\subsection*{Checkpoint 3}
+{\bf
+Show us your work at this point.
+Be sure to set the string to an empty string
+before you continue to the next step.
+}
+
+\section*{Advancing each square}
+Create an \code{advance} method in \code{TicTacToeSquare}
+that will be called from \code{TicTacToe}'s \code{advance} method.
+In the \code{advance} method for a \code{TicTacToeSquare},
+do the following:
+
+\begin{qv}
+  if ((this square is empty) &&
+      (the mouse has been clicked) &&
+      (this sprite intersects the mouse click)) {
+        update content with the value of the current player
+        update appearance of StringSprite
+        call theGame.finishTurn()
+  }
+\end{qv}
+
+Now, in the \code{TicTacToe} \code{advance} method,
+call the \code{advance} method on every square on every frame.
+Also, write a stub for the method \code{finishTurn}.
+(This method should be public void with no parameters).
+
+At this point, you should have running code
+that starts out with all blank squares
+and that turns each square to an \verb'X' when you click on it.
+
+Next you should implement \code{finishTurn}
+in the \code{TicTacToe} class:
+it takes no parameters and just changes whose turn it is.
+If turn was 0, make it 1 and if it was 1, make it 0.
+
+\subsection*{Checkpoint 4}
+{\bf
+At this point your program should change empty squares alternately
+to \verb'X's and \verb'O's
+until all the squares are filled.
+Show us your work.
+} 
+
+
+\section*{Check for a win}
+
+Modify \code{finishTurn} to something like the
+following:
+
+\begin{qv}
+  if (winner()) {
+    // handle win: display a winning message and wait
+  } else if (catsGame()) {
+    // handle cat's game: display an appropriate cat's game message and wait
+  } else {
+    // change whose turn it is as before
+  }
+\end{qv}
+
+Next you need to write the two methods \code{winner} and \code{catsGame}.
+First, write stubs for them:
+each will have \code{public} visibility and will return a \code{boolean}.
+In your stubs, you should return \code{false}.
+
+\subsection*{Checkpoint 5}
+{\bf
+With these changes, your program should still behave exactly as before.
+Show us your work.
+}
+
+\section*{Checking for a cat's game and a winner}
+
+To implement your (currently stubbed out) \code{catsGame} method,
+you should look at all the squares and return \code{false}
+if any of them is empty.
+Otherwise, return \code{true}.
+Use the \code{isEmpty} method in the \code{TicTacToeSquare} class
+to check for being empty.
+
+The \code{winner} method is a touch messier.
+You will need to check for all eight possible ways
+that a game can be won.
+Given the layout of the squares in the \code{ArrayList},
+the possible combinations are
+rows $(0, 1, 2)$, $(3, 4, 5)$, and $(6, 7, 8)$.
+Similarly you can find the possible column and diagonal combinations.
+
+Write a method \code{check} that takes three integer parameters
+and checks to see if the current \code{turn}
+matches the contents of the squares at the given \code{ArrayList} positions,
+using the \code{getContents} method.
+If all of them match, return \code{true},
+otherwise return \code{false}.
+
+Now your \code{winner} method can simply call the \code{check} method
+with the parameters $(0, 1, 2)$ and so forth,
+and should return \code{true} if any of these calls returns \code{true},
+and should return \code{false} otherwise.
+If \
+
+\subsection*{Checkpoint 6}
+{\bf
+Show us your work at this point.
+}
+
+\section*{The end game}
+
+Finally, set up your program so that the game can start over.
+Add a boolean field variable \code{waiting}
+(a boolean variable is sometimes called a {\em flag})
+which is set to \code{false} in \code{setup}.
+Then, at the beginning of \code{advance},
+if \code{waiting} is \code{true}, check for the
+player pressing the space bar.
+If they do, call \code{startOver()} to restart the game.
+Otherwise, simply return from the \code{advance} method. 
+
+You should set \code{waiting} to be true
+in case either the game is won or if it's a cat's game.
+Make this change in your \code{advance} method.
+
+\subsection*{Checkpoint 7}
+{\bf
+Show us your completed program.
+}
+
+\end{document}

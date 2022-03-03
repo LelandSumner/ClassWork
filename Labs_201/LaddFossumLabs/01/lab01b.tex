@@ -1,0 +1,459 @@
+\documentclass[12pt,twoside]{memoir}
+\usepackage{graphicx}
+\usepackage[usenames]{color}
+\usepackage{listings}[2000/08/23] 
+
+\usepackage{exercise}
+
+\definecolor{nicered}{rgb}{.647,.129,.149}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{templategrey}{gray}{0.30}
+\definecolor{commandlinebackground}{gray}{0.1}
+\definecolor{commandlineforeground}{gray}{0.9}
+\definecolor{commandpromptforeground}{gray}{0.9}
+
+\DeclareGraphicsExtensions{.eps,.pdf,.png,.gif,.jpg}
+
+
+% ---------- listing code parameters
+\lstset{language=java,
+  basicstyle=\small\ttfamily,
+  numbers=left, 
+  numberstyle=\tiny, 
+  stepnumber=1, 
+  numbersep=5pt,
+  frame=single,
+  captionpos=b,
+  rulecolor=\color{nicered}
+}
+
+% ----- Command-line listing language
+\lstdefinelanguage{cline}
+{
+  morecomment=[s][\color{commandpromptforeground}]{\~}{\%},
+}
+
+% ----- Command-line environment 
+\lstnewenvironment{commandline}[1][]
+  {\lstset{language=cline,numbers=none,frame=none,backgroundcolor=\color{commandlinebackground},basicstyle=\color{commandlineforeground},nolol,#1}}
+  {}
+
+\newcommand{\artDir}{../art}
+\newcommand{\lab}[1]{%
+\title{CIS 201 Computer Science I\\Fall 2009 Lab #1}%
+\maketitle%
+}
+
+\setlength{\hoffset}{0in}
+\setlength{\voffset}{0in}
+\settypeblocksize{9.5in}{7.5in}{*}
+\setlrmargins{0.5in}{*}{1}
+\setulmargins{0.75in}{*}{*}
+\setheadfoot{\onelineskip}{2\onelineskip}
+\checkandfixthelayout
+\setcounter{Exercise}{3}
+\begin{document}
+\lab{01b}
+
+{\color{templategrey}
+\begin{itemize}
+\item Learn how to log into your Linux account.
+\item Learn how to log into your Moodle account.
+\end{itemize}
+}
+\begin{itemize}
+\item Learn where class resources reside on the Linux boxes.
+\item Learn how to create and navigate directories.
+\item Learn how to start (and stop) the Emacs text editor.
+\item Learn how to start a \texttt{.java} file.
+\item Learn how to compile a \texttt{.java} file to produce a
+  \texttt{.class} file.
+\item Learn how to run a \texttt{.java} (or rather, \texttt{.class}) file.
+\item Learn how to use a Java class file as a \emph{template}.
+\item Learn how to correct \emph{compiler errors}.
+\end{itemize}
+
+\begin{Exercise}[name={Checkpoint},title={Launch a terminal.}]
+  Linux provides a desktop environment similar to that found in other
+  operating systems (Windows XP/Vista or Mac OS X). It also offers a
+  \emph{command-line interface}, or a \emph{shell} where the user can
+  type commands into a command interpreter which runs the commands and
+  then prompts the user for a new command. This class uses the
+  command-line interface a great deal.
+
+  A shell runs inside of a terminal; go to the menu at the upper-left
+  of the desktop and find \textbf{Accessories $|$ Terminal}. Launching
+  it should give you a window that has a prompt something like this:
+
+
+\begin{commandline}
+ laddbc@haystack:~$  _
+\end{commandline}
+% $
+
+The bit before the \texttt{\@} is your login name (Dr. Ladd's is
+\texttt{laddbc}). Between the \texttt{\@} and the \texttt{:} is the name 
+of the machine you are logged into. Between the
+\texttt{:} and the \texttt{\$} is the \emph{current directory path}. 
+Like many computer file systems, the Linux file system uses
+ hierarchical \emph{directories} or \emph{folders}. Entries in the 
+file system are either files, containing information (\emph{e.g.}, a
+Java program, a term paper, your favorite MP3) or a directory, a
+container for files and folders. For historic reasons, Linux
+refers to these as directories; folder and directory are used
+interchangeably in this class.
+
+Course files: The directory \texttt{/home/students/Classes/201} is the
+home directory for this class \emph{on the lab computers}. The same
+materials and sample files you can find through the Web (Moodle links
+go into this space) reside here. Lecture notes (sample programs), lab
+assignments, all are here. Another way to have gotten \emph{this}
+document would have been to copy
+\texttt{/home/students/Classes/201/Labs/Lab01/lab01b.pdf} to your home
+directory (or just open it with the a PDF reader such as
+\texttt{evince}).
+
+The directory path \texttt{\~} is special: it is the home directory of
+the currently logged in user. So, the above prompt is saying that
+Dr. Ladd is in his own home directory. This is where the terminal
+program starts. It is the folder where you save all of your work (or
+rather, where you put subdirectories to save your work). 
+
+\emph{Your} home directory follows you when you log onto any lab
+machine. On \texttt{haystack} or \texttt{algonquin} or any
+other lab machine \emph{your} home directory is automatically mounted
+when you sign on.
+
+Note that the \texttt{\_} after the prompt represents where you can
+type. It is not shown in other examples.
+\end{Exercise}
+\noindent
+\textbf{Show your work on Checkpoint~\theExercise{} to the lab monitor;
+  have them sign off on it before continuing.}
+
+\begin{Exercise}[name={Checkpoint},title={Create a CS1 and a Lab01 folder.}]
+To create a folder, you can use the \texttt{mkdir} (make directory)
+command with the name of the new directory. To change the current
+directory, you can use the \texttt{cd} (change directory) command. To
+create a \texttt{CS1} directory and then, in that directory create a
+\texttt{Lab01} directory, the commands are:
+
+\begin{commandline}
+ laddbc@haystack:~$ mkdir CS1
+ laddbc@haystack:~$ cd CS1
+ laddbc@haystack:~/CS1$ mkdir Lab01
+ laddbc@haystack:~/CS1$ cd Lab01
+ laddbc@haystack:~/CS1/Lab01$ ls -a
+ . ..
+ laddbc@haystack:~/CS1/Lab01$ 
+\end{commandline}
+
+\noindent
+Notice how the current directory changes as you navigate into
+directories below the home directory. Also, notice that in the newly
+created directory \texttt{Lab01}, when all of the files are listed
+(\texttt{ls} for listing; \texttt{-a} to tell the listing program to list
+all), there are already two items: \texttt{.} and \texttt{..}. These are
+the current directory (any directory refers to itself with a single
+dot) and the parent of the current directory (any directory refers to
+the directory it is contained in with two dots). 
+
+How would you change the current directory back to \texttt{~/CS1}?
+\end{Exercise}
+\noindent
+\textbf{Show your work on Checkpoint~\theExercise{} to the lab monitor
+  and answer the question above for them.  Have them sign off on it
+  before continuing.}
+
+\begin{Exercise}[name={Checkpoint},title={Starting and stopping \texttt{emacs}}]
+CIS 201 uses the \texttt{emacs} text editor. A \emph{text
+  editor} is a lot like a word processor. The primary difference is
+that while the displayed text may have different colors and different
+fonts, the text editor saves \emph{just the characters}
+and not their formatting. This is important because the Java compiler
+doe not understand bold face or italics.
+
+To run \texttt{emacs}, you can either type the name of the program into
+the shell \emph{or} you can select \texttt{emacs} from the applications
+menu on the desktop. When you type the name in, you can also specify
+the name of a file you wish to edit. Let us assume that we want to
+edit a file in \texttt{Lab01} called \texttt{NewtonsApple.java} (notice the
+\texttt{.java} at the end; the Java compiler requires that if we are
+going to compile our Java code). We can just type: 
+
+\begin{commandline}
+ laddbc@haystack:~/CS1/Lab01$ emacs NewtonsApple.java &
+ [1] 1234
+ laddbc@haystack:~/CS1/Lab01$ 
+\end{commandline}
+%$
+\noindent
+What is that \texttt{\&} doing there? It is a special character telling
+the shell to run the command given but not to wait until it is
+finished. Before, when we listed the files, the next shell prompt
+didn't appear until the command was finished. Here we have the next
+shell prompt \emph{and} \texttt{emacs} is running. The \texttt{[1] 1234}
+is an indication that we are running one command in the background and
+what \emph{process id} the operating system gave \texttt{emacs};
+ignore that number for the moment.
+
+If you look at the top of the \texttt{emacs} window, there is a standard
+menu bar. If you look in the \textbf{File} menu, the
+last item is \textbf{Exit Emacs}. Also in that directory are the
+\textbf{Save File} and \textbf{Save File As} commands. Those commands
+have their keyboard equivalents written next to them in the menu;
+\textbf{C-} in front of a character means press the \textbf{Ctrl} key
+while pressing the key.
+
+Notice in the top line menu that there is also an entry for
+\textbf{JDE}. This is short for Java Development Environment, an
+\texttt{emacs} extension that makes it a little easier to write and
+compile Java.
+
+It is time to write some Java code. Type the following into your
+\texttt{emacs} window and save it:
+
+\begin{lstlisting}
+import fang2.core.Game;
+
+public class NewtonsApple
+    extends Game {
+}
+\end{lstlisting}
+
+Having saved the file, you can now compile it. You can select
+\textbf{JDE $|$ Compile}. The blank line at the bottom of the
+\texttt{emacs} window (known as the \emph{minibuffer} in
+\texttt{emacs} parlance) says something about starting the
+``Beanshell'', then the main window splits and a window labeled
+\emph{*JDEE Compile Server*} appears with the output of the
+compilation. Upon success the output looks like this
+(\texttt{-classpath} line broken across 3 line for readability):
+
+\begin{lstlisting}[numbers=none]
+CompileServer output:
+
+-classpath /home/faculty/laddbc/CS1/Lab01:
+           /usr/local/share/java/jdk1.6.0/lib/fang2.jar 
+           /home/faculty/laddbc/CS1/Lab01/NewtonsApple.java
+
+Compilation finished at Sat Aug 23 16:37:57
+\end{lstlisting}
+
+To get rid of the split in the window you can, with the cursor in the
+top window, select \textbf{File $|$ Unsplit Window} (or use the
+keyboard shortcut of \textbf{C-x 1} to get just one (1) window). 
+
+Go over to your shell window and run \texttt{ls -a} again:
+
+\begin{commandline}
+ laddbc@haystack:~/CS1/Lab01$ ls -a
+ . .. NewtonsApple.class NewtonsApple.java semantic.cache semantic.cache~
+\end{commandline}
+% $
+
+\noindent
+The two \texttt{NewtonsApple} files are the compiled file
+(\texttt{.class}) and the Java source file (\texttt{.java}, the one we
+edited and saved from \texttt{emacs}). Ignore the \texttt{semantic.cache}
+file (created by \texttt{emacs} when it edits source
+code). 
+\end{Exercise}
+\noindent
+\textbf{Show your work on Checkpoint~\theExercise{} to the lab monitor;
+  have them sign off on it before continuing.}
+
+\begin{Exercise}[name={Checkpoint},title={Run the program}]
+  Now, run the program. That is, in \texttt{emacs}, after the compile
+  step succeeds, run the program by selecting \textbf{JDE $|$ Run
+    App}. The window splits again and a new window appears labeled
+  \emph{NewtonsApple} with several buttons across the bottom. Nothing
+  else happens at this point, so just press the \textbf{Quit} button.
+\end{Exercise}
+\noindent
+\textbf{Show your work on Checkpoint~\theExercise{} to the lab monitor;
+  have them sign off on it before continuing.}
+\newpage
+\begin{Exercise}[name={Checkpoint},title={Continue the program.}]
+Now, modify your program by updating the contents of
+\texttt{NewtonsApple.java} to be: 
+
+\begin{lstlisting}
+import fang2.core.Game;
+import fang2.sprites.OvalSprite;
+import fang2.sprites.RectangleSprite;
+
+public class NewtonsApple extends Game {
+  private OvalSprite apple;
+  private RectangleSprite newton;
+
+  public void setup() {
+    apple = new OvalSprite(0.10, 0.10);
+    apple.setColor(getColor("red"));
+    dropApple();
+
+    newton = new RectangleSprite(0.10, 0.10);
+    newton.setColor(getColor("green"));
+    newton.setLocation(0.5, 0.9);
+
+    addSprite(apple);
+    addSprite(newton);
+  }
+
+  public void dropApple() {
+    apple.setLocation(random.nextDouble(), 0.0);
+  }
+}  
+\end{lstlisting}
+
+Now when you save, compile, and run the program, an apple appears,
+just off the top of the screen, and a green Newton is visible below.
+\textbf{Start} starts the game but the game does nothing; there is no
+method to advance the game.
+
+\textbf{Correcting Typos}: If you have any compiler errors,
+\texttt{emacs} shows them to you. Consider, for example, misspelling
+\texttt{Color} as \texttt{Colour}. Then the CompileServer  output (in the
+bottom window) would look like this:
+
+\begin{lstlisting}[numbers=none]
+CompileServer output:
+
+-classpath /home/faculty/laddbc/CS1/Lab01:
+           /usr/local/share/java/jdk1.6.0/lib/fang2.jar 
+           /home/faculty/laddbc/CS1/Lab01/NewtonsApple.java
+
+/home/faculty/laddbc/CS1/Lab01/NewtonsApple.java:11: cannot find symbol
+symbol  : method setColour(java.awt.Color)
+location: class fang2.sprites.OvalSprite
+    apple.setColour(getColor("red"));
+         ^
+/home/faculty/laddbc/CS1/Lab01/NewtonsApple.java:15: cannot find symbol
+symbol  : method setColour(java.awt.Color)
+location: class fang2.sprites.RectangleSprite
+    newton.setColour(getColor("green"));
+          ^
+2 errors
+
+Compilation exited abnormally with code 1 at Mon Aug 25 15:48:00  
+\end{lstlisting}
+
+\texttt{emacs} moves the cursor down to the first
+\texttt{/home/faculty/...} line, and also move the cursor in the
+\texttt{NewtonsApple.java} buffer to line 11 (the line with the
+error). The first line in the error window identifies the file and
+line with the error and the error the Java compiler encountered. In
+this case the error is \texttt{cannot find symbol}. The next line gives
+the symbol that could not be found (\texttt{setColour}) and the line
+after that gives the class where the Java compiler expected to find
+the symbol (\texttt{OvalSprite}). 
+
+The next two lines are the offending line from the \texttt{.java} file
+and a line with a \texttt{\^} pointing to the spot where the Java
+compiler realized there was an error. In this case, we see that the
+method name in our listing was \texttt{setColor} though we typed
+\texttt{setColour}. Removing the ``u'' fixes the problem.
+
+After correcting one error you can move to the next error by
+pressing \texttt{C-x `} (that is a back-tick, next to the \texttt{1} on
+most keyboards).  The error message window and the source code window
+both move to the next error.
+\end{Exercise}
+\noindent
+\textbf{Show your work on Checkpoint~\theExercise{} to the lab monitor;
+  have them sign off on it before continuing.}
+
+\begin{Exercise}[name={Checkpoint},title={Finish \texttt{NewtonsApple}.}]
+Here's the finished listing for Newton's Apple. 
+
+\begin{lstlisting}
+import fang2.attributes.Location2D;
+import fang2.core.Game;
+import fang2.sprites.OvalSprite;
+import fang2.sprites.RectangleSprite;
+import fang2.sprites.StringSprite;
+
+public class NewtonsApple extends Game {
+  private OvalSprite apple;
+  private RectangleSprite newton;
+  private int applesCaught;
+  private int applesDropped;
+  private StringSprite displayScore;
+
+  public void setup() {
+    applesCaught = 0;
+    applesDropped = 0;
+
+    displayScore = new StringSprite(); // no text to display yet
+    displayScore.scale(0.10);
+    displayScore.setColor(getColor("white"));
+    updateScore(); // updated the content of the displayed score
+
+    apple = new OvalSprite(0.10, 0.10);
+    apple.setColor(getColor("red"));
+    dropApple();
+
+    newton = new RectangleSprite(0.10, 0.10);
+    newton.setColor(getColor("green"));
+    newton.setLocation(0.5, 0.9);
+
+    addSprite(apple);
+    addSprite(newton);
+    addSprite(displayScore);
+  }
+
+  public void advance(double secondsSinceLastCall) {
+    Location2D position = getPlayer().getMouse().getLocation();
+    if (position != null) {
+      newton.setX(position.x);
+    }
+
+    apple.translateY(0.33 * secondsSinceLastCall);
+
+    if (apple.intersects(newton)) {
+      applesCaught = applesCaught + 1; // another apple caught
+      updateScore();
+      dropApple();
+    }
+
+    if (apple.getY() >= 1.0) {
+      updateScore();
+      dropApple();
+    }
+  }
+
+  public void dropApple() {
+    apple.setLocation(random.nextDouble(), 0.0);
+    applesDropped = applesDropped + 1; // another apple dropped
+  }
+
+  public void updateScore() {
+    displayScore.setText("Score: " + applesCaught + "/" + applesDropped);
+    displayScore.setLocation(displayScore.getWidth() / 2, 
+                             displayScore.getHeight() / 2);
+  }
+}  
+\end{lstlisting}
+
+Modify your program, save, compile, and run \texttt{NewtonsApple}.
+Save your work, compile it, correct any compilation errors, and run
+it. You should have a working game running.
+\end{Exercise}
+\noindent
+\textbf{Show your work on Checkpoint~\theExercise{} to the lab monitor;
+  have them sign off on it before continuing.}
+
+\Large{Log off of the lab computer you are using before leaving they
+  lab. Anyone entering the lab has unlimited access to your files if
+  you remain logged on. \textbf{DO NOT} turn off lab computers! They
+  are a shared resource and there might be someone else logged in to
+  ``your'' machine.}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
+
+% LocalWords:  Moodle Ladd's login

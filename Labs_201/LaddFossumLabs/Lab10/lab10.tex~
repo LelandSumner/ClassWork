@@ -1,0 +1,181 @@
+\documentclass[12pt]{article}
+
+\pagestyle{plain}
+\oddsidemargin 0in       %   Left margin on odd-numbered pages.
+\evensidemargin 0in        %   Left margin on even-numbered pages.
+\textwidth 6.5in
+\textheight 9in
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+
+\usepackage[T1]{fontenc}
+\usepackage{pslatex}
+%\renewcommand*{\familydefault}{\sfdefault}
+
+\usepackage{verbatim}
+\newenvironment{qv}%
+  {\quote
+   \verbatim}%
+  {\endverbatim
+   \endquote}
+
+\newcommand{\exx}{\\[2ex]}
+\newcommand{\code}{\texttt}
+\newcommand{\fname}{\texttt}
+\newcommand{\eg}{{\em e.g.}}
+
+\parskip 2ex
+\parindent 0em
+
+
+\begin{document}
+\sloppypar
+
+\begin{center}
+\Large\bf
+CIS 201 -- Computer Science I\\
+Laboratory Assignment 10\\
+\end{center}
+
+\section*{Introduction}
+In this lab you will manipulate images using classes
+from the Georgia Tech MediaComp project.
+See \verb'http://coweb.cc.gatech.edu/mediaComp-plan/101'
+for more information on this project.
+
+Files from this project can be found in
+\begin{qv}
+/home/student/Classes/MediaComp
+\end{qv}
+and the documentation for the Java class used in this project can be found
+by following the \verb'Documentation' link on the CS homepage.
+
+\section*{Reading and displaying a picture}
+Copy the file
+\begin{qv}
+/home/student/Classes/201/Labs/Lab10/Pic.java
+\end{qv}
+into a suitable working directory.
+You should be able to compile and run this file directly,
+with a copy of the raptor picture displayed on your screen.
+
+File other \verb'.jpg' files on your system
+(use the \verb'locate' command!),
+or find ones on the web and download them to your current directory.
+Modify the program so that the picture to be displayed
+is given as a command line parameter, in \verb'args[0]'.
+
+\subsection*{Checkpoint 1}
+{\bf
+Show us some of your pictures!
+}
+
+\section*{Negative images}
+Copy the file
+\begin{qv}
+/home/student/Classes/201/Labs/Lab10/Pic1.java
+\end{qv}
+into your working directory
+and change the \verb'/* FIXME */' part
+so that it will use the command line parameter \verb'args[0]'
+as the filename.
+
+If you compile and run this program, it should display the picture
+exactly as the previous program,
+since the ``new'' pixels defined using \verb'setColor'
+have the same red, green, and blue values as the original ones.
+
+To make a ``negative image'', you will want
+to change the values of red, green, and blue values
+so that they go from 255 to zero instead of from zero to 255.
+Specifically, given the value \verb'r' for red,
+find a simple expression that will evaluate to 255 if \verb'r' is zero
+that will evaluate to zero if \verb'r' is 255,
+and that will handle values inbetween as well,
+as illustrated in the following table
+\centerline{%
+\begin{tabular}{r|r}
+old {\tt r} & new {\tt r}\\ \hline
+0 & 255 \\ \hline
+1 & 254 \\ \hline
+$\cdots$ & $\cdots$ \\ \hline
+255 & 0 \\
+\end{tabular}
+}
+
+Then do the same thing for green and blue.
+Your actual parameters
+\verb'r', \verb'g', and \verb'b'
+in the \verb'new Color(...)' constructor should be replaced
+by these expressions.
+  
+Run your modified program with several pictures of your choosing.
+
+(If you wish, you can use the grayscale conversion as described in class
+to produce a black-and-white ``negative'' image
+instead of the color one that we are describing here.)
+
+\subsection*{Checkpoint 2}
+{\bf
+Show us your work at this point.
+Your displayed pictures should look like ``negatives''.
+}
+
+\section*{Working with pixels in the $(x,y)$ coordinate system}
+
+Instead of treating the image pixels as a one-dimensional array,
+we can also look at them in the $(x,y)$ coordinate system,
+where (as we do in FANG), the origin $(0,0)$ is at
+the top-right corner.
+The height and width of the picture can be obtained
+using methods defined in the \verb'Picture' class.
+
+Copy the file
+\begin{qv}
+/home/student/Classes/201/Labs/Lab10/Pic2.java
+\end{qv}
+into your working directory
+and examine it using an editor.
+You can see that the program produces a picture
+where all of the reds are removed
+({\em i.e.}, the red values are all zero).
+
+Use this idea to modify the program
+so that the resulting picture mirrors the left-hand side
+onto the right-hand side of the picture.
+You can do this by scanning only the left half of the picture
+(with the $x$ values going from 0 to half of the width)
+and changing the color of the corresponding right pixel
+using something like
+\begin{qv}
+rpx.setColor(lpx.getColor());
+\end{qv}
+where \verb'rpx' is the right pixel
+and \verb'lpx' is the left pixel.
+(Of course, these aren't the actual variables you'll use.)
+
+\subsection*{Checkpoint 3}
+{\bf
+Show us your work at this point.
+}
+
+\section*{Prisoner}
+Make another copy of this program named \verb'Pic3.java'.
+Change it so that it puts the image ``behind bars''
+by putting black vertical bars strategically
+across the image.
+
+\subsection*{Checkpoint 4}
+{\bf
+Show us your work at this point.
+}
+
+\section*{Try something!}
+Well, try something of your own choosing.
+\subsection*{Checkpoint 5}
+{\bf
+And show us!
+}
+
+\end{document}

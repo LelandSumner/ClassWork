@@ -1,0 +1,847 @@
+%!PS-Adobe-2.0
+%%Creator: dvips(k) 5.95a Copyright 2005 Radical Eye Software
+%%Title: lab11.dvi
+%%Pages: 6
+%%PageOrder: Ascend
+%%BoundingBox: 0 0 612 792
+%%DocumentFonts: Times-Bold Times-Roman Courier Times-Italic CMSY10
+%%+ Symbol CMR10 CMMI10
+%%DocumentPaperSizes: Letter
+%%EndComments
+%DVIPSWebPage: (www.radicaleye.com)
+%DVIPSCommandLine: dvips -Ppdf -t letter -G0 lab11
+%DVIPSParameters: dpi=8000
+%DVIPSSource:  TeX output 2009.04.28:1349
+%%BeginProcSet: tex.pro 0 0
+%!
+/TeXDict 300 dict def TeXDict begin/N{def}def/B{bind def}N/S{exch}N/X{S
+N}B/A{dup}B/TR{translate}N/isls false N/vsize 11 72 mul N/hsize 8.5 72
+mul N/landplus90{false}def/@rigin{isls{[0 landplus90{1 -1}{-1 1}ifelse 0
+0 0]concat}if 72 Resolution div 72 VResolution div neg scale isls{
+landplus90{VResolution 72 div vsize mul 0 exch}{Resolution -72 div hsize
+mul 0}ifelse TR}if Resolution VResolution vsize -72 div 1 add mul TR[
+matrix currentmatrix{A A round sub abs 0.00001 lt{round}if}forall round
+exch round exch]setmatrix}N/@landscape{/isls true N}B/@manualfeed{
+statusdict/manualfeed true put}B/@copies{/#copies X}B/FMat[1 0 0 -1 0 0]
+N/FBB[0 0 0 0]N/nn 0 N/IEn 0 N/ctr 0 N/df-tail{/nn 8 dict N nn begin
+/FontType 3 N/FontMatrix fntrx N/FontBBox FBB N string/base X array
+/BitMaps X/BuildChar{CharBuilder}N/Encoding IEn N end A{/foo setfont}2
+array copy cvx N load 0 nn put/ctr 0 N[}B/sf 0 N/df{/sf 1 N/fntrx FMat N
+df-tail}B/dfs{div/sf X/fntrx[sf 0 0 sf neg 0 0]N df-tail}B/E{pop nn A
+definefont setfont}B/Cw{Cd A length 5 sub get}B/Ch{Cd A length 4 sub get
+}B/Cx{128 Cd A length 3 sub get sub}B/Cy{Cd A length 2 sub get 127 sub}
+B/Cdx{Cd A length 1 sub get}B/Ci{Cd A type/stringtype ne{ctr get/ctr ctr
+1 add N}if}B/CharBuilder{save 3 1 roll S A/base get 2 index get S
+/BitMaps get S get/Cd X pop/ctr 0 N Cdx 0 Cx Cy Ch sub Cx Cw add Cy
+setcachedevice Cw Ch true[1 0 0 -1 -.1 Cx sub Cy .1 sub]{Ci}imagemask
+restore}B/D{/cc X A type/stringtype ne{]}if nn/base get cc ctr put nn
+/BitMaps get S ctr S sf 1 ne{A A length 1 sub A 2 index S get sf div put
+}if put/ctr ctr 1 add N}B/I{cc 1 add D}B/bop{userdict/bop-hook known{
+bop-hook}if/SI save N @rigin 0 0 moveto/V matrix currentmatrix A 1 get A
+mul exch 0 get A mul add .99 lt{/QV}{/RV}ifelse load def pop pop}N/eop{
+SI restore userdict/eop-hook known{eop-hook}if showpage}N/@start{
+userdict/start-hook known{start-hook}if pop/VResolution X/Resolution X
+1000 div/DVImag X/IEn 256 array N 2 string 0 1 255{IEn S A 360 add 36 4
+index cvrs cvn put}for pop 65781.76 div/vsize X 65781.76 div/hsize X}N
+/p{show}N/RMat[1 0 0 -1 0 0]N/BDot 260 string N/Rx 0 N/Ry 0 N/V{}B/RV/v{
+/Ry X/Rx X V}B statusdict begin/product where{pop false[(Display)(NeXT)
+(LaserWriter 16/600)]{A length product length le{A length product exch 0
+exch getinterval eq{pop true exit}if}{pop}ifelse}forall}{false}ifelse
+end{{gsave TR -.1 .1 TR 1 1 scale Rx Ry false RMat{BDot}imagemask
+grestore}}{{gsave TR -.1 .1 TR Rx Ry scale 1 1 false RMat{BDot}
+imagemask grestore}}ifelse B/QV{gsave newpath transform round exch round
+exch itransform moveto Rx 0 rlineto 0 Ry neg rlineto Rx neg 0 rlineto
+fill grestore}B/a{moveto}B/delta 0 N/tail{A/delta X 0 rmoveto}B/M{S p
+delta add tail}B/b{S p tail}B/c{-4 M}B/d{-3 M}B/e{-2 M}B/f{-1 M}B/g{0 M}
+B/h{1 M}B/i{2 M}B/j{3 M}B/k{4 M}B/w{0 rmoveto}B/l{p -4 w}B/m{p -3 w}B/n{
+p -2 w}B/o{p -1 w}B/q{p 1 w}B/r{p 2 w}B/s{p 3 w}B/t{p 4 w}B/x{0 S
+rmoveto}B/y{3 2 roll p a}B/bos{/SS save N}B/eos{SS restore}B end
+
+%%EndProcSet
+%%BeginProcSet: alt-rule.pro 0 0
+%!
+% Patch by TVZ
+% Makes dvips files draw rules with stroke rather than fill.
+% Makes narrow rules more predictable at low resolutions
+% after distilling to PDF.
+% May have unknown consequences for very thick rules.
+% Tested only with dvips 5.85(k).
+TeXDict begin
+/QV {
+  gsave newpath /ruleY X /ruleX X
+  Rx Ry gt
+  { ruleX ruleY Ry 2 div sub moveto Rx 0 rlineto Ry }
+  { ruleX Rx 2 div add ruleY moveto 0 Ry neg rlineto Rx }
+  ifelse
+  setlinewidth 0 setlinecap stroke grestore
+} bind def
+end
+
+%%EndProcSet
+%%BeginProcSet: 8r.enc 0 0
+% File 8r.enc  TeX Base 1 Encoding  Revision 2.0  2002-10-30
+%
+% @@psencodingfile@{
+%   author    = "S. Rahtz, P. MacKay, Alan Jeffrey, B. Horn, K. Berry,
+%                W. Schmidt, P. Lehman",
+%   version   = "2.0",
+%   date      = "30 October 2002",
+%   filename  = "8r.enc",
+%   email     = "tex-fonts@@tug.org",
+%   docstring = "This is the encoding vector for Type1 and TrueType
+%                fonts to be used with TeX.  This file is part of the
+%                PSNFSS bundle, version 9"
+% @}
+% 
+% The idea is to have all the characters normally included in Type 1 fonts
+% available for typesetting. This is effectively the characters in Adobe
+% Standard encoding, ISO Latin 1, Windows ANSI including the euro symbol,
+% MacRoman, and some extra characters from Lucida.
+% 
+% Character code assignments were made as follows:
+% 
+% (1) the Windows ANSI characters are almost all in their Windows ANSI
+% positions, because some Windows users cannot easily reencode the
+% fonts, and it makes no difference on other systems. The only Windows
+% ANSI characters not available are those that make no sense for
+% typesetting -- rubout (127 decimal), nobreakspace (160), softhyphen
+% (173). quotesingle and grave are moved just because it's such an
+% irritation not having them in TeX positions.
+% 
+% (2) Remaining characters are assigned arbitrarily to the lower part
+% of the range, avoiding 0, 10 and 13 in case we meet dumb software.
+% 
+% (3) Y&Y Lucida Bright includes some extra text characters; in the
+% hopes that other PostScript fonts, perhaps created for public
+% consumption, will include them, they are included starting at 0x12.
+% These are /dotlessj /ff /ffi /ffl.
+% 
+% (4) hyphen appears twice for compatibility with both ASCII and Windows.
+%
+% (5) /Euro was assigned to 128, as in Windows ANSI
+%
+% (6) Missing characters from MacRoman encoding incorporated as follows:
+%
+%     PostScript      MacRoman        TeXBase1
+%     --------------  --------------  --------------
+%     /notequal       173             0x16
+%     /infinity       176             0x17
+%     /lessequal      178             0x18
+%     /greaterequal   179             0x19
+%     /partialdiff    182             0x1A
+%     /summation      183             0x1B
+%     /product        184             0x1C
+%     /pi             185             0x1D
+%     /integral       186             0x81
+%     /Omega          189             0x8D
+%     /radical        195             0x8E
+%     /approxequal    197             0x8F
+%     /Delta          198             0x9D
+%     /lozenge        215             0x9E
+%
+/TeXBase1Encoding [
+% 0x00
+ /.notdef /dotaccent /fi /fl
+ /fraction /hungarumlaut /Lslash /lslash
+ /ogonek /ring /.notdef /breve
+ /minus /.notdef /Zcaron /zcaron
+% 0x10
+ /caron /dotlessi /dotlessj /ff
+ /ffi /ffl /notequal /infinity
+ /lessequal /greaterequal /partialdiff /summation
+ /product /pi /grave /quotesingle
+% 0x20
+ /space /exclam /quotedbl /numbersign
+ /dollar /percent /ampersand /quoteright
+ /parenleft /parenright /asterisk /plus
+ /comma /hyphen /period /slash
+% 0x30
+ /zero /one /two /three
+ /four /five /six /seven
+ /eight /nine /colon /semicolon
+ /less /equal /greater /question
+% 0x40
+ /at /A /B /C
+ /D /E /F /G
+ /H /I /J /K
+ /L /M /N /O
+% 0x50
+ /P /Q /R /S
+ /T /U /V /W
+ /X /Y /Z /bracketleft
+ /backslash /bracketright /asciicircum /underscore
+% 0x60
+ /quoteleft /a /b /c
+ /d /e /f /g
+ /h /i /j /k
+ /l /m /n /o
+% 0x70
+ /p /q /r /s
+ /t /u /v /w
+ /x /y /z /braceleft
+ /bar /braceright /asciitilde /.notdef
+% 0x80
+ /Euro /integral /quotesinglbase /florin
+ /quotedblbase /ellipsis /dagger /daggerdbl
+ /circumflex /perthousand /Scaron /guilsinglleft
+ /OE /Omega /radical /approxequal
+% 0x90
+ /.notdef /.notdef /.notdef /quotedblleft
+ /quotedblright /bullet /endash /emdash
+ /tilde /trademark /scaron /guilsinglright
+ /oe /Delta /lozenge /Ydieresis
+% 0xA0
+ /.notdef /exclamdown /cent /sterling
+ /currency /yen /brokenbar /section
+ /dieresis /copyright /ordfeminine /guillemotleft
+ /logicalnot /hyphen /registered /macron
+% 0xD0
+ /degree /plusminus /twosuperior /threesuperior
+ /acute /mu /paragraph /periodcentered
+ /cedilla /onesuperior /ordmasculine /guillemotright
+ /onequarter /onehalf /threequarters /questiondown
+% 0xC0
+ /Agrave /Aacute /Acircumflex /Atilde
+ /Adieresis /Aring /AE /Ccedilla
+ /Egrave /Eacute /Ecircumflex /Edieresis
+ /Igrave /Iacute /Icircumflex /Idieresis
+% 0xD0
+ /Eth /Ntilde /Ograve /Oacute
+ /Ocircumflex /Otilde /Odieresis /multiply
+ /Oslash /Ugrave /Uacute /Ucircumflex
+ /Udieresis /Yacute /Thorn /germandbls
+% 0xE0
+ /agrave /aacute /acircumflex /atilde
+ /adieresis /aring /ae /ccedilla
+ /egrave /eacute /ecircumflex /edieresis
+ /igrave /iacute /icircumflex /idieresis
+% 0xF0
+ /eth /ntilde /ograve /oacute
+ /ocircumflex /otilde /odieresis /divide
+ /oslash /ugrave /uacute /ucircumflex
+ /udieresis /yacute /thorn /ydieresis
+] def
+
+
+%%EndProcSet
+%%BeginProcSet: texps.pro 0 0
+%!
+TeXDict begin/rf{findfont dup length 1 add dict begin{1 index/FID ne 2
+index/UniqueID ne and{def}{pop pop}ifelse}forall[1 index 0 6 -1 roll
+exec 0 exch 5 -1 roll VResolution Resolution div mul neg 0 0]FontType 0
+ne{/Metrics exch def dict begin Encoding{exch dup type/integertype ne{
+pop pop 1 sub dup 0 le{pop}{[}ifelse}{FontMatrix 0 get div Metrics 0 get
+div def}ifelse}forall Metrics/Metrics currentdict end def}{{1 index type
+/nametype eq{exit}if exch pop}loop}ifelse[2 index currentdict end
+definefont 3 -1 roll makefont/setfont cvx]cvx def}def/ObliqueSlant{dup
+sin S cos div neg}B/SlantFont{4 index mul add}def/ExtendFont{3 -1 roll
+mul exch}def/ReEncodeFont{CharStrings rcheck{/Encoding false def dup[
+exch{dup CharStrings exch known not{pop/.notdef/Encoding true def}if}
+forall Encoding{]exch pop}{cleartomark}ifelse}if/Encoding exch def}def
+end
+
+%%EndProcSet
+%%BeginFont: CMR10
+%!PS-AdobeFont-1.1: CMR10 1.00B
+%%CreationDate: 1992 Feb 19 19:54:52
+% Copyright (C) 1997 American Mathematical Society. All Rights Reserved.
+11 dict begin
+/FontInfo 7 dict dup begin
+/version (1.00B) readonly def
+/Notice (Copyright (C) 1997 American Mathematical Society. All Rights Reserved) readonly def
+/FullName (CMR10) readonly def
+/FamilyName (Computer Modern) readonly def
+/Weight (Medium) readonly def
+/ItalicAngle 0 def
+/isFixedPitch false def
+end readonly def
+/FontName /CMR10 def
+/PaintType 0 def
+/FontType 1 def
+/FontMatrix [0.001 0 0 0.001 0 0] readonly def
+/Encoding 256 array
+0 1 255 {1 index exch /.notdef put} for
+dup 40 /parenleft put
+dup 41 /parenright put
+readonly def
+/FontBBox{-251 -250 1009 969}readonly def
+currentdict end
+currentfile eexec
+D9D66F633B846A97B686A97E45A3D0AA052A014267B7904EB3C0D3BD0B83D891
+016CA6CA4B712ADEB258FAAB9A130EE605E61F77FC1B738ABC7C51CD46EF8171
+9098D5FEE67660E69A7AB91B58F29A4D79E57022F783EB0FBBB6D4F4EC35014F
+D2DECBA99459A4C59DF0C6EBA150284454E707DC2100C15B76B4C19B84363758
+469A6C558785B226332152109871A9883487DD7710949204DDCF837E6A8708B8
+2BDBF16FBC7512FAA308A093FE5CF7158F1163BC1F3352E22A1452E73FECA8A4
+87100FB1FFC4C8AF409B2067537220E605DA0852CA49839E1386AF9D7A1A455F
+D1F017CE45884D76EF2CB9BC5821FD25365DDEA6E45F332B5F68A44AD8A530F0
+92A36FAC8D27F9087AFEEA2096F839A2BC4B937F24E080EF7C0F9374A18D565C
+295A05210DB96A23175AC59A9BD0147A310EF49C551A417E0A22703F94FF7B75
+409A5D417DA6730A69E310FA6A4229FC7E4F620B0FC4C63C50E99E179EB51E4C
+4BC45217722F1E8E40F1E1428E792EAFE05C5A50D38C52114DFCD24D54027CBF
+2512DD116F0463DE4052A7AD53B641A27E81E481947884CE35661B49153FA19E
+0A2A860C7B61558671303DE6AE06A80E4E450E17067676E6BBB42A9A24ACBC3E
+B0CA7B7A3BFEA84FED39CCFB6D545BB2BCC49E5E16976407AB9D94556CD4F008
+24EF579B6800B6DC3AAF840B3FC6822872368E3B4274DD06CA36AF8F6346C11B
+43C772CC242F3B212C4BD7018D71A1A74C9A94ED0093A5FB6557F4E0751047AF
+D72098ECA301B8AE68110F983796E581F106144951DF5B750432A230FDA3B575
+5A38B5E7972AABC12306A01A99FCF8189D71B8DBF49550BAEA9CF1B97CBFC7CC
+96498ECC938B1A1710B670657DE923A659DB8757147B140A48067328E7E3F9C3
+7D1888B284904301450CE0BC15EEEA00E48CCD6388F3FC3C8578EF9A20A0E06E
+4F7ADDAF0E7D1E182D115BF1AD931977325AD391E72E2B13CC108E3726C11099
+E2000623188AAAC9F3E233EB253BDD8B0A4759A66A113E066238B0086AC1B634
+5ABFF90E4B5ED3FA69C22541981B2BFC9710AEF6B50A8BB53431C7B4D380D721
+639E005D6B4688EE16BFF48443E7C9E5FB5BC5883E271CB034289232A0694CCE
+12A5A2637485FB47BC281A2129EDC23D8091FB4F93A6B82E666703E6A2816BBA
+EA4D74E605325F713552A653349310EA0929FA02D1F9ED57DE58E1928E0CA31D
+070A4C7036ED071AC3F6429C76912FCB605A98A3307024A00AFE54D463628836
+E6098757CD50E1D40FA54D41BC2FDC30F5CC9042E5D704D1712FC0A4B907A61A
+3FBC6271BEA1021043E2C35E830D2C44E1A54ABA687535A0E1CB727BB7C902D2
+5DF97D44FB85C8397F1C1E14C11DBFD563A205F1E248F250549CD4689F361C71
+948EBFD988B5B8B8FB1D7051F234E4EA5C9CB798D99C17715D0799F60FEAC8A8
+8589452E8932A9E7844E816B3D0F18F1D542D05600CAD430E88F8298961D8FDA
+A630894C90D2505F9AD25F555F8C56518921AD52B39BEB69F9AD1ED552B3CF16
+13CCADBC2933A59AF6CF80F892EFDB0D4E5CD766094AEF332323CCFFAFA32FA0
+07BFEB8985C120D623C4E2323F6E4A3FE0086795C3043B988701ADD821404586
+0CD3E21E107A25D661BCB329DB6A7083217B438F19710CA275E336AD37E90D10
+4CF8E8410E0311297D1E1DCEB8C8A662C6735DA66E9CD443
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+cleartomark
+%%EndFont 
+%%BeginFont: CMMI10
+%!PS-AdobeFont-1.1: CMMI10 1.100
+%%CreationDate: 1996 Jul 23 07:53:57
+% Copyright (C) 1997 American Mathematical Society. All Rights Reserved.
+11 dict begin
+/FontInfo 7 dict dup begin
+/version (1.100) readonly def
+/Notice (Copyright (C) 1997 American Mathematical Society. All Rights Reserved) readonly def
+/FullName (CMMI10) readonly def
+/FamilyName (Computer Modern) readonly def
+/Weight (Medium) readonly def
+/ItalicAngle -14.04 def
+/isFixedPitch false def
+end readonly def
+/FontName /CMMI10 def
+/PaintType 0 def
+/FontType 1 def
+/FontMatrix [0.001 0 0 0.001 0 0] readonly def
+/Encoding 256 array
+0 1 255 {1 index exch /.notdef put} for
+dup 59 /comma put
+readonly def
+/FontBBox{-32 -250 1048 750}readonly def
+currentdict end
+currentfile eexec
+D9D66F633B846A97B686A97E45A3D0AA0529731C99A784CCBE85B4993B2EEBDE
+3B12D472B7CF54651EF21185116A69AB1096ED4BAD2F646635E019B6417CC77B
+532F85D811C70D1429A19A5307EF63EB5C5E02C89FC6C20F6D9D89E7D91FE470
+B72BEFDA23F5DF76BE05AF4CE93137A219ED8A04A9D7D6FDF37E6B7FCDE0D90B
+986423E5960A5D9FBB4C956556E8DF90CBFAEC476FA36FD9A5C8175C9AF513FE
+D919C2DDD26BDC0D99398B9F4D03D5993DFC0930297866E1CD0A319B6B1FD958
+9E394A533A081C36D456A09920001A3D2199583EB9B84B4DEE08E3D12939E321
+990CD249827D9648574955F61BAAA11263A91B6C3D47A5190165B0C25ABF6D3E
+6EC187E4B05182126BB0D0323D943170B795255260F9FD25F2248D04F45DFBFB
+DEF7FF8B19BFEF637B210018AE02572B389B3F76282BEB29CC301905D388C721
+59616893E774413F48DE0B408BC66DCE3FE17CB9F84D205839D58014D6A88823
+D9320AE93AF96D97A02C4D5A2BB2B8C7925C4578003959C46E3CE1A2F0EAC4BF
+8B9B325E46435BDE60BC54D72BC8ACB5C0A34413AC87045DC7B84646A324B808
+6FD8E34217213E131C3B1510415CE45420688ED9C1D27890EC68BD7C1235FAF9
+1DAB3A369DD2FC3BE5CF9655C7B7EDA7361D7E05E5831B6B8E2EEC542A7B38EE
+03BE4BAC6079D038ACB3C7C916279764547C2D51976BABA94BA9866D79F13909
+95AA39B0F03103A07CBDF441B8C5669F729020AF284B7FF52A29C6255FCAACF1
+74109050FBA2602E72593FBCBFC26E726EE4AEF97B7632BC4F5F353B5C67FED2
+3EA752A4A57B8F7FEFF1D7341D895F0A3A0BE1D8E3391970457A967EFF84F6D8
+47750B1145B8CC5BD96EE7AA99DDC9E06939E383BDA41175233D58AD263EBF19
+AFC0E2F840512D321166547B306C592B8A01E1FA2564B9A26DAC14256414E4C8
+42616728D918C74D13C349F4186EC7B9708B86467425A6FDB3A396562F7EE4D8
+40B43621744CF8A23A6E532649B66C2A0002DD04F8F39618E4F572819DD34837
+B5A08E643FDCA1505AF6A1FA3DDFD1FA758013CAED8ACDDBBB334D664DFF5B53
+9560176676ABB71BBD0EE56B4CC492C0652750227CEC7F412A029C762C56D6E2
+B18C69A7DBAC8CF57D10127EC2A14AA2CA1C58FE0B33A49F450F3EEBBA68082A
+505AC0D350F707C29B0E57456A81DC59099996F246A790C8423BBEF2DA4E911F
+2E27A395AA4D480B015D7E47BFDD146F1CCA76B648424BE24BC0CB9DD68F804E
+A124809A40A24A09C981D1A71187C151558C4FF7C8D7A34D4677A6E8258CD9D5
+90648ADC6F9D220CFC1D4B452B4627FBECB1DD38DFCC84F26FE7BB0087F7C6C7
+C501CF1627396AC78F9383F376259E83B4F9AD34AD13EC9E74197B1D657CB0F9
+A052F94CB7E8701C8DEC8871FB72D6470A408DA6858F009407F681EB8C0B7DE0
+
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+cleartomark
+%%EndFont 
+%%BeginFont: CMSY10
+%!PS-AdobeFont-1.1: CMSY10 1.0
+%%CreationDate: 1991 Aug 15 07:20:57
+% Copyright (C) 1997 American Mathematical Society. All Rights Reserved.
+11 dict begin
+/FontInfo 7 dict dup begin
+/version (1.0) readonly def
+/Notice (Copyright (C) 1997 American Mathematical Society. All Rights Reserved) readonly def
+/FullName (CMSY10) readonly def
+/FamilyName (Computer Modern) readonly def
+/Weight (Medium) readonly def
+/ItalicAngle -14.035 def
+/isFixedPitch false def
+end readonly def
+/FontName /CMSY10 def
+/PaintType 0 def
+/FontType 1 def
+/FontMatrix [0.001 0 0 0.001 0 0] readonly def
+/Encoding 256 array
+0 1 255 {1 index exch /.notdef put} for
+dup 15 /bullet put
+readonly def
+/FontBBox{-29 -960 1116 775}readonly def
+currentdict end
+currentfile eexec
+D9D66F633B846A97B686A97E45A3D0AA052F09F9C8ADE9D907C058B87E9B6964
+7D53359E51216774A4EAA1E2B58EC3176BD1184A633B951372B4198D4E8C5EF4
+A213ACB58AA0A658908035BF2ED8531779838A960DFE2B27EA49C37156989C85
+E21B3ABF72E39A89232CD9F4237FC80C9E64E8425AA3BEF7DED60B122A52922A
+221A37D9A807DD01161779DDE7D31FF2B87F97C73D63EECDDA4C49501773468A
+27D1663E0B62F461F6E40A5D6676D1D12B51E641C1D4E8E2771864FC104F8CBF
+5B78EC1D88228725F1C453A678F58A7E1B7BD7CA700717D288EB8DA1F57C4F09
+0ABF1D42C5DDD0C384C7E22F8F8047BE1D4C1CC8E33368FB1AC82B4E96146730
+DE3302B2E6B819CB6AE455B1AF3187FFE8071AA57EF8A6616B9CB7941D44EC7A
+71A7BB3DF755178D7D2E4BB69859EFA4BBC30BD6BB1531133FD4D9438FF99F09
+4ECC068A324D75B5F696B8688EEB2F17E5ED34CCD6D047A4E3806D000C199D7C
+515DB70A8D4F6146FE068DC1E5DE8BC5703711DA090312BA3FC00A08C453C609
+C627A8BECD6E1FA14A3B02476E90AAD8B4700C400380BC9AFFBF7847EB28661B
+9DC3AA0F44C533F2E07DCC4DE19D367BF223E33DC321D0247A0E6EF6ABC8FA52
+15AE044094EF678A8726CD7C011F02BFF8AB6EAEEE391AD837120823BED0B5D8
+F8B15245377871A64F78378BB4330149D6941F7A86FBFFC49B93C94155F5FA7D
+F22E7214511C0A92693F4CDBF38411651540572F2DD70D924AE0F18E1CD581F3
+C871399127FF5D07A868885B5FF7CDEB50B8323B2533DEF8DC973B1AE84FA0A2
+
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+0000000000000000000000000000000000000000000000000000000000000000
+cleartomark
+%%EndFont 
+TeXDict begin 40258431 52099146 1000 8000 8000 (lab11.dvi)
+@start /Fa 214[517 517 40[{}2 1328.35 /CMR10 rf /Fb 196[369
+59[{}1 1328.35 /CMMI10 rf /Fd 240[664 15[{}1 1328.35
+/CMSY10 rf /Fe 105[664 28[664 664 959 664 739 442 517
+590 739 739 664 739 1107 369 739 1[369 739 664 442 590
+739 590 739 664 9[1328 2[886 739 14[959 1[886 959 1[664
+4[442 11[332 442 332 2[442 442 442 36[739 2[{
+TeXBase1Encoding ReEncodeFont}40 1328.35 /Times-Bold
+rf /Ff 139[531 3[886 797 886 2[886 1[443 886 2[708 1[708
+31[1151 11[797 797 797 797 797 797 797 49[{
+TeXBase1Encoding ReEncodeFont}17 1594.02 /Times-Bold
+rf /Fg 134[590 590 886 1[664 369 517 517 664 664 664
+664 959 369 2[369 664 664 369 590 664 590 664 664 93[664
+3[{TeXBase1Encoding ReEncodeFont}23 1328.35 /Times-Italic
+rf /Fh 130[677 1[677 1[677 1[677 677 677 677 677 677
+677 677 677 677 677 677 677 1[677 677 677 677 677 677
+677 677 677 8[677 3[677 677 3[677 2[677 4[677 1[677 677
+677 1[677 3[677 1[677 677 8[677 1[677 677 4[677 677 677
+677 2[677 35[{.85 ExtendFont TeXBase1Encoding ReEncodeFont}46
+1328.35 /Courier rf /Fi 105[664 1[590 590 24[590 664
+664 959 664 664 369 517 442 664 664 664 664 1033 369
+664 369 369 664 664 442 590 664 590 664 590 7[959 959
+1254 1[959 812 739 886 1[739 959 959 1181 3[442 1[959
+739 812 1[886 886 959 5[369 369 664 664 664 664 664 664
+664 664 664 664 1[332 442 332 2[442 442 442 36[739 2[{
+TeXBase1Encoding ReEncodeFont}66 1328.35 /Times-Roman
+rf /Fj 105[956 28[956 1[1381 956 1064 637 744 849 1064
+1064 956 1064 1593 1[1064 1[532 1064 956 637 849 1064
+849 1064 956 12[1276 1064 6[1276 2[744 4[1381 1381 1[1381
+14[956 956 956 8[637 39[{TeXBase1Encoding ReEncodeFont}34
+1912.83 /Times-Bold rf end
+%%EndProlog
+%%BeginSetup
+%%Feature: *Resolution 8000dpi
+TeXDict begin
+%%BeginPaperSize: Letter
+letter
+%%EndPaperSize
+ end
+%%EndSetup
+%%Page: 1 1
+TeXDict begin 1 0 bop 13701 1328 a Fj(CIS)477 b(201)j(\226)f(Computer)f
+(Science)g(I)15055 3764 y(Laboratory)i(Assignment)e(11)0
+9372 y(Intr)-34 b(oduction)0 13547 y Fi(In)337 b(this)f(lab)g(you)h
+(will)g(w)-13 b(ork)336 b(with)h(classes)e(to)h(implement)i(a)e(T)-46
+b(ic-T)-106 b(ac-T)g(oe)334 b(g)-7 b(ame)337 b(in)f(F)-98
+b(ANG.)336 b(This)g(g)-7 b(ame)336 b(will)0 15152 y(use)421
+b(components)h(with)f(\223state\224)g(\226)g(that)g(is,)444
+b(components)421 b(that)h(contain)f(information)j(about)d(themselv)-20
+b(es)422 b(in)0 16757 y(relation)333 b(to)g(the)f(g)-7
+b(ame.)0 22366 y Fj(Strategy)0 26541 y Fi(Consider)384
+b(ho)-33 b(w)383 b(you)g(might)i(mak)-13 b(e)382 b(a)h(simple)h(v)-20
+b(ersion)384 b(of)f(T)-46 b(ic-T)-106 b(ac-T)g(oe:)512
+b(your)384 b Fh(Game)h Fi(creates)d(and)h(positions)0
+28146 y(nine)374 b(sprites)f(on)h(the)f(screen.)535 b(Each)373
+b(sprite)g(corresponds)h(to)g(one)f(of)h(the)g(nine)f(squares)g(in)h
+(the)f(g)-7 b(ame.)536 b(Then,)0 29751 y(in)385 b Fh(advance)p
+Fi(,)401 b(you)386 b(w)-13 b(ould)385 b(check)g(for)g(mouse)g(clicks,)
+398 b(determining)387 b(if)e(an)-20 b(y)385 b(of)h(the)f(sprites)g(w)
+-13 b(as)384 b(click)-13 b(ed)385 b(on.)0 31356 y(If)338
+b(one)f(is)g(click)-13 b(ed)337 b Fg(and)374 b Fi(it)338
+b(is)f(empty)-86 b(,)339 b(you)e(w)-13 b(ould)338 b(update)g(the)f
+(sprite)h(with)g(the)f(current)h(player')-73 b(s)338
+b(symbol)g(and)0 32961 y(change)332 b(whose)g(turn)h(it)g(is.)411
+b(Along)333 b(the)g(w)-13 b(ay)-86 b(,)331 b(you)i(w)-13
+b(ould)333 b(check)e(for)i(winning)h(and)e(dra)-20 b(ws)332
+b(\(Cat')-73 b(s)333 b(g)-7 b(ame\).)0 35762 y(Think)470
+b(about)h(ho)-33 b(w)470 b(your)h Fh(advance)i Fi(w)-13
+b(ould)471 b(look.)826 b(Assuming)471 b(the)f(sprites)g(are)g(in)g(an)g
+Fh(ArrayList)p Fi(,)509 b(there)0 37367 y(w)-13 b(ould)330
+b(be)f(a)f(big)i(loop)g(with)g(man)-20 b(y)330 b(nested)f
+Fh(if)g Fi(statements)h(in)f(it)h(to)f(check)g(for)h(a)f(winner)h(or)f
+(a)g(dra)-20 b(w)-86 b(.)411 b(But)330 b(this)0 38972
+y(code)i(w)-13 b(ould)333 b(be)f(too)g(comple)-20 b(x)333
+b(to)g(hold)g(in)f(your)h(mind,)h(all)e(at)g(once.)0
+41773 y(Programmers)384 b(respond)f(to)g(this)f(sort)h(of)g(comple)-20
+b(xity)385 b(by)d Fg(abstr)-20 b(ation)p Fi(:)515 b(that)382
+b(is,)396 b(hiding)383 b(the)g(details)g(of)g(some)0
+43378 y(rule)363 b(or)g(some)g(component)g(by)g(writing)h(methods)g
+(with)f(descripti)-33 b(v)-20 b(e)363 b(names)f(that)h(e)-20
+b(xpress)363 b(a)f(solution)i(to)f(the)0 44983 y(problem,)392
+b(and)379 b(then)h(by)f(\002lling)h(in)g(the)f(details)g(of)h(these)f
+(methods)h(at)f(another)h(time.)553 b(Abstraction)380
+b(can)f(also)0 46588 y(be)295 b(achie)-33 b(v)-20 b(ed)294
+b(by)h(breaking)h(responsibility)h(for)e(the)g(solution)h(to)f(the)g
+(problem)h(across)f(multiple)h(components.)0 49389 y(The)268
+b(\223simple\224)h(approach)g(gi)-33 b(v)-20 b(en)269
+b(abo)-20 b(v)g(e)268 b(is)h(dif)-33 b(\002cult)269 b(because)f(the)g
+(T)-46 b(ic-T)-106 b(ac-T)g(oe)267 b(g)-7 b(ame)269 b(w)-13
+b(ould)269 b(be)f(responsible)0 50994 y(for)481 b(handling)g(both)g(g)
+-7 b(ame-le)-33 b(v)-20 b(el)482 b(details)e Fg(and)517
+b Fi(square-le)-33 b(v)-20 b(el)480 b(details.)857 b(A)480
+b Fg(separ)-20 b(ation)481 b(of)f(r)-49 b(esponsibility)481
+b Fi(is)0 52599 y(possible)346 b(if)g(we)g(b)-27 b(uild)347
+b(\223smart\224)f(squares)f(that)h(can)g(handle)g(the)g(square-le)-33
+b(v)-20 b(el)346 b(details)g(and)f(then)i(let)f(the)f(g)-7
+b(ame)0 54204 y(handle)366 b(the)g(g)-7 b(ame-le)-33
+b(v)-20 b(el)367 b(details.)514 b(This)366 b(is)g(a)g(standard)g
+(technique)g(in)h(object-oriented)g(design,)375 b(the)366
+b(creation)0 55809 y(of)333 b(objects)f(that)g(\223kno)-33
+b(w)333 b(what)f(to)h(do\224.)0 60227 y Ff(Checkpoint)399
+b(1)0 63327 y Fe(Write)325 b(do)-13 b(wn)325 b(what)g(acti)-13
+b(vities)325 b(a)h(T)-24 b(ic-T)-122 b(ac-T)g(oe)325
+b(game)g(must)f(support.)408 b(Di)-13 b(vide)325 b(up)f(y)-33
+b(our)324 b(list)i(into)f(game-)0 64932 y(le)-20 b(v)-13
+b(el)332 b(and)g(squar)-24 b(e-le)k(v)-13 b(el)331 b(acti)-13
+b(vities.)412 b(Ask)332 b(y)-33 b(ourselv)-13 b(es)331
+b(the)g(f)-33 b(ollo)-13 b(wing)333 b(questions:)1937
+67006 y Fd(\017)651 b Fe(What)332 b(should)f(a)h(squar)-24
+b(e)331 b(kno)-13 b(w)331 b(\(pr)-24 b(operties\))332
+b(and)f(do)h(\(methods\)?)1937 68461 y Fd(\017)651 b
+Fe(What)332 b(should)f(the)h(game)g(kno)-13 b(w)331 b(and)g(do)h(that)g
+(a)h(squar)-24 b(e)330 b(doesn't?)0 71730 y(Sho)-13 b(w)331
+b(us)h(y)-33 b(our)331 b(w)-13 b(ork)331 b(when)h(y)-33
+b(ou)331 b(ar)-24 b(e)332 b(done.)25668 75321 y Fi(1)p
+eop end
+%%Page: 2 2
+TeXDict begin 2 1 bop 0 1328 a Fj(Desigining)478 b(smart)h(squar)-34
+b(es)0 5504 y Fi(W)-106 b(e)332 b(will)h(assume)e(that)i(each)e
+Fg(squar)-49 b(e)332 b Fi(is)g(responsible)h(for:)1937
+9254 y Fd(\017)651 b Fi(Adv)-33 b(ancing)332 b(the)h(state)f(of)g(the)g
+(square:)4799 11914 y Fe(\226)650 b Fi(Checking)333 b(if)f(the)h
+(square)f(has)g(been)g(click)-13 b(ed.)4799 14020 y Fe(\226)650
+b Fi(If)281 b(the)f(square)f(has)h(been)g(click)-13 b(ed,)290
+b(checking)280 b(whether)h(it)f(is)g(le)-20 b(g)-7 b(al)280
+b(to)h(ha)-27 b(v)-20 b(e)280 b(click)-13 b(ed)280 b(on)g(the)g(square)
+6113 15625 y(\(it)333 b(is)f(not)h(le)-20 b(g)-7 b(al)333
+b(if)f(the)h(square)f(is)g(not)h(empty\))4799 17731 y
+Fe(\226)650 b Fi(If)324 b(clicking)g(on)f(the)g(square)g(is)g(le)-20
+b(g)-7 b(al,)326 b(updating)e(the)g(current)g(state)e(of)i(the)f
+(square)g(\()p Fh(X)h Fi(or)g Fh(O)p Fi(\))f(based)6113
+19336 y(on)333 b(the)f(current)h(player)-53 b(,)332 b(and)h(reporting)g
+(that)g(an)f(update)g(has)g(been)g(made.)1937 21996 y
+Fd(\017)651 b Fi(Reporting)333 b(on)g(the)f(current)h(state)f(of)g(the)
+h(square)f(\(blank,)h Fh(X)p Fi(,)f(or)h Fh(O)p Fi(\).)0
+25746 y(The)f Fg(game)g Fi(is)g(then)h(responsible)f(for)1937
+29497 y Fd(\017)651 b Fi(Setting)332 b(up)h(the)f(g)-7
+b(ame:)413 b(creating)332 b(the)h(squares,)e(scaling)i(and)f
+(positioning)i(them)f(\(in)f Fh(setup)p Fi(\).)1937 32156
+y Fd(\017)651 b Fi(Adv)-33 b(ancing)272 b(e)-33 b(v)-20
+b(ery)271 b(square)h(e)-33 b(v)-20 b(ery)271 b(frame,)285
+b(and)271 b(changing)i(the)e(player)h(if)h(the)e(square)h(has)f(been)g
+(updated.)1937 34816 y Fd(\017)651 b Fi(Sho)-33 b(wing)332
+b(the)g(g)-7 b(ame)333 b(status)f(\(whose)g(turn)h(it)g(is,)f(etc.\))
+1937 37476 y Fd(\017)651 b Fi(Reporting)333 b(on)g(the)f(current)h
+(player)f(\(\223X\224,)h(\223O\224\).)1937 40135 y Fd(\017)651
+b Fi(Ending)332 b(a)g(turn.)4799 42795 y Fe(\226)650
+b Fi(Checking)333 b(if)f(the)h(current)g(player)f(has)g(w)-13
+b(on.)4799 44901 y Fe(\226)650 b Fi(Checking)333 b(if)f(there)h(is)f(a)
+g(cat')-73 b(s)332 b(g)-7 b(ame.)4799 47007 y Fe(\226)650
+b Fi(Otherwise,)333 b(change)f(which)g(player')-73 b(s)333
+b(turn)g(it)g(is.)0 50757 y(This)325 b(lab)g(b)-27 b(uilds)327
+b(tw)-13 b(o)325 b(cooperating)h(classes,)g Fh(TicTacToe)j
+Fi(and)c Fh(TicTacToeSquare)p Fi(,)334 b(each)325 b(ful\002lling)h(one)
+f(of)0 52363 y(these)332 b(sets)f(of)i(requirements.)0
+55163 y(Note)305 b Fg(how)g Fi(the)g(tw)-13 b(o)305 b(classes)f
+(cooperate:)399 b(A)304 b Fh(TicTacToe)309 b Fi(object)d(will)f(need)g
+(references)g(to)g(all)g(of)g(the)g(squares)0 56768 y(so)346
+b(that)h(it)f(can)g(call)g Fh(advance)k Fi(for)d(each)e(of)i(them;)354
+b(A)346 b Fh(TicTacToeSquare)353 b Fi(object)346 b(needs)g(a)g
+(reference)g(to)h(the)0 58373 y(g)-7 b(ame)381 b(of)g(which)h(it)f(is)g
+(a)f(part)h(to)g(be)g(able)g(to)g(check)f(for)i(mouse)f(clicks)g(and)g
+(to)g(determine)g(whose)g(turn)h(it)f(is,)0 59978 y(when)389
+b(it)h(needs)e(to)i(be)e(updated.)583 b(This)389 b(means)g(that,)404
+b(lik)-13 b(e)389 b(the)g Fh(OneDie)j Fi(class,)402 b(squares)389
+b(will)g(be)g(constructed)0 61584 y(with)333 b(a)f(reference)g(to)g
+(the)h(g)-7 b(ame)332 b(object.)0 64384 y(Create)g(a)g(suitable)g
+(directory)i(\()p Fh(Lab11)p Fi(\))h(in)d(which)h(you)g(will)g(do)f
+(your)h(w)-13 b(ork.)0 67185 y(Start)410 b(editing)i(the)e
+Fh(TicTacToe)415 b Fi(and)410 b Fh(TicTacToeSquare)417
+b Fi(classes.)645 b(The)410 b(\002rst)g(class)f(should)i(e)-20
+b(xtend)411 b Fh(Game)p Fi(,)0 68790 y(and)404 b(the)h(second)f(should)
+h(e)-20 b(xtend)405 b Fh(CompositeSprite)p Fi(.)635 b(Y)-146
+b(ou)404 b(will)h(be)g(b)-27 b(uilding)406 b(this)f(g)-7
+b(ame)405 b(one)f(piece)g(at)g(a)0 70395 y(time.)597
+b(First,)409 b(you)394 b(will)g(get)g(the)f(squares)g(to)h(dra)-20
+b(w)394 b(in)g(the)g(right)g(places.)596 b(Then)393 b(you)h(will)g(mak)
+-13 b(e)394 b(the)f(squares)0 72000 y(a)-20 b(w)-13 b(are)332
+b(of)g(mouse)h(clicks.)411 b(And)333 b(\002nally)f(you)h(will)g(mak)-13
+b(e)332 b(the)g(g)-7 b(ame)333 b(check)f(for)h(end-of-g)-7
+b(ame)333 b(conditions.)25668 75321 y(2)p eop end
+%%Page: 3 3
+TeXDict begin 3 2 bop 0 1328 a Fh(TicTacToeSquare)300
+b Fi(should)293 b(create)f(a)h(rectangle)g(sprite)g(of)h(a)e(some)-33
+b(what)293 b(dark)g(\(non-black\))i(color)-73 b(.)399
+b(Y)-146 b(ou)293 b(will)0 2933 y(add)346 b(the)g(\223X\224)f(and)h
+(\223O\224)f(sprites)h(later)-73 b(.)453 b(This)346 b(means)f(writing)i
+(a)f Fg(constructor)376 b Fi(for)346 b(the)g(class;)352
+b(there)346 b(is)g(no)g(need)0 4539 y(for)333 b(an)-20
+b(ything)333 b(else)f(right)h(no)-33 b(w)-86 b(.)0 7339
+y(Y)-146 b(ou)438 b(will)h(need)f(to)h(decide)f(what)g
+Fg(par)-20 b(ameter)-13 b(s)437 b Fi(the)h(constructor)i(requires.)730
+b(Since)437 b(a)h Fh(Game)i Fi(is)e(required)h(for)0
+8944 y(getting)389 b(colors)f(\(and,)402 b(e)-33 b(v)-20
+b(entually)-86 b(,)402 b(checking)388 b(for)h(mouse)f(clicks)g(and)f
+(determining)j(whose)e(turn)g(it)g(is\),)402 b(you)0
+10549 y(should)449 b(pass)f(in)g(the)h(g)-7 b(ame)449
+b(when)f(constructing)i(a)e(square.)760 b(Y)-146 b(ou)449
+b(will)g(need)f(a)g(\002eld)g(of)h(type)g Fh(Game)h Fi(in)f(the)0
+12154 y Fh(TicTacToeSquare)339 b Fi(class)331 b(to)i(refer)f(to)h(the)f
+(g)-7 b(ame,)333 b(perhaps)f(something)i(lik)-13 b(e)332
+b(this:)3252 15854 y Fh(private)680 b(Game)g(theGame;)0
+19553 y Fi(In)450 b(the)g Fh(setup)i Fi(method)f(in)g(the)f
+Fh(TicTacToe)k Fi(class,)478 b(you)451 b(will)f(call)g(the)g
+(constructor)h(with)g(something)g(lik)-13 b(e)0 21158
+y(this:)3252 24858 y Fh(TicTacToeSquare)684 b(someSquare)e(=)c(new)h
+(TicTacToeSquare\(this\);)0 28557 y Fi(The)328 b(reference)h(to)h(the)f
+Fh(Game)h Fi(mak)-13 b(es)329 b(it)g(possible)g(to)g(get)g(colors,)h
+(to)g(get)f(mouse)g(clicks,)g(and)g(to)h(check)e(whose)0
+30162 y(turn)333 b(it)g(is.)0 32963 y(Y)-146 b(our)335
+b Fh(setup)i Fi(method)f(in)f Fh(TicTacToe)k Fi(should)c(construct)h
+(nine)f Fh(TicTacToeSquare)341 b Fi(objects)335 b(and)g(put)g(them)0
+34568 y(in)451 b(an)f Fh(ArrayList)p Fi(.)770 b(The)450
+b(squares)f(should)i(be)f(distrib)-27 b(uted)452 b(in)f(a)f(3-by-3)h
+(grid)h(centered)e(at)g(the)g(top)h(of)g(the)0 36173
+y(g)-7 b(ame)432 b(can)-53 b(v)-33 b(as.)709 b(\(Y)-146
+b(ou)432 b(will)g(need)g(some)f(of)h(the)g(other)g(can)-53
+b(v)-33 b(as)430 b(real)i(estate)f(to)h(sho)-33 b(w)431
+b(the)h(player)g(status)f(and)0 37778 y(other)320 b(information.\))411
+b(Each)319 b(of)h(the)g(objects)f(should)i(be)e(0.20)h(screens)f
+(square)h(\(use)f(the)h Fh(setScale)k Fi(method\).)0
+39383 y(The)389 b(centers)g(of)h(the)f(squares)g(in)h(the)f(ro)-33
+b(ws)390 b(and)f(columns)h(should)g(be)f(0.25)h(apart)g(\226)f(at)g
+Fg(x)t Fi(-coordinates)h(0.25,)0 40988 y(0.50,)382 b(and)371
+b(0.75)h(for)g(the)g(columns,)381 b(and)372 b(at)f Fg(y)p
+Fi(-coordinates)h(0.15,)382 b(0.40,)f(and)372 b(0.65)g(for)g(the)f(ro)
+-33 b(ws.)530 b(Add)371 b(them)0 42593 y(to)359 b(the)g
+Fh(ArrayList)k Fi(so)c(that)g(the)g(top)h(left)f(square)g(is)g(the)g
+(\002rst)g(to)g(be)g(added,)365 b(the)359 b(top)h(middle)g(square)f(is)
+f(ne)-20 b(xt,)0 44198 y(and)332 b(so)g(forth,)i(so)e(that)g(the)h
+(bottom)g(right)g(is)g(last.)0 46999 y(Y)-146 b(ou)345
+b(should)g(also)g(need)f(to)i(create)e(a)g(\002eld)h(v)-33
+b(ariable)345 b Fh(turn)h Fi(to)f(k)-13 b(eep)345 b(track)g(of)g(which)
+g(player')-73 b(s)345 b(turn)h(it)f(is.)449 b(Use)0 48604
+y(zero)352 b(\(0\))g(for)g(\223X\224,)g(one)f(\(1\))i(for)f(\223O\224.)
+f(Finally)h(you)g(will)h(need)e(,)356 b(a)c Fh(StringSprite)357
+b Fi(\002eld)351 b(v)-33 b(ariable)352 b(to)g(hold)g(a)0
+50209 y(status)373 b(message,)382 b(scale)372 b(to)h(0.10,)383
+b(position)374 b(at)f(the)g(bottom-center)h(of)f(screen)g(at)f(0.9)h
+(do)-33 b(wn)373 b(\226)g(this)g(is)g(the)g(the)0 51814
+y(reason)332 b(the)g(board)h(is)f(so)g(high.)0 56872
+y Ff(Checkpoint)399 b(2)0 60569 y Fe(Sho)-13 b(w)331
+b(us)h(when)f(y)-33 b(ou)331 b(ha)-33 b(v)-13 b(e)332
+b(the)f(nine)h(somewhat)f(dark)g(boxes)h(located)g(pr)-24
+b(operly)331 b(on)h(the)g(scr)-24 b(een.)0 66219 y Fj(Status)478
+b(message)0 70395 y Fi(Create)362 b(methods)h(to)f(update)h(the)f
+(status)g(message.)501 b(Y)-146 b(ou)363 b(will)g(need)f(to)g(be)g
+(able)g(to)h(tell)g(the)f(user)g(whose)g(turn)0 72000
+y(it)399 b(is,)416 b(who)399 b(w)-13 b(on,)415 b(and)399
+b(that)h(the)f(g)-7 b(ame)399 b(is)f(a)h(dra)-20 b(w)-86
+b(.)612 b(Modify)400 b(your)f Fh(setup)i Fi(program)f(so)f(that)g(it)h
+(displays)f(that)25668 75321 y(3)p eop end
+%%Page: 4 4
+TeXDict begin 4 3 bop 0 1328 a Fi(player)333 b(0)f(\(\223X\224\))g(is)g
+(the)h(\002rst)f(to)g(play)-86 b(.)0 6932 y Fj(Squar)-34
+b(e)477 b(contents)0 11108 y Fi(A)297 b Fh(TicTacToeSquare)305
+b Fi(object)298 b(needs)f(a)g(\002eld)g Fh(content)k
+Fi(to)c(track)h(its)g(o)-33 b(wn)297 b(contents)h(\226)g(that)g(is,)304
+b(a)297 b(blank,)305 b(\223X\224,)0 12713 y(or)386 b(\223O\224.)f(Y)
+-146 b(ou)385 b(should)h(use)f(-1,)399 b(0,)g(and)386
+b(1)f(to)h(correspond)g(to)f(blank,)400 b(\223X\224,)385
+b(and)g(\223O\224,)g(respecti)-33 b(v)-20 b(ely)-86 b(.)571
+b(Initially)-86 b(,)0 14318 y(mak)-13 b(e)332 b(the)g(content)h(equal)f
+(to)h(-1)f(for)h(empty)-86 b(.)0 17119 y(Implement)516
+b Fh(isEmpty)i Fi(\(a)c(public,)561 b(Boolean)514 b(method\))i(in)f
+(your)g Fh(TicTacToeSquare)521 b Fi(class)514 b(and)g(a)g(getter)0
+18724 y(method)333 b(for)g(the)f(content.)0 21524 y(T)-106
+b(o)480 b(display)h(the)g(content,)519 b(add)481 b(a)f
+Fh(StringSprite)486 b Fi(\002eld)481 b(to)g(your)g Fh(TicTacToeSquare)
+488 b Fi(class.)856 b(The)481 b(scale)0 23129 y(should)333
+b(be)f(1.0,)h(and)f(it)h(should)g(initially)h(contain)f(the)g(empty)g
+(string.)413 b(Set)332 b(its)g(color)h(to)g(some)f(light)i(color)f(and)
+0 24734 y(mak)-13 b(e)419 b(sure)g(the)g(sprite)g(is)g(added)g(to)g
+(the)h(composite)f(sprite.)673 b(When)419 b(you)g(set)g(the)g(content)h
+(of)f(your)h(square,)0 26339 y(you)333 b(will)g(set)e(the)i(te)-20
+b(xt)332 b(to)h(either)g Fh(X)f Fi(or)h Fh(O)p Fi(.)0
+29140 y(F)-20 b(or)309 b(testing)g(purposes,)314 b(set)308
+b(the)h(string)g(to)h(something)f(lik)-13 b(e)309 b Fh(#)g
+Fi(for)h(testing,)k(and)308 b(v)-20 b(erify)310 b(that)f(your)h
+(squares)e(will)0 30745 y(all)332 b(ha)-27 b(v)-20 b(e)333
+b(big)g Fh(#)p Fi(s)f(displaying)h(on)g(the)f(screen)g(when)g(you)g
+(run)h(your)g(g)-7 b(ame.)0 35757 y Ff(Checkpoint)399
+b(3)0 39454 y Fe(Sho)-13 b(w)480 b(us)h(y)-33 b(our)481
+b(w)-13 b(ork)480 b(at)i(this)f(point.)860 b(Be)481 b(sur)-24
+b(e)480 b(to)i(set)f(the)g(string)g(to)h(an)f(empty)g(string)g(bef)-33
+b(or)-24 b(e)480 b(y)-33 b(ou)0 41059 y(continue)331
+b(to)i(the)e(next)h(step.)0 46663 y Fj(Adv)-19 b(ancing)478
+b(each)h(squar)-34 b(e)0 50839 y Fi(Create)380 b(an)g
+Fh(advance)k Fi(method)d(in)g Fh(TicTacToeSquare)387
+b Fi(that)381 b(will)g(be)f(called)h(from)g Fh(TicTacToe)p
+Fi(')-73 b(s)385 b Fh(advance)0 52444 y Fi(method.)413
+b(In)332 b(the)h Fh(advance)i Fi(method)e(for)g(a)f Fh(TicTacToeSquare)
+p Fi(,)339 b(do)332 b(the)h(follo)-33 b(wing:)4607 55801
+y Fh(if)678 b(\(\(this)i(square)g(is)f(empty\))h(&&)7316
+57407 y(\(the)g(mouse)f(has)g(been)h(clicked\))h(&&)7316
+59012 y(\(this)f(sprite)g(intersects)i(the)d(mouse)h(click\)\))h({)8671
+60617 y(update)g(content)f(with)f(the)g(value)h(of)e(the)h(current)i
+(player)8671 62222 y(update)g(appearance)h(of)c(StringSprite)8671
+63827 y(call)i(theGame.finishTurn\(\))4607 65432 y(})0
+68790 y Fi(No)-33 b(w)-86 b(,)552 b(in)509 b(the)g Fh(TicTacToe)j
+(advance)g Fi(method,)553 b(call)509 b(the)g Fh(advance)i
+Fi(method)f(on)e(e)-33 b(v)-20 b(ery)509 b(square)f(on)h(e)-33
+b(v)-20 b(ery)0 70395 y(frame.)598 b(Also,)409 b(write)394
+b(a)g(stub)g(for)h(the)f(method)g Fh(finishTurn)p Fi(.)602
+b(\(This)394 b(method)h(should)f(be)g(public)g(v)-27
+b(oid)395 b(with)0 72000 y(no)332 b(parameters\).)25668
+75321 y(4)p eop end
+%%Page: 5 5
+TeXDict begin 5 4 bop 0 1328 a Fi(At)432 b(this)g(point,)458
+b(you)432 b(should)h(ha)-27 b(v)-20 b(e)432 b(running)h(code)f(that)g
+(starts)g(out)h(with)f(all)g(blank)h(squares)e(and)h(that)g(turns)0
+2933 y(each)332 b(square)g(to)g(an)g Fh(X)h Fi(when)f(you)h(click)f(on)
+g(it.)0 5734 y(Ne)-20 b(xt)370 b(you)g(should)g(implement)i
+Fh(finishTurn)i Fi(in)c(the)g Fh(TicTacToe)j Fi(class:)487
+b(it)370 b(tak)-13 b(es)369 b(no)h(parameters)g(and)g(just)0
+7339 y(changes)332 b(whose)g(turn)h(it)f(is.)412 b(If)333
+b(turn)g(w)-13 b(as)331 b(0,)i(mak)-13 b(e)332 b(it)g(1)h(and)f(if)h
+(it)f(w)-13 b(as)332 b(1,)g(mak)-13 b(e)332 b(it)g(0.)0
+12470 y Ff(Checkpoint)399 b(4)0 16167 y Fe(At)298 b(this)g(point)g(y)
+-33 b(our)298 b(pr)-24 b(ogram)297 b(should)g(change)g(empty)g(squar)
+-24 b(es)297 b(alter)-20 b(nately)298 b(to)h Fh(X)p Fe(s)f(and)f
+Fh(O)p Fe(s)i(until)f(all)g(the)0 17772 y(squar)-24 b(es)330
+b(ar)-24 b(e)332 b(\002lled.)412 b(Sho)-13 b(w)331 b(us)g(y)-33
+b(our)332 b(w)-13 b(ork.)0 23495 y Fj(Check)478 b(f)-48
+b(or)479 b(a)g(win)0 27671 y Fi(Modify)333 b Fh(finishTurn)k
+Fi(to)332 b(something)i(lik)-13 b(e)332 b(the)g(follo)-33
+b(wing:)4607 31910 y Fh(if)678 b(\(winner\(\)\))k({)5961
+33515 y(//)d(handle)h(win:)f(display)i(a)d(winning)j(message)f(and)f
+(wait)4607 35121 y(})e(else)j(if)e(\(catsGame\(\)\))683
+b({)5961 36726 y(//)c(handle)h(cat's)g(game:)g(display)g(an)f
+(appropriate)j(cat's)e(game)f(message)i(and)e(wait)4607
+38331 y(})e(else)j({)5961 39936 y(//)f(change)h(whose)g(turn)f(it)f(is)
+h(as)f(before)4607 41541 y(})0 45781 y Fi(Ne)-20 b(xt)365
+b(you)g(need)f(to)i(write)f(the)g(tw)-13 b(o)364 b(methods)i
+Fh(winner)h Fi(and)e Fh(catsGame)p Fi(.)513 b(First,)373
+b(write)365 b(stubs)f(for)i(them:)477 b(each)0 47386
+y(will)333 b(ha)-27 b(v)-20 b(e)332 b Fh(public)j Fi(visibility)f(and)e
+(will)h(return)h(a)d Fh(boolean)p Fi(.)416 b(In)332 b(your)h(stubs,)f
+(you)h(should)g(return)g Fh(false)p Fi(.)0 52516 y Ff(Checkpoint)399
+b(5)0 56214 y Fe(W)-24 b(ith)304 b(these)f(changes,)308
+b(y)-33 b(our)303 b(pr)-24 b(ogram)303 b(should)f(still)j(beha)-33
+b(v)-13 b(e)302 b(exactly)i(as)f(bef)-33 b(or)-24 b(e.)402
+b(Sho)-13 b(w)303 b(us)f(y)-33 b(our)303 b(w)-13 b(ork.)0
+61937 y Fj(Checking)478 b(f)-48 b(or)479 b(a)f(cat')-71
+b(s)479 b(game)h(and)e(a)g(winner)0 66112 y Fi(T)-106
+b(o)390 b(implement)h(your)g(\(currently)h(stubbed)e(out\))h
+Fh(catsGame)j Fi(method,)406 b(you)390 b(should)h(look)g(at)f(all)g
+(the)g(squares)0 67717 y(and)314 b(return)g Fh(false)i
+Fi(if)e(an)-20 b(y)314 b(of)g(them)h(is)e(empty)-86 b(.)406
+b(Otherwise,)318 b(return)d Fh(true)p Fi(.)407 b(Use)314
+b(the)f Fh(isEmpty)k Fi(method)e(in)f(the)0 69322 y Fh(TicTacToeSquare)
+339 b Fi(class)331 b(to)i(check)f(for)h(being)f(empty)-86
+b(.)25668 75321 y(5)p eop end
+%%Page: 6 6
+TeXDict begin 6 5 bop 0 1328 a Fi(The)384 b Fh(winner)j
+Fi(method)f(is)e(a)h(touch)g(messier)-73 b(.)569 b(Y)-146
+b(ou)385 b(will)g(need)g(to)g(check)f(for)h(all)g(eight)g(possible)g(w)
+-13 b(ays)384 b(that)h(a)0 2933 y(g)-7 b(ame)408 b(can)e(be)h(w)-13
+b(on.)637 b(Gi)-33 b(v)-20 b(en)407 b(the)g(layout)h(of)g(the)f
+(squares)g(in)g(the)g Fh(ArrayList)p Fi(,)430 b(the)407
+b(possible)h(combinations)0 4539 y(are)376 b(ro)-33 b(ws)375
+b Fa(\()n Fi(0)p Fb(;)148 b Fi(1)p Fb(;)g Fi(2)p Fa(\))n
+Fi(,)385 b Fa(\()n Fi(3)p Fb(;)148 b Fi(4)p Fb(;)g Fi(5)p
+Fa(\))n Fi(,)385 b(and)376 b Fa(\()n Fi(6)p Fb(;)148
+b Fi(7)p Fb(;)g Fi(8)p Fa(\))n Fi(.)541 b(Similarly)377
+b(you)f(can)f(\002nd)h(the)g(possible)g(column)g(and)g(diagonal)0
+6144 y(combinations.)0 8944 y(Write)437 b(a)f(method)i
+Fh(check)h Fi(that)e(tak)-13 b(es)436 b(three)g(inte)-20
+b(ger)438 b(parameters)f(and)f(checks)g(to)h(see)f(if)h(the)g(current)g
+Fh(turn)0 10549 y Fi(matches)476 b(the)g(contents)g(of)g(the)g(squares)
+g(at)g(the)g(gi)-33 b(v)-20 b(en)476 b Fh(ArrayList)k
+Fi(positions,)513 b(using)476 b(the)g Fh(getContents)0
+12154 y Fi(method.)413 b(If)333 b(all)f(of)h(them)f(match,)h(return)g
+Fh(true)p Fi(,)h(otherwise)f(return)g Fh(false)p Fi(.)0
+14955 y(No)-33 b(w)375 b(your)h Fh(winner)i Fi(method)e(can)f(simply)h
+(call)f(the)g Fh(check)j Fi(method)e(with)g(the)f(parameters)g
+Fa(\()n Fi(0)p Fb(;)148 b Fi(1)p Fb(;)g Fi(2)p Fa(\))372
+b Fi(and)j(so)0 16560 y(forth,)292 b(and)282 b(should)f(return)h
+Fh(true)h Fi(if)e(an)-20 b(y)281 b(of)h(these)e(calls)h(returns)h
+Fh(true)p Fi(,)293 b(and)281 b(should)g(return)h Fh(false)h
+Fi(otherwise.)0 18165 y(If)0 23296 y Ff(Checkpoint)399
+b(6)0 26993 y Fe(Sho)-13 b(w)331 b(us)h(y)-33 b(our)331
+b(w)-13 b(ork)331 b(at)i(this)f(point.)0 32716 y Fj(The)478
+b(end)f(game)0 36892 y Fi(Finally)-86 b(,)318 b(set)c(up)h(your)g
+(program)h(so)f(that)g(the)f(g)-7 b(ame)315 b(can)f(start)h(o)-20
+b(v)g(er)-73 b(.)407 b(Add)315 b(a)f(boolean)h(\002eld)f(v)-33
+b(ariable)315 b Fh(waiting)0 38497 y Fi(\(a)520 b(boolean)g(v)-33
+b(ariable)520 b(is)g(sometimes)h(called)f(a)f Fg(\003a)-13
+b(g)p Fi(\))521 b(which)f(is)g(set)f(to)i Fh(false)h
+Fi(in)e Fh(setup)p Fi(.)977 b(Then,)567 b(at)520 b(the)0
+40102 y(be)-20 b(ginning)331 b(of)f Fh(advance)p Fi(,)k(if)c
+Fh(waiting)j Fi(is)c Fh(true)p Fi(,)j(check)e(for)g(the)g(player)g
+(pressing)g(the)g(space)f(bar)-73 b(.)411 b(If)330 b(the)-20
+b(y)331 b(do,)0 41707 y(call)h Fh(startOver\(\))337 b
+Fi(to)c(restart)f(the)h(g)-7 b(ame.)412 b(Otherwise,)333
+b(simply)g(return)g(from)g(the)g Fh(advance)i Fi(method.)0
+44508 y(Y)-146 b(ou)332 b(should)g(set)g Fh(waiting)j
+Fi(to)d(be)g(true)g(in)g(case)f(either)h(the)g(g)-7 b(ame)333
+b(is)e(w)-13 b(on)332 b(or)g(if)h(it')-73 b(s)332 b(a)g(cat')-73
+b(s)331 b(g)-7 b(ame.)412 b(Mak)-13 b(e)332 b(this)0
+46113 y(change)g(in)g(your)h Fh(advance)j Fi(method.)0
+51243 y Ff(Checkpoint)399 b(7)0 54941 y Fe(Sho)-13 b(w)331
+b(us)h(y)-33 b(our)331 b(completed)g(pr)-24 b(ogram.)25668
+75321 y Fi(6)p eop end
+%%Trailer
+
+userdict /end-hook known{end-hook}if
+%%EOF

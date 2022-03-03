@@ -1,0 +1,281 @@
+% book.tex -- Copyright (c) 2004, Brian C. Ladd
+% 
+% Author : Brian C. Ladd 
+% Created: Wed Jul 07 12:03:49 2004 by blad
+% Revised: Fri Dec 28 15:27:43 2007 by blad
+% 
+\def\FileCreated{Wed Jul 07 12:03:49 2004}
+\def\FileRevised{Fri Dec 28 15:27:43 2007}
+\documentclass[12pt,oneside]{memoir}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage[usenames]{color}
+\usepackage{xltxtra}
+\usepackage{fontspec}
+\usepackage{textcomp}
+\usepackage{pstricks}
+\usepackage{listings}[2000/08/23] 
+
+\usepackage{rotating}
+\usepackage{exercise}
+\definecolor{nicered}{rgb}{.647,.129,.149}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{templategrey}{gray}{0.30}
+\definecolor{commandlinebackground}{gray}{0.25}
+\definecolor{commandlineforeground}{gray}{0.85}
+\definecolor{commandpromptforeground}{gray}{0.55}
+% ----- Fonts -----
+\defaultfontfeatures{Scale=MatchLowercase,Mapping=tex-text}
+\setmainfont{Gentium Book Basic}
+\setmonofont{Inconsolata}
+\setsansfont{Arial}
+% ----- Fonts -----
+\newcommand\code[1]{\lstinline^#1^}
+\newcommand\fname[1]{\texttt{#1}}
+
+\lstset{language=java,
+  basicstyle=\small\ttfamily,
+  numbers=none, 
+  numberstyle=\tiny, 
+  stepnumber=1, 
+  numbersep=5pt,
+  frame=single,
+  captionpos=b,
+  rulecolor=\color{nicered}
+}
+
+\lstdefinelanguage{cline}
+{
+  morecomment=[s][\color{commandpromptforeground}]{ }{ },
+} 
+
+\lstnewenvironment{commandline}[1][]
+{\lstset{language=cline,numbers=none,frame=none,backgroundcolor=\color{commandlinebackground},basicstyle=\color{commandlineforeground},nolol,#1}}
+{}
+
+\newenvironment{Checkpoint}[1]{%
+  \begin{Exercise}[name={Checkpoint},title={#1}]}{%
+  \end{Exercise}%
+  \textbf{Show your work on Checkpoint~\theExercise{} to the lab monitor, %
+    answering any necessary questions for them.  Have them sign before continuing.}}
+
+\newcommand{\artDir}{../art}
+\newcommand{\lab}[2]{%
+  \title{CIS 201 Computer Science I\\Fall 2009 Lab #1\\#2}%
+  \maketitle%
+}
+
+\setlength{\hoffset}{0in}
+\setlength{\voffset}{0in}
+\settypeblocksize{9.5in}{7.5in}{*}
+\setlrmargins{0.5in}{*}{1}
+\setulmargins{0.75in}{*}{*}
+\setheadfoot{\onelineskip}{2\onelineskip}
+\checkandfixthelayout
+
+\begin{document}
+
+\lab{09}{Experiments with Code}
+
+\begin{itemize}
+\item Understanding (and testing) loops
+\item Thinking about dimensions in output
+\end{itemize}
+
+\begin{Checkpoint}{Getting Started}
+  Rather than showing each running section of a single program to the
+  lab monitor, in this lab you will read code, answer questions about
+  the code, and show your answers to the lab monitor. Then, as part of
+  the \emph{following} checkpoint you will type in and execute the
+  program so that you can check your own answers.
+
+  \begin{lstlisting}
+    System.out.println("*******");
+    System.out.println(" ***** ");
+    System.out.println("  ***  ");
+    System.out.println("   *   ");     
+  \end{lstlisting}
+
+  \begin{enumerate}
+  \item How many stars does the above code print?
+  \item How easily could it be changed to print 10 lines in the given
+    pattern?
+  \item How easily could it be changed to print 100 lines in the given
+    pattern?
+  \end{enumerate}
+\end{Checkpoint}
+
+\begin{Checkpoint}{Some Loops}
+  Go ahead and type in a non-FANG program and include the above
+  code. Run the program and verify your count.
+  \begin{lstlisting}
+    for (int i = 0; i != 10; ++i) {
+      System.out.print(" " + i);
+    }
+    System.out.println();
+    for (int j = 10; j != 0; --j) {
+      System.out.print(" " + j);
+    }
+    System.out.println();    
+  \end{lstlisting}
+
+  \begin{enumerate}
+  \item What is the output of the above code?
+  \item What (if anything) is different between the ranges of the two
+    loops? Why are they (or are they not) different?
+  \end{enumerate}
+\end{Checkpoint}
+
+\begin{Checkpoint}{Nested Loops I}
+  Go ahead and type in a non-FANG program and include the above
+  code. Run the program and verify your count.
+
+  \begin{lstlisting}
+    for (int r = 0; r != 4; ++r) {
+      for (int c = r; c != 0; --c) {
+        System.out.print(" ");
+      }
+      for (int c = 3 - r; c != 0; --c) {
+        System.out.print("*");
+      }
+      System.out.print("*");
+      for (int c = 3 - r; c != 0; --c) {
+        System.out.print("*");
+      }      
+      System.out.println();
+    }
+  \end{lstlisting}
+
+  \begin{enumerate}
+  \item How many stars does the above code print?
+  \item In what shape is the output? Is there a pattern to the
+    different lines?
+  \item How difficult would it be to modify the code to print 30 lines
+    in the given pattern? How would you do it?
+  \end{enumerate}
+\end{Checkpoint}
+
+\begin{Checkpoint}{Parameters}
+  Go ahead and type in a non-FANG program and include the above
+  code. Run the program and verify your count.
+
+  \begin{lstlisting}    
+  public void p(int x) {
+    for (int i = 0; i != x; ++i) {
+      if ((i % 3) == 0)  {
+        for (int j = 0; j != x; ++j) {
+          System.out.print("*");
+        }
+        System.out.println();
+      }
+    }
+  }
+  \end{lstlisting}
+  \begin{enumerate}
+  \item How many \emph{rows} are drawn by a call of \code{p(10)}?
+  \item How many \emph{columns} in the first row for the above call?
+  \item How many stars are drawn by a call of \code{p(10)}?
+  \item How many stars are drawn by a call of \code{p(3)}? and \code{p(4)}?
+  \end{enumerate}
+\end{Checkpoint}
+
+\begin{Checkpoint}{os}
+  Go ahead and type in a non-FANG program and include the above
+  code. Run the program and verify your count.
+
+  \begin{lstlisting}
+  public static final int CUTOFF = 10;
+  public static final int FULLWIDTH = 30;
+    
+  public void os(boolean stars) {
+    for (int c = 0; c != FULLWIDTH; ++c) {
+      if (stars && (c < CUTOFF)) {
+        System.out.print("*");
+      } else {
+        System.out.print("-");
+      }
+    }
+    System.out.println();
+  }
+  \end{lstlisting}
+
+  \begin{enumerate}
+  \item What does \code{os} print when the parameter is \code{true}?
+  \item What does \code{os} print when the parameter is \code{false}?
+  \item How difficult would it be to change where the two symbols
+    change over?
+  \end{enumerate}
+\end{Checkpoint}
+
+\begin{Checkpoint}{ts}
+  Go ahead and type in a non-FANG program and include the above
+  code. Run the program and verify your conclusions.
+
+  \begin{lstlisting}
+  public void ts(boolean stars) {
+    for (int c = 0; c != FULLWIDTH; ++c) {
+      if (stars && (c < CUTOFF)) {
+        System.out.print("*");
+      } else {
+        System.out.print("-");
+      }
+    }
+    System.out.println();
+    for (int c = 0; c != FULLWIDTH; ++c) {
+      if (stars && (c < CUTOFF)) {
+        System.out.print("*");
+      } else {
+        System.out.print(" ");
+      }
+    }
+    System.out.println();
+  }    
+  \end{lstlisting}
+  
+  \begin{enumerate}
+  \item Using the same constants given in the previous question, what
+    does \code{ts} do with a \code{true} or a \code{false} constant.
+  \item How many stars are drawn when \code{ts(true)} is executed?
+  \end{enumerate}
+\end{Checkpoint}
+
+\begin{Checkpoint}{what}
+  Go ahead and type in a non-FANG program and include the above
+  code. Run the program and verify your conclusions.
+
+  \begin{lstlisting}
+  public void what() {
+    for (int tsCount = 0; tsCount != 6; ++tsCount) {
+      ts(tsCount < 3);
+    }
+    os(false);
+  }
+  \end{lstlisting}
+
+  \begin{enumerate}
+  \item How many rows does this code write on the screen?
+  \item How many times is \code{ts} called with \code{true}?
+  \item How many times is \code{ts} called with \code{false}?
+  \item How many stars are drawn?
+  \item What does the output look like?
+  \end{enumerate}
+\end{Checkpoint}
+
+\begin{Checkpoint}{}
+  Go ahead and type in a non-FANG program and include the above
+  code. Run the program and verify your conclusions.
+\end{Checkpoint}
+
+
+\Large{Log off of the lab computer you are using before leaving they
+  lab. Anyone entering the lab has unlimited access to your files if
+  you remain logged on. \textbf{DO NOT} turn off lab computers! They
+  are a shared resource and there might be someone else logged in to
+  ``your'' machine.}
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% End: 
+
+% LocalWords:  Moodle Ladd's login emacs

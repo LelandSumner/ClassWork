@@ -1,0 +1,441 @@
+\documentclass[12pt,oneside]{memoir}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage[usenames]{color}
+\usepackage{xltxtra}
+\usepackage{fontspec}
+\usepackage{textcomp}
+\usepackage{pstricks}
+\usepackage{listings}[2000/08/23] 
+
+\usepackage{rotating}
+\usepackage{exercise}
+% ----- Fonts -----
+\defaultfontfeatures{Scale=MatchLowercase,Mapping=tex-text}
+\setmainfont{Gentium Book Basic}
+\setmonofont{Bitstream Vera Sans Mono}
+\setsansfont{Arial}
+% ----- Fonts -----
+
+\definecolor{nicered}{rgb}{.647,.129,.149}
+\definecolor{listinggray}{gray}{0.1}
+\definecolor{templategrey}{gray}{0.85}
+\definecolor{NewtonsApple}{gray}{.95}
+\definecolor{commandlinebackground}{gray}{.90}
+\definecolor{commandlineforeground}{gray}{0.20,}
+\definecolor{commandpromptforeground}{gray}{0.55}
+
+\newcommand\code[1]{\lstinline^#1^}
+\newcommand\fname[1]{\texttt{#1}}
+\newcommand\note[1]{\unskip\footnote{#1}}
+\newcommand\foreign[1]{\emph{#1}}
+\newcommand\ensurecomma{}
+\newcommand\eg{\foreign{e.g.}\ensurecomma}
+\newcommand\ie{\foreign{i.e.}\ensurecomma}
+\newcommand\cf{\foreign{cf.\@}}
+
+\newcommand\ensuresingleperiod{\@ifnextchar.{}{.\@}}
+\newcommand\etc{\foreign{etc}\ensuresingleperiod}
+\newcommand\etal{\foreign{et al}\ensuresingleperiod}
+
+\DeclareGraphicsExtensions{.eps,.pdf,.png,.gif,.jpg}
+
+\newcounter{ProgrammingProblem}
+\setcounter{ProgrammingProblem}{0}%
+
+\newenvironment{LabExercises}{%
+\renewcommand{\ExerciseListName}{Question}%
+\renewcommand{\ExerciseListHeader}{\textbf{%
+   Checkpoint\ExerciseHeaderNB. }}
+\begin{ExerciseList}}%
+{\end{ExerciseList}}
+\newcommand{\LabExercise}{\Exercise[name={Lab Phase\ExerciseHeaderNB},counter={ProgrammingProblem}]}
+
+\lstset{language=java,
+  basicstyle=\small\ttfamily,
+  numbers=none, 
+  numberstyle=\tiny, 
+  stepnumber=1, 
+  numbersep=5pt,
+  frame=single,
+  captionpos=b,
+  rulecolor=\color{nicered}
+}
+
+\lstdefinelanguage{cline}
+{
+  morecomment=[s][\color{commandpromptforeground}]{ }{ },
+} 
+
+\lstnewenvironment{commandline}[1][]
+  {\lstset{language=cline,numbers=none,frame=none,backgroundcolor=\color{commandlinebackground},basicstyle=\color{commandlineforeground},nolol,#1}}
+  {}
+
+\setlength{\hoffset}{0in}
+\setlength{\voffset}{0in}
+\settypeblocksize{9.5in}{7in}{*}
+\setlrmargins{0.75in}{*}{1}
+\setulmargins{0.75in}{*}{*}
+\setheadfoot{\onelineskip}{2\onelineskip}
+\checkandfixthelayout
+
+\usepackage{verbatim}
+\newcommand{\exx}{\\[2ex]}
+\newenvironment{qv}%
+  {\quote
+   \verbatim}%
+  {\endverbatim
+   \endquote}
+
+\parskip 2ex
+\parindent 0em
+
+\begin{document}
+\begin{center}
+\Large\textbf
+CIS 201 Fall 2008: Lab 6\exx
+Week of September 28
+\end{center}
+\section*{Purpose}
+In this lab, you will experiment with creating your own Java classes.
+
+As we have described in lecture and your text, a Java \code{class}
+definition is a blueprint for creating objects.  When an object is
+created from a \code{class} definition, that object has properties
+described by the values of its field variables and provides the
+services advertised by its methods.  We think of the properties as
+attributes (\eg, a FANG \code{Sprite} has a \code{Location2D} and a
+\code{Color}) and the methods as verbs (\eg, you can \code{translate} and
+\code{rotate} a FANG \code{Sprite}).
+
+%% A Java class is said to define a {\em type}.
+
+The {\em constructor} of a class is a special method that describes
+how to create an {\em instance} (\ie, an object) of that class.  A
+constructor, called when you use the \code{new} keyword, is used only
+once -- when the object is created, whereas an object's other methods
+can be used with the object during its entire lifetime.
+
+You have been using constructors for FANG objects since the very first
+day of lab. The following line, for example, constructs a new
+\code{OvalSprite} and assigns a reference to it to the locally
+declared variable \code{round}:
+
+\begin{lstlisting}
+OvalSprite round = new OvalSprite(0.10, 0.10);
+^          ^     ^ ^   ^          ^-parameters for constructor
+|          |     | |    - Name of constructor to call
+|          |     | |      (same as name of class to construct)
+|          |     |   - keyword "new" so Java calls a constructor
+|          |       - assignment operator (puts the reference to 
+|          |         the new object into the box associated with 
+|          |         the variable named on left of assignment)
+|           - name given to the box that can hold a reference to
+|             an OvalSprite
+ - type of the variable being declared
+\end{lstlisting}
+
+When you use a Java class defined by FANG, the Java language group, or
+anyone else, you create one or more instances of the object and then
+use the instances to carry out useful work.
+
+When you create your own class, you have control over the properties
+that objects of that class should have and the services that objects
+of that class should provide.
+
+Many times, you create your own class in a way that \code{extend}s
+another class -- as in our \code{NewtonsApple} class that
+\code{extend}s the \code{Game} class.  That way we can use the
+properties and methods that the other class describes, while adding
+our own properties and methods that makes our class special.
+
+\section*{How to make a class}
+
+To create a Java class, we first create a Java source file (of the
+form \fname{<filename>.java}), and then we use the Java compiler to
+create a Java class file (of the form \fname{<filename>.class}).
+
+The Java compiler requires that the name of the file must match the
+name of the class: \code{public class X} must be defined in
+\fname{X.java} (and will compile to the class file
+\fname{X.class}). Convention (and grading criteria in this class)
+require that the names of classes (and thus the files in which they
+are defined) begin with capital letters and appear in camel-case. 
+
+Start coding by creating a \fname{Lab6} directory in which you and
+your partner will save your work. Note that this time there will be
+\emph{multiple} \fname{.java} files in this directory.
+
+Now create your first non-\code{Game} class, \code{MyName}. 
+
+Start editing a file named \code{MyName.java} that has the following
+contents:
+
+\begin{lstlisting}
+public class MyName {
+
+  private String myName;
+
+  public String getName() {
+    return myName;
+  }
+
+  public String getXYZZY() {
+    return "XYZZY";
+  }
+}
+\end{lstlisting}
+
+Compile this program and verify that your working directory now has a
+class file named \code{MyName.class}.
+
+\section*{Checkpoint 1}
+Run this program from within \fname{emacs}.\\
+What happens?\\
+Show us your results at this point.
+
+\section*{Using MyName in a game}
+Now start editing a new file named \code{MyNameGame.java}, with the
+following contents:
+
+\begin{lstlisting}
+import fang.core.Game;
+import fang.sprites.StringSprite;
+
+public class MyNameGame extends Game {
+
+  private MyName mn; // refers to a MyName object
+  private StringSprite mnSprite;
+
+  public void setup() {
+    mn = new MyName();
+    mnSprite = new StringSprite();
+    mnSprite.scale(0.05);
+    mnSprite.leftJustify();
+    mnSprite.setLocation(0.0, 0.5);
+    mnSprite.setColor(getColor("white"));
+    mnSprite.setText(mn.getName());
+    
+    addSprite(mnSprite);
+  }
+}
+\end{lstlisting}
+
+Save and compile this program.  You should see no errors (assuming
+you've typed in everything correctly).  You should also notice that
+you have a class file named \code{MyNameGame.class} in your working
+directory.
+    
+\section*{Checkpoint 2}
+Run the \code{MyNameGame} program from within \fname{emacs}.\\
+What happens?\\
+Show us your results.
+
+\section*{Null Pointer Exceptions}
+
+As you saw, the Java runtime system encountered a problem when you
+tried to run your program.  Notice that your program {\em compiled}
+correctly but that it failed to {\em run} correctly, and that at the
+top of the (long) list of problems, the Java runtime system said
+``Null Pointer Exception''.  This means that it tried to refer to an
+object, but that there was no object to refer to.
+
+In this case, the offending part was the value of \code{mn.getName()},
+which refers to the value of the field variable \code{myName}, which
+was never given a value.
+
+You can fix this in \code{MyNameGame.java} (temporarily) by replacing
+the \code{getName} call with \code{getXYZZY}, which {\em does} return
+a value.  Compile and run this program, and verify that it displays
+``XYZZY'' on the screen.
+
+Now modify this program by commenting out the line that says
+
+\begin{lstlisting}
+mn = new MyName();
+\end{lstlisting}
+
+Compile and run your program, and observe that you get another Null
+Pointer Exception error.  This time, the error is that \code{mn}
+starts off with a value of \code{null}, and when you finally refer to
+it in the \code{setText} line, nothing is there.
+
+Be sure to un-comment the \code{new MyName()} call before you proceed.
+
+\section*{Setting your name}
+
+There are two ways to give a value to your \code{myName} field
+in the \code{MyName} class.
+The first is to create \code{setName} method, as follows:
+
+\begin{lstlisting}
+public void setName(String n) {
+  myName = n;
+}
+\end{lstlisting}
+
+Notice that this method has a \code{void} return type, which means
+that its only purpose in life is to have a \emph{side-effect}; it does
+not determine or return a value.  In this case, the side-effect is to
+modify the \code{myName} field.
+
+Add this method to your \code{MyName.java} file, either before or
+after the \code{getName} method (you choose), and compile 
+\code{MyName.java}.  You should not see any errors.
+
+Now return to editing your \code{MyNameGame.java} file.  In
+\code{setup}, just after you create the \code{MyName} object, add the
+following line:
+
+\begin{lstlisting}
+mn.setName("<your name goes here>");
+\end{lstlisting}
+
+
+Of course, replace \code{"<your name goes here>"} with whatever string
+represents \emph{your} name.  You are typing a \emph{literal string}:
+do you want quotes around your name? Now, change the method call
+\code{getXYZZY} back to \code{getName}.
+
+Compile and run your \code{MyNameGame.java} program.
+
+\section*{Checkpoint 3}
+Show us your results at this point.
+
+\section*{Constructing your name}
+
+Methods like \code{setName} and \code{getName} are called
+(appropriately!) {\em getters} and {\em setters}, respectively.
+
+They provide services to those using object of the class which allow
+the user to {\em get} or {\em set} the value of a field variable,
+which is (in our case) has \code{private} visibility and can't be
+otherwise seen from outside the object.
+
+\emph{Data hiding} or the use of \code{private} data fields is an
+example of using abstraction to overcome the complexity of a computer
+program. By making all changes to \code{myName} through methods
+defined in \code{MyName} we can make sure that if we trust the
+\code{MyName} class, no other class can violate the integrity of the
+fields in the class.
+
+Instead of using a setter to set the \code{myName} field, we can set
+this value when we initiall construct the object using the \code{new}
+operator.
+
+To do this, we will need to add a new ``method'' to our \code{MyName}
+class, called a {\em constructor} While a constructor looks like other
+methods, it has no return type.  Also a constructor {\em always} uses
+the name of the class as its name.  Finally, a constructor will almost
+always have a \code{public} visibility.
+
+So in our case, we can define a constructor in our \code{MyName.java}
+file as follows:
+
+\begin{lstlisting}
+public MyName(String n) {
+  myName = n;
+}
+\end{lstlisting}
+
+Put this code just after the definition of the \code{myName} field at
+the beginning of your program.
+
+Compile your \code{MyName.java} program and be sure it doesn't have
+any errors.
+
+Now change your ``client'' program \code{MyNameGame.java} by replacing
+the lines that say
+
+\begin{lstlisting}
+mn = new MyName();
+mn.setName("<your name goes here>");
+\end{lstlisting}
+
+with the {\em single} line that says
+
+\begin{lstlisting}
+mn = new MyName("<your name goes here>");
+\end{lstlisting}
+
+(Again, replace the \code{"<your name goes here>"} with a string that has
+your name in it.)
+
+Compile you program and run it.
+
+\section*{Checkpoint 4}
+Show us your results at this point.
+
+\section*{Religion}
+Should you have \emph{both} a constructor \emph{and} a setter in your
+\code{MyName} class?
+
+If you \emph{never} expect to change the value of \code{myName} after
+creating a \code{MyName} object, then setting the value in the
+constructor would work best. (If you keep the constructor but remove
+the setter, no client program can ever change the value of
+\code{myName}.)
+
+If you {\em ever} expected to change the value, then you should keep
+the setter, and (I would suggest) remove the constructor.
+
+\textbf{My reason:} its best to have just one way to do something, so
+that you'll never have surprises.  But this is a religious issue, not
+a Java standard. Your mileage (and that of your instructor) may vary.
+\newpage
+\section*{Silly extension}
+Now create a new Java file named \code{StrSpr.java}, with the
+following code:
+
+\begin{lstlisting}
+import fang.sprites.StringSprite;
+
+public class StrSpr extends StringSprite {
+}
+\end{lstlisting}
+
+Compile this program.  (Don't try to run it...)
+
+You have defined a new class named \code{StrSpr} whose objects have
+inherited {\em all} of the properties and methods of
+\code{StringSprite}, and has changed/added nothing.
+
+Now return to your \code{MyNameGame.java} program
+and make the following changes:
+
+\begin{enumerate}
+\item
+  comment out the import line
+  that refers to \code{fang.sprites.StringSprite}
+\item
+  change the type of \code{mnSprite}
+  from \code{StringSprite} to \code{StrSpr}
+\item
+  change the line where the \code{StringSprite} constructor is called
+  to refer instead to the \code{StrSpr} constructor.
+\end{enumerate}
+
+Compile and run your program.
+
+\section*{Checkpoint 5}
+Describe to us what happens.\\
+What has the \code{StrSpr} class accomplished that is different from
+the \code{StringSprite} class?\\
+Answer these questions in header comments for the program. 
+
+\textbf{Upload your program.} Make sure both authors' names are in the
+header comment of \emph{each} \fname{.java} file.
+
+Go to Moodle; you will find an assignment in week 6 labeled
+\textbf{Lab6}. Go there and upload \emph{all} of the \fname{.java}
+programs you created today. There will be other files in that
+directory. You want to make sure you upload just the \fname{.java}
+files.
+
+
+\section*{Checkpoint 6}
+Log out, clean up your work area, and replace the chairs.
+
+
+
+\end{document}

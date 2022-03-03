@@ -1,0 +1,347 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE>SUNY Potsdam CIS 201</TITLE>
+	<meta name="generator" content="Bluefish 1.0.7">
+	<META NAME="CREATED" CONTENT="0;0">
+	<META NAME="CHANGEDBY" CONTENT="Susan Haller">
+	<META NAME="CHANGED" CONTENT="20110824;9451700">
+	<STYLE TYPE="text/css">
+	<!--
+		PRE.cjk { font-family: "DejaVu Sans", monospace }
+		TT.cjk { font-family: "DejaVu Sans", monospace }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<HR>
+<H3>CIS 201 Labs: Lab 2<BR><I>Chapter 1 Lab: A time and place for
+structure </I>
+</H3>
+<P><I>Some of the examples in this
+laboratory are based on problems and examples from the text <A HREF="http://faculty.washington.edu/stepp/book/">Building
+Java Programs</A>.</I> 
+</P>
+<HR>
+<H3>Objectives</H3>
+<P>In this lab you will work on</P>
+<UL>
+	<LI><P>finding syntax errors in programs
+	using compiler output 
+	</P>
+	<LI><P>writing structured programs with
+	more than one method 
+	</P>
+	<LI><P>diagnosing logic errors 
+	</P>
+	<LI><P>using <TT>String</TT>s that contain special
+	characters 
+	</P>
+</UL>
+<H3>Directions</H3>
+<OL>
+	<LI><P><B>Work with your partner and read
+	the handout carefully as you go along. Make sure you EACH try every
+	exercise. </B>
+	</P>
+	<LI><P><B>There are 8 checkpoints 
+	<IMG SRC="ManRightArrow.gif" WIDTH=25>
+	in this lab. If you need help with any problem, raise your hand.
+	Call us over to check you off when you and your partner reach each
+	checkpoint. </B>
+	</P>
+	<LI><P><B>You and your partner each have
+	a role. One of you enters things at the keyboard while the other one
+	reads. After EACH CHECKPOINT, swap roles with your partner. </B>
+	</P>
+	<LI><P><B>Starting with this lab, you and your partner print out a
+	copy of the check sheet.</B></P>
+</OL>
+<H3>Getting Started 
+</H3>
+<OL>
+	<LI><P>Log into your (or your partner's)
+	and open a terminal window. 
+	</P>
+	<LI><P>Change directories so that you are
+	in your <TT>201</TT> directory.
+	If this directory does not exist, create it
+	using the <tt>mkdir</tt> command.
+	</P>
+	<LI><P>Now copy the lab materials to your account. You will need to
+	use the <TT>-r</TT> option on the Unix <TT>cp</TT>
+	command in order to copy not only files, but also directories. To
+	copy, enter 
+	</P>
+	<PRE>           
+         cp -r /home/student/Classes/201/Labs/Lab02 .</PRE><P>
+	<B>Don't forget the space and the dot </B><FONT SIZE=5><B>.</B></FONT><B>
+	at the end of the command.</B> Also, ignore any message indicating
+	that you can't copy the <TT>Solution</TT>
+	subdirectory. <BR><BR>After running this copy command, do an <TT>ls</TT>;
+	you will see a new directory called <TT>Lab02</TT>.
+	What you copied was actually a directory, plus all of its contents.
+	Everything you need for the lab exercises today is contained in this
+	new directory. 
+	</P>
+	<LI><P>Change directories into this new
+	subdirectory and list the contents. 
+	</P>
+	<LI><P>Open an editor window by entering the <TT>emacs</TT>
+	command in your terminal window.
+	</P>
+</OL>
+<H3>Getting Rid of Syntax Errors</H3>
+<OL START=6>
+	<LI><P>Open the program file <TT>Buggy.java</TT>,
+	using the emacs <tt>File -> Open File...</tt> menu item,
+	choosing the file <tt>Buggy.java</tt> from the Emacs <tt>Find file</tt> dialog window,
+	and selecting the <tt>Open</tt> button at the bottom of the window.
+	If the <tt>Open File...</tt> dialog does not show
+	the <tt>Buggy.java</tt> file, you may need
+	to navigate to the correct <tt>201/Lab02</tt> subdirectory.
+	</p>
+	<p>
+	Without closing emacs, go back to your terminal window
+	and try to compile this program.  There are lots of syntax errors in it.
+	Use the compiler's error messages to help you fix all of the
+	errors in emacs.
+	After you have fixed any errors, save the file (use the Emacs <tt>File -> Save</tt> menu item,
+	or use the <tt>Ctrl-x Ctrl-s</tt> key sequence),
+	go back to your terminal window, and recompile the program.
+	You may need to do this step more than once until you have fixed all of the errors.
+	<BR />
+	<IMG SRC="ManRightArrow.gif" WIDTH=25><B>1</B>
+	Show us this program after you have all the errors fixed and the
+	program compiles and runs. 
+	</P>
+</OL>
+<H3>Structured Programming</H3>
+<OL START=7>
+	<LI><P>Open the program file in the <TT>Lab02</TT>
+	directory called <TT>Clam.java</TT>. This program is
+	essentially Exercise 1.6 in your text. That is, the program prints a
+	crude &quot;clam&quot; at the console. 
+	</P>
+	<PRE>        -------
+       /       \
+      /         \
+      -&quot;-'-&quot;-'-&quot;-
+      \         /
+       \       /
+        -------
+     </PRE><P>
+	Compile and run this program. &quot; 
+	</P>
+	<LI><P>At this point you are going to learn something new that you
+	can do at the command line from your terminal window. You are going
+	to make a copy of the file <TT>Clam.java</TT> into a
+	new file called <TT>ClamEvolution.java</TT>. Go to
+	your terminal window and enter 
+	</P>
+	<PRE>        cp  Clam.java  ClamEvolution.java
+     </PRE><P>
+	Do a listing of your directory with <TT>ls</TT>. You
+	have made a copy of the <TT>Clam</TT> program in the
+	file <TT>ClamEvolution.java</TT>. <I>Note: If you
+	have files ending in ~ (like </I><TT><I>Buggy.java~</I></TT><I>),
+	you can get rid of them by entering </I>
+	</P>
+	<PRE>        <I>rm Buggy.java~</I>
+     </PRE>
+	<LI><P>Open your new file, <TT>ClamEvolution.java</TT>
+	in Emacs. Note the following about the Java programs you have seen
+	so far: 
+	</P>
+	<BLOCKQUOTE>The file <TT>Hello.java</TT> contained a
+	program defined in a class named <TT>Hello</TT>.<BR>The
+	file <TT>Hello2.java</TT> contained a program
+	defined in a class named <TT>Hello2</TT>.<BR>The
+	file <TT>Quotes.java</TT> contained a program
+	defined in a class named <TT>Quotes</TT>.<BR>The
+	file <TT>Clam.java</TT> contained a program defined
+	in a class named <TT>Clam</TT>.</BLOCKQUOTE>
+	<P>What is the first change that you will
+	need to make to this new program in the file <TT>ClamEvolution.java</TT>?
+		</P>
+	<LI><P>Now modify <TT>ClamEvolution.java</TT> so
+	that it prints the following figure: 
+	</P>
+	<PRE>       -------
+      /       \
+     /         \
+     \         /
+      \       /
+       -------
+     -&quot;-'-&quot;-'-&quot;-
+       -------
+      /       \
+     /         \
+     -&quot;-'-&quot;-'-&quot;-
+     \         /
+      \       /
+       -------
+     </PRE><P>
+	You should write <B>three</B> methods in addition to the <TT>main()</TT>
+	and <TT>printClam()</TT> methods already defined for
+	this program.<BR><IMG SRC="ManRightArrow.gif" WIDTH=25><B>2</B>
+	For this checkpoint, show us your working <TT>ClamEvolution</TT>
+	program. 
+	</P>
+	<LI><P>Now copy <TT>ClamEvolution.java</TT> to a
+	file <TT>ClamEvolution2.java</TT>. Modify
+	<TT>ClamEvolution2.java</TT> so that it produces the
+	following output: 
+	</P>
+	<PRE>       -------
+      /       \
+     /         \
+     \         /
+      \       /
+       -------
+     -&quot;-'-&quot;-'-&quot;-
+       -------
+      /       \
+     /         \
+     \         /
+      \       /
+       -------
+     -&quot;-'-&quot;-'-&quot;-
+       -------
+      /       \
+     /         \
+     \         /
+      \       /
+       -------
+     -&quot;-'-&quot;-'-&quot;-
+       -------
+      /       \
+     /         \
+     \         /
+      \       /
+       -------
+     -&quot;-'-&quot;-'-&quot;-
+     \         /
+      \       /
+       -------
+       -------
+      /       \
+     /         \
+     -&quot;-'-&quot;-'-&quot;-
+     \         /
+      \       /
+       -------
+      </PRE><P>
+	&quot;To make this modification DO NOT add any new methods (that
+	will be the next step). Just add calls to your existing methods. 
+	</P>
+	<LI><P>Hopefully, you have noticed some unnecessary duplication in
+	<TT>ClamEvolution2</TT>. Add one method to capture
+	this duplication. Your new method will call your existing methods to
+	get the job done.<BR><IMG SRC="ManRightArrow.gif" WIDTH=25><B>3</B>
+	For this checkpoint, show us your working <TT>ClamEvolution2</TT>
+	program. 
+	</P>
+</OL>
+<H3>A Program With a Problem 
+</H3>
+<OL START=13>
+	<LI><P>Open the program file <TT>Runaway.java</TT>.
+	Compile and run this program. You will notice that it has a bit of
+	problem. It doesn't seem to stop. Actually, the program will stop
+	(in less than a minute). It will cause a <I>stack overflow</I>
+	(something you will learn more about in CS II). You won't see it,
+	but the program crashes to a halt with an error message and a trace
+	that looks like this: 
+	</P>
+	<PRE>...
+All work and no play makes Jack a dull boy.
+Jack and Jill went up the hill to
+fetch a pail of water.
+All work and no play makes Jack a dull boy.
+Jack and Jill went up the hill to
+fetch a pail of water.
+Exception in thread &quot;main&quot; java.lang.StackOverflowError
+        at java.nio.Buffer.(Buffer.java:176)
+        at java.nio.CharBuffer.(CharBuffer.java:259)
+        at java.nio.HeapCharBuffer.(HeapCharBuffer.java:52)
+        at java.nio.CharBuffer.wrap(CharBuffer.java:350)
+        at sun.nio.cs.StreamEncoder$CharsetSE.implWrite(StreamEncoder.java:378)
+        at sun.nio.cs.StreamEncoder.write(StreamEncoder.java:136)
+        at java.io.OutputStreamWriter.write(OutputStreamWriter.java:191)
+        at java.io.BufferedWriter.flushBuffer(BufferedWriter.java:111)
+        at java.io.PrintStream.write(PrintStream.java:458)
+        at java.io.PrintStream.print(PrintStream.java:602)
+        at java.io.PrintStream.println(PrintStream.java:739)
+        at Runaway.jack(Runaway.java:15)
+        at Runaway.jill(Runaway.java:22)
+        at Runaway.jack(Runaway.java:16)
+        ...
+    </PRE><P>
+	The problem with this program is not syntactic. Remember, it did
+	compile and run. The problem has to do with the logic in the program
+	itself - called <I>logic error</I>. Logic errors are introduced by
+	programmers. 
+	</P>
+	<LI><P>Right now, you and your partner look at <TT>Runaway.java</TT>
+	and diagnose the logic error. Draw a diagram showing the calling
+	hierarchy to help with this.<BR><IMG SRC="ManRightArrow.gif" WIDTH=25><B>4</B>
+	For this checkpoint, call us over, show us your diagram, and explain
+	what the problem is this this program. 
+	</P>
+</OL>
+<H3><TT>String</TT>s that Contain Special Characters</H3>
+<OL START=15>
+	<LI><P>Now you are going to write a new program from scratch in a
+	new file. Remember how to do this from Emacs: go to the
+	<B>File -&gt; Visit New File...</B> menu item.
+	<br />
+	You will be presented with a <tt>Find file</tt> window.
+	(If you are not in your <tt>201/Lab02</tt> directory,
+	navigate to this directory now.)
+	At the top of the window, in a text entry box labeled <tt>Name:</tt>,
+	you can enter the name of the file to create.
+	For this new program, enter the name <tt>SingleString.java</tt>,
+	and then click on the <tt>OK</tt> button at the bottom of the <tt>Find file</tt> window.
+	You will now be editing this new file.
+	</P>
+	<LI><P>In the file <TT>SingleString.java</TT> that you are now editing,
+	create a class called — well, what do you think it should be
+	called? — to print the following output using a single
+	<TT>System.out.println</TT> statement with a single
+	<TT>String</TT> in it. 
+	</P>
+	<PRE>This &quot;output&quot; was produced using a single string.
+    </PRE><P>
+	Remember that we talked about special characters in class. Besides
+	<TT>\&quot;</TT> and <TT>\\</TT>
+	there was <TT>\t</TT> and <TT>\n</TT>.
+	Will any of these help you?&quot;<BR><IMG SRC="ManRightArrow.gif" WIDTH=25><B>5</B>
+	For this checkpoint, your output must match the above output
+	<I>exactly</I>. Call us over to see your program when you are ready.
+		</P>
+</OL>
+<H3>Now For Some Practice-It</H3>
+<OL START=17>
+	<LI><P>Login to your Practice-It account (there is a link on our
+	Moodle home page). Do <B>Exercise 1.4 Difference.</B> Suggestion:
+	You cwould write the program in emacs and then cut and paste your
+	answer to the text box provided in Practice It. Your text editor has
+	syntax highlighting (color cues). 
+	</P>
+	<P><IMG SRC="ManRightArrow.gif" WIDTH=25><B>6</B>
+	Show that you have succesfully completed Exercise 1.4. 
+	</P>
+	<LI><P>Do Practice-It <B>Exercise 1.7 Stewie2</B>. 
+	</P>
+	<P><IMG SRC="ManRightArrow.gif" WIDTH=25><B>7</B>
+	Show that you have succesfully completed Exercise 1.7. 
+	</P>
+</OL>
+<P>Clean up and log out. 
+</P>
+<P><IMG SRC="ManRightArrow.gif" WIDTH=25><B>8</B>
+</P>
+</BODY>
+</HTML>

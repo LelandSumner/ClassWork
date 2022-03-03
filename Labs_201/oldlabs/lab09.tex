@@ -1,0 +1,234 @@
+% book.tex -- Copyright (c) 2004, Brian C. Ladd
+%
+%  Author : Brian C. Ladd 
+%  Created: Wed Jul 07 12:03:49 2004 by blad
+%  Revised: Fri Dec 28 15:27:43 2007 by blad
+%  
+\def\FileCreated{Wed Jul 07 12:03:49 2004}
+\def\FileRevised{Fri Dec 28 15:27:43 2007}
+\documentclass[12pt,oneside]{memoir}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage[usenames]{color}
+\usepackage{xltxtra}
+\usepackage{fontspec}
+\usepackage{textcomp}
+\usepackage{pstricks}
+\usepackage{listings}[2000/08/23] 
+
+\usepackage{rotating}
+\usepackage{exercise}
+% ----- Fonts -----
+\defaultfontfeatures{Scale=MatchLowercase,Mapping=tex-text}
+\setmainfont{Gentium Book Basic}
+\setmonofont{Bitstream Vera Sans Mono}
+\setsansfont{Arial}
+% ----- Fonts -----
+
+\definecolor{nicered}{rgb}{.647,.129,.149}
+\definecolor{listinggray}{gray}{0.1}
+\definecolor{templategrey}{gray}{0.85}
+\definecolor{NewtonsApple}{gray}{.95}
+\definecolor{commandlinebackground}{gray}{.90}
+\definecolor{commandlineforeground}{gray}{0.20,}
+\definecolor{commandpromptforeground}{gray}{0.55}
+
+\newcommand\code[1]{\lstinline^#1^}
+\newcommand\fname[1]{\texttt{#1}}
+\newcommand\note[1]{\unskip\footnote{#1}}
+\newcommand\foreign[1]{\emph{#1}}
+\newcommand\ensurecomma{%
+  \@ifnextchar,{}{\@latex@error{Don’t forget the comma!}{}}}
+\newcommand\eg{\foreign{e.g.}\ensurecomma}
+\newcommand\ie{\foreign{i.e.}\ensurecomma}
+\newcommand\cf{\foreign{cf.\@}}
+
+\newcommand\ensuresingleperiod{\@ifnextchar.{}{.\@}}
+\newcommand\etc{\foreign{etc}\ensuresingleperiod}
+\newcommand\etal{\foreign{et al}\ensuresingleperiod}
+
+\DeclareGraphicsExtensions{.eps,.pdf,.png,.gif,.jpg}
+
+\newcounter{LabPhase}
+\setcounter{LabPhase}{0}%
+
+\newenvironment{LabExercises}{%
+\renewcommand{\ExerciseListName}{Question}%
+\renewcommand{\ExerciseListHeader}{\textbf{%
+   Phase\ExerciseHeaderNB. }}
+\begin{ExerciseList}}%
+{\end{ExerciseList}}
+\newcommand{\LabExercise}{\Exercise[name={Lab Phase\ExerciseHeaderNB},counter={LabPhase}]}
+\newcounter{CheckPoint}
+\setcounter{CheckPoint}{1}%
+
+\newcommand{\Checkpoint}{\textbf{Checkpoint \theCheckPoint }:: \addtocounter{CheckPoint}{1}}
+
+
+\lstset{language=java,
+  basicstyle=\small\ttfamily,
+  numbers=none, 
+  numberstyle=\tiny, 
+  stepnumber=1, 
+  numbersep=5pt,
+  frame=single,
+  captionpos=b,
+  rulecolor=\color{nicered}
+}
+
+\lstdefinelanguage{cline}
+{
+  morecomment=[s][\color{commandpromptforeground}]{ }{ },
+} 
+
+\lstnewenvironment{commandline}[1][]
+  {\lstset{language=cline,numbers=none,frame=none,backgroundcolor=\color{commandlinebackground},basicstyle=\color{commandlineforeground},nolol,#1}}
+  {}
+
+\setlength{\hoffset}{0in}
+\setlength{\voffset}{0in}
+\settypeblocksize{9.5in}{7.5in}{*}
+\setlrmargins{0.5in}{*}{1}
+\setulmargins{0.75in}{*}{*}
+\setheadfoot{\onelineskip}{2\onelineskip}
+\checkandfixthelayout
+
+\begin{document}
+
+\begin{center}
+\Large{CIS 201 Fall 2008: Lab 9\\Bouncing Bumpers}
+\end{center}
+
+\begin{itemize}
+\item Reading a file
+\end{itemize}
+
+Consider the process of writing a pinball game. Given a screen and a
+ball that bounces, how do different levels or pinball games differ?
+They differ in how their bumpers (and other things) are laid out. 
+
+What we really want, then, is to build a pinball \emph{engine}, a
+program that can simulate any pinball machine described in an
+appropriate way. You will begin with a simulator that has ball physics
+but no bumpers. Your job is to extend the program so that it prompts
+the user for the name of a bumper file (format described below) and
+then creates the appropriate sprites in the machine before setting the
+ball(s) loose.
+
+\begin{LabExercises}
+\LabExercise Download the files \fname{Pinball.java} and
+\code{PinballGame.java} into a directory for \fname{Lab9}. The two
+files are linked through Moodle (in the description for the Lab where
+you will turn it in) and are located at
+\fname{http://cs.potsdam.edu/faculty/laddbc/Teaching/CS1/Week11/Pinball.java}
+and
+\fname{http://cs.potsdam.edu/faculty/laddbc/Teaching/CS1/Week11/PinballGame.java}
+respectively.
+
+Also in that directory are several \fname{.pnb} files; \fname{.pnb} is
+an extension I coined to hold pinball description files. It is a text
+format described further down.
+
+Download the Java and pinball files into your lab directory. Compile
+and run the pinball game. It should compile but it should not do
+anything because there is no description of a pinball game. 
+
+\LabExercise Look at the \code{PinballGame} class. Find all of the
+stub functions (they are the ones with no code in them). You are going
+to need to replace the stubs with working code.
+
+\LabExercise Modify \code{getFileName} so that it displays the prompt
+that is passed into it followed by a single space and then reads a
+string from the user, returning that value. The returned value should
+be permitted to include spaces. Modify the \code{connectScannerToFile}
+method so it prints out the name of the file it was passed (this is
+still stub code).
+
+\Checkpoint Compile and run your program and show one of the
+instructors your program running (prompt, read, echo name of file).
+
+\LabExercise Now you will need to replace the method
+\code{ensureExtension}.
+
+\code{ensureExtension} is passed a file name and returns that file
+name with a given extension. That is, if it were passed
+\code{something} and \code{txt}, it would return the string
+\code{something.txt}. The method is called \emph{ensure}Extension
+because it should only add the extension if the file name does not
+already end with it. Thus calling the method with \code{something.txt}
+and \code{txt} should also return \code{something.txt}.
+
+Your method will take two \code{String} parameters. You will want to
+look at the documentation for the \code{String} class (the
+\code{substring}, \code{equals}, \code{endsWith} methods in
+particular). The first parameter is the file name, the second the
+extension. If the file name does not end with a dot and the given
+extension, it needs fixing; otherwise return it unchanged. To fix a
+file name, if it ends with a dot, just return file name plus
+extension; otherwise return file name plus dot plus extension.
+
+After you get the file name (from \code{getFileName} above) but before
+passing it to \code{connectScannerToFile}, you should ensure that it
+has the extension for a pinball description file; something like this:
+
+\begin{lstlisting}
+fname = ensureExtension(fname, "pnb");
+\end{lstlisting}
+
+
+\LabExercise Now, read the whole file. You will write a loop that
+reads the next token from the file (a token is, in this case, a
+word). Then, if the word is ``Ball'', ``Oval'', or ``Rectangle'' you
+will call a routine that reads the rest of the information for that
+type of sprite and adds one to the scene.
+
+That is, in \code{readBufferFile} you will use the provided code to
+prompt the user and get a \code{Scanner} hooked up to a file. Then,
+while there is another word to read, read it. If the word is ``Ball'',
+call the \code{handlePinball} method (and so on for the other two
+types). Lines are of the form:
+
+\begin{lstlisting}
+Ball <color> <x> <y> <w> <h> <dX> <dY>
+Oval <color> <x> <y> <w> <h>
+Rectangle <color> <x> <y> <w> <h>
+\end{lstlisting}
+
+Where \code{<color>} is a word that can be passed to \code{getColor}
+to return a color and all the rest are double values. x and y are the
+location of the bumper (or ball); w and h are width and height. The dX
+and dY are the velocity of the ball. You should use the \code{Scanner}
+to do most of the work of reading all the fields of a given bumper.
+
+\Checkpoint Show your code reading files to one of the instructors.
+
+\LabExercise Write a pinball file that describes a pinball level with
+two balls (starting near the left and right edges of the screen
+heading toward the center of the screen) and two oval sprite eyes and
+one rectangle sprite ``mouth'' to make a ``smiley face''.
+
+\LabExercise Upload your Java and text files.
+
+Make sure both authors' names are in all of the header comments!
+
+Go to Moodle; you will find an assignment in week 11 labeled
+\textbf{Lab 9}. Go there and upload all of the Java files you
+created/modified in lab today. Note that there will be other files in
+your \fname{Lab8} directory. You want to make sure you upload just the
+\fname{.java} file.
+
+Also make sure that both partners have copies of the program. This
+program has some bearing on the current assignment so you probably
+want to have this code around. Comments will also be very helpful in
+this program for exactly that reason.
+
+\end{LabExercises}
+
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% End: 
+
+% LocalWords:  Moodle Ladd's login emacs

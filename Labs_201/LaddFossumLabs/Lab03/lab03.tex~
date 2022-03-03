@@ -1,0 +1,472 @@
+\documentclass[12pt]{article}
+
+\pagestyle{empty}
+\oddsidemargin 0in       %   Left margin on odd-numbered pages.
+\evensidemargin 0in        %   Left margin on even-numbered pages.
+\textwidth 6.5in
+\textheight 9in
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+
+\usepackage[T1]{fontenc}
+\usepackage{pslatex}
+
+\usepackage{verbatim}
+\newenvironment{qv}%
+  {\quote
+   \verbatim}%
+  {\endverbatim
+   \endquote}
+
+
+\begin{document}
+\vspace*{0.5in}
+\begin{center}
+\Large\bf
+CIS 201 -- Computer Science I\\
+Laboratory Assignment 3\\
+\end{center}
+
+\section*{Introduction}
+In this lab, you will produce a simulation of the earth orbiting the sun.
+
+\section*{First, the sun}
+
+\subsection*{Creating the file {\tt Orbits.java}}
+Make a directory {\tt Lab03} in which you will do your work.
+It should be a subdirectory of your {\tt CS1} directory,
+as you have done with previous labs.
+Change directory to {\tt Lab03}.
+
+Create a Java program named {\tt Orbits.java} in your {\tt Lab3} directory.
+Your program should define a class {\tt Orbits}
+that extends the FANG {\tt Game} class.
+Your program should look like this:
+\begin{qv}
+import fang.core.Game;
+
+public class Orbits extends Game {
+
+}
+\end{qv}
+
+Compile your program to be sure you have no typos.
+You can run your program, too, but don't expect it to do much.
+
+\subsection*{Create appropriate variables}
+Modify your program so that it includes
+the following private instance variable declaration:
+\begin{qv}
+private OvalSprite sun;
+\end{qv}
+Put this as the first line inside your \verb'Orbits' class.
+Be sure to indent it properly -- use the \verb'Tab' key to do so.
+You'll also have to import the FANG \verb'OvalSprite' class,
+so add the line
+\begin{qv}
+import fang.sprite.OvalSprite;
+\end{qv}
+to the top of your program.
+
+A FANG 'game' automatically calls a \verb'setup' method
+whose purpose is to do any initialization
+in preparation to start the 'game'.
+(We will use the term 'game' here,
+even though what we are creating is a simulation,
+not a real game.)
+
+Put your \verb'setup' method
+below the declaration of your \verb'sun' variable.
+It should look like this:
+\begin{qv}
+public void setup() {
+  // code for setup goes here
+}
+\end{qv}
+This method has the following signature:
+\begin{tabular}{l@{: }l}{
+Visibility: & \verb'public' \\
+Return:     & \verb'void' \\
+Name:       & \verb'setup' \\
+Parameters: & none \\
+}
+
+Now start to fill in the {\tt setup} method body
+by defining (also called {\em instantiating}) the {\tt sun} variable
+to be a circle with diameter 0.1.
+A circle is an \verb'OvalSprite' with the same
+height and width.
+Set its color to {\tt red} and its location to {\tt (0.5, 0.5)} --
+the center of the game canvas.
+Finally, we will add the {\tt sun} sprite to the game canvas.
+Here is the code you should insert into the \verb'setup' method body:
+\begin{qv}
+sun = new OvalSprite(0.1, 0.1);
+sun.setLocation(0.5, 0.5);
+sun.setColor(getColor"red");
+
+addSprite(sun);
+\end{qv}
+
+Compile your {\tt Orbits.java} program
+and fix any problems until it compiles without error.
+\subsection*{Checkpoint 1: Compile and run}
+{\bf Run your program, and show us your results.
+Be prepared to tell us about the method signatures of \verb'setup'.)
+}
+
+\section*{Next, the earth}
+
+\subsection*{A simplified orbit}
+Since the earth will be orbiting the sun,
+we will need to understand how orbits work.
+To simplify things for now, we will assume that the orbit
+consists of points on the {\em unit circle}:
+those points $(x,y)$ satisfying the condition that $x^2 + y^2 = 1$.
+Since you've had trigonometry (let us know if this is not the case),
+you should know that all such points $(x,y)$ are of the form
+\[(x,y) = (\cos(\phi), \sin(\phi))\]
+where $\phi$ is the angle between the points $(1,0)$ and $(x,y)$
+along the unit circle.
+(Normally, the angle $\phi$ will be measured in {\em radians} --
+remember that there are $2\pi$ radians
+along the circumference of the circle.)
+
+\subsection*{Orbital movement}
+We want to simulate the movement of a point $(x,y)$
+along the unit circle orbit,
+by moving it a small amount around the circle at each time interval.
+The \verb'advance' method will be used to animate the earth orbit
+by changing the location of the earh a small amount each time interval.
+{\em The FANG game enging calls the \verb'advance' method
+about 20 times per second, so the animation should be reasonably smooth.}
+
+If the point $(x,y)$ on the unit circle has the form
+$(\cos(\phi), \sin(\phi))$
+and if we want to rotate the point $(x,y)$ by the amount $\theta$ radians
+(where $\theta$ is a small number) around the circle,
+we would want the new point $(xx, yy)$ to be at location
+$(\cos(\phi+\theta), \sin(\phi+\theta))$.
+
+Do you remember your trigonometry sum formulas?  Here they are:
+\[xx = \cos(\phi+\theta) =
+  \cos(\phi)\cos(\theta) -
+  \sin(\phi)\sin(\theta)\]
+\[yy = \sin(\phi+\theta) =
+  \sin(\phi)\cos(\theta) +
+  \cos(\phi)\sin(\theta)\]
+Since $x=\cos(\phi)$ and $y=\sin(\phi)$,
+these formulas can be written as
+\[xx =
+  x\:\cos(\theta) -
+  y\:\sin(\theta)\]
+\[yy =
+  y\:\cos(\theta) +
+  x\:\sin(\theta)\]
+
+\subsection*{Programming an earth orbit}
+
+Now you will create an {\tt earth} sprite to follow an orbit
+around the unit circle.
+Just leave the sun on your game canvas for the time being.
+
+First, create an {\tt earth} instance variable,
+simlar to your {\tt sun} variable:
+\begin{qv}
+private OvalSprite earth;
+\end{qv}
+We also need instance variables
+to store the $(x,y)$ coordinates of the earth.
+We'll call them {\tt ex} and {\tt ey}:
+\begin{qv}
+private double ex;
+private double ey;
+\end{qv}
+Put these instance variables together with the \verb'sun' instance variable
+at the top of your \verb'Orbits' class.
+
+In your {\tt setup} code,
+create an {\tt earth} object to be an {\tt OvalSprite}
+with diameter 0.03 (it's smaller than the sun!),
+make it green (what else?),
+and set the {\tt ex} and {\tt ey} variables
+to 1.0 and 0.0, respectively --
+this means that the earth will start off at coordinates (1,0),
+which is the upper right corner of the screen.
+(We call the variables \verb'ex' and \verb'ey'
+because they represent the $(x,y)$ coordinates of the earth.)
+
+Set the location of your {\tt earth} object to {\tt (ex, ey)},
+right after your assignments to {\tt ex} and {\tt ey}.
+This is the order of things that should now appear in \verb'setup':
+\begin{enumerate}
+\item create an instance of the 
+
+Be sure to add the {\tt earth} sprite to your canvas,
+along with what you did for the {\tt sun}.
+
+\subsection*{Checkpoint 2: Compile and run}
+Compile and run your program at this point,
+and show us your results.
+(And be prepared to tell us
+you knew the sum formulas for $\cos$ and $\sin$.)
+
+\section*{Moving the earth}
+
+\subsection*{Advancing on {\tt advance}}
+Now write an empty {\tt advance} method,
+as we did in your first two labs.
+Remember that the {\tt advance method} has a {\tt double} parameter,
+which we have called {\tt secsSinceLastCall}.
+(You could call it {\tt secs}, for that matter -- it's up to you.)
+Compile and run your code
+to be sure that you haven't typed anything incorrectly.
+
+\subsection*{Moving the earth}
+At each call to {\tt advance},
+we want to move the earth's {\tt (ex,ey)} coordinates
+a small amount around the unit circle,
+by $\theta$ radians.
+Create the following new variable in your variable section:
+\begin{qv}
+private double eTheta; // how much to advance earth along the unit circle
+\end{qv}
+In your {\tt setup} code,
+give the value of 0.005 to eTheta.
+This will move the earth along the unit circle orbit a small amount
+each time the {\tt advance} method is called.
+
+It turns out that we will not be changing the value of {\tt eTheta}
+during the execution of our program.
+So instead of re-computing the $\cos$ and $\sin$ of {\tt eTheta}
+every time {\tt advance} is called,
+we compute them once in {\tt setup}
+and use these values in formulas that use $\cos(\theta)$ and $\sin(\theta)$.
+Create the following new variables in your variable section:
+\begin{qv}
+private double ecosTheta;
+private double esinTheta;
+\end{qv}
+and in your {\tt setup} code,
+make the following assignments to these variables:
+\begin{qv}
+ecosTheta = Math.cos(eTheta);
+esinTheta = Math.sin(eTheta);
+\end{qv}
+The Math package, which defines the {\tt cos} and {\tt sin} functions,
+is imported automatically for you.
+
+Compile what you have so far, so you'll be able to correct typos.
+
+\subsection*{Earth on the run}
+In your {\tt advance} method,
+you can now write the code to move the earth by {\tt eTheta} radians
+along the unit circle.
+Because of the orientation of the $x$- and $y$-axes in our game canvas,
+moving in the counter-clockwise direction around the unit circle
+(when {\tt eTheta is positive}) will appear
+to be moving clockwise on our canvas.
+If you want to look at it properly (like most mathematicians do),
+you'll have to go behind the screen and stand on your head.
+
+Remember the formulas from above:
+\[xx =
+  x\:\cos(\theta) -
+  y\:\sin(\theta)\]
+\[yy =
+  y\:\cos(\theta) +
+  x\:\sin(\theta)\]
+Since we are using {\tt ex} and {\tt ey} as the $x$- and $y$-coordinates
+of the earth on the unit circle,
+for the earth these formulas become:
+\begin{qv}
+double exx = ex*ecosTheta - ey*esinTheta;
+double eyy = ey*ecosTheta + ex*esinTheta;
+\end{qv}
+Here we have substituted the variable {\tt ecosTheta} for $\cos(\theta)$
+and so forth.
+Also,
+we have defined two new variables in the process:
+{\tt exx} and {\tt eyy}.
+(The use of {\tt double} here creates new variables ``on the fly''.
+They will exist throughout the execution of the {\tt advance} method
+and will be discarded when {\tt advance} finishes.)
+These two variables hold the new $x$- and $y$-coordinates of the earth.
+You should put these assignments
+at the beginning of your {\tt advance} method.
+Once you have identifed the new earth coordinates,
+you will need to re-position the earth:
+\begin{qv}
+ex = exx;
+ey = eyy;
+earth.setLocation(ex, ey);
+\end{qv}
+Put this code as part of {\tt advance},
+immediately after your evaluation of {\tt exx} and {\tt eyy};
+
+\subsection*{Checkpoint 3: Compile and run}
+Compile your program and run the game.
+You should see the earth slowly advance
+in a circle with origin at the top-left corner with coordinates (0,0).
+Show us your work at this point.
+(If you let it run for a while, the earth will disappear from the screen
+on its way to the second quadrant.
+If you wait long enough, it will reappear at (1,0) and be visible again.)
+
+\section*{Earth orbits the sun}
+Of course, the earth should be orbiting the sun,
+not the origin of our game canvas.
+You need to fix this.
+
+\subsection*{Earth radius around the sun}
+You first need to determine how far the earth should be from the sun
+as it orbits the sun.
+Create a variable {\tt eRadius} that will hold this value.
+Since the sun starts out at (0.5,0.5) and we want the earth to be visible
+on the canvas as it orbits the sun,
+a reasonable radius would be 0.45.
+
+As you have done before,
+create a private double variable named {\tt eRadius}
+and assign its value to be 0.45 in {\tt setup}.
+Put this assignment immediately after your assignments
+to {\tt ex} and {\tt ey}.
+
+Now, whenever you set the location of the earth
+(there are {\em two places}:
+once in {\tt setup} and a second time in {\tt advance})
+do the following:
+\begin{qv}
+earth.setLocation(sun.getX() + ex*eRadius, sun.getY() + ey*eRadius);
+\end{qv}
+This will put the earth's location {\em relative to that of the sun}.
+Since {\tt (ex,ey)} are always on the unit circle,
+{\tt (ex*eRadius, ey*eRadius)} will always be
+on a circle of radius {\tt eRadius}.
+
+\subsection*{Checkpoint 4: Compile and run}
+Make these changes and run your game.
+You should see the earth stadily progress around the sun.
+Show us your work at this point.
+
+\section*{Factoring out the {\tt setLocation} calls}
+
+In the code above, you will have two places where you call
+\begin{qv}
+earth.setLocation(...)
+\end{qv}
+where the code is {\em exactly the same}.
+Instead of typing this twice --
+which increases the likelihood that you will make a mistake --
+you will create a separate method that does this.
+
+Create a method as follows:
+\begin{qv}
+private void locateEarth() {
+  earth.setLocation(...)
+}
+\end{qv}
+where the {\tt setLocation} parameters are the same
+as in your current program.
+Put this method somewhere in your program,
+probably between the end of {\tt setup} and the beginning of {\tt advance}.
+You can put it pretty much anywhere in your {\tt Orbits} class definition,
+but it can't be {\em within} any of the other methods.
+
+Then, in the two places where you had {\tt earth.setLocation(...)} --
+once in {\tt setup} and a second time in {\tt advance} --
+replace these with
+\begin{qv}
+locateEarth();
+\end{qv}
+In general, if you find yourself doing a complicated line or lines of code
+more than once in your program,
+you can write a method that does the same stuff,
+and you can replace the lines where it originally occurred
+with method calls.
+
+Compile and run your program to verify that your change hasn't affected
+the way your game runs.
+
+\section*{The moon and earth}
+Well, now that you have the earth orbiting the sun,
+you can have the moon orbit the earth.
+You have already done all the work for the earth orbiting the sun:
+all you need to do is write almost identical code
+for the moon orbiting the earth.
+
+You'll need the following variables:
+\begin{qv}
+private OvalSprite moon;
+private double mx;
+private double my;
+private double mRadius;
+private double mTheta;
+private double mcosTheta;
+private double msinTheta;
+\end{qv}
+
+Make the moon be a white circle with diameter 0.01
+and orbit radius 0.045.
+As with the earth, the {\tt (mx, my)} coordinates will be on the unit circle,
+starting at (1.0, 0.0);
+Choose {\tt mTheta} to be 0.05,
+so that the moon rotates around the earth
+faster than the earth rotates around the sun.
+The rest is just copying the code for the earth
+and doing the same for the moon.
+You'll need to have moon-related code in {\tt setup} and {\tt advance}.
+You can practically duplicate the earth-related code,
+only with appropriate modifications to be moon-related.
+
+
+Oh, two things to remember:
+\begin{itemize}
+\item
+  the location of the moon is relative to that of the earth,
+  so you'll want to say something like
+\begin{quote}
+\begin{verbatim}
+moon.setLocation(earth.getX() + mx*mRadius, earth.getY() + my*mRadius);
+\end{verbatim}
+\end{quote}
+\item
+  You'll want to make a {\tt locateMoon} method
+  that does this.
+\end{itemize}
+
+\subsection*{Checkpoint 5: Compile and run}
+Show us your running game at this point.
+
+\section*{Order in the code!}
+Look at the code we described above:
+\begin{qv}
+double exx = ex*ecosTheta - ey*esinTheta;
+double eyy = ey*ecosTheta + ex*esinTheta;
+ex = exx;
+ey = eyy;
+\end{qv}
+Wouldn't it be simpler to say the folowing?
+\begin{qv}
+ex = ex*ecosTheta - ey*esinTheta;
+ey = ey*ecosTheta + ex*esinTheta;
+\end{qv}
+\subsection*{Checkpoint 6: Yes or no?}
+Answer the question, and explain.
+
+\section*{Upload your code}
+Be sure that your code is properly indented
+and that you have used spaces appropriately.
+You will lose points if you do not do so.
+
+Also, be sure your code has the ID block at the top
+(following your {\tt import} lines)
+with your name (as author) and other required items
+as described in Lab 2.
+In this comment block, briefly explain your answer to Checkpoint 6.
+Follow the format of the comment block throughout.
+
+Upload your code into the proper moodle location for Lab 3.
+
+\end{document}

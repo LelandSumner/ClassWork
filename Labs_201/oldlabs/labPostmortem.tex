@@ -1,0 +1,180 @@
+\documentclass[10pt,oneside]{memoir}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage[usenames]{color}
+\usepackage{xltxtra}
+\usepackage{fontspec}
+\usepackage{textcomp}
+\usepackage{pstricks}
+\usepackage{listings}[2000/08/23] 
+
+\usepackage{rotating}
+\usepackage{exercise}
+% ----- Fonts -----
+\defaultfontfeatures{Scale=MatchLowercase,Mapping=tex-text}
+\setmainfont{Gentium Book Basic}
+\setmonofont{Bitstream Vera Sans Mono}
+\setsansfont{Arial}
+% ----- Fonts -----
+
+\definecolor{nicered}{rgb}{.647,.129,.149}
+\definecolor{listinggray}{gray}{0.1}
+\definecolor{templategrey}{gray}{0.85}
+\definecolor{NewtonsApple}{gray}{.95}
+\definecolor{commandlinebackground}{gray}{.90}
+\definecolor{commandlineforeground}{gray}{0.20,}
+\definecolor{commandpromptforeground}{gray}{0.55}
+
+\newcommand\code[1]{\lstinline^#1^}
+\newcommand\fname[1]{\texttt{#1}}
+\newcommand\note[1]{\unskip\footnote{#1}}
+\newcommand\foreign[1]{\emph{#1}}
+\newcommand\ensurecomma{%
+  \@ifnextchar,{}{\@latex@error{Don’t forget the comma!}{}}}
+\newcommand\eg{\foreign{e.g.}\ensurecomma}
+\newcommand\ie{\foreign{i.e.}\ensurecomma}
+\newcommand\cf{\foreign{cf.\@}}
+
+\newcommand\ensuresingleperiod{\@ifnextchar.{}{.\@}}
+\newcommand\etc{\foreign{etc}\ensuresingleperiod}
+\newcommand\etal{\foreign{et al}\ensuresingleperiod}
+
+\DeclareGraphicsExtensions{.eps,.pdf,.png,.gif,.jpg}
+
+\newcounter{LabPhase}
+\setcounter{LabPhase}{0}%
+
+\newenvironment{LabExercises}{%
+\renewcommand{\ExerciseListName}{Question}%
+\renewcommand{\ExerciseListHeader}{\textbf{%
+   Lab\ExerciseHeaderNB. }}
+\begin{ExerciseList}}%
+{\end{ExerciseList}}
+\newcommand{\Lab}{\Exercise[name={Lab Phase\ExerciseHeaderNB},counter={LabPhase}]}
+\newcounter{CheckPoint}
+\setcounter{CheckPoint}{1}%
+
+\newcommand{\Checkpoint}{\textbf{Checkpoint \theCheckPoint }:: \addtocounter{CheckPoint}{1}}
+
+\newcounter{myQuestion}
+\setcounter{myQuestion}{0}
+
+\newcommand{\myQuestion}{\addtocounter{myQuestion}{1}\emph{Question \themyQuestion}-- }
+
+
+\lstset{language=java,
+  basicstyle=\small\ttfamily,
+  numbers=none, 
+  numberstyle=\tiny, 
+  stepnumber=1, 
+  numbersep=5pt,
+  frame=single,
+  captionpos=b,
+  rulecolor=\color{nicered}
+}
+
+\lstdefinelanguage{cline}
+{
+  morecomment=[s][\color{commandpromptforeground}]{ }{ },
+} 
+
+\lstnewenvironment{commandline}[1][]
+  {\lstset{language=cline,numbers=none,frame=none,backgroundcolor=\color{commandlinebackground},basicstyle=\color{commandlineforeground},nolol,#1}}
+  {}
+
+\setlength{\hoffset}{0in}
+\setlength{\voffset}{0in}
+\settypeblocksize{9.5in}{7.5in}{*}
+\setlrmargins{0.5in}{*}{1}
+\setulmargins{0.75in}{*}{*}
+\setheadfoot{\onelineskip}{2\onelineskip}
+\checkandfixthelayout
+
+\begin{document}
+
+\begin{center}
+\Large{CIS 201 Fall 2008\\
+Lab Postmortem By Lab}
+\end{center}
+
+
+\begin{LabExercises}
+\Lab Logging in and typing in a FANG Program.
+
+Overall successful. Need to make pair programming more explicit. Also
+need to make sure both students include their names in the program
+file and both end up with a copy; may want to modify Moodle to assign
+pairs weekly.
+
+\Lab Catnip - Animation and moving with keyboard.
+
+Generally successful.
+
+\Lab Orbits - Expressions and units.
+
+Generally successful. Not sure students understand the mathematics.
+
+\Lab Racing - Conditionals in moving.
+
+Not successful. (1) Line/object intersection is broken in FANG (on
+list to fix). (2) Car would be better implemented as a narrow triangle
+so a front/rear are apparent from the appearance. The forward()
+command makes sense. 
+
+\Lab RakingLeaves - An \code{ArrayList} of leaves.
+
+Generally successful if a bit complex. The program has too many
+parts. It would make sense to develop in class a \code{randomColor()}
+method and then use that method in the game (interconnects the two
+parts of the class). Either provide the code for making the pile or
+the code for creating the leaves in the playing field; that would
+remove some complexity and provide model method comments. 
+
+\Lab StrSpr - Make your own \code{StringSprite}
+
+\Lab EasyDice - Provide a class for a program.
+
+  Too long. No questions for the students to answer (probably good
+  given the length but the point is that no questions means no
+  reflection so the learning, if any, doesn't stick very well). 
+
+  \begin{enumerate}
+  \item Remove the changing of the size/color of the program in
+    the provided \fname{EasyDice.java} file. Students should not change
+    \code{EasyDice} at all.
+  \item Provide some examples of the stages of development. Perhaps a
+    stubbed version of the \code{OneDie} class. This is a bit much but
+    they have no experience with this yet.
+  \item Alternatively, provide complete header comments with notes on
+    \emph{how} the code should work as well as the contract. That
+    would guide them in setting up fields and methods.
+  \end{enumerate}
+
+\Lab Tic Tac Toe - Game components with state. 
+
+  Too long but generally a good assignment. Students figure out how to
+  map one-dimensional array onto a two-dimensional layout on the
+  screen. Design questions are good; need to make it more clear that
+  they must turn them in.
+
+\Lab Bouncing Bumpers - Reading a structured text file.
+
+  Too long. Good idea but needs to provide more structure for the
+  students. Having them write their own data file is a good idea.
+
+\end{LabExercises}
+
+\large{Other notes}
+
+Need to work on types much more. 
+
+Choral response for ``to declare a variable to hold an arbitrary
+number of items of type X'' you should be thinking ``ArrayList''.
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% End: 
+
+% LocalWords:  Moodle Ladd's login emacs

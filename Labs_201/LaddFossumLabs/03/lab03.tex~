@@ -1,0 +1,323 @@
+\documentclass[12pt,twoside]{memoir}
+\usepackage{graphicx}
+\usepackage[usenames]{color}
+\usepackage{listings}[2000/08/23] 
+\usepackage{hyperref}
+
+\usepackage{exercise}
+
+\newenvironment{Checkpoint}[1]{%
+\begin{Exercise}[name={Checkpoint},title={#1}]}{%
+\end{Exercise}%
+\textbf{Show your work on Checkpoint~\theExercise{} to the lab monitor, %
+  answering any necessary questions for them.  Have them sign before continuing.}%
+}
+
+\definecolor{nicered}{rgb}{.647,.129,.149}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{templategrey}{gray}{0.30}
+\definecolor{commandlinebackground}{gray}{0.25}
+\definecolor{commandlineforeground}{gray}{0.85}
+\definecolor{commandpromptforeground}{gray}{0.55}
+
+
+\DeclareGraphicsExtensions{.eps,.pdf,.png,.gif,.jpg}
+
+
+% ---------- listing code parameters
+\lstset{language=java,
+  basicstyle=\small\ttfamily,
+  numbers=none, 
+  numberstyle=\tiny, 
+  stepnumber=1, 
+  numbersep=5pt,
+  frame=single,
+  captionpos=b,
+  rulecolor=\color{nicered}
+}
+
+% ----- Command-line listing language
+\lstdefinelanguage{cline}
+{
+  morecomment=[s][\color{commandpromptforeground}]{\~}{\%},
+}
+
+% ----- Command-line environment 
+\lstnewenvironment{commandline}[1][]
+  {\lstset{language=cline,numbers=none,frame=none,backgroundcolor=\color{commandlinebackground},basicstyle=\color{commandlineforeground},nolol,#1}}
+  {}
+
+\newcommand{\artDir}{../art}
+\newcommand{\lab}[1]{%
+\title{CIS 201 Computer Science I\\Fall 2009 Lab #1}%
+\maketitle%
+}
+
+\setlength{\hoffset}{0in}
+\setlength{\voffset}{0in}
+\settypeblocksize{9.5in}{7.5in}{*}
+\setlrmargins{0.5in}{*}{1}
+\setulmargins{0.75in}{*}{*}
+\setheadfoot{\onelineskip}{2\onelineskip}
+\checkandfixthelayout
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{\baselineskip}
+
+\begin{document}
+\lab{03}
+
+\begin{itemize}
+\item Practice building FANG programs.
+\item Work on writing classes with less guidance.
+\item Practice setting up Java expressions.
+\item Introduction to the \texttt{Math} class.
+\end{itemize}
+
+\begin{Checkpoint}{Let there be light!}
+\paragraph{Set up the class.}
+Create a folder for \texttt{Lab03} in your CIS 201 directory. In that
+folder, define a \texttt{class}, \texttt{Orbits}. This class is the
+main FANG class for our program; it extends \texttt{Game} so you
+should \texttt{import} the appropriate library.
+
+Compile and test your program (this is done often to check for
+typos). 
+
+\paragraph{Begin creating the fields.}
+Add a \emph{field} to the class called \texttt{sun}. The sun is a
+circle. Make sure you \texttt{import} the right library(ies). (You can
+compile again if you want, as a ``spell-check'' to make sure you
+included the right library and that you spelled the type of the field
+correctly. This is the last time this lab mentions compiling.)
+
+Add a \texttt{setup} method. Make sure you have the proper
+\emph{method header} for the method. Make sure you can explain the
+four parts of a method header as well.
+
+In the body of \texttt{setup} instantiate the \texttt{sun}: 0.1
+screens in diameter, centered on the screen, and a bright color you
+have never used before
+(\url{file:///home/student/Classes/201/SCG/SCG.pdf} is the book; one
+of the appendices lists all of the available color names). Make sure
+the \texttt{sun} is added to the game.
+\end{Checkpoint}
+
+\begin{Checkpoint}{The Firmament}
+\paragraph{Construct the earth.}
+The \texttt{earth} is a field that holds another circle. The
+\texttt{earth} is a small, 0.03 screen diameter, circle. It should be
+some shade of green. We The following discussion of simplified orbital
+mechanics determines where the \texttt{earth} begins the game.
+
+\subparagraph{Simplified Orbital Mechanics}
+The \texttt{earth} orbits the \texttt{sun}. First, we assume that the
+orbit is circular and along the \emph{unit circle}. That orbit is
+centered at the top of the screen and is too big for our needs; we
+adjust that after figuring out how the big orbit works.
+
+The \emph{unit circle} is the set of points $(x, y)$ such that $x^2 +
+y^2 = 1$. From trigonometry (let us know if you have not yet had it)
+you should know that all such points $(x,y)$ are of the form
+\[(x,y) = (\cos(\phi), \sin(\phi))\] where $\phi$ is the angle between
+the points $(1,0)$ and $(x,y)$ along the unit circle.  (The angle
+$\phi$ is measured in {\em radians} -- remember that there are $2\pi$
+radians along the circumference of the circle.)
+
+We want to simulate the movement of a point $(x,y)$ along the unit
+circle orbit, by moving it a small amount around the circle in each
+frame. (Hope you're both thinking \texttt{advance} at this point.)
+
+The point $(x,y)$ on the unit circle has the form $(\cos(\phi),
+\sin(\phi))$ and we want to rotate the point $(x,y)$ by $\theta$
+radians (where $\theta$ is a small number) around the circle, we would
+want the new point $(xx, yy)$ to be at location $(\cos(\phi+\theta),
+\sin(\phi+\theta))$.
+
+Of course, you remember your trigonometry sum formulas:
+\[xx = \cos(\phi+\theta) =
+  \cos(\phi)\cos(\theta) -
+  \sin(\phi)\sin(\theta)\]
+\[yy = \sin(\phi+\theta) =
+  \sin(\phi)\cos(\theta) +
+  \cos(\phi)\sin(\theta)\]
+Since $x=\cos(\phi)$ and $y=\sin(\phi)$,
+these formulas can be written as
+\[xx =
+  x\:\cos(\theta) -
+  y\:\sin(\theta)\]
+\[yy =
+  y\:\cos(\theta) +
+  x\:\sin(\theta)\]
+
+\paragraph{Starting the Earth.}
+Initially the earth is at $\phi = 0$. Track the location of the earth
+with two \texttt{double} fields, \texttt{ex} and \texttt{ey} (earthX
+and earthY). At $\phi = 0$, \texttt{(ex, ey)} = $(1, 0)$. Initialize
+the fields and set the location of \texttt{earth} to \texttt{(ex, ey)}.
+\end{Checkpoint}
+
+\begin{Checkpoint}{Let there be orbit.}
+\paragraph{Add \texttt{advance}.} What is the method header of
+\texttt{advance}? What is the type of the \texttt{parameter}? What
+does the value of the parameter mean? How have we used it in the past?
+
+\paragraph{Move \texttt{earth}.}
+In \texttt{advance} calculate the new values for \texttt{ex} and
+\texttt{ey} and then set the location of \texttt{earth} to the new
+coordinates. The earth should go around its orbit once every six
+seconds. Newton's apple fell at a rate of three seconds per
+screen. How, in \texttt{advance} did we scale the rate of fall to keep
+it smooth, even if \texttt{advance} were not called right on time? 
+
+We used the time parameter passed in to \texttt{advance}. We need to
+do the same. How many radians per second does the earth move? (If we
+multiply that value by seconds, we get the radians, the value for
+$\theta$.) Set up a field to hold the angular velocity of
+\texttt{earth}. The field should be \texttt{final} (what does that
+mean) and have its value set when it is declared. Use the value
+\texttt{Math.PI} for $\pi$.
+
+In \texttt{advance}, declare a local variable (how is a local variable
+different than a field?), call it \texttt{eTheta}. Set it to the
+amount of angle \texttt{earth} advances this frame. 
+
+Using the formulae from above,
+
+\[xx =
+  x\:\cos(\theta) -
+  y\:\sin(\theta)\]
+\[yy =
+  y\:\cos(\theta) +
+  x\:\sin(\theta)\]
+
+which values here are the new location for \texttt{earth}? Remember
+that \texttt{ex} and \texttt{ey} are the coordinates of the
+planet. The formualae become:
+
+\begin{lstlisting}
+double exx = ex * Math.cos(eTheta) - ey * Math.sin(eTheta);
+double eyy = ey * Math.cos(eTheta) + ex * Math.sin(eTheta);
+\end{lstlisting}
+
+The above declares two more local variables, \texttt{exx} and
+\texttt{eyy}. Local variables do not carry their values over to the
+next time the method in which they are declared is called.
+
+The final step of moving \texttt{earth} is to update the fields
+tracking it (to the new coordinates) and then reset the location of
+the sprite:
+\begin{lstlisting}
+ex = exx;
+ey = eyy;
+earth.setLocation(ex, ey);
+\end{lstlisting}
+\end{Checkpoint}
+
+\begin{Checkpoint}{Earth should orbit the sun.}
+\paragraph{Determine the orbit.}
+The unit circle makes everything easy to calculate; it also is the
+wrong orbit. Create a \texttt{final} field, \texttt{eRadius}. Set it
+to the radius for the \texttt{earth} orbit. Make it smaller than 0.5
+so that the planet is always visible (0.45 works). 
+
+\paragraph{Relocate \texttt{earth}.}
+Whenever you set the location of \texttt{earth}, instead of using
+\texttt{ex} and \texttt{ey} directly, scale each by \texttt{eRadius}
+and move the center of the orbit to the center of the
+\texttt{sun}. That is easier than it sounds.
+
+Scaling by the radius means multiply each by the radius:
+
+\begin{lstlisting}
+                               ex * eRadius,              ey * eRadius  
+\end{lstlisting}
+
+Moving the center just means adding the difference between the center
+of the unit circle, $(0, 0)$ and the center of the \texttt{sun}. We
+know the center of the \texttt{sun}, numerically, but let's have the
+object give it to us.
+
+\begin{lstlisting}
+                  sun.getX() + ex * eRadius, sun.getY() + ey * eRadius
+\end{lstlisting}
+
+This is used, each time you locate the \texttt{earth}:
+
+\begin{lstlisting}
+earth.setLocation(sun.getX() + ex * eRadius, sun.getY() + ey * eRadius);
+\end{lstlisting}
+
+Have \texttt{earth} orbit the \texttt{sun}.
+\end{Checkpoint}
+
+\begin{Checkpoint}{Define a method.}
+\paragraph{Factor out the calls to \texttt{setLocation}.}
+The two calls to \texttt{earth.setLocation} are just the same. One
+software engineering mantra is ``Do not repeat yourself.'' If you have
+to type it twice, you have to remember to fix it twice if it is
+broken, you have to check for typos twice, and you will never, ever,
+stop at just two copies.
+
+Write a method to do the work for you and then call it from each of
+the spots where \texttt{earth} is located:
+
+\begin{lstlisting}
+private void locateEarth() {
+  earth.setLocation...
+}
+\end{lstlisting}
+
+Put the method definition in the \texttt{class} \texttt{Orbits} but
+not within any other method. It is called with no parameters. Replace
+the direct \texttt{setLocation} calls with calls to \texttt{locateEarth}.
+
+When you do the same thing over and over, write a \emph{method} to do
+it for you, one you can call from all the places the task must be
+performed. If the task is almost the same, think about parameters to
+make each call unique. Over all, remember \texttt{Do not Repeat Yourself.}
+\end{Checkpoint}
+
+\begin{Checkpoint}{Let there be Moon}
+The earth looks lonely. Create a circular sprite 0.01 screens
+across. Color it some light shade of gray. The sprite should be
+assigned to a field called \texttt{moon}. 
+
+Duplicate the fields used to keep track of \texttt{earth}'s location
+and orbit and instead of starting them with an \texttt{e}, start them
+with an \texttt{m}:
+
+\begin{lstlisting}
+private OvalSprite moon;
+private double mx;
+private double my;
+private final double mRadius = 0.045;
+private final double mTheta = eTheta * 12;
+\end{lstlisting}
+
+The moon orbits faster and closer around the earth than the earth does
+around the sun. Now copy the \texttt{advance} code for \texttt{earth}
+and apply it to \texttt{moon}. Two things to keep in mind while doing
+that:
+\begin{itemize}
+\item The \texttt{moon}'s location is relative to \texttt{earth}, not
+  \texttt{sun}.
+\item \emph{Do not Repeat Yourself.} (Make a method to position the
+  \texttt{moon}). 
+\end{itemize}
+\end{Checkpoint}
+
+\Large{Log off of the lab computer you are using before leaving they
+  lab. Anyone entering the lab has unlimited access to your files if
+  you remain logged on. \textbf{DO NOT} turn off lab computers! They
+  are a shared resource and there might be someone else logged in to
+  ``your'' machine.}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
+
+% LocalWords:  Moodle Ladd's login

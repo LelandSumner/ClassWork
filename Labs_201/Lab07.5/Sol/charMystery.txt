@@ -1,0 +1,4 @@
+printRange('e', 'g');    // should be efg
+printRange('n', 's');    // should be nopqrs
+printRange('z', 'a');    // should be 
+printRange('q', 'r');    // should be qr

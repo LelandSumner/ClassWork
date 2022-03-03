@@ -1,0 +1,16 @@
+public class Code {
+  public Code() {
+  }
+
+  public void run() {
+  }
+
+  public checkpoint1() {
+    System.out.println("*******");
+    System.out.println(" ***** ");
+    System.out.println("  ***  ");
+    System.out.println("   *   "); 
+  }
+
+  public static void main(String [] args) {
+  }

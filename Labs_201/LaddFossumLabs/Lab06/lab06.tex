@@ -1,0 +1,414 @@
+\documentclass[12pt]{article}
+
+\pagestyle{plain}
+\oddsidemargin 0in       %   Left margin on odd-numbered pages.
+\evensidemargin 0in        %   Left margin on even-numbered pages.
+\textwidth 6.5in
+\textheight 9in
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+
+\usepackage[T1]{fontenc}
+\usepackage{pslatex}
+%\renewcommand*{\familydefault}{\sfdefault}
+
+\usepackage{verbatim}
+\newenvironment{qv}%
+  {\quote
+   \verbatim}%
+  {\endverbatim
+   \endquote}
+
+\newcommand{\exx}{\\[2ex]}
+\newcommand{\code}{\texttt}
+\newcommand{\fname}{\texttt}
+\newcommand{\eg}{{\em e.g.}}
+
+\parskip 2ex
+\parindent 0em
+
+
+\begin{document}
+\sloppypar
+
+\begin{center}
+\Large\bf
+CIS 201 -- Computer Science I\\
+Laboratory Assignment 6\\
+\end{center}
+
+\section*{Introduction}
+
+In this lab, you will experiment with creating your own Java classes.
+
+As we have described in lecture and your text, a Java \code{class}
+definition is a blueprint for creating objects.  When an object is
+created from a \code{class} definition, that object has properties
+described by the values of its field variables and provides the
+services advertised by its methods.  We think of the properties as
+attributes ({\em e.g.}, a FANG \code{Sprite} has a \code{Location2D} and a
+\code{Color}) and the methods as verbs
+({\em e.g.}, you can \code{translate} and \code{rotate} a FANG \code{Sprite}).
+
+%% A Java class is said to define a {\em type}.
+
+The {\em constructor} of a class is a special method that describes
+how to create an {\em instance} ({\em i.e.}, an object) of that class.  A
+constructor, called when you use the \code{new} keyword, is used only
+once -- when the object is created, whereas an object's other methods
+can be used with the object during its entire lifetime.
+
+You have been using constructors for FANG objects since the very first
+day of lab. The following line, for example, constructs a new
+\code{OvalSprite} and assigns a reference to it to the locally
+declared variable \code{round}.
+This line is an example of a {\em declaration}
+(the stuff before the \verb'=' sign)
+and a {\em definition}
+(the stuff beginning with \verb'round = new ...').
+
+\begin{qv}
+OvalSprite round = new OvalSprite(0.10, 0.10);
+^          ^     ^ ^   ^          ^^^^^^^^^^
+|          |     | |   |                   \_ parameters to the
+|          |     | |   |                      constructor
+|          |     | |   \_ Name of constructor to call
+|          |     | |      (same as name of class to construct)
+|          |     | \_ keyword "new", so Java calls a constructor
+|          |     \_ assignment operator (puts the reference to 
+|          |         the new object into the box associated with 
+|          |         the variable named on left of assignment)
+|          \_ name given to the variable that will hold a reference
+|             to the object (an OvalSprite)
+\_ type of the variable being declared
+\end{qv}
+
+To use a Java class defined by FANG
+(or anyone else),
+you create one or more instances of the class and then
+use the instances (the objects) to carry out useful work.
+Remember that an object can exist only when it has been created
+using the \verb'new' operator.
+
+When you create your own class, you have control over the properties
+(field variables)
+that objects of that class should have and the services
+(methods) that objects of that class should provide.
+
+Many times, you create your own class in a way that \code{extend}s
+another class -- as in our \code{NewtonsApple} class that
+\code{extend}s the \code{Game} class.  That way we can use the
+properties and methods that the other class describes, while adding
+our own properties and methods that makes our class special.
+As another example, we could have a \code{Building} class
+whose properties include number of rooms, number of stories,
+and so forth.  A \code{House} class could extend the \code{Building}
+class by adding additional properties such as the number of bedrooms.
+
+\section*{How to make a class}
+
+To create a Java class, we first create a Java source file (of the
+form \fname{<classname>.java}).
+After we have created this source file, we use the Java compiler to
+create a Java class file (of the form \fname{<classname>.class}).
+The class file consists of a binary representation of the class,
+including encoded descriptions of the field variables and methods.
+You would not generally want to look at a class file using
+an editor, but if you did, you would see the names of your field
+variables and methods.
+
+Remember that the Java compiler requires
+that the name of the file must match the
+name of the class: \code{public class X} must be defined in
+\fname{X.java} (and will compile to the class file
+\fname{X.class}). Convention (and grading criteria in this class)
+require that the names of classes (and thus the files in which they
+are defined) begin with capital letters and appear in camel-case. 
+
+Start coding by creating a \fname{Lab06} directory in which you and
+your partner will save your work. Note that this time there will be
+\emph{multiple} \fname{.java} files in this directory.
+
+First, create a Java source file that defines the class \code{MyName}
+by creating (using emacs or your favorite editor)
+a file named \code{MyName.java} that has the following
+contents:
+
+\begin{qv}
+public class MyName {
+
+  private String myName;
+
+  public String getName() {
+    return myName;
+  }
+
+  public String getXYZZY() {
+    return "XYZZY";
+  }
+}
+\end{qv}
+
+Compile this program and verify that your working directory now has a
+class file named \code{MyName.class}.
+
+\subsection*{Checkpoint 1}
+{\bf
+Run this program from within \fname{emacs} or from a shell window.\\
+What happens?\\
+Show us your results at this point.
+}
+
+\section*{Using MyName in a game}
+Now start editing a new file named \code{MyNameGame.java}, with the
+following contents.
+{\em If you are using emacs, use the existing emacs process
+to edit this file instead of launching a separate emacs process.}
+
+\begin{qv}
+import fang.core.Game;
+import fang.sprites.StringSprite;
+
+public class MyNameGame extends Game {
+
+  private MyName mn; // declare a reference to a MyName object
+  private StringSprite mnSprite;
+
+  public void setup() {
+    mn = new MyName();
+    mnSprite = new StringSprite();
+    mnSprite.scale(0.05);
+    mnSprite.leftJustify();
+    mnSprite.setLocation(0.1, 0.5);
+    mnSprite.setColor(getColor("white"));
+    mnSprite.setText(mn.getName());
+    
+    addSprite(mnSprite);
+  }
+}
+\end{qv}
+
+Save and compile this program.  You should see no errors (assuming
+you've typed in everything correctly).  You should also notice that
+you have a class file named \code{MyNameGame.class} in your working
+directory.
+    
+\section*{Checkpoint 2}
+{\bf
+Run the \code{MyNameGame} program from within \fname{emacs}.\\
+What happens?\\
+Show us your results.
+}
+
+\section*{Null Pointer Exceptions}
+
+As you saw, the Java runtime system encountered a problem when you
+tried to run your program.  Notice that your program {\em compiled}
+correctly but that it failed to {\em run} correctly, and that at the
+top of the (long) list of problems, the Java runtime system said
+``Null Pointer Exception''.  This means that it tried to refer to an
+object, but that there was no object to refer to.
+
+In this case, the offending part was the value of \code{mn.getName()}.
+The \code{getName} method in your \code{MyName} class returns
+the value of the \code{myName} variable,
+but this variable was only declared and never defined.
+Java automatically sets references to \code{null}
+when they are not defined.
+
+You can fix this in \code{MyNameGame.java} (temporarily) by replacing
+the \code{getName} call with \code{getXYZZY}, which {\em does} return
+a value.  Compile and run your program after having made this change,
+and verify that it displays \code{XYZZY} on the screen.
+
+Now modify this program by commenting out the line that says
+
+\begin{qv}
+mn = new MyName();
+\end{qv}
+
+Compile and run your program, and observe that you get another Null
+Pointer Exception error.  This time, the error is that \code{mn}
+starts off with a value of \code{null}, and when you finally refer to
+it in the \code{setText} line, nothing is there.
+
+\subsection*{Checkpoint 2}
+{\bf
+Show us your work at this point.
+}
+
+\section*{Setting your name}
+
+Be sure to un-comment the \code{new MyName()} call before you proceed.
+
+There are two ways to give a value to your \code{myName} field
+in the \code{MyName} class.
+The first is to create \code{setName} method, as follows:
+
+\begin{qv}
+public void setName(String n) {
+  myName = n;
+}
+\end{qv}
+
+Notice that this method has a \code{void} return type, which means
+that its only purpose in life is to have a \emph{side-effect}; it does
+not determine or return a value.  In this case, the side-effect is to
+modify the \code{myName} field.
+
+Add this method to your \code{MyName.java} file, either before or
+after the \code{getName} method (you choose), and compile 
+\code{MyName.java}.  You should not see any errors.
+
+Now return to editing your \code{MyNameGame.java} file.  In
+\code{setup}, just after you create the \code{MyName} object, add the
+following line:
+
+\begin{qv}
+mn.setName("<your name goes here>");
+\end{qv}
+
+Of course, replace \code{"<your name goes here>"} with whatever string
+represents \emph{your} name.  Now, change the method call
+\code{getXYZZY} back to \code{getName}.
+
+Compile and run your \code{MyNameGame.java} program.
+
+\subsection*{Checkpoint 3}
+{\bf
+Show us your results at this point.
+}
+
+\section*{Constructing your name}
+
+Methods like \code{setName} and \code{getName} are called
+(appropriately!) {\em setters} and {\em getters}, respectively.
+
+They provide services to those using object of the class which allow
+the user to {\em get} or {\em set} the value of a field variable,
+which is (in our case) has \code{private} visibility and can't be
+otherwise seen from outside the object.
+
+\emph{Data hiding} or the use of \code{private} data fields is an
+example of using abstraction to overcome the complexity of a computer
+program.  By making all changes to \code{myName} through methods
+defined in \code{MyName}, we can make sure that if we trust the
+\code{MyName} class, no other class can violate the integrity of the
+fields in the class.
+
+Instead of using a setter to set the \code{myName} field, we can set
+this value when we initiall construct the object using the \code{new}
+operator.
+
+To do this, we will need to add a new ``method'' to our \code{MyName}
+class, called a {\em constructor}.  While a constructor looks like other
+methods, it has no return type.  Also a constructor {\em always} uses
+the name of the class as its name.  Finally, a constructor will almost
+always have a \code{public} visibility.
+
+So in our case, we can define a constructor in our \code{MyName.java}
+file as follows:
+
+\begin{qv}
+public MyName(String n) {
+  myName = n;
+}
+\end{qv}
+
+Put this code just after the definition of the \code{myName} field at
+the beginning of your program.
+
+Compile your \code{MyName.java} program and be sure it doesn't have
+any errors.
+
+Now change your ``client'' program \code{MyNameGame.java} by replacing
+the lines that say
+
+\begin{qv}
+mn = new MyName();
+mn.setName("<your name goes here>");
+\end{qv}
+
+with the {\em single} line that says
+
+\begin{qv}
+mn = new MyName("<your name goes here>");
+\end{qv}
+
+(Again, replace the \code{"<your name goes here>"} with a string that has
+your name in it.)
+
+Compile you program and run it.
+
+\subsection*{Checkpoint 4}
+{\bf
+Show us your results at this point.
+}
+
+\section*{Religion}
+Should you have both a constructor and a setter in your
+\code{MyName} class?
+
+If you \emph{never} expect to change the value of \code{myName} after
+creating a \code{MyName} object, then setting the value in the
+constructor would work best. (If you keep the constructor but remove
+the setter, no client program can ever change the value of
+\code{myName}.)
+
+If you {\em ever} expected to change the value, then you should keep
+the setter, and (I would suggest) remove the constructor.
+
+\textbf{My reason:} its best to have just one way to do something, so
+that you'll never have surprises.  But this is a religious issue, not
+a Java standard. Your mileage (and that of your instructor) may vary.
+
+\section*{Silly extension}
+Now create a new Java file named \code{StrSpr.java}, with the
+following code:
+
+\begin{qv}
+import fang.sprites.StringSprite;
+
+public class StrSpr extends StringSprite {
+}
+\end{qv}
+
+Compile this program.  (Don't try to run it...)
+
+You have defined a new class named \code{StrSpr} whose objects have
+inherited {\em all} of the properties and methods of
+\code{StringSprite}, and has changed/added nothing.
+
+Now return to your \code{MyNameGame.java} program
+and make the following changes:
+
+\begin{enumerate}
+\item
+  comment out the import line
+  that refers to \code{fang.sprites.StringSprite}
+\item
+  change the type of \code{mnSprite}
+  from \code{StringSprite} to \code{StrSpr}
+\item
+  change the line where the \code{StringSprite} constructor is called
+  to refer instead to the \code{StrSpr} constructor.
+\end{enumerate}
+
+Compile and run your program.
+
+\subsection*{Checkpoint 5}
+{\bf
+Describe to us what happens.\\
+In particular,
+explain what the \code{StrSpr} class accomplished that is different from
+the \code{StringSprite} class.
+}
+
+
+
+\section*{Assignment 3}
+Begin work on Assignment 3.
+
+
+\end{document}

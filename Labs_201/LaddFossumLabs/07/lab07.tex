@@ -1,0 +1,280 @@
+\documentclass[12pt]{article}
+
+\pagestyle{plain}
+\oddsidemargin 0in       %   Left margin on odd-numbered pages.
+\evensidemargin 0in        %   Left margin on even-numbered pages.
+\textwidth 6.5in
+\textheight 9in
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+
+\usepackage[T1]{fontenc}
+\usepackage{pslatex}
+\renewcommand*{\familydefault}{\sfdefault}
+
+\usepackage{verbatim}
+\newenvironment{qv}%
+  {\quote
+   \verbatim}%
+  {\endverbatim
+   \endquote}
+
+\newcommand{\exx}{\\[2ex]}
+\newcommand{\code}{\texttt}
+\newcommand{\fname}{\texttt}
+\newcommand{\eg}{{\em e.g.}}
+
+% \newcommand{checkpoint}[2]{#1 #2}
+
+\newenvironment{checkpoint}[1]%
+{\vspace*{2ex}\noindent{\large\bf Checkpoint #1:}\ }%
+{}
+
+%\parskip 2ex
+%\parindent 0em
+
+
+\begin{document}
+\sloppypar
+
+\begin{center}
+\Large\bf
+CIS 201 -- Computer Science I\\
+Laboratory Assignment 7\\
+\end{center}
+
+\section*{Introduction}
+
+In this lab you will work with loops.
+
+Create a directory, \fname{Lab07} in your \fname{CS1} directory.
+Do all of your work in this the \fname{Lab07} directory.
+
+A \verb'for' loop has the following syntax:
+\begin{qv}
+for (<init> ; <test> ; <modify>) {
+  <body>
+}
+\end{qv}
+
+The \verb'<init>' part is a statement typically of the form
+\begin{qv}
+int <var>=<val>
+\end{qv}
+where the \verb'<var>' part is a variable name
+that will be used exclusively in the loop,
+and where \verb'<val>' is its initial value --
+this is where the term \verb'<init>' comes from.
+
+The \verb'<test>' part is a boolean expression
+that determines whether or not the body of the loop will be executed.
+
+The \verb'<modify>' part is a statement
+that normally modifies the \verb'<var>'
+so that the loop will eventually terminate.
+A typical \verb'<modify>' statement is of the form \verb'<var>++'.
+
+A \verb'for' loop described above is {\em exactly} equivalent
+to the following code using a \verb'while' loop:
+\begin{qv}
+<init>
+while (<test>) {
+  <body>
+  <modify>
+}
+\end{qv}
+
+For example, the following \verb'for' loop
+\begin{qv}
+for (int i=0 ; i<10 ; i++) {
+  System.out.println(i);
+}
+\end{qv}
+is exactly equivalent to the code
+\begin{qv}
+int i=0;
+while (i<10) {
+  System.out.println(i);
+  i++;
+}
+\end{qv}
+This code, when run, should produce the output
+\begin{qv}
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+\end{qv}
+
+\section*{Implement the above code}
+Create a Java program \verb'W1.java'
+that has a \verb'public static void main' method
+containing the code
+\begin{qv}
+int i=0;
+while (i<10) {
+  System.out.println(i);
+  i++;
+}
+\end{qv}
+as shown above.
+Run this program and verify that the output is as described above.
+
+\checkpoint{1}{\bf Show us your work.\\}
+
+\noindent
+Now create a Java program \verb'F1.java'
+that is similar to your \verb'W1.java'
+except that it uses a \verb'for' loop instead of a \verb'while' loop
+as shown above.
+Run this program and verify that the output is the same as before.
+
+\checkpoint{2}{\bf Show us your work.}
+
+\section*{What does this code do?}
+Consider the following method in a file named \verb'W2.java':
+\begin{qv}
+public static void main(String [] args) {
+    int i=1;
+    while (i<10) {
+        System.out.println(i);
+        i = i + 2;
+    }
+}
+\end{qv}
+Predict what this code does.
+Draw a state diagram that shows the value of the variable \verb'i'
+as the program executes.
+Implement the \verb'W2.java' program
+and compile and run it.
+
+\checkpoint{3}{\bf Show us your state diagram and that your prediction matches your program output.}
+
+\section*{Convert to a for loop}
+Write a program \verb'F2.java'
+that uses a \verb'for' loop instead of a \verb'while' loop
+and that is equivalent to the program you just tested.
+Compile and run this program
+and verify that the outputs are the same.
+
+\checkpoint{4}{\bf Show us your program.}
+
+\section*{Counting down}
+Write a \verb'while' loop that produces the following output:
+\begin{qv}
+9
+7
+5
+3
+1
+\end{qv}
+Think about what your initialization should do,
+what your test condition should be,
+and what your modify statement should do.
+
+Implement this code in a program named \verb'W3.java' --
+as before, the code should go in your \verb'main' method.
+
+\checkpoint{5}{\bf Show us your program
+and that your output matches what is shown above.\\}
+
+\noindent
+Now convert your \verb'while' loop into a corresponding \verb'for' loop
+in a program named \verb'F3.java'.
+Run this program and note the output.
+
+\checkpoint{6}{\bf Show us your program and output.}
+
+\section*{Using ArrayLists}
+Create a FANG ``game'' called \verb'Quirkles',
+in a file named \verb'Quirkles.java'.
+This game should have a field named \verb'circles'
+which is of type \verb'ArrayList<OvalSprite>'.
+In your \verb'setup' method,
+create between 50 and 100 circles (chosen randomly)
+each with diameter randomly chosen between 0.05 and 0.1
+with a random color, and located randomly on the game canvas.
+Use a single \verb'OvalSprite' variable named \verb'c' in this code
+to create each circle,
+and add the circle both to the game canvas
+and to the \verb'circles' array list.
+You will need to ``new up'' the \verb'circles' variable
+at the beginning of your \verb'setup' code.
+Use a \verb'for' loop to create your circles,
+add them to the game canvas, and add them to your array list.
+
+Compile and run this program to verify
+that the circles are appearing appropriately
+
+\checkpoint{7}{\bf Show us your work at this point.\\}
+
+\noindent
+Now implement the \verb'advance' method in your \verb'Quirkles' game.
+In this method,
+you should randomly change the color of each of the circles
+you have saved in the \verb'circles' array list.
+First, get the size of the list using the \verb'size' method,
+and then march through the circles in a \verb'for' loop,
+using the \verb'get' method to get a reference to the circle
+and using the \verb'setColor' method to change its color
+to a random color.
+
+Compile and run this program.
+
+\checkpoint{8}{\bf Show us your work at this point.}
+
+\section*{Making a Circle class}
+Create a class \verb'CircleSprite' that extends \verb'OvalSprite'.
+You will need to edit a new file to do this.
+The constructor for this class should have one parameter,
+a \verb'double' that is the diameter of the circle.
+This parameter should be used with the \verb'super' method
+to create the appropriately sized \verb'OvalSprite'.
+The other sprite methods such as \verb'setLocation', \verb'setColor',
+and so forth will be inherited from the \verb'OvalSprite' class.
+
+In your \verb'Quirkles.java' program,
+replace all of the instances of \verb'OvalSprite' in your program
+to \verb'CircleSprite' instead.
+The only other change you should need
+to make in your \verb'Quirkles' program
+is to modify how the \verb'CircleSprite' constructor is used
+to ``new up'' a \verb'CircleSprite',
+since a \verb'CircleSprite' takes only one parameter, not two.
+
+Compile and run this program.
+
+\checkpoint{9}{\bf Show us your work at this point.}
+
+\section*{Changing the circle colors}
+Now change your \verb'CircleSprite.java' program
+so that it overloads the \verb'setColor' method.
+This \verb'setColor' method will have no parameters,
+but it will set the color of the sprite to a random color.
+This is an easy two-liner.
+First, get a referece to the current game
+using the \verb'getCurrentGame()' method in the \verb'Game' class,
+and then use this to get a random color
+using the \verb'randomColor()' method applied
+to the current game object.
+This random color should be passed to \verb'super'
+to set the oval sprite's color.
+
+Finally, in your \verb'advance' method
+in your \verb'Quirkles.java' program,
+instead of calling \verb'setColor' with a random color argument,
+call \verb'setColor' with {\em no} arguments.
+
+Compile and run this program.
+
+\checkpoint{10}{\bf Show us your work at this point.
+Be prepared to explain how calling \verb'setColor' with no arguments works.} 
+
+\end{document}

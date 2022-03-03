@@ -1,0 +1,46 @@
+import fang.core.Game;
+
+/**
+ * Orbits.java - Solution to Lab3 CIS 201, Fall 2008
+ *
+ * This program simulates a simplified three-body "solar
+ * system". There is a sun, a planet, and, around that planet, a
+ * moon. The simplification is that all orbits are perfect
+ * circles. This lab is designed to help students understand methods
+ * and expressions.
+ *
+ * Created: Mon Sep  8 15:39:13 2008
+ *
+ * @author <a href="mailto:blad@BigRedOne">Brian C. Ladd</a>
+ * @version 1.0
+ */
+public class Orbits extends Game {
+    /**
+     * The sun, at the center of the "universe"; will be red.
+     */
+    OvalSprite sun;
+
+    /**
+     * Create all the sprites and inialize all of the variables.
+     *
+     */
+    public final void setup() {
+	// the sun
+	sun = new OvalSprite(0.10, 0.10);
+	sun.setColor(getColor("red"));
+	sun.setLocation(0.50, 0.50);
+	
+
+	addSprite(sun);
+    }
+
+    /**
+     * Describe <code>advance</code> method here.
+     *
+     * @param d a <code>double</code> value
+     */
+    public final void advance(final double d) {
+
+    }
+
+}

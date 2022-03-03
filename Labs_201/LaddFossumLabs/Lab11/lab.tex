@@ -1,0 +1,52 @@
+\documentclass[12pt]{article}
+
+\pagestyle{plain}
+\oddsidemargin 0in       %   Left margin on odd-numbered pages.
+\evensidemargin 0in        %   Left margin on even-numbered pages.
+\textwidth 6.5in
+\textheight 9in
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+
+\usepackage[T1]{fontenc}
+\usepackage{pslatex}
+%\renewcommand*{\familydefault}{\sfdefault}
+
+\usepackage{verbatim}
+\newenvironment{qv}%
+  {\quote
+   \verbatim}%
+  {\endverbatim
+   \endquote}
+
+\newcommand{\exx}{\\[2ex]}
+\newcommand{\code}{\texttt}
+\newcommand{\fname}{\texttt}
+\newcommand{\eg}{{\em e.g.}}
+
+\parskip 2ex
+\parindent 0em
+
+
+\begin{document}
+\sloppypar
+
+\begin{center}
+\Large\bf
+CIS 201 -- Computer Science I\\
+Laboratory Assignment 10\\
+\end{center}
+
+\section*{Introduction}
+In this lab you will manipulate images using classes
+from the Georgia Tech MediaComp project.
+See \verb'http://coweb.cc.gatech.edu/mediaComp-plan/101'
+for more information on this project.
+
+Files from this project can be found in
+\begin{qv}
+/home/student/Classes/MediaComp
+\end{qv}
+and the documentation for the Java class used in this project can be found
+by following the \verb'Documentation' link on the CS homepage.

@@ -1,0 +1,15 @@
+;; Object Sol/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "Sol/"
+  :tables (list 
+   (semanticdb-table "PinballGame.java"
+    :major-mode 'jde-mode
+    :tags '(("java.io.FileInputStream" include nil nil [1 32]) ("fang.core.Sprite" include nil nil [33 57]) ("java.io.FileNotFoundException" include nil nil [58 95]) ("java.util.ArrayList" include nil nil [96 123]) ("java.util.Scanner" include nil nil [124 149]) ("fang.core.Game" include nil nil [151 173]) ("fang.sprites.OvalSprite" include nil nil [174 205]) ("fang.sprites.RectangleSprite" include nil nil [206 242]) ("PinballGame" type (:typemodifiers ("public") :superclasses "Game" :members (("setup" function (:typemodifiers ("public") :type "void") (reparse-symbol class_member_declaration) [329 410]) ("getFileName" function (:typemodifiers ("public") :arguments (("prompt" variable (:type "String") (reparse-symbol formal_parameters) [730 743])) :type "String") (reparse-symbol class_member_declaration) [704 865]) ("connectScannerToFile" function (:typemodifiers ("public") :arguments (("fname" variable (:type "String") (reparse-symbol formal_parameters) [1246 1258])) :type "Scanner") (reparse-symbol class_member_declaration) [1210 1464]) ("ensureExtension" function (:typemodifiers ("public") :arguments (("fname" variable (:type "String") (reparse-symbol formal_parameters) [1904 1916]) ("ext" variable (:type "String") (reparse-symbol formal_parameters) [1918 1928])) :type "String") (reparse-symbol class_member_declaration) [1874 1953]) ("readPNDFile" function (:typemodifiers ("public") :type "void") (reparse-symbol class_member_declaration) [2038 2216]) ("handleOval" function (:typemodifiers ("public") :arguments (("fin" variable (:type "Scanner") (reparse-symbol formal_parameters) [2381 2392])) :type "void") (reparse-symbol class_member_declaration) [2358 2399]) ("handleRectangle" function (:typemodifiers ("public") :arguments (("fin" variable (:type "Scanner") (reparse-symbol formal_parameters) [2569 2580])) :type "void") (reparse-symbol class_member_declaration) [2541 2587]) ("handlePinball" function (:typemodifiers ("public") :arguments (("fin" variable (:type "Scanner") (reparse-symbol formal_parameters) [2755 2766])) :type "void") (reparse-symbol class_member_declaration) [2729 2773]) ("advance" function (:typemodifiers ("public") :arguments (("dT" variable (:type "double") (reparse-symbol formal_parameters) [2899 2908])) :type "void") (reparse-symbol class_member_declaration) [2879 3477])) :type "class") nil [244 3479]))
+    :file "PinballGame.java"
+    :pointmax 3480
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0pre3"
+  :semanticdb-version "2.0pre3"
+  )

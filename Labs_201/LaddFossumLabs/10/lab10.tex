@@ -1,0 +1,326 @@
+\documentclass[12pt]{article}
+
+\pagestyle{plain}
+\oddsidemargin 0in       %   Left margin on odd-numbered pages.
+\evensidemargin 0in        %   Left margin on even-numbered pages.
+\textwidth 6.5in
+\textheight 9in
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+
+\usepackage[T1]{fontenc}
+\usepackage{pslatex}
+%\renewcommand*{\familydefault}{\sfdefault}
+
+\usepackage{verbatim}
+\newenvironment{qv}%
+  {\quote
+   \verbatim}%
+  {\endverbatim
+   \endquote}
+
+\newcommand{\exx}{\\[2ex]}
+\newcommand{\code}{\texttt}
+\newcommand{\fname}{\texttt}
+\newcommand{\eg}{{\em e.g.}}
+
+\parskip 2ex
+\parindent 0em
+
+
+\begin{document}
+\sloppypar
+
+\begin{center}
+\Large\bf
+CIS 201 -- Computer Science I\\
+Laboratory Assignment 9\\
+\end{center}
+
+\section*{Introduction}
+In this lab you will create a game that reads its configuration
+from a file.
+
+\section*{Reading a file}
+
+Consider the process of writing a pinball game. Given a screen and a
+ball that bounces, different levels or pinball games frequently differ
+in how their bumpers (and other things) are laid out. 
+
+What we really want, then, is to build a pinball \emph{engine}, a
+program that can simulate any pinball machine described in an
+appropriate way. You will begin with a simulator that has ball physics
+but no balls or bumpers. Your job is to extend the program so that it prompts
+the user for the name of a file (format described below) and
+then creates the appropriate sprites in the machine before setting the
+ball(s) loose.
+
+Copy the files \fname{Pinball.java} and
+\code{PinballGame.java} into a directory \fname{Lab10}.
+You can find the files to copy in the directory
+\begin{qv}
+/home/student/Classes/201/Labs/10
+\end{qv}
+
+Also in that directory is a file named \fname{first.pnd}.
+We will be using the extension \fname{.pnd}
+to stand for a ``Pinball Description'' file,
+an extension we coined.
+This file will have a format described later.
+
+Download the Java files and the \fname{first.pnd} file
+into your lab directory. Compile all of your Java source files
+and run the pinball game (in the class \fname{PinballGame}).
+The game should run but it should not do
+anything because the code to process the pinball description file
+has not been completed. 
+
+Look at the \code{PinballGame} class. Find all of the
+stub functions (they are the ones with little or no code in them).
+In this lab, you will replace the stubs with working code.
+
+Modify \code{getFileName} so that it displays the prompt
+that is passed into it followed by a single space and then reads a
+string from the user, returning that value.
+Read on to see how to do this.
+
+Reading information from the user's keyboard
+is somewhat like printing information to the user's screen.
+Code such as \verb'System.out.print(...)' will display
+the expression (whatever is in the ``\verb:...:'' part) to your screen
+based on the type of the expression --
+such as a \verb'String', an \verb'int', or whatever.
+Reading information from your keyboard uses \verb'System.in',
+which should not be surprising.
+But how will the program know the type of the value to be read?
+Here is where a \verb'Scanner' comes in.
+
+As you have seen in class,
+a \verb'Scanner' is a Java object that takes raw input
+from the keyboard (or from a file, as we shall see)
+and interprets it as a string or integer or whatever,
+depending on what the program asks it to do.
+
+How does one read a string from the keyboard, for example?
+Here is a snippet of code that would do so:
+\begin{qv}
+Scanner kbd = new Scanner(System.in); // tokenize raw input from the keyboard
+String str = kbd.next(); // interpret the next token from the keyboard
+\end{qv}
+For a \verb'Scanner' object, the term ``token'' means
+a string of input characters that does not have any whitespace
+(such as spaces, tabs, or newlines).
+The \verb'next()' method skips any whitespace
+until it encounters a non-whitespace character
+and then collects all of the following non-whitespace characters
+into a single string that it returns to the caller.
+
+A \verb'Scanner' can also return \verb'int's using \verb'nextInt()'
+and \verb'double's using \verb'nextDouble()', for example.
+You should look at the \verb'Scanner' class documentation to see
+all of the things that a \verb'Scanner' can process.
+
+Use a \verb'Scanner' as described above
+to implement the \verb'getFileName' method.
+
+\subsection*{Checkpoint 1}
+{\bf
+Compile and run your program and show us your results.
+}
+
+\section*{The {\tt ensureExtension} method}
+
+The \code{ensureExtension} method is passed two strings,
+a file name and an ``extension'',
+and returns that file name with a given extension.
+The term ``extension'' refers to the last part of a full filename
+that starts with a dot:
+for example,
+the extension of the file name \fname{Pinball.java} is \verb'java',
+and the extension of the file name \fname{TermPaper.doc} is \verb'doc'.
+So if \code{ensureExtension} were passed the parameters
+\code{something} and \code{txt}, it would return the string
+\code{something.txt}.
+The method is called \emph{ensure}Extension
+because it should only add the extension if the file name does not
+already end with it.
+Thus calling the method with parameters \code{something.txt}
+and \code{txt} should also return \code{something.txt}.
+
+Before you implement the \code{ensureExtension} method,
+look at the documentation for the \code{String} class
+and study the following methods:
+\begin{qv}
+equals
+endsWith
+\end{qv}
+
+As indicated above,
+the \code{ensureExtension} method takes two \code{String} parameters.
+The first parameter is the file name
+(which you would ordinarily get using the \verb'getFileName' method),
+and the second is the desired extension.
+If the file name does not end with a dot and the given
+extension, it needs fixing; otherwise return it unchanged.
+To fix a file name that ends with a dot, just return file name plus
+the extension; otherwise return file name plus dot plus extension.
+Here are possible inputs and their corresponding return values:
+
+\centerline{
+\begin{tabular}{ll|l}
+{\bf fname} & {\bf ext} & {\bf return value} \\ \hline
+{\tt abcde} & {\tt pnd} & {\tt abcde.pnd} \\ \hline
+{\tt abcde.} & {\tt pnd} & {\tt abcde.pnd} \\ \hline
+{\tt abcde.x} & {\tt pnd} & {\tt abcde.x.pnd} \\ \hline
+{\tt abcde.pnd} & {\tt pnd} & {\tt abcde.pnd} \\
+\end{tabular}
+}
+
+You should use the \code{ensureExtension} method
+in the \code{readPNDFile} method,
+after you get the file name (from \code{getFileName} above) but before
+passing it to \code{connectScannerToFile}:
+\begin{qv}
+fname = ensureExtension(fname, "pnd");
+\end{qv}
+
+\subsection*{Checkpoint 2}
+{\bf
+Show us your working code.
+}
+
+\section*{Reading the configuration file}
+
+A PND file is a text file containing
+any number of lines.
+Each line in a PND file has one of the following formats:
+
+\begin{qv}
+Ball <color> <x> <y> <w> <h> <dX> <dY>
+Oval <color> <x> <y> <w> <h>
+Rectangle <color> <x> <y> <w> <h>
+\end{qv}
+
+Here \verb'<color>' refers to a color name
+(such as \verb'red' or \verb'yellow', for example)
+that is recognized by the \verb'getColor' method.
+The other terms (\verb'<x>', \verb'<y>', etc.)
+refer to decimal numbers (such as \verb'0.2')
+that can be interpreted as \verb'double's in Java.
+
+Now you are prepared to read the whole configuration file
+by implementing the rest of the \verb'readPNDFile' method.
+You will write a loop that
+reads the next token from the file
+(a token is, in this case, a word)
+and processes it according to the structure
+of a Pinball Description file as described above.
+The \verb'connectScannerToFile' method,
+which is provided to you,
+will associate the \verb'Scanner' object
+with the filename you give when you run the program --
+the one with the \verb'pnd' extension.
+
+Reading from a \verb'Scanner' associated with a file
+uses a loop that normally looks something like this,
+where \verb'in' is assumed to be a \verb'Scanner' object
+(your mileage may vary):
+\begin{qv}
+while (in.hasNext()) {
+    String obj = in.next(); // get the next token string
+    // handle the obj string
+}
+\end{qv}
+This loop will continue to read tokens from the file
+until there are no more tokens to read --
+in other words, until all the contents
+of the file have been read and processed.
+Here the term ``token'' refers
+to character strings that consist entirely
+of non-whitespace characters.
+
+If the token that the \verb'Scanner' sees
+is one of \verb'Ball', \verb'Oval', or \verb'Rectangle',
+you should call the appropriate routine
+that reads the rest of the information for that
+type of sprite and creates and adds the sprite to the game canvas.
+For a \verb'Ball', you will call \verb'handlePinball';
+for a \verb'Oval', you will call \verb'handleOval'; and
+for a \verb'Rectangle', you will call \verb'handleRectangle'.
+If the token is none of these,
+your program should terminate gracefully
+with an informative message indicating
+that the PND file has the wrong format.
+
+When using a \verb'Scanner',
+if you know the type of the next token to be read,
+you can simply call the appropriate \verb'Scanner' method such as
+\verb'nextInt()' (if you know the next token is an \verb'int'),
+\verb'nextDouble()' (for a \verb'double' token),
+or just \verb'next()' (for a \verb'String' token).
+For example, if you have a PND file line that begins with \verb'Oval',
+you will call the \verb'handleOval'
+method that will then get a \verb'String' (the color)
+and four \verb'double's.
+The \verb'handleOval' method will then
+create an \verb'OvalSprite' object with the appropriate width and height,
+set its color to the given color value,
+locate it at the appropriate x and y values,
+and add it to the game canvas.
+(Note that you got to the \verb'handleOval' method
+because you already saw the token \verb'Oval'
+in the \verb'readPNDFile'.)
+Similar remarks apply to PND lines that begin with \verb'Rectangle'.
+For \verb'Ball' lines,
+you need to create a \verb'Pinball' object
+(look at \verb'Pinball.java' to see what the constructor requires
+for this class!),
+adjust its color and location,
+add it to the game canvas,
+{\em and} add it to the \verb'pinballs' list.
+
+In the PND file, the string \code{<color>} can be passed to \code{getColor}
+to return a color.
+All the rest of the entries for a particular game object
+are double values.
+The variables \code{x} and \code{y} are the
+location of the bumper (or ball);
+\code{w} and \code{h} are width and height.
+The \code{dX}
+and \code{dY} values determine the velocity of the pinball
+in the $x$- and $y$-directions, respectively.
+
+After you have finished the \code{readPNDFile} method
+and implemented the three \verb'handle...' methods,
+your program should work perfectly.
+Use the \fname{first.pnd} configuration file
+to test your program's behavior.
+
+\subsection*{Checkpoint 3}
+{\bf
+Show us your working code at this point.
+}
+
+\section*{Write your own PND file}
+Create a PND file of your own choosing
+that describes a pinball ``level''.
+It's best to start with a sketch of what you want first,
+so that you can get a good idea of how your objects
+(bumpers and pinballs) will appear
+and so you can come up with reasonable values for
+sprite dimensions and locations.
+Your PND file should end with a \fname{.pnd} extension.
+
+\subsection*{Checkpoint 4}
+{\bf
+Run your \verb'PinballGame' file
+and enter your newly created PND file as the filename.
+Show us your results.
+}
+
+\section*{Are you done?}
+If you have finished with the checkpoints,
+start working on your assignment to re-do your exam.
+
+\end{document}

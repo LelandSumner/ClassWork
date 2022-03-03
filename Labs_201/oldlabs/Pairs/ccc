@@ -1,0 +1,12 @@
+sed \
+-e 's/barkle36/andrewB/' \
+-e 's/chapmanm192/nathan/' \
+-e 's/dashna94/bryon/' \
+-e 's/mannkm192/kevin/' \
+-e 's/mitcheda192/daniel/' \
+-e 's/osujii191/i/' \
+-e 's/rochebw192/brenden/' \
+-e 's/searsa191/andrewS/' \
+-e 's/smith72/koren/' \
+-e 's/supernmp192/matthew/' \
+-e 's/teammcr192/richard/'

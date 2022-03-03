@@ -1,0 +1,133 @@
+\documentclass[12pt]{article}
+
+\pagestyle{plain}
+\oddsidemargin 0in       %   Left margin on odd-numbered pages.
+\evensidemargin 0in        %   Left margin on even-numbered pages.
+\textwidth 6.5in
+\textheight 9in
+\topmargin 0in
+\headheight 0in
+\headsep 0in
+
+\usepackage[T1]{fontenc}
+\usepackage{pslatex}
+%\renewcommand*{\familydefault}{\sfdefault}
+
+\usepackage{verbatim}
+\newenvironment{qv}%
+  {\quote
+   \verbatim}%
+  {\endverbatim
+   \endquote}
+
+\newcommand{\exx}{\\[2ex]}
+\newcommand{\code}{\texttt}
+\newcommand{\fname}{\texttt}
+\newcommand{\eg}{{\em e.g.}}
+
+\parskip 2ex
+\parindent 0em
+
+
+\begin{document}
+\sloppypar
+
+\begin{center}
+\Large\bf
+CIS 201 -- Computer Science I\\
+Laboratory Assignment 8\\
+\end{center}
+
+\section*{Introduction}
+
+In this lab you will redeem yourself
+by writing programs to implement and/or test your exams problems.
+
+Create a directory, \fname{Lab08} in your \fname{CS1} directory.
+You will be creating Java programs in this directory
+named \verb'Prob1.java', \verb'Prob2.java', and so forth,
+corresponding to the questions on Exam 2.
+
+\section*{Prob1}
+
+Create a program named \verb'Prob1.java' with the contents
+of problem 1 in your exam.
+Instead of the class name \verb'Temp', use the class name \verb'Prob1'.
+
+Compile and run this program.
+Compare the output with what you gave on your exam.
+
+\subsection*{Checkpoint 1}
+{\bf 
+Explain the output.
+}
+
+\section*{Prob2}
+
+Create a program named \verb'Prob2.java' with the contents
+of problem 2 in your exam.
+Instead of the class name \verb'Temp1', use the class name \verb'Prob2'.
+
+Compile and run this program.
+Compare the output with what you gave on your exam.
+
+\subsection*{Checkpoint 2}
+{\bf 
+Explain the output.
+}
+
+\section*{Prob3}
+
+Create a program named \verb'Prob3.java'
+with class name \verb'Prob3'
+and with the prototypes given in problem 3 in your exam.
+Don't worry about copying the documentation.
+
+Implement the \verb'swap', \verb'randomInt', and \verb'shuffle' methods,
+using what you did for your 15-Puzzle assignment.
+The \verb'randomInt' and \verb'swap' methods
+should be {\em almost} identical to what you were given
+in the 15-Puzzle assignment, except that your \verb'swap' method
+will use the formal array parameter
+instead of the ArrayList field variable.
+
+Write a \verb'main' method that tests your \verb'shuffle' method.
+This should look almost the same as the \verb'main' method
+in your \verb'Shuffle.java' program for your last assignment.
+Be sure that you do more than one test,
+with different array sizes (including an array of size zero!).
+
+\subsection*{Checkpoint 3}
+{\bf
+Explain what you have done.
+}
+
+\section*{Prob4}
+
+Create a program named \verb'Prob4.java'
+with class name \verb'Prob4'.
+Implement the \verb'intArrayToArrayList' method
+and write a \verb'main' method
+that tests your method.
+The test should verify that the sizes of the given array
+and ArrayList are identical
+and that the equality expression holds.
+
+\subsection*{Checkpoint 4}
+{\bf
+Show us your work.
+}
+
+\section*{Prob5, Prob6, and Prob7}
+
+As you have done for the previous problems,
+create appropriate Java files containing the appropriate class names.
+Implement the method described in the exam problem
+and write a \verb'main' method that tests your implementation.
+
+\subsection*{Checkpoints 5, 6, and 7}
+{\bf
+Show us your work.
+}
+
+\end{document}

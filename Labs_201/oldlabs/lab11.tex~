@@ -1,0 +1,498 @@
+\def\FileCreated{Wed Jul 07 12:03:49 2004}
+\def\FileRevised{Fri Dec 28 15:27:43 2007}
+\documentclass[12pt,oneside]{memoir}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage[usenames]{color}
+\usepackage{xltxtra}
+\usepackage{fontspec}
+\usepackage{textcomp}
+\usepackage{pstricks}
+\usepackage{listings}[2000/08/23] 
+
+\usepackage{rotating}
+\usepackage{exercise}
+% ----- Fonts -----
+\defaultfontfeatures{Scale=MatchLowercase,Mapping=tex-text}
+\setmainfont{Gentium Book Basic}
+\setmonofont{Bitstream Vera Sans Mono}
+\setsansfont{Arial}
+% ----- Fonts -----
+
+\definecolor{nicered}{rgb}{.647,.129,.149}
+\definecolor{listinggray}{gray}{0.1}
+\definecolor{templategrey}{gray}{0.85}
+\definecolor{NewtonsApple}{gray}{.95}
+\definecolor{commandlinebackground}{gray}{.90}
+\definecolor{commandlineforeground}{gray}{0.20,}
+\definecolor{commandpromptforeground}{gray}{0.55}
+
+\newcommand\code[1]{\lstinline^#1^}
+\newcommand\fname[1]{\texttt{#1}}
+\newcommand\note[1]{\unskip\footnote{#1}}
+\newcommand\foreign[1]{\emph{#1}}
+\newcommand\ensurecomma{%
+  \@ifnextchar,{}{\@latex@error{Don’t forget the comma!}{}}}
+\newcommand\eg{\foreign{e.g.}\ensurecomma}
+\newcommand\ie{\foreign{i.e.}\ensurecomma}
+\newcommand\cf{\foreign{cf.\@}}
+
+\newcommand\ensuresingleperiod{\@ifnextchar.{}{.\@}}
+\newcommand\etc{\foreign{etc}\ensuresingleperiod}
+\newcommand\etal{\foreign{et al}\ensuresingleperiod}
+
+\DeclareGraphicsExtensions{.eps,.pdf,.png,.gif,.jpg}
+
+\newcounter{LabPhase}
+\setcounter{LabPhase}{0}%
+
+\newenvironment{LabExercises}{%
+\renewcommand{\ExerciseListName}{Question}%
+\renewcommand{\ExerciseListHeader}{\textbf{%
+   Phase\ExerciseHeaderNB. }}
+\begin{ExerciseList}}%
+{\end{ExerciseList}}
+\newcommand{\LabExercise}{\Exercise[name={Lab Phase\ExerciseHeaderNB},counter={LabPhase}]}
+\newcounter{CheckPoint}
+\setcounter{CheckPoint}{1}%
+
+\newcommand{\Checkpoint}{\textbf{Checkpoint \theCheckPoint }:: \addtocounter{CheckPoint}{1}}
+
+\newcounter{myQuestion}
+\setcounter{myQuestion}{0}
+
+\newcommand{\myQuestion}{\addtocounter{myQuestion}{1}\emph{Question \themyQuestion}-- }
+
+
+\lstset{language=java,
+  basicstyle=\small\ttfamily,
+  numbers=none, 
+  numberstyle=\tiny, 
+  stepnumber=1, 
+  numbersep=5pt,
+  frame=single,
+  captionpos=b,
+  rulecolor=\color{nicered}
+}
+
+\lstdefinelanguage{cline}
+{
+  morecomment=[s][\color{commandpromptforeground}]{ }{ },
+} 
+
+\lstnewenvironment{commandline}[1][]
+  {\lstset{language=cline,numbers=none,frame=none,backgroundcolor=\color{commandlinebackground},basicstyle=\color{commandlineforeground},nolol,#1}}
+  {}
+
+\setlength{\hoffset}{0in}
+\setlength{\voffset}{0in}
+\settypeblocksize{9.5in}{7.5in}{*}
+\setlrmargins{0.5in}{*}{1}
+\setulmargins{0.75in}{*}{*}
+\setheadfoot{\onelineskip}{2\onelineskip}
+\checkandfixthelayout
+
+\begin{document}
+
+\begin{center}
+\Large{CIS 201 Fall 2008: Lab 10\\FANG Go Bye-Bye}
+\end{center}
+
+\begin{itemize}
+\item Non-FANG Java
+\item Reading a file
+\item Writing a file
+\end{itemize}
+
+\textbf{Note to Dr. Ladd's Students}: Read the text and understand it;
+this makes really good quiz fodder for this Friday. Just saying. Also,
+this lab is very easy because all the answers are in the text.
+
+This lab, Lab 10, focuses on creating a non-FANG program. You will
+start by writing a program where all methods (and fields) are
+\code{static}. The terms \emph{static} and \emph{dynamic} are opposite
+descriptions for program attributes: static properties are values that can
+be completely known at \emph{compile-time}; dynamic properties cannot
+be completely known until \emph{run-time}. An easy example concerning
+a field in a class: the \textbf{name} and \textbf{type} of the
+variable are both static; in contrast, the \textbf{value} stored in
+that variable is dynamic (it can't be known for sure until the program
+is running and, even more, it can change while the program runs). 
+
+So, what does the \code{static} modifier do for a method or field?
+Remember that in a Java method there is an \emph{implicit} parameter,
+\code{this}. The \code{this} parameter refers to the location of an
+object of the given type, exactly the object on which the method is
+being called. Implicitly, whenever you name another method in the
+class or a field defined in it, the compiler puts \code{this.} in
+front of it. 
+
+Wait a minute, that means \emph{which} object's method or fields are
+meant depends on the \textbf{value} of \code{this}. But the value of a
+variable is not known until \emph{run-time}; \code{this} is a dynamic
+value. 
+
+\code{static} eliminates the implicit \code{this} parameter. This
+means that there is only one copy of any static field. It means that
+the location in memory to hold the value of a static field is created
+at compile-time because it does not depend on \code{new}. Methods that
+are \code{static} do not have a \code{this} parameter which means they
+cannot call any method that expects such a parameter; a \code{static}
+method can only call other \code{static} methods and access
+\code{static} fields of the current class.
+
+The nice thing about \code{static} methods is you don't need to call
+\code{new} to create an object of the given type. You can refer to the
+method with the class name and a dot. The \code{Math} class has many
+static methods such as sine and cosine:
+
+\begin{lstlisting}
+double theta = 0.5;
+double sin = Math.sin(theta);
+double cos = Math.cos(theta); 
+if (1.0 == (sin * sin + cos * cos) {
+  System.out.println("Trig identities work!");
+}
+\end{lstlisting}
+
+Java starts all programs with a call to a \code{static} method; you
+will write a first program where all methods and fields are also
+\code{static} so that it is easy to use methods and data from
+\code{main}. Then you will rewrite that program two more times, each
+time removing \code{static} contamination until at the end you have a
+program, \code{NoFangC}, which has only one \code{static} method,
+\code{main}.
+
+\begin{LabExercises}
+
+  \LabExercise Create a folder for Lab10. You will be creating several
+  programs in that folder; each new program will take as its starting
+  point the one before it. Thus \code{NoFangC.java} will be copied to
+  create \code{ViewTextFile.java}; after copying the file, don't
+  forget to go in and edit the name of the class and any constructors
+  that it has.
+
+  \myQuestion In Java, what is the relationship between the name of the
+  publicly declared class and the name of the file in which it is
+  defined?
+
+  \LabExercise Write a class, \code{NoFangA}, that has a \code{main}
+  method, a public \code{static} method, \code{run}, and two
+  \code{static} fields. To start with, your program should look like
+  this:
+
+  \begin{lstlisting}[numbers=left]
+class NoFangA {
+  static private String authorA = "Grace M. Hopper";
+  static private String authorB = "Brian C. Ladd";
+
+  static public void run() {
+    // Add a countdown from 10 to 0
+    System.out.print("Program by " + authorA + " and " + authorB);
+  }
+
+  static public void main(String args[]) {
+    run();
+  }
+}
+  \end{lstlisting}
+
+  Run your program. You will not see the standard FANG game come
+  up. Instead you will see all of the output in the Emacs run pane.
+
+  You should now modify \code{run}, replacing the comment with code to
+  write a countdown from 10 to 0 (inclusive; how many different values
+  are you going to print?) on standard output. Thus the output of the
+  above program with the loop in place would be:
+
+  \begin{lstlisting}
+10
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+Program by Grace M. Hopper and Brian C. Ladd
+  \end{lstlisting}
+
+  \Checkpoint Show your running program (and code) to one of the lab
+  instructors.
+
+  \LabExercise Copy \fname{FangA.java} over to \fname{FangB.java}; edit
+  \code{FangB} so that it compiles.
+
+  Note from the discussion at the top of the lab: you should copy
+  \code{NoFangA.java} to \code{NoFangB.java}. This uses the
+  \code{cp} command at the command prompt:
+
+  \begin{commandline}
+~/CS1/Lab10% cp NoFangA.java NoFangB.java
+  \end{commandline}
+
+  Modify names so that the new program will compile.
+
+  Now remove \code{static} from all fields and methods \emph{except}
+  \code{main}. If you try to compile now you will get an error: 
+
+  \begin{lstlisting}
+NoFangB.java:11: non-static method run() cannot be referenced from a static context
+  run();
+    ^
+1 error
+  \end{lstlisting}
+
+  \code{run} is no longer \code{static} so it needs a value for
+  \code{this}. How does \code{this} get a value? It refers to whatever
+  is to the \emph{left} of the dot when the method was called. So, if
+  we had a reference to a \code{NoFangB} object, we could call
+  \code{run} \emph{on that object}.
+
+  So line 11 goes to
+
+  \begin{lstlisting}[numbers=left,firstnumber=11]
+someNoFangB.run();
+  \end{lstlisting}
+
+  But what type is \code{someNoFangB} and when was \code{new} called
+  to give it a value? Type is \code{NoFangB} and it is not yet
+  declared or initialized. Insert a new line 11 that does both:
+  declares and initializes a local variable:
+
+  \begin{lstlisting}[numbers=left,firstnumber=11]
+NoFangB someNoFangB = new NoFangB();
+someNoFangB.run();
+  \end{lstlisting}
+
+  Now compile and run your program. It should run just as the previous
+  phase's program ran. You have successfully transitioned from a
+  \code{static} method where Java started your program to a non-static
+  object method to do the real work.
+
+  \Checkpoint Show your working program to a lab instructor.
+
+  \LabExercise Now you will move the initialization of the fields into
+  a user-provided constructor.
+
+  Copy \fname{NoFangB.java} over to \fname{NoFangC.java}. Fix up the
+  name of the class and get it to compile. (Notice: If you raise your
+  hand and ask for help before the newly named program compiles, the
+  instructors will not be able to help you.)
+
+  If you look at the code in \code{NoFangC}, you will notice that
+  there is no constructor defined in it. Yet in \code{main}, right on
+  line 11, you call a constructor. How is that possible?
+
+  The Java compiler creates an implicit \emph{default} constructor for
+  any class that defines no constructors. A default constructor is one
+  that takes no parameters. The compiler does no special
+  initialization in the created constructor.
+
+  We want to separate the declaration and initialization of the two
+  author fields. The declaration will remain where it is and the
+  initialization will move into a newly defined constructor:
+
+  \begin{lstlisting}[numbers=left,firstnumber=2]
+  private String authorA;
+  private String authorB;
+
+  public NoFangC() {
+    authorA = "Grace M. Hopper";
+    authorB = "Brian C. Ladd";
+  }    
+  \end{lstlisting}
+
+  You have provided a constructor (any constructor) so Java will not
+  define a default constructor for you. This version of the program
+  looks a lot like our normal \code{Game} based programs: a method
+  which is called once to set everything up (\code{setup} or
+  constructor) and then another method called to make the program work
+  (\code{advance} or \code{run}). Note that \code{run}, in this
+  program, is only called once (rather than inside of a loop). 
+
+  \Checkpoint Show your running \code{NoFangC} program to one of the lab
+  instructors.
+
+  \LabExercise Starting with \fname{NoFangC.java}, write a program
+  that prompts the user for the name of an input text file and then
+  copies the lines of the file to standard output.
+
+  Copy \fname{NoFangC.java} to \fname{ViewTextFile.java}. Remove the
+  fields and the body of the constructor and \code{run} methods. The
+  resulting file,
+  
+  \begin{lstlisting}[numbers=left]
+class ViewTextFile {
+  public ViewTextFile() {
+  }
+  
+  public void run() {
+  }
+
+  static public void main(String args[]) {
+    ViewTextFile viewTextFile = new ViewTextFile();
+    viewTextFile.run();
+  }
+}
+  \end{lstlisting}
+  
+  can serve as a template for non-FANG programs. All you need to do to
+  start a program is change the name of the type (and the variable) to
+  match the file name. You might want to save a copy of this off for
+  starting future programs.
+
+  You will be using several types, \code{Scanner} and
+  \code{FileInputStream}, which require you to \code{import} code from
+  the standard Java library. You can tell Java defined classes from FANG
+  defined classes by the absence of \code{fang} in the package name
+  being imported.
+
+  Define a \code{Scanner} field called \code{fin}. It is a field so
+  that it can be initialized in one method and used in another.
+
+  In the \code{ViewTextFile} constructor, prompt the user for the name
+  of a file to view until they enter one that can be opened for input
+  successfully. Using delegation (defining useful, well-named,
+  single-purpose methods), this should be easy to write:
+
+  \begin{lstlisting}
+// the constructor
+public ViewTextFile() {
+  fin = null; // initialize the field
+  while (fin == null) {
+    String fname = getFName("File to view: ");
+    fin = openFileForInput(fname);
+    if (fin == null) {
+      System.out.println("You must specify a file that can be read.");
+    }
+  }
+}
+  \end{lstlisting}
+
+  (\code{openFileForInput} comes from
+  \fname{RegularArraysWithConnectScannerCode.java} in \fname{Week12}
+  in Dr. Ladd's web space
+  (\fname{http://cs.potsdam.edu/faculty/laddbc/Teaching}). \code{getFName}
+  is the version you wrote for the last lab.)
+
+  \myQuestion In which method (constructor, \code{getFName} or
+  \code{openFileForInput}) would you put a call to
+  \code{ensureExtension} to make sure the file name had a particular
+  extension on it?
+
+  \code{run} should read \code{fin} (initialized in the constructor)
+  line-by-line (if you're reading all of a file, what should you be
+  thinking? An \emph{eof-controlled loop}; or a \code{hasNext...}
+  loop).  The body of the loop should print the current line to
+  standard output.
+
+  Thus, if the file specified were \fname{x.txt} and the contents of
+  that file were:
+
+  \begin{lstlisting}
+This is a test of the emergency broadcast system.
+This is only a test. Had this been a real emergency,
+you would have been directed to a local CONLRAD 
+radio station for additional instructions. This concludes
+the Federally mandated testing of the Emergency Broadcast
+System.
+  \end{lstlisting}
+
+  the exact same thing (line for line) would appear in the run pain of
+  Emacs when you ran the program. The whole output would look something
+  like:
+
+  \begin{lstlisting}
+File to view: x.txt
+This is a test of the emergency broadcast system.
+This is only a test. Had this been a real emergency,
+you would have been directed to a local CONLRAD 
+radio station for additional instructions. This concludes
+the Federally mandated testing of the Emergency Broadcast
+System.
+  \end{lstlisting}
+
+  \myQuestion Why didn't you need to change \code{main} (except for the
+  type of the object instantiated)?
+
+  \Checkpoint Show your working \fname{ViewTextFile} program to one of
+  the lab instructors.
+
+  \LabExercise Modify the viewing program into a program which prompts
+  the user for an input file \emph{and} an output file and copies the
+  text in one to the other.
+
+  Copy \fname{ViewTextFile.java} to \fname{CopyTextFile.java}. Make
+  the new program compile.
+
+  Modify the program so that in the constructor in addition to the
+  code given above, you also prompt the user for the name of a file to
+  which the text file should be copied (you can reuse \code{getFName})
+  and attach a \code{PrintStream} to it with a method like
+  \code{openFileForInput}. In fact, you should have your new method
+  return a \code{PrintStream} attached to the given file or
+  \code{null} if there is a problem. That sounds a lot like
+  \code{openFileForInput}. There is a version of the
+  \code{PrintStream} constructor that takes a \code{OutputFileStream},
+  parallel to the \code{Scanner} constructor that takes a
+  \code{InputFileStream}. It, too, can throw an exception (and you
+  must catch the exception so that it compiles).
+
+\framebox[\textwidth][c]{\parbox[l]{0.95\textwidth}{
+  \textbf{Warning:} When you provide the program with an output file
+  name, as soon as the \code{OutputFileStream} attached to it is
+  instantiated, the contents of the file (if any) are erased. Thus if
+  you have files you want to keep, make sure you don't specify their
+  names as output files. Java gives no warning.
+}}
+  After modifying the constructor to set the \code{Scanner} and
+  \code{PrintStream} fields (they are set in one method and used in
+  another; this means they are state or attributes of the object as a
+  whole), modify \code{run} so that instead of writing the file
+  contents on the screen, your program writes the contents of the
+  input file into the output file.
+
+  \myQuestion \textbf{Look up} \code{System} in the Java docs.  What
+  are the type of the \code{in} field and the \code{out} field. Why
+  does \code{openFileForOutput} return a \code{PrintStream}?
+
+  \Checkpoint Show one of the lab instructors your working copy
+  program.
+
+  The focus of this program is to practice reading files and learn to
+  write files. This is not as ``fun'' as some of our assignments; to
+  make up for that, the next lab assignment will focus on encrypting a
+  file so that you can send secret messages to your friends and no one
+  else \note{for some sufficiently restricted definition of ``no one
+    else''} can read it.
+
+  \LabExercise Upload your Java and text files.
+
+  Make sure both authors' names are in all of the header comments!
+  Make sure you answered all \themyQuestion {} questions in the header
+  comments of the three files you are uploading: \fname{NoFangC.java},
+  \fname{ViewTextFile.java}, and \fname{CopyTextFile.java}
+
+  Go to Moodle; you will find an assignment in this week \textbf{Lab
+    10}. Go there and upload all of the Java files you
+  created/modified in lab today. Note that there will be other files
+  in your \fname{Lab10} directory. You want to make sure you upload
+  just the \fname{.java} file.
+
+  Also make sure that both partners have copies of the program. This
+  program has some bearing on the current assignment so you probably
+  want to have this code around. Comments will also be very helpful in
+  this program for exactly that reason.
+\end{LabExercises}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% End: 
+
+% LocalWords:  Moodle Ladd's login emacs

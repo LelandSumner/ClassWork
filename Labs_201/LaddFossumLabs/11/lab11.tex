@@ -1,0 +1,233 @@
+% book.tex -- Copyright (c) 2004, Brian C. Ladd
+% 
+% Author : Brian C. Ladd 
+% Created: Wed Jul 07 12:03:49 2004 by blad
+% Revised: Fri Dec 28 15:27:43 2007 by blad
+% 
+\def\FileCreated{Wed Jul 07 12:03:49 2004}
+\def\FileRevised{Fri Dec 28 15:27:43 2007}
+\documentclass[12pt,oneside]{memoir}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage[usenames]{color}
+\usepackage{xltxtra}
+\usepackage{fontspec}
+\usepackage{textcomp}
+\usepackage{pstricks}
+\usepackage{listings}[2000/08/23] 
+
+\usepackage{rotating}
+\usepackage{exercise}
+\definecolor{nicered}{rgb}{.647,.129,.149}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{templategrey}{gray}{0.30}
+\definecolor{commandlinebackground}{gray}{0.25}
+\definecolor{commandlineforeground}{gray}{0.85}
+\definecolor{commandpromptforeground}{gray}{0.55}
+% ----- Fonts -----
+\defaultfontfeatures{Scale=MatchLowercase,Mapping=tex-text}
+\setmainfont{Gentium Book Basic}
+\setmonofont{Inconsolata}
+\setsansfont{Arial}
+% ----- Fonts -----
+\newcommand\code[1]{\lstinline^#1^}
+\newcommand\fname[1]{\texttt{#1}}
+
+\lstset{language=java,
+  basicstyle=\small\ttfamily,
+  numbers=none, 
+  numberstyle=\tiny, 
+  stepnumber=1, 
+  numbersep=5pt,
+  frame=single,
+  captionpos=b,
+  rulecolor=\color{nicered}
+}
+
+\lstdefinelanguage{cline}
+{
+  morecomment=[s][\color{commandpromptforeground}]{ }{ },
+} 
+
+\lstnewenvironment{commandline}[1][]
+{\lstset{language=cline,numbers=none,frame=none,backgroundcolor=\color{commandlinebackground},basicstyle=\color{commandlineforeground},nolol,#1}}
+{}
+
+\newenvironment{Checkpoint}[1]{%
+  \begin{Exercise}[name={Checkpoint},title={#1}]}{%
+  \end{Exercise}%
+  \textbf{Show your work on Checkpoint~\theExercise{} to the lab monitor, %
+    answering any necessary questions for them.  Have them sign before continuing.}}
+
+\newcommand{\artDir}{../art}
+\newcommand{\lab}[2]{%
+  \title{CIS 201 Computer Science I\\Fall 2009 Lab #1\\#2}%
+  \maketitle%
+}
+
+\setlength{\hoffset}{0in}
+\setlength{\voffset}{0in}
+\settypeblocksize{9.5in}{7.5in}{*}
+\setlrmargins{0.5in}{*}{1}
+\setulmargins{0.75in}{*}{*}
+\setheadfoot{\onelineskip}{2\onelineskip}
+\checkandfixthelayout
+
+\begin{document}
+
+\lab{11}{Reading Files}
+
+\begin{itemize}
+\item Working with files (for input and output).
+\item Working with \code{String}s.
+\item Different kinds of loops.
+\end{itemize}
+
+In this lab you will write three increasingly difficult programs: the
+first prompts the user for the name of a file and displays the text
+file on the screen; the second prompts the user for two file names,
+one for input and one for output and copies the contents of the input
+file into the output file; the final program copies a file in a
+similar way but before writing a \code{String} to the output file, the
+string is \emph{enciphered} so that the contents of the copied file
+are secure from prying eyes.\footnote{For a sufficiently narrow
+  definition of ``prying eyes.''}
+
+\begin{Checkpoint}{ViewFile.java}
+Write a non-FANG program, \code{ViewFile.java}. Put the file in an
+appropriately named folder and so on. 
+
+The program should
+\begin{itemize}
+\item Prompt the user for an input file name and read in the file name
+  from standard input. (Consider that you must prompt the user for
+  multiple file names soon; how can you keep from repeating yourself?)
+\item Open the file for input.
+\item If there was a problem opening the file for input, provide a
+  useful error message to the user. Be sure to include a description
+  of the problem and the name of the offending file. Terminate the
+  program after printing the error message.
+\item If the file opened properly, copy the lines of the file to
+  standard output.
+\item You can test your program by viewing the \fname{.java} file of
+  the program itself.
+\end{itemize}
+\end{Checkpoint}
+
+\begin{Checkpoint}{CopyFile.java}
+Starting with a copy of \fname{ViewFile.java}, change the name to
+\code{CopyFile} and make it compile.
+
+\code{System.out} is a \code{PrintStream}. You want to construct a new
+\code{PrintStream} associated with an output file. It is similar to
+associating a \code{Scanner} with an input file \textbf{except} that
+the \code{PrintStream} constructor takes the name of a file (not a
+\code{File} object) and you \emph{must} \code{close} the file when you
+are done with it. The following loop gives an example of using a
+\code{PrintStream} for output.
+
+\begin{lstlisting}
+  String fname = /* get the file name somehow */;
+  PrintStream ps = null;
+  try {
+     ps = new PrintStream(fname);
+     ps.println("Hello, World!");
+  } catch (FileNotFoundException fnf) {
+    System.err.println("There was a problem with " + fname);
+    System.exit(1);
+  } finally {
+    ps.close();
+  } 
+\end{lstlisting}
+
+Your modified program should 
+\begin{itemize}
+\item Prompt the user for an input file name and read in the file name
+  from standard input. (Consider that you must prompt the user for
+  multiple file names soon; how can you keep from repeating yourself?)
+\item Open the file for input.
+\item If there was a problem opening the file for input, provide a
+  useful error message to the user. Be sure to include a description
+  of the problem and the name of the offending file. Terminate the
+  program after printing the error message.
+\item Prompt the user for an output file name and read the  file name
+  from standard input.
+\item Open the file for output.
+\item If there was a problem, give a reasonable error message and
+  terminate the program.
+\item If both files opened properly, copy the lines of the input file to
+  the output file.
+\item You can test your program by viewing the \fname{.java} file of
+  the program itself.
+\end{itemize}
+\end{Checkpoint}
+
+\begin{Checkpoint}{EncipherFile.java}
+Starting with \fname{CopyFile.java}, you should rename it to
+\code{EncipherFile.java}. There will be no visible change from the
+user's viewpoint: the program will prompt for two file names, one for
+input, one for output. It then reads the lines of the input file,
+enciphers each line character by character, and then prints out the
+enciphered line.
+
+The guts of the program looks like this
+\begin{lstlisting}
+while (there are more lines) {
+  String original = nextLine;
+  String converted = "";
+  while (there are characters  in original) {
+    char nextCh = nextChar;
+    add nextCh to end of converted;
+  }
+  print out converted;
+}
+\end{lstlisting}
+
+How do you loop across all the characters in a \code{String}? 
+
+It is a count-controlled loop based on the \code{length()} method of
+\code{String} and \code{charAt(i)} (look these methods up in the
+\code{String} documentation). 
+
+Modify \code{EncipherFile} so that its main loop converts each line
+before printing. The following loop does the real work:
+
+  \begin{lstlisting}
+// inside the hasNextLine loop...
+String converted = "";
+for (int characterNdx = 0; 
+     characterNdx < orginal.length(); 
+     ++characterNdx) {    
+  char nextCh = orginal.charAt(characterNdx);
+  // this is where you convert nextCh...
+  converted = converted + Character.toString(nextCh);
+}
+// now print out converted
+  \end{lstlisting}
+
+You should modify this code so that every semicolon (\code{;}) is
+replaced by a caret (\code{\^}). 
+
+You can test the program by running it on its own code. You can then
+open the copy and see if the semicolons are all replaced with the
+right character (and that the rest of lines are unchanged). 
+\end{Checkpoint}
+
+We leave the program here; it is possible that next week you will
+extend the enciphering of the characters so that it uses the Caesar
+cipher to encipher the text read from the file. It is also possible
+that we need to work some more on sorting so that may be next week's
+lab. 
+
+\Large{Log off of the lab computer you are using before leaving they
+  lab. Anyone entering the lab has unlimited access to your files if
+  you remain logged on. \textbf{DO NOT} turn off lab computers! They
+  are a shared resource and there might be someone else logged in to
+  ``your'' machine.}
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% End: 
+
+% LocalWords:  Moodle Ladd's login emacs

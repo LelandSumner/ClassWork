@@ -1,0 +1,403 @@
+%!PS-Adobe-2.0
+%%Creator: dvips(k) 5.95a Copyright 2005 Radical Eye Software
+%%Title: lab01a.dvi
+%%Pages: 2
+%%PageOrder: Ascend
+%%BoundingBox: 0 0 612 792
+%%DocumentFonts: Times-Bold Times-Roman Times-Italic Courier
+%%DocumentPaperSizes: Letter
+%%EndComments
+%DVIPSWebPage: (www.radicaleye.com)
+%DVIPSCommandLine: dvips -Ppdf -t letter -G0 lab01a
+%DVIPSParameters: dpi=8000
+%DVIPSSource:  TeX output 2009.01.23:1531
+%%BeginProcSet: tex.pro 0 0
+%!
+/TeXDict 300 dict def TeXDict begin/N{def}def/B{bind def}N/S{exch}N/X{S
+N}B/A{dup}B/TR{translate}N/isls false N/vsize 11 72 mul N/hsize 8.5 72
+mul N/landplus90{false}def/@rigin{isls{[0 landplus90{1 -1}{-1 1}ifelse 0
+0 0]concat}if 72 Resolution div 72 VResolution div neg scale isls{
+landplus90{VResolution 72 div vsize mul 0 exch}{Resolution -72 div hsize
+mul 0}ifelse TR}if Resolution VResolution vsize -72 div 1 add mul TR[
+matrix currentmatrix{A A round sub abs 0.00001 lt{round}if}forall round
+exch round exch]setmatrix}N/@landscape{/isls true N}B/@manualfeed{
+statusdict/manualfeed true put}B/@copies{/#copies X}B/FMat[1 0 0 -1 0 0]
+N/FBB[0 0 0 0]N/nn 0 N/IEn 0 N/ctr 0 N/df-tail{/nn 8 dict N nn begin
+/FontType 3 N/FontMatrix fntrx N/FontBBox FBB N string/base X array
+/BitMaps X/BuildChar{CharBuilder}N/Encoding IEn N end A{/foo setfont}2
+array copy cvx N load 0 nn put/ctr 0 N[}B/sf 0 N/df{/sf 1 N/fntrx FMat N
+df-tail}B/dfs{div/sf X/fntrx[sf 0 0 sf neg 0 0]N df-tail}B/E{pop nn A
+definefont setfont}B/Cw{Cd A length 5 sub get}B/Ch{Cd A length 4 sub get
+}B/Cx{128 Cd A length 3 sub get sub}B/Cy{Cd A length 2 sub get 127 sub}
+B/Cdx{Cd A length 1 sub get}B/Ci{Cd A type/stringtype ne{ctr get/ctr ctr
+1 add N}if}B/CharBuilder{save 3 1 roll S A/base get 2 index get S
+/BitMaps get S get/Cd X pop/ctr 0 N Cdx 0 Cx Cy Ch sub Cx Cw add Cy
+setcachedevice Cw Ch true[1 0 0 -1 -.1 Cx sub Cy .1 sub]{Ci}imagemask
+restore}B/D{/cc X A type/stringtype ne{]}if nn/base get cc ctr put nn
+/BitMaps get S ctr S sf 1 ne{A A length 1 sub A 2 index S get sf div put
+}if put/ctr ctr 1 add N}B/I{cc 1 add D}B/bop{userdict/bop-hook known{
+bop-hook}if/SI save N @rigin 0 0 moveto/V matrix currentmatrix A 1 get A
+mul exch 0 get A mul add .99 lt{/QV}{/RV}ifelse load def pop pop}N/eop{
+SI restore userdict/eop-hook known{eop-hook}if showpage}N/@start{
+userdict/start-hook known{start-hook}if pop/VResolution X/Resolution X
+1000 div/DVImag X/IEn 256 array N 2 string 0 1 255{IEn S A 360 add 36 4
+index cvrs cvn put}for pop 65781.76 div/vsize X 65781.76 div/hsize X}N
+/p{show}N/RMat[1 0 0 -1 0 0]N/BDot 260 string N/Rx 0 N/Ry 0 N/V{}B/RV/v{
+/Ry X/Rx X V}B statusdict begin/product where{pop false[(Display)(NeXT)
+(LaserWriter 16/600)]{A length product length le{A length product exch 0
+exch getinterval eq{pop true exit}if}{pop}ifelse}forall}{false}ifelse
+end{{gsave TR -.1 .1 TR 1 1 scale Rx Ry false RMat{BDot}imagemask
+grestore}}{{gsave TR -.1 .1 TR Rx Ry scale 1 1 false RMat{BDot}
+imagemask grestore}}ifelse B/QV{gsave newpath transform round exch round
+exch itransform moveto Rx 0 rlineto 0 Ry neg rlineto Rx neg 0 rlineto
+fill grestore}B/a{moveto}B/delta 0 N/tail{A/delta X 0 rmoveto}B/M{S p
+delta add tail}B/b{S p tail}B/c{-4 M}B/d{-3 M}B/e{-2 M}B/f{-1 M}B/g{0 M}
+B/h{1 M}B/i{2 M}B/j{3 M}B/k{4 M}B/w{0 rmoveto}B/l{p -4 w}B/m{p -3 w}B/n{
+p -2 w}B/o{p -1 w}B/q{p 1 w}B/r{p 2 w}B/s{p 3 w}B/t{p 4 w}B/x{0 S
+rmoveto}B/y{3 2 roll p a}B/bos{/SS save N}B/eos{SS restore}B end
+
+%%EndProcSet
+%%BeginProcSet: alt-rule.pro 0 0
+%!
+% Patch by TVZ
+% Makes dvips files draw rules with stroke rather than fill.
+% Makes narrow rules more predictable at low resolutions
+% after distilling to PDF.
+% May have unknown consequences for very thick rules.
+% Tested only with dvips 5.85(k).
+TeXDict begin
+/QV {
+  gsave newpath /ruleY X /ruleX X
+  Rx Ry gt
+  { ruleX ruleY Ry 2 div sub moveto Rx 0 rlineto Ry }
+  { ruleX Rx 2 div add ruleY moveto 0 Ry neg rlineto Rx }
+  ifelse
+  setlinewidth 0 setlinecap stroke grestore
+} bind def
+end
+
+%%EndProcSet
+%%BeginProcSet: 8r.enc 0 0
+% File 8r.enc  TeX Base 1 Encoding  Revision 2.0  2002-10-30
+%
+% @@psencodingfile@{
+%   author    = "S. Rahtz, P. MacKay, Alan Jeffrey, B. Horn, K. Berry,
+%                W. Schmidt, P. Lehman",
+%   version   = "2.0",
+%   date      = "30 October 2002",
+%   filename  = "8r.enc",
+%   email     = "tex-fonts@@tug.org",
+%   docstring = "This is the encoding vector for Type1 and TrueType
+%                fonts to be used with TeX.  This file is part of the
+%                PSNFSS bundle, version 9"
+% @}
+% 
+% The idea is to have all the characters normally included in Type 1 fonts
+% available for typesetting. This is effectively the characters in Adobe
+% Standard encoding, ISO Latin 1, Windows ANSI including the euro symbol,
+% MacRoman, and some extra characters from Lucida.
+% 
+% Character code assignments were made as follows:
+% 
+% (1) the Windows ANSI characters are almost all in their Windows ANSI
+% positions, because some Windows users cannot easily reencode the
+% fonts, and it makes no difference on other systems. The only Windows
+% ANSI characters not available are those that make no sense for
+% typesetting -- rubout (127 decimal), nobreakspace (160), softhyphen
+% (173). quotesingle and grave are moved just because it's such an
+% irritation not having them in TeX positions.
+% 
+% (2) Remaining characters are assigned arbitrarily to the lower part
+% of the range, avoiding 0, 10 and 13 in case we meet dumb software.
+% 
+% (3) Y&Y Lucida Bright includes some extra text characters; in the
+% hopes that other PostScript fonts, perhaps created for public
+% consumption, will include them, they are included starting at 0x12.
+% These are /dotlessj /ff /ffi /ffl.
+% 
+% (4) hyphen appears twice for compatibility with both ASCII and Windows.
+%
+% (5) /Euro was assigned to 128, as in Windows ANSI
+%
+% (6) Missing characters from MacRoman encoding incorporated as follows:
+%
+%     PostScript      MacRoman        TeXBase1
+%     --------------  --------------  --------------
+%     /notequal       173             0x16
+%     /infinity       176             0x17
+%     /lessequal      178             0x18
+%     /greaterequal   179             0x19
+%     /partialdiff    182             0x1A
+%     /summation      183             0x1B
+%     /product        184             0x1C
+%     /pi             185             0x1D
+%     /integral       186             0x81
+%     /Omega          189             0x8D
+%     /radical        195             0x8E
+%     /approxequal    197             0x8F
+%     /Delta          198             0x9D
+%     /lozenge        215             0x9E
+%
+/TeXBase1Encoding [
+% 0x00
+ /.notdef /dotaccent /fi /fl
+ /fraction /hungarumlaut /Lslash /lslash
+ /ogonek /ring /.notdef /breve
+ /minus /.notdef /Zcaron /zcaron
+% 0x10
+ /caron /dotlessi /dotlessj /ff
+ /ffi /ffl /notequal /infinity
+ /lessequal /greaterequal /partialdiff /summation
+ /product /pi /grave /quotesingle
+% 0x20
+ /space /exclam /quotedbl /numbersign
+ /dollar /percent /ampersand /quoteright
+ /parenleft /parenright /asterisk /plus
+ /comma /hyphen /period /slash
+% 0x30
+ /zero /one /two /three
+ /four /five /six /seven
+ /eight /nine /colon /semicolon
+ /less /equal /greater /question
+% 0x40
+ /at /A /B /C
+ /D /E /F /G
+ /H /I /J /K
+ /L /M /N /O
+% 0x50
+ /P /Q /R /S
+ /T /U /V /W
+ /X /Y /Z /bracketleft
+ /backslash /bracketright /asciicircum /underscore
+% 0x60
+ /quoteleft /a /b /c
+ /d /e /f /g
+ /h /i /j /k
+ /l /m /n /o
+% 0x70
+ /p /q /r /s
+ /t /u /v /w
+ /x /y /z /braceleft
+ /bar /braceright /asciitilde /.notdef
+% 0x80
+ /Euro /integral /quotesinglbase /florin
+ /quotedblbase /ellipsis /dagger /daggerdbl
+ /circumflex /perthousand /Scaron /guilsinglleft
+ /OE /Omega /radical /approxequal
+% 0x90
+ /.notdef /.notdef /.notdef /quotedblleft
+ /quotedblright /bullet /endash /emdash
+ /tilde /trademark /scaron /guilsinglright
+ /oe /Delta /lozenge /Ydieresis
+% 0xA0
+ /.notdef /exclamdown /cent /sterling
+ /currency /yen /brokenbar /section
+ /dieresis /copyright /ordfeminine /guillemotleft
+ /logicalnot /hyphen /registered /macron
+% 0xD0
+ /degree /plusminus /twosuperior /threesuperior
+ /acute /mu /paragraph /periodcentered
+ /cedilla /onesuperior /ordmasculine /guillemotright
+ /onequarter /onehalf /threequarters /questiondown
+% 0xC0
+ /Agrave /Aacute /Acircumflex /Atilde
+ /Adieresis /Aring /AE /Ccedilla
+ /Egrave /Eacute /Ecircumflex /Edieresis
+ /Igrave /Iacute /Icircumflex /Idieresis
+% 0xD0
+ /Eth /Ntilde /Ograve /Oacute
+ /Ocircumflex /Otilde /Odieresis /multiply
+ /Oslash /Ugrave /Uacute /Ucircumflex
+ /Udieresis /Yacute /Thorn /germandbls
+% 0xE0
+ /agrave /aacute /acircumflex /atilde
+ /adieresis /aring /ae /ccedilla
+ /egrave /eacute /ecircumflex /edieresis
+ /igrave /iacute /icircumflex /idieresis
+% 0xF0
+ /eth /ntilde /ograve /oacute
+ /ocircumflex /otilde /odieresis /divide
+ /oslash /ugrave /uacute /ucircumflex
+ /udieresis /yacute /thorn /ydieresis
+] def
+
+
+%%EndProcSet
+%%BeginProcSet: texps.pro 0 0
+%!
+TeXDict begin/rf{findfont dup length 1 add dict begin{1 index/FID ne 2
+index/UniqueID ne and{def}{pop pop}ifelse}forall[1 index 0 6 -1 roll
+exec 0 exch 5 -1 roll VResolution Resolution div mul neg 0 0]FontType 0
+ne{/Metrics exch def dict begin Encoding{exch dup type/integertype ne{
+pop pop 1 sub dup 0 le{pop}{[}ifelse}{FontMatrix 0 get div Metrics 0 get
+div def}ifelse}forall Metrics/Metrics currentdict end def}{{1 index type
+/nametype eq{exit}if exch pop}loop}ifelse[2 index currentdict end
+definefont 3 -1 roll makefont/setfont cvx]cvx def}def/ObliqueSlant{dup
+sin S cos div neg}B/SlantFont{4 index mul add}def/ExtendFont{3 -1 roll
+mul exch}def/ReEncodeFont{CharStrings rcheck{/Encoding false def dup[
+exch{dup CharStrings exch known not{pop/.notdef/Encoding true def}if}
+forall Encoding{]exch pop}{cleartomark}ifelse}if/Encoding exch def}def
+end
+
+%%EndProcSet
+TeXDict begin 40258431 52099146 1000 8000 8000 (lab01a.dvi)
+@start /Fa 134[553 1[799 1[553 308 431 369 1[553 553
+553 861 308 2[308 553 1[369 491 553 491 1[491 50[277
+1[277 44[{TeXBase1Encoding ReEncodeFont}20 1106.96 /Times-Roman
+rf /Fb 206[410 49[{TeXBase1Encoding ReEncodeFont}1 819.15
+/Times-Roman rf /Fc 134[664 1[959 664 739 442 517 590
+1[739 664 739 1107 369 739 1[369 739 664 442 590 739
+590 739 664 9[1328 3[739 3[1033 2[886 8[959 1[959 15[664
+2[332 46[{TeXBase1Encoding ReEncodeFont}30 1328.35 /Times-Bold
+rf /Fd 138[677 677 677 677 1[677 677 677 677 677 2[677
+677 2[677 677 677 677 677 12[677 10[677 3[677 3[677 2[677
+3[677 10[677 677 677 45[{.85 ExtendFont TeXBase1Encoding ReEncodeFont}
+25 1328.35 /Courier rf /Fe 134[590 1[886 1[664 369 517
+517 1[664 664 664 959 369 590 1[369 1[664 1[590 664 590
+1[664 8[812 1107 3[664 4[886 1[739 886 1[442 3[812 959
+886 1[812 14[664 664 664 2[442 45[{TeXBase1Encoding ReEncodeFont}33
+1328.35 /Times-Italic rf /Ff 206[498 49[{TeXBase1Encoding ReEncodeFont}
+1 996.264 /Times-Roman rf /Fg 107[590 590 25[664 664
+959 664 664 369 517 442 1[664 664 664 1033 369 664 369
+369 664 664 442 590 664 590 664 590 7[959 1[1254 1[959
+812 739 2[739 959 959 1181 812 2[442 2[739 1[959 886
+886 959 5[369 369 1[664 2[664 1[664 664 664 2[332 442
+332 2[442 442 442 36[739 2[{TeXBase1Encoding ReEncodeFont}56
+1328.35 /Times-Roman rf /Fh 135[797 2[886 531 620 2[886
+797 886 1328 443 886 1[443 886 797 1[708 886 708 1[797
+19[1505 1063 8[1151 1[1151 14[797 797 49[{TeXBase1Encoding ReEncodeFont}
+23 1594.02 /Times-Bold rf /Fi 105[956 28[956 3[1064 637
+744 849 1[1064 956 1064 1593 532 2[532 1[956 1[849 1064
+849 1064 956 13[1064 5[1806 1276 2[744 5[1381 1[1381
+14[956 956 956 48[{TeXBase1Encoding ReEncodeFont}27 1912.83
+/Times-Bold rf end
+%%EndProlog
+%%BeginSetup
+%%Feature: *Resolution 8000dpi
+TeXDict begin
+%%BeginPaperSize: Letter
+letter
+%%EndPaperSize
+ end
+%%EndSetup
+%%Page: 1 1
+TeXDict begin 1 0 bop 13701 1328 a Fi(CIS)477 b(201)j(\226)f(Computer)f
+(Science)g(I)15055 3764 y(Laboratory)i(Assignment)e(1a)0
+9487 y(Intr)-34 b(oduction)0 14050 y Fh(Log)399 b(into)f(the)h(Linux)g
+(machine)0 17747 y Fg(When)331 b(you)g(sit)g(do)-33 b(wn)331
+b(in)g(front)h(of)f(one)g(of)g(the)g(Linux)g(machines)g(in)g(the)g(lab)
+f(\(Dunn)i(358;)g(also)e(kno)-33 b(wn)332 b(as)e(the)0
+19352 y(\223Linux)428 b(lab\224,)453 b(the)428 b(\223CS)g(Lab\224)g(or)
+-53 b(,)452 b(for)430 b(our)f(purposes,)452 b(just)429
+b(the)g(\223lab\224\),)452 b(you)429 b(may)g(ha)-27 b(v)-20
+b(e)428 b(to)h(press)f(a)g(k)-13 b(e)-20 b(y)428 b(or)0
+20957 y(mo)-20 b(v)g(e)340 b(the)f(mouse)g(to)g(\223w)-13
+b(ak)g(e)338 b(up\224)h(the)g(machine)22816 20475 y Ff(1)23370
+20957 y Fg(.)432 b(Once)339 b(the)g(machine)g(is)g(running,)j(you)d
+(will)h(be)f(f)-13 b(aced)338 b(with)0 22562 y(a)332
+b(login)h(box.)0 25363 y(Y)-146 b(ou)425 b(should)g(type)f(in)h(your)g
+Fe(campus)g(computing)g(account)449 b Fg(username)424
+b(and)h(passw)-13 b(ord)424 b(\(the)h(passw)-13 b(ord)424
+b(will)0 26968 y(appear)418 b(as)f(dots)i(so)f(you)g(will)h(kno)-33
+b(w)418 b(ho)-33 b(w)418 b(man)-20 b(y)419 b(characters)f(you)g(ha)-27
+b(v)-20 b(e)419 b(typed)f(b)-27 b(ut)419 b(no)f(one)g(can)g(read)g
+(your)0 28573 y(passw)-13 b(ord)332 b(o)-20 b(v)g(er)333
+b(your)g(shoulder\).)413 b(Press)331 b(the)h Fd(Enter)j
+Fg(k)-13 b(e)-20 b(y)332 b(or)g(press)g(the)g Fe(Lo)-13
+b(gin)332 b Fg(b)-27 b(utton)334 b(with)f(your)g(mouse.)0
+31373 y(Y)-146 b(ou)369 b(will)h(then)f(be)g(logged)h(into)f(the)h
+(machine.)522 b(What)369 b(you)h(see)e(no)-33 b(w)369
+b(is)g(the)g Fe(XW)-73 b(indows)368 b(Desktop)p Fg(.)522
+b(Much)369 b(if)0 32979 y(it)337 b(is)f(f)-13 b(amiliar)338
+b(from)g(an)-20 b(y)337 b(other)g(operating)g(system')-73
+b(s)337 b(desktop:)421 b(there)337 b(are)g(windo)-33
+b(ws,)338 b(icons,)f(a)g(menus,)h(and)e(a)0 34584 y(mouse)k(pointer)-73
+b(.)434 b(The)339 b(menu)h(in)f(the)h(upper)g(left)g(corner)f(contains)
+h(applications)g(that)g(you)g(can)f(run)h(including)0
+36189 y(the)700 b Fd(Applications->Accessories->Terminal)717
+b Fg(and)700 b(the)g Fd(Applications->Internet->Iceape)0
+37794 y Fg(W)-106 b(eb)332 b(bro)-33 b(wser)-73 b(.)0
+42925 y Fh(Accessing)398 b(Moodle)0 46622 y Fg(Moodle)327
+b(is)g(a)f(W)-106 b(eb-based)326 b(classroom)h(management)h(system.)410
+b(What)326 b(that)i(means)e(is)h(that)g(slides,)g(schedules,)0
+48227 y(notes,)315 b(resources,)g(grades,)g(and)c(e)-33
+b(v)-20 b(en)311 b(labs)g(for)g(this)h(course)e(\(or)i(an)-20
+b(y)311 b(course,)k(for)d(that)f(matter\))h(can)f(be)g(stored)0
+49832 y(on)382 b(Moodle.)561 b(In)382 b(this)g(phase)f(you)h(will)g(na)
+-27 b(vig)-7 b(ate)383 b(on)f(the)g(W)-106 b(eb)381 b(to)h(Dr)-73
+b(.)561 b(Ladd')-73 b(s)381 b(Moodle)h(pages,)394 b(then)382
+b(to)g(this)0 51437 y(class')-73 b(s)359 b(Moodle)i(site,)367
+b(create)360 b(an)g(account,)367 b(and)360 b(log)h(into)g(the)f(class.)
+495 b(Then)360 b(you)h(will)g(retrie)-33 b(v)-20 b(e)360
+b(and)g(print)i(the)0 53042 y(remainder)333 b(of)g(this)f(lab)-53
+b(.)0 55843 y(The)803 b(Firefox)g(W)-106 b(eb)803 b(bro)-33
+b(wser)804 b(is)f(installed)g(on)h(the)f(Linux)h(machines.)1824
+b(Y)-146 b(ou)804 b(can)f(\002nd)g(it)g(in)h(the)0 57448
+y Fd(Applications->Internet)342 b Fg(entry)333 b(in)g(the)f(menu.)412
+b(Launch)332 b(the)g(W)-106 b(eb)332 b(bro)-33 b(wser)-73
+b(.)0 60248 y(The)407 b(W)-106 b(eb)406 b(address)h(of)g(Moodle)h(is:)
+562 b Fd(http://db.cs.potsdam.edu/moodle/)p Fg(.)651
+b(On)407 b(that)h(page)f(you)g(will)0 61854 y(\002nd)305
+b(entries)g(for)h(se)-33 b(v)-20 b(eral)304 b(courses.)403
+b(Y)-146 b(ou)305 b(w)-13 b(ant)305 b(to)g(\002nd)g Fe(CIS)g(201)h
+Fg(\(it)g(should)f(be)g(the)g(\002rst)g Fc(A)-133 b(v)-13
+b(ailable)306 b(Course)p Fg(\).)0 63459 y(F)-20 b(ollo)-33
+b(w)332 b(the)h(link)g(to)f Fe(CIS)h(201)p Fg(.)0 66259
+y(The)i(login)i(page)e(for)h(Moodle)g(will)g(come)g(up.)422
+b(Since)335 b(you)h(do)g(not)g(yet)g(ha)-27 b(v)-20 b(e)336
+b(an)f(account,)h(you)g(w)-13 b(ant)336 b(to)g(click)0
+67864 y(on)397 b(the)g Fe(Ne)-20 b(w)396 b(Account)421
+b Fg(form)397 b(on)g(the)g(right-hand)h(side)f(of)g(the)g(screen.)605
+b(Y)-146 b(ou)396 b(will)i(be)e(prompted)i(for)g(a)e(user)-27
+b(-)0 69469 y(name,)370 b(passw)-13 b(ord,)370 b(and)363
+b(some)f(personal)h(information.)505 b(Use)362 b(your)h
+Fe(campus)f(computing)i(account)387 b Fg(username)p 0
+70665 20800 45 v 1528 71508 a Fb(1)1993 71910 y Fa(or)-44
+b(,)276 b(if)g(the)h(machine)i(is)d(completely)j(turned)f(of)-28
+b(f,)277 b(po)-28 b(wer)278 b(up)g(the)f(machine.)25668
+75321 y Fg(1)p eop end
+%%Page: 2 2
+TeXDict begin 2 1 bop 0 1328 a Fg(as)412 b(your)i(username.)654
+b(Also)413 b(use)g(your)g Fe(campus)g(e-mail)h(addr)-49
+b(ess)412 b Fg(as)g(your)i(e-mail)g(address.)653 b(The)413
+b(name)g(and)0 2933 y(location)333 b(\002elds)f(should)g(be)g(straight)
+h(forw)-13 b(ard.)0 5734 y(After)430 b(you)g(\002nish)f(the)h(form,)455
+b(a)430 b(re)-20 b(gistration)431 b(e-mail)f(will)g(be)g(sent)f(to)h
+(your)g(e-mail.)705 b(Fetch)429 b(it)h(\(using)g(your)0
+7339 y(Bearmail)333 b(web)f(login\))h(and)g(follo)-33
+b(w)333 b(the)f(instructions)h(there)g(in)f(to)h(\002nish)f(creating)h
+(your)g(account.)0 12470 y Fh(Checkpoint)399 b(1)0 16167
+y Fc(Sho)-13 b(w)331 b(us)h(y)-33 b(our)331 b(r)-24 b(egistration)333
+b(email)f(message)f(fr)-24 b(om)332 b(moodle)f(bef)-33
+b(or)-24 b(e)332 b(y)-33 b(ou)331 b(continue.)0 21890
+y Fi(Completing)478 b(y)-48 b(our)479 b(Moodle)g(account)f(login)0
+26066 y Fg(No)-33 b(w)-86 b(,)367 b(once)360 b(your)h(account)f(is)h
+(created)f(you)g(will)h(be)f(prompted)i(for)f(an)f(\223)p
+Fe(Enr)-60 b(olment)361 b(K)-46 b(e)-40 b(y)p Fg(\224.)495
+b(This)360 b(k)-13 b(e)-20 b(y)360 b(k)-13 b(eeps)0 27671
+y(random)325 b(people)g(from)h(across)d(the)i(w)-13 b(orld)325
+b(from)g(enrolling)h(in)f(and)f(seeing)g(the)h(contents)f(of)h(our)g
+(course.)409 b(The)0 29276 y(k)-13 b(e)-20 b(y)440 b(for)h(this)f
+(course)g(is)g Fd(satire)j Fg(\(one)d(w)-13 b(ord,)468
+b(no)440 b(spaces\).)735 b(Y)-146 b(ou)440 b(should)h(only)g(be)f
+(prompted)h(for)g(the)f(k)-13 b(e)-20 b(y)0 30881 y(once)332
+b(at)g(the)g(be)-20 b(ginning)334 b(of)f(the)f(semester)-73
+b(.)0 33681 y(Y)-146 b(ou)449 b(ha)-27 b(v)-20 b(e)449
+b(no)-33 b(w)449 b(gotten)g(into)h(Moodle.)762 b(Y)-146
+b(ou)449 b(will)g(see)f(the)h(course)g(home)g(page.)761
+b(The)449 b(the)f(center)h(area)f(of)0 35287 y(the)361
+b(page,)368 b(labeled)361 b Fc(W)-86 b(eekly)360 b(Outline)h
+Fg(is)g(where)f(the)h(course)g(schedule,)368 b(assignments,)g
+(readings,)g(and)361 b(other)0 36892 y(resources)332
+b(are)g(found.)0 39692 y(If)321 b(you)h(go)f(to)g(the)g(\002rst)g(week)
+f(\(25)i(August)f(-)g(31)g(August\),)j(you)d(will)h(see)e(a)g(link)i
+(labeled)f Fc(Lab)g(1b)p Fg(.)407 b(Do)-33 b(wnload)0
+41297 y(that)333 b(link,)g(print)g(the)f(document,)h(and)g(continue)g
+(your)f(lab)h(from)g(there.)0 46428 y Fh(Checkpoint)399
+b(2)0 50125 y Fc(Sho)-13 b(w)331 b(us)h(y)-33 b(our)331
+b(printed)g(Lab)h(1b)g(document.)25668 75321 y Fg(2)p
+eop end
+%%Trailer
+
+userdict /end-hook known{end-hook}if
+%%EOF

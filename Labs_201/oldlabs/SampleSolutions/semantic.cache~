@@ -1,0 +1,21 @@
+;; Object SampleSolutions/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "SampleSolutions/"
+  :tables (list 
+   (semanticdb-table "Orbits.java"
+    :major-mode 'jde-mode
+    :tags '(("fang.core.Game" include nil (dependency-file none) [1 23]) ("fang.sprites.OvalSprite" include nil (dependency-file none) [24 55]) ("Orbits" type (:typemodifiers ("public") :superclasses "Game" :members (("sun" variable (:typemodifiers ("private") :type "OvalSprite") (reparse-symbol class_member_declaration) [628 651]) ("ex" variable (:typemodifiers ("private") :type "double") (reparse-symbol class_member_declaration) [720 738]) ("ey" variable (:typemodifiers ("private") :type "double") (reparse-symbol class_member_declaration) [801 819]) ("eTheta" variable (:typemodifiers ("private") :type "double") (reparse-symbol class_member_declaration) [908 930]) ("eCosTheta" variable (:typemodifiers ("private") :type "double") (reparse-symbol class_member_declaration) [980 1005]) ("eSinTheta" variable (:typemodifiers ("private") :type "double") (reparse-symbol class_member_declaration) [1049 1074]) ("eRadius" variable (:typemodifiers ("private") :type "double") (reparse-symbol class_member_declaration) [1136 1159]) ("earth" variable (:typemodifiers ("private") :type "OvalSprite") (reparse-symbol class_member_declaration) [1198 1223]) ("mx" variable (:typemodifiers ("private") :type "double") (reparse-symbol class_member_declaration) [1235 1253]) ("my" variable (:typemodifiers ("private") :type "double") (reparse-symbol class_member_declaration) [1258 1276]) ("mTheta" variable (:typemodifiers ("private") :type "double") (reparse-symbol class_member_declaration) [1281 1303]) ("mCosTheta" variable (:typemodifiers ("private") :type "double") (reparse-symbol class_member_declaration) [1308 1333]) ("mSinTheta" variable (:typemodifiers ("private") :type "double") (reparse-symbol class_member_declaration) [1338 1363]) ("mRadius" variable (:typemodifiers ("private") :type "double") (reparse-symbol class_member_declaration) [1368 1391]) ("moon" variable (:typemodifiers ("private") :type "OvalSprite") (reparse-symbol class_member_declaration) [1397 1421]) ("setup" function (:typemodifiers ("public" "final") :type "void") (reparse-symbol class_member_declaration) [1525 2162]) ("advance" function (:typemodifiers ("public" "final") :arguments (("dT" variable (:typemodifiers ("final") :type "double") (reparse-symbol formal_parameters) [2328 2343])) :type "void") (reparse-symbol class_member_declaration) [2302 2618]) ("locateEarth" function (:typemodifiers ("private") :type "void") (reparse-symbol class_member_declaration) [2769 2878]) ("locateMoon" function (:typemodifiers ("private") :type "void") (reparse-symbol class_member_declaration) [3025 3135])) :type "class") nil [511 3137]))
+    :file "Orbits.java"
+    :pointmax 3138
+    )
+   (semanticdb-table "NoFangA.java"
+    :major-mode 'jde-mode
+    :tags '(("NoFangA" type (:members (("authorA" variable (:typemodifiers ("static") :type "String") (reparse-symbol class_member_declaration) [19 61]) ("authorB" variable (:typemodifiers ("static") :type "String") (reparse-symbol class_member_declaration) [64 104]) ("run" function (:typemodifiers ("static" "public") :type "void") (reparse-symbol class_member_declaration) [108 241]) ("main" function (:typemodifiers ("static" "public") :arguments (("args" variable (:dereference 1 :type "String") (reparse-symbol formal_parameters) [269 282])) :type "void") (reparse-symbol class_member_declaration) [245 300])) :type "class") nil [1 302]))
+    :file "NoFangA.java"
+    :pointmax 303
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0pre4"
+  :semanticdb-version "2.0pre4"
+  )

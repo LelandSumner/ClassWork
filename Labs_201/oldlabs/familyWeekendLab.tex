@@ -1,0 +1,457 @@
+% book.tex -- Copyright (c) 2004, Brian C. Ladd
+%
+%  Author : Brian C. Ladd 
+%  Created: Wed Jul 07 12:03:49 2004 by blad
+%  Revised: Fri Dec 28 15:27:43 2007 by blad
+%  
+\def\FileCreated{Wed Jul 07 12:03:49 2004}
+\def\FileRevised{Fri Dec 28 15:27:43 2007}
+\documentclass[12pt,twoside]{memoir}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage[usenames]{color}
+\usepackage{xltxtra}
+\usepackage{fontspec}
+\usepackage{textcomp}
+\usepackage{pstricks}
+\usepackage{listings}[2000/08/23] 
+
+\usepackage{rotating}
+\usepackage{exercise}
+% ----- Fonts -----
+\defaultfontfeatures{Scale=MatchLowercase,Mapping=tex-text}
+\setmainfont{Gentium Book Basic}
+\setmonofont{Bitstream Vera Sans Mono}
+\setsansfont{Arial}
+% ----- Fonts -----
+
+\definecolor{nicered}{rgb}{.647,.129,.149}
+\definecolor{listinggray}{gray}{0.1}
+\definecolor{templategrey}{gray}{0.85}
+\definecolor{commandlinebackground}{gray}{.90}
+\definecolor{commandlineforeground}{gray}{0.20,}
+\definecolor{commandpromptforeground}{gray}{0.55}
+
+\newcommand\code[1]{\lstinline^#1^}
+\newcommand\fname[1]{\lstinline^#1^}
+\newcommand\note[1]{\unskip\footnote{#1}}
+\newcommand\foreign[1]{\emph{#1}}
+\newcommand\ensurecomma{%
+  \@ifnextchar,{}{\@latex@error{Don’t forget the comma!}{}}}
+\newcommand\eg{\foreign{e.g.}\ensurecomma}
+\newcommand\ie{\foreign{i.e.}\ensurecomma}
+\newcommand\cf{\foreign{cf.\@}}
+
+\newcommand\ensuresingleperiod{\@ifnextchar.{}{.\@}}
+\newcommand\etc{\foreign{etc}\ensuresingleperiod}
+\newcommand\etal{\foreign{et al}\ensuresingleperiod}
+
+\DeclareGraphicsExtensions{.eps,.pdf,.png,.gif,.jpg}
+
+\newcounter{ProgrammingProblem}
+\setcounter{ProgrammingProblem}{0}%
+
+\newenvironment{LabExercises}{%
+\renewcommand{\ExerciseListName}{Question}%
+\renewcommand{\ExerciseListHeader}{\textbf{%
+   Checkpoint\ExerciseHeaderNB. }}
+\begin{ExerciseList}}%
+{\end{ExerciseList}}
+\newcommand{\LabExercise}{\Exercise[name={Lab Phase\ExerciseHeaderNB},counter={ProgrammingProblem}]}
+
+
+\lstset{language=java,
+  basicstyle=\small\ttfamily,
+  numbers=left, 
+  numberstyle=\tiny, 
+  stepnumber=1, 
+  numbersep=5pt,
+  frame=single,
+  captionpos=b,
+  rulecolor=\color{nicered}
+}
+
+\lstdefinelanguage{cline}
+{
+  morecomment=[s][\color{commandpromptforeground}]{ }{ },
+} 
+
+\lstnewenvironment{commandline}[1][]
+  {\lstset{language=cline,numbers=none,frame=none,backgroundcolor=\color{commandlinebackground},basicstyle=\color{commandlineforeground},nolol,#1}}
+  {}
+
+\setlength{\hoffset}{0in}
+\setlength{\voffset}{0in}
+\settypeblocksize{9.5in}{7.5in}{*}
+\setlrmargins{0.5in}{*}{1}
+\setulmargins{0.75in}{*}{*}
+\setheadfoot{\onelineskip}{2\onelineskip}
+\checkandfixthelayout
+
+\begin{document}
+
+\title{Fall 2008 CS1 Family Weekend  Lab}
+\maketitle
+
+\begin{itemize}
+\item Learn how to start (and stop) the Emacs text editor
+\item Learn how to create a \texttt{.java} file
+\item Learn how to compile a \texttt{.java} file
+\item Learn how to run a \texttt{.java} (or rather, \texttt{.class}) file
+\item Learn how to correct simple \emph{compiler errors}
+\end{itemize}
+
+\begin{LabExercises}
+\LabExercise Launch a terminal.
+
+Linux provides a desktop environment similar to that found in other
+operating systems (Windows XP/Vista or Mac OS X). It also offers a
+\emph{command-line interface}, or a \emph{shell} where the user can
+type commands into a command interpreter which runs the commands and
+then prompts the user for a new command. In this class we will be
+using the command-line interface a great deal.
+
+A shell runs inside of a terminal; go to the menu at the upper-left of
+the desktop and find \textbf{Accessories $|$ Terminal}. Launching it
+should give you a window that has a prompt something like this:
+
+\begin{commandline}
+ laddbc@admin-156-97:~$ _
+\end{commandline}
+% $
+
+The bit before the \code{@} is your login name (Dr. Ladd's is
+\code{laddbc}). Between the \code{@} and the \code{:} is the name of
+the machine you are logged into. Between the \code{:} and the \code{\$}
+is the \emph{current directory path}. The \code{\~} is Linux shorthand
+for your home directory. 
+
+Note that the \code{_} after the prompt represents where you can
+type. It will not be shown in other examples which will show commands
+typed in after the prompts.  
+
+The Linux file system uses hierarchical \emph{directories} (sometimes
+called \emph{folders}), containers for files and other
+directories. You will now change to the \fname{Lab1} directory using
+the \code{cd} (change directory) command:
+
+\begin{commandline}
+ laddbc@admin-156-97:~$ cd Lab1
+ laddbc@admin-156-97:~/Lab1$ ls -a
+ . .. NewtonsApple.java
+ laddbc@admin-156-97:~/Lab1$ 
+\end{commandline}
+%$
+\noindent
+The current directory, displayed in the command prompt, changes as you
+navigate into directories below your home directory. The \code{ls -a}
+command tells the shell to list all files and directories in the
+current directory.  \fname{.} and \fname{..} are special names for the
+current and parent directories. \fname{NewtonsApple.java} is the Java
+program template you will extend in this lab. 
+
+How would you change the current directory back to \code{\~}?
+
+\LabExercise Starting and stopping \fname{emacs}
+
+In CS1 we use a \emph{text editor} to enter our Java code; a text
+editor is like a word processor except that the text editor does not
+save formatting information. Instead it saves just the
+characters. This is important because the Java compiler does not
+understand formatting.
+
+To run the \code{emacs} text editor, you can either type the name of
+the program into the shell. When you type the name in, you
+can also specify the name of a file you wish to edit. We can type:
+
+\begin{commandline}
+ laddbc@admin-156-97:~/CS1/Lab1$ emacs NewtonsApple.java &
+ [1] 1234
+ laddbc@admin-156-97:~/CS1/Lab1$ 
+\end{commandline}
+
+\noindent
+What is that \code{&} doing there? It runs the command in the
+background so we can keep using the shell. The following line is
+information about the background process.
+
+\fname{emacs} has a fairly standard menu bar. Under \textbf{File}
+there are commands to open files, save files, and exit
+\fname{emacs}. The keyboard shortcuts are also listed (\textbf{C-} in
+front of a character means press the \textbf{Ctrl} key while pressing
+the key).
+
+The \textbf{JDE} menu is the \emph{Java Development Environment}. That
+is where the commands to compile and run Java programs can be found.
+
+Look at the code. The colors and indentation are provided to make it
+easier for you to read. In Java, many things are held in \emph{blocks}
+or containers between curly braces (\code{\{} \code{\}}). To emphasise
+this relationship, lines end with opening curly braces and lines
+contained within that block are indented. 
+
+The lines that appear purple and have \code{//} or \code{/*} and
+\code{*/} around them are comments. They are written by programmers
+for other programmers. Java treats them as empty lines when compiling.
+
+Enough preliminaries! It is time to compile a program.
+
+Select \textbf{JDE $|$ Compile}. The blank line at the bottom of the
+\code{emacs} window (known as the \emph{minibuffer} in \code{emacs}
+parlance) reports something about starting the ``Beanshell'', then
+the window splits horizontally and a window labeled \emph{*JDEE Compile
+  Server*} appears with the output of the compilation. If all went
+well, the output will look something like this:
+
+\begin{lstlisting}[numbers=none]
+CompileServer output:
+
+-classpath /home/faculty/laddbc/CS1/Lab1:/home/faculty/laddbc/jar/fang.jar 
+/home/faculty/laddbc/CS1/Lab1/NewtonsApple.java
+
+Compilation finished at Sat Aug 23 16:37:57
+\end{lstlisting}
+
+To get rid of the split in the window you can, with the cursor in the
+top window, select \textbf{File $|$ Unsplit Window} (or use the
+keyboard shortcut of \textbf{C-x 1} to get just one (1) window). 
+
+\LabExercise Run the program
+
+If your program compiled without errors, select \textbf{JDE $|$ Run
+  App}. The window splits again with Java output in the second pane
+and a new window appears labeled \emph{NewtonsApple}. This is the
+game. The buttons along the bottom row are provided by FANG for all
+games.
+
+\LabExercise Continue the program.
+
+Update your program file by finding the comments given in each of the
+examples below and entering the code shown just below them. Most of the
+comments (and code) in this section belong in the \code{setup} method
+though two new methods are defined at the bottom of the class.
+\newpage
+\begin{itemize}
+\item \textbf{dropApple} We must create a new command for our
+  game. The command, called \code{dropApple}:
+\begin{lstlisting}[numbers=none]
+    /**
+     * New command to drop a new apple. Positions apple at top of
+     * screen and increments the number of apples that have been
+     * dropped.
+     */
+    public void dropApple() {
+	apple.setLocation(randomDouble(), 0.0);
+	applesDropped = applesDropped + 1;
+    }
+\end{lstlisting}
+
+Go ahead and try compiling; the compiler is like a spell checker that
+you should run early and often! You should probably save your program
+and compile after each of these items.
+
+\item \textbf{apple} The apple is an \code{OvalSprite} with equal
+  diameters, making it a circle. It is colored red and then dropped
+  (using our new command from above). All sprites must be added to the
+  game.
+\begin{lstlisting}[numbers=none]
+	// initialize the apple: OvalSprite constructor takes an
+	// x-diameter and a y-diameter (to make a circle, make them
+	// the same). They are expressed in screens. getColor can find
+	// named colors (here "red", "green", and "white" are used)
+	apple = new OvalSprite(0.10, 0.10);
+	apple.setColor(getColor("red"));
+	dropApple();
+	addSprite(apple);
+\end{lstlisting}
+
+\item \textbf{newton} A square (same dimension both ways) the same
+  size as the apple. Colored green, positioned at the bottom of the
+  screen, and added to the game.
+\begin{lstlisting}[numbers=none]    
+	// newton is small, green, and begins at the middle bottom of the
+	// screen.
+	newton = new RectangleSprite(0.1, 0.1);
+	newton.setColor(getColor("green"));
+	newton.setLocation(0.5, 0.9);
+	addSprite(newton);
+\end{lstlisting}
+
+\item \textbf{updateScore} A new command that puts the number of
+  apples dropped and the number of apples caught into the sprite on
+  the screen and adjusts its position to keep it in the upper-left corner.
+\begin{lstlisting}[numbers=none]    
+    /**
+     * Update displayScore sprite with current score (apples caught /
+     * apples dropped).  Adjust position to make sure it is all
+     * visible.
+     */
+    public void updateScore() {
+	displayScore.setText("Score: " + applesCaught + "/" + applesDropped);
+	displayScore.setLocation(displayScore.getWidth() / 2, 
+				              displayScore.getHeight() / 2);
+    }
+\end{lstlisting}
+
+\item \textbf{score counters} Initialize the number of apples dropped
+  and caught to \code{0}; note that this is before calling either of
+  the new commands (both of which use the score variables).
+\begin{lstlisting}[numbers=none]    
+	// initialize the score
+	applesCaught = 0;
+	applesDropped = 0;
+\end{lstlisting}
+
+\item \textbf{displayScore} Create the on-screen score display,
+  set its color, and use \code{updateScore} to update its contents.
+\begin{lstlisting}[numbers=none]    
+	// The score is in the upper left corner of the screen in white
+	displayScore = new StringSprite(0.10);
+	displayScore.setColor(getColor("white"));
+	updateScore(); 
+	addSprite(displayScore);
+\end{lstlisting}
+\end{itemize}
+
+Now, after you compile the last bit, you can again run the program
+(and get something reasonable). The apple appears partially off the
+top of the screen, the score in the upper-left corner, and the Newton
+at the bottom center of the screen. 
+
+The game is not yet playable; if you press \textbf{Start} you will
+find that nothing happens. This is because FANG calls the
+\code{advance} method as part of the main game loop and we have
+nothing but comments in that method.
+
+\textbf{Correcting Typos}: If you have any compiler errors,
+\code{emacs} will show them to you. Consider, for example, misspelling
+\code{Color} as \code{Colour}. Then the CompileServer output (in the
+bottom window) would look like this:
+
+\begin{lstlisting}[numbers=none]
+CompileServer output:
+
+-classpath /home/faculty/laddbc/CS1/Lab1:/home/faculty/laddbc/jar/fang.jar 
+/home/faculty/laddbc/CS1/Lab1/NewtonsApple.java
+/home/faculty/laddbc/CS1/Lab1/NewtonsApple.java:11: cannot find symbol
+symbol  : method setColour(java.awt.Color)
+location: class fang.sprites.OvalSprite
+    apple.setColour(getColor("red"));
+         ^
+/home/faculty/laddbc/CS1/Lab1/NewtonsApple.java:15: cannot find symbol
+symbol  : method setColour(java.awt.Color)
+location: class fang.sprites.RectangleSprite
+    newton.setColour(getColor("green"));
+          ^
+2 errors
+
+Compilation exited abnormally with code 1 at Mon Aug 25 15:48:00  
+\end{lstlisting}
+
+\code{emacs} will move the cursor down to the first
+\code{/home/faculty/...} line, and also move the cursor in the
+\fname{NewtonsApple.java} buffer to line 11 (the line with the
+error). The first line in the error window identifies the file and
+line with the error and the error the Java compiler encountered. In
+this case the error is \code{cannot find symbol}. The next line gives
+the symbol that could not be found (\code{setColour}) and the line
+after that gives the class where the Java compiler expected to find
+the symbol (\code{OvalSprite}).
+
+The next two lines are the offending line from the \fname{.java} file
+and a line with a \lstinline{^} pointing to the spot where the Java
+compiler realized there was an error. In this case, we see that the
+method name in our listing was \code{setColor} though we typed
+\code{setColour}. Removing the ``u'' fixes the problem.
+
+After correcting one error you can move to the next error by pressing
+\code{C-x `} (that is a back-tick, next to the \code{1} on most
+keyboards).  The error message window and the source code window will
+both move to the next error.
+\newpage
+\LabExercise Finish \texttt{NewtonsApple}
+
+To finish \code{NewtonsApple}, we just find the appropriate comments
+in \code{advance} and add the code below to move newton, move the
+apple, and check if the apple has been caught or hit the ground.
+
+\begin{itemize}
+\item \textbf{Move newton} Set \code{newton} horizontal location to
+  match the player's mouse's location.
+\begin{lstlisting}[numbers=none]    
+	// (1) Move newton so his x-coordinate matches x-coordinate of mouse
+	Location2D position = getPlayer().getMouse().getLocation();
+	if (position != null) {
+	    newton.setX(position.x);
+	}
+\end{lstlisting}
+
+\item \textbf{Move apple} Move \code{apple} down according to its falling
+  velocity (in screens).
+\begin{lstlisting}[numbers=none]    
+	// (2) Translate apple down screen; velocity * time = distance
+	apple.translateY(0.33 * secondsSinceLastCall);
+\end{lstlisting}
+
+\item \textbf{Catch?} If \code{newton} gets the \code{apple}, update
+  score and drop a new apple.
+\begin{lstlisting}[numbers=none]    
+	// (3) Check if newton has "caught" the apple
+	if (apple.intersects(newton)) {
+	    applesCaught = applesCaught + 1; 
+	    updateScore();
+	    dropApple();
+	}
+\end{lstlisting}
+
+\item \textbf{Splat?} If \code{apple} hits the bottom of the screen,
+  drop a new apple.
+\begin{lstlisting}[numbers=none]    
+	// (4) Check if the apple has hit the ground (y-coordinate 1.0)
+	if (apple.getY() >= 1.0) {
+	    updateScore();
+	    dropApple();
+	}
+\end{lstlisting}
+\end{itemize}
+
+\LabExercise Save, compile, and run \texttt{NewtonsApple}.
+
+Save your work, compile it, correct any compilation errors, and run
+it. You should have a working game running.  Normally we would now
+upload the program to the on-line course management system.
+
+\LabExercise Make \texttt{NewtonsPear} (If you have time)
+
+Open a new file (in the same directory) called
+\texttt{NewtonsPear.java}. Newton's pear is just like Newton's apple
+but the pear is yellow rather than red. 
+
+\begin{itemize}
+\item Use \textbf{File $|$ Insert File...} in the new buffer. Select
+  \texttt{NewtonsApple.java} to insert.
+\item Save the file.
+\item The file must have the name of the class updated. The name of
+the class \emph{must} match the name of the file (less the
+\fname{.java}). You can go to \textbf{Edit $|$ Search $|$ Replace}and
+replace \code{NewtonsApple} with \code{NewtonsPear}.  
+\item Similarly, the variable \code{apple} should be renamed
+  \code{pear}. Use the same command to replace one with the other.
+\item Finally, lets fix up line 16 so that instead of setting the
+  color to ``red'', the color of the oval is set to ``yellow''.
+\end{itemize}
+
+Now save and compile your second program. It should look familiar but
+with a small difference.
+
+\end{LabExercises}
+
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
+
+% LocalWords:  Moodle Ladd's login

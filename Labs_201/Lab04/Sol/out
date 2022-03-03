@@ -1,0 +1,24 @@
+These are the patterns printed by the four loops.
+
+Loop 1
+*+++*
+*-++*
+*--+*
+*---*
+
+Loop 2
+****-****-!
+****-****-!
+****-****-!
+
+Loop 3
+*-!
+**-**-!
+***-***-***-!
+
+Loop 4
+*-!
+*-**-!
+*-**-***-!
+
+Now wasn't that fun?

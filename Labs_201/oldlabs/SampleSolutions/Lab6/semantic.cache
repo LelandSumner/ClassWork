@@ -1,0 +1,21 @@
+;; Object Lab6/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "Lab6/"
+  :tables (list 
+   (semanticdb-table "MyName.java"
+    :major-mode 'jde-mode
+    :tags '(("MyName" type (:typemodifiers ("public") :members (("myName" variable (:typemodifiers ("private") :type "String") (reparse-symbol class_member_declaration) [26 48]) ("getName" function (:typemodifiers ("public") :type "String") (reparse-symbol class_member_declaration) [52 100]) ("getXYZZY" function (:typemodifiers ("public") :type "String") (reparse-symbol class_member_declaration) [104 154])) :type "class") nil [1 156]))
+    :file "MyName.java"
+    :pointmax 157
+    )
+   (semanticdb-table "MyNameGame.java"
+    :major-mode 'jde-mode
+    :tags '(("fang.core.Game" include nil (dependency-file none) [1 23]) ("fang.sprites.StringSprite" include nil nil [24 57]) ("MyNameGame" type (:typemodifiers ("public") :superclasses "Game" :members (("mn" variable (:typemodifiers ("private") :type "MyName") (reparse-symbol class_member_declaration) [101 119]) ("mnSprite" variable (:typemodifiers ("private") :type "StringSprite") (reparse-symbol class_member_declaration) [151 181]) ("setup" function (:typemodifiers ("public") :type "void") (reparse-symbol class_member_declaration) [185 466])) :type "class") nil [59 468]))
+    :file "MyNameGame.java"
+    :pointmax 469
+    )
+   )
+  :file "semantic.cache"
+  :semantic-tag-version "2.0pre4"
+  :semanticdb-version "2.0pre4"
+  )

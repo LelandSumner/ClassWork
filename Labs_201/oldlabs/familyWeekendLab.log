@@ -1,0 +1,909 @@
+This is XeTeXk, Version 3.141592-2.2-0.996-patch1 (Web2C 7.5.6) (format=xelatex 2008.5.22)  20 SEP 2008 12:01
+entering extended mode
+ %&-line parsing enabled.
+**\input familyWeekendLab.tex
+(./familyWeekendLab.tex (/usr/share/texmf-texlive/tex/latex/memoir/memoir.cls
+Document Class: memoir 2005/09/25 v1.618 configurable document class
+\onelineskip=\skip41
+\lxvchars=\skip42
+\xlvchars=\skip43
+\@memcnta=\count79
+\stockheight=\skip44
+\stockwidth=\skip45
+\trimtop=\skip46
+\trimedge=\skip47
+(/usr/share/texmf-texlive/tex/latex/memoir/mem12.clo
+File: mem12.clo 2004/03/12 v0.3 memoir class 12pt size option
+)
+\spinemargin=\skip48
+\foremargin=\skip49
+\uppermargin=\skip50
+\lowermargin=\skip51
+\headdrop=\skip52
+\normalrulethickness=\skip53
+\headwidth=\skip54
+\c@storedpagenumber=\count80
+\thanksmarkwidth=\skip55
+\thanksmarksep=\skip56
+\droptitle=\skip57
+\abstitleskip=\skip58
+\absleftindent=\skip59
+\abs@leftindent=\dimen102
+\absrightindent=\skip60
+\absparindent=\skip61
+\absparsep=\skip62
+\c@part=\count81
+\c@chapter=\count82
+\c@section=\count83
+\c@subsection=\count84
+\c@subsubsection=\count85
+\c@paragraph=\count86
+\c@subparagraph=\count87
+\beforechapskip=\skip63
+\midchapskip=\skip64
+\afterchapskip=\skip65
+\chapindent=\skip66
+\bottomsectionskip=\skip67
+\secindent=\skip68
+\beforesecskip=\skip69
+\aftersecskip=\skip70
+\subsecindent=\skip71
+\beforesubsecskip=\skip72
+\aftersubsecskip=\skip73
+\subsubsecindent=\skip74
+\beforesubsubsecskip=\skip75
+\aftersubsubsecskip=\skip76
+\paraindent=\skip77
+\beforeparaskip=\skip78
+\afterparaskip=\skip79
+\subparaindent=\skip80
+\beforesubparaskip=\skip81
+\aftersubparaskip=\skip82
+\pfbreakskip=\skip83
+\c@@ppsavesec=\count88
+\c@@ppsaveapp=\count89
+\ragrparindent=\dimen103
+\parsepi=\skip84
+\topsepi=\skip85
+\itemsepi=\skip86
+\parsepii=\skip87
+\topsepii=\skip88
+\topsepiii=\skip89
+\m@msavetopsep=\skip90
+\m@msavepartopsep=\skip91
+\@enLab=\toks14
+\c@vslineno=\count90
+\c@poemline=\count91
+\c@modulo@vs=\count92
+\vleftskip=\skip92
+\vrightskip=\skip93
+\stanzaskip=\skip94
+\versewidth=\skip95
+\vgap=\skip96
+\vindent=\skip97
+\vleftmargin=\dimen104
+\c@verse=\count93
+\c@chrsinstr=\count94
+\beforepoemtitleskip=\skip98
+\afterpoemtitleskip=\skip99
+\c@poem=\count95
+\beforePoemTitleskip=\skip100
+\midPoemTitleskip=\skip101
+\afterPoemTitleskip=\skip102
+\col@sep=\dimen105
+\extrarowheight=\dimen106
+\NC@list=\toks15
+\extratabsurround=\skip103
+\backup@length=\skip104
+\TX@col@width=\dimen107
+\TX@old@table=\dimen108
+\TX@old@col=\dimen109
+\TX@target=\dimen110
+\TX@delta=\dimen111
+\TX@cols=\count96
+\TX@ftn=\toks16
+\heavyrulewidth=\dimen112
+\lightrulewidth=\dimen113
+\cmidrulewidth=\dimen114
+\belowrulesep=\dimen115
+\belowbottomsep=\dimen116
+\aboverulesep=\dimen117
+\abovetopsep=\dimen118
+\cmidrulesep=\dimen119
+\cmidrulekern=\dimen120
+\defaultaddspace=\dimen121
+\@cmidla=\count97
+\@cmidlb=\count98
+\@aboverulesep=\dimen122
+\@belowrulesep=\dimen123
+\@thisruleclass=\count99
+\@lastruleclass=\count100
+\@thisrulewidth=\dimen124
+\ctableftskip=\skip105
+\ctabrightskip=\skip106
+\abovecolumnspenalty=\count101
+\@linestogo=\count102
+\@cellstogo=\count103
+\@cellsincolumn=\count104
+\crtok=\toks17
+\@mincolumnwidth=\dimen125
+\c@newflo@tctr=\count105
+\@contcwidth=\skip107
+\@contindw=\skip108
+\abovecaptionskip=\skip109
+\belowcaptionskip=\skip110
+\subfloattopskip=\skip111
+\subfloatcapskip=\skip112
+\subfloatcaptopadj=\skip113
+\subfloatbottomskip=\skip114
+\subfloatlabelskip=\skip115
+\subfloatcapmargin=\dimen126
+\c@@contsubnum=\count106
+\beforeepigraphskip=\skip116
+\afterepigraphskip=\skip117
+\epigraphwidth=\skip118
+\epigraphrule=\skip119
+LaTeX Info: Redefining \em on input line 4895.
+LaTeX Info: Redefining \emph on input line 4903.
+\tocentryskip=\skip120
+\tocbaseline=\skip121
+\cftparskip=\skip122
+\cftbeforepartskip=\skip123
+\cftpartindent=\skip124
+\cftpartnumwidth=\skip125
+\cftbeforechapterskip=\skip126
+\cftchapterindent=\skip127
+\cftchapternumwidth=\skip128
+\cftbeforesectionskip=\skip129
+\cftsectionindent=\skip130
+\cftsectionnumwidth=\skip131
+\cftbeforesubsectionskip=\skip132
+\cftsubsectionindent=\skip133
+\cftsubsectionnumwidth=\skip134
+\cftbeforesubsubsectionskip=\skip135
+\cftsubsubsectionindent=\skip136
+\cftsubsubsectionnumwidth=\skip137
+\cftbeforeparagraphskip=\skip138
+\cftparagraphindent=\skip139
+\cftparagraphnumwidth=\skip140
+\cftbeforesubparagraphskip=\skip141
+\cftsubparagraphindent=\skip142
+\cftsubparagraphnumwidth=\skip143
+\c@maxsecnumdepth=\count107
+\bibindent=\dimen127
+\bibitemsep=\skip144
+\indexcolsep=\skip145
+\indexrule=\skip146
+\indexmarkstyle=\toks18
+\@indexbox=\insert233
+\glossarycolsep=\dimen128
+\glossaryrule=\dimen129
+\sideparvshift=\skip147
+\sideins=\insert232
+\sidebarhsep=\skip148
+\sidebarvsep=\skip149
+\sidebarwidth=\skip150
+\footmarkwidth=\skip151
+\footmarksep=\skip152
+\footparindent=\skip153
+\footinsdim=\skip154
+\footinsv@r=\insert231
+\@mpfootinsv@r=\insert230
+\m@m@k=\count108
+\m@m@h=\dimen130
+\m@mipn@skip=\skip155
+\c@sheetsequence=\count109
+\c@lastsheet=\count110
+\c@lastpage=\count111
+\every@verbatim=\toks19
+\afterevery@verbatim=\toks20
+\verbatim@line=\toks21
+\tab@position=\count112
+\verbatim@in@stream=\read1
+\verbatimindent=\skip156
+\verbatim@out=\write3
+\bvboxsep=\skip157
+\c@bvlinectr=\count113
+\bvnumlength=\skip158
+\FrameRule=\dimen131
+\FrameSep=\dimen132
+\c@cp@cntr=\count114
+LaTeX Info: Redefining \: on input line 8292.
+LaTeX Info: Redefining \! on input line 8294.
+\c@ism@mctr=\count115
+\c@xsm@mctr=\count116
+\c@csm@mctr=\count117
+\c@ksm@mctr=\count118
+\c@xksm@mctr=\count119
+\c@cksm@mctr=\count120
+\c@msm@mctr=\count121
+\c@xmsm@mctr=\count122
+\c@cmsm@mctr=\count123
+\c@bsm@mctr=\count124
+\c@workm@mctr=\count125
+\c@figure=\count126
+\c@lofdepth=\count127
+\c@lofdepth=\count127
+\cftbeforefigureskip=\skip159
+\cftfigureindent=\skip160
+\cftfigurenumwidth=\skip161
+\c@table=\count127
+\c@lotdepth=\count128
+\c@lotdepth=\count128
+\cftbeforetableskip=\skip162
+\cfttableindent=\skip163
+\cfttablenumwidth=\skip164
+Package abstract emulated by memoir.
+Package appendix emulated by memoir.
+Package array emulated by memoir.
+Package booktabs emulated by memoir.
+Package ccaption emulated by memoir.
+Package chngcntr emulated by memoir.
+Package chngpage emulated by memoir.
+Package crop emulated by memoir.
+Package dcolumn emulated by memoir.
+Package delarray emulated by memoir.
+Package enumerate emulated by memoir.
+Package epigraph emulated by memoir.
+Package framed emulated by memoir.
+Package ifmtarg emulated by memoir.
+Package ifpdf emulated by memoir.
+Package index emulated by memoir.
+Package makeidx emulated by memoir.
+Package moreverb emulated by memoir.
+Package needspace emulated by memoir.
+Package newfile emulated by memoir.
+Package nextpage emulated by memoir.
+Package patchcmd emulated by memoir.
+Package shortvrb emulated by memoir.
+Package showidx emulated by memoir.
+Package tabularx emulated by memoir.
+Package titleref emulated by memoir.
+Package titling emulated by memoir.
+Package tocbibind emulated by memoir.
+Package tocloft emulated by memoir.
+Package verbatim emulated by memoir.
+Package verse emulated by memoir.
+
+(/usr/share/texmf-texlive/tex/latex/memoir/mempatch.sty
+File: mempatch.sty 2007/01/22 v4.8 Patches for memoir class v1.618
+\m@mscap@capbox=\box26
+\m@mscap@fbox=\box27
+\sidecapsep=\dimen133
+\sidecapwidth=\dimen134
+\m@m@tempdima=\dimen135
+\m@mscapraise=\dimen136
+\sidecapraise=\dimen137
+\m@mscapmainwidth=\dimen138
+\m@mscaplkern=\dimen139
+\c@book=\count128
+\cftbeforebookskip=\skip165
+\cftbookindent=\dimen140
+\cftbooknumwidth=\dimen141
+\c@pagenote=\count129
+Package pagenote emulated by memoir.
+\cftbeforesectionskip=\skip166
+\cftsectionindent=\skip167
+\cftsectionnumwidth=\skip168
+\cftbeforesubsectionskip=\skip169
+\cftsubsectionindent=\skip170
+\cftsubsectionnumwidth=\skip171
+\cftbeforesubsubsectionskip=\skip172
+\cftsubsubsectionindent=\skip173
+\cftsubsubsectionnumwidth=\skip174
+\cftbeforeparagraphskip=\skip175
+\cftparagraphindent=\skip176
+\cftparagraphnumwidth=\skip177
+\cftbeforesubparagraphskip=\skip178
+\cftsubparagraphindent=\skip179
+\cftsubparagraphnumwidth=\skip180
+\cftbeforefigureskip=\skip181
+\cftfigureindent=\skip182
+\cftfigurenumwidth=\skip183
+\cftbeforetableskip=\skip184
+\cfttableindent=\skip185
+\cfttablenumwidth=\skip186
+\everylistparindent=\dimen142
+Package setspace emulated by memoir.
+\memPD=\dimen143
+Package parskip emulated by memoir.
+\m@mabparskip=\skip187
+\itemsepii=\skip188
+\itemsepiii=\skip189
+\partopsepiii=\skip190
+\sidebartopsep=\skip191
+\c@lofdepth=\count130
+\c@lotdepth=\count131
+))
+(/usr/share/texmf-texlive/tex/latex/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks22
+)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+Package: graphics 2006/02/20 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/etc/texmf/tex/latex/config/graphics.cfg
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+)
+Package graphics Info: Driver file: xetex.def on input line 90.
+
+(/usr/share/texmf-texlive/tex/xelatex/graphics/xetex.def
+File: xetex.def 2006/08/10 v0.92 LaTeX color/graphics driver for XeTeX (RRM, mo
+d. JK)
+))
+\Gin@req@height=\dimen144
+\Gin@req@width=\dimen145
+)
+\epsfxsize=\dimen146
+\epsfysize=\dimen147
+)
+(/usr/share/texmf-texlive/tex/latex/graphics/color.sty
+Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
+
+(/etc/texmf/tex/latex/config/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: xetex.def on input line 130.
+)
+(/usr/share/texmf-texlive/tex/xelatex/xltxtra/xltxtra.sty
+Package: xltxtra 2006/06/13 v0.2 Improvements for the XeTeX/LaTeX format
+
+(/usr/share/texmf-texlive/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2006/08/21 v0.3 Provides ifxetex conditional
+)
+(/usr/share/texmf-texlive/tex/xelatex/fontspec/fontspec.sty
+Package: fontspec 2006/12/24 v1.13 Advanced font selection for XeLaTeX
+\c@zf@newff=\count132
+\c@zf@index=\count133
+\c@zf@script=\count134
+\c@zf@language=\count135
+
+(/usr/share/texmf-texlive/tex/latex/tools/calc.sty
+Package: calc 2005/08/06 v4.2 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count136
+\calc@Bcount=\count137
+\calc@Adimen=\dimen148
+\calc@Bdimen=\dimen149
+\calc@Askip=\skip192
+\calc@Bskip=\skip193
+LaTeX Info: Redefining \setlength on input line 75.
+LaTeX Info: Redefining \addtolength on input line 76.
+\calc@Ccount=\count138
+\calc@Cskip=\skip194
+)
+(/usr/share/texmf-texlive/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2006/11/18 v2.5f package option processing (HA)
+
+(/usr/share/texmf-texlive/tex/latex/xkeyval/xkeyval.tex
+\XKV@toks=\toks23
+\XKV@depth=\count139
+File: xkeyval.tex 2006/11/18 v2.5f key=value parser (HA)
+))
+(/usr/share/texmf/tex/latex/lm/lmodern.sty
+Package: lmodern 2007/01/14 v1.3 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 13.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 14.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 15.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 16.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 17.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 18.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 19.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 20.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 22.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 23.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 24.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 25.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 27.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 28.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 29.
+)
+(/usr/share/texmf-texlive/tex/latex/base/fontenc.sty
+Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
+
+(/usr/share/texmf-texlive/tex/xelatex/euenc/eu1enc.def
+File: eu1enc.def 2006/08/13 v0.1a Experimental unicode font encoding
+)
+LaTeX Font Info:    Try loading font information for EU1+lmr on input line 100.
+
+
+(/usr/share/texmf-texlive/tex/xelatex/euenc/lm/eu1lmr.fd
+File: eu1lmr.fd 2007/01/14 v1.3 Font defs for Latin Modern
+))
+LaTeX Info: Redefining \itshape on input line 1050.
+LaTeX Info: Redefining \slshape on input line 1053.
+LaTeX Info: Redefining \scshape on input line 1056.
+LaTeX Info: Redefining \upshape on input line 1059.
+
+fontspec.cfg loaded.
+(/usr/share/texmf-texlive/tex/xelatex/fontspec/fontspec.cfg))
+(/usr/share/texmf-texlive/tex/xelatex/xunicode/xunicode.sty
+File: xunicode.sty 2005/02/26 v0.5 provides access to latin accents and many ot
+her characters in Unicode lower plane
+)
+\xxt@kern@Te=\skip195
+\xxt@kern@eX=\skip196
+\xxt@lower@e=\skip197
+\xxt@kern@La=\skip198
+\xxt@kern@aT=\skip199
+\xxt@kern@eL=\skip200
+LaTeX Info: Redefining \TeX on input line 36.
+LaTeX Info: Redefining \LaTeX on input line 42.
+
+(/usr/share/texmf-texlive/tex/latex/etex/etex.sty
+Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
+\et@xins=\count140
+)
+(/usr/share/texmf-texlive/tex/latex/base/fixltx2e.sty
+Package: fixltx2e 2006/03/24 v1.1n fixes to LaTeX
+LaTeX Info: Redefining \em on input line 420.
+LaTeX Info: Redefining \textsubscript on input line 424.
+)
+LaTeX Info: Redefining \em on input line 101.
+LaTeX Info: Redefining \emph on input line 110.
+LaTeX Info: Redefining \- on input line 115.
+LaTeX Info: Redefining \textsubscript on input line 125.
+LaTeX Info: Redefining \textsuperscript on input line 154.
+)
+(/usr/share/texmf-texlive/tex/latex/base/textcomp.sty
+Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
+Package textcomp Info: Sub-encoding information:
+(textcomp)               5 = only ISO-Adobe without \textcurrency
+(textcomp)               4 = 5 + \texteuro
+(textcomp)               3 = 4 + \textohm
+(textcomp)               2 = 3 + \textestimated + \textcurrency
+(textcomp)               1 = TS1 - \textcircled - \t
+(textcomp)               0 = TS1 (full)
+(textcomp)             Font families with sub-encoding setting implement
+(textcomp)             only a restricted character set as indicated.
+(textcomp)             Family '?' is the default used for unknown fonts.
+(textcomp)             See the documentation for details.
+Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
+
+(/usr/share/texmf-texlive/tex/latex/base/ts1enc.def
+File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
+)
+LaTeX Info: Redefining \oldstylenums on input line 266.
+Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
+Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
+Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 283.
+Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 284.
+Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 285.
+Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 286.
+Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 287.
+Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 288.
+Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 289.
+Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 290.
+Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 291.
+Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 292.
+Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 293.
+Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 294.
+Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 295.
+Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 296.
+Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 297.
+Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 298.
+Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 299.
+Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 300.
+Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 301.
+Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 302.
+Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 303.
+Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 304.
+
+Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 305.
+Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 306.
+Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 307.
+Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 308.
+Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 309.
+Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 310.
+Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 311.
+Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 312.
+Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 313.
+Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 314.
+Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 315.
+Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 316.
+Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 317.
+Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 318.
+Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 319.
+Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 320.
+Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 321.
+Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 322.
+Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 323.
+Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 324.
+Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 325.
+Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 326.
+)
+(/usr/share/texmf-texlive/tex/latex/pstricks/pstricks.sty
+Package: pstricks 2006/08/10 v0.32 LaTeX wrapper for `PSTricks' (RN,HV)
+
+(/usr/share/texmf-texlive/tex/generic/pstricks/pstricks.tex
+`PSTricks' v1.15  <2006/12/22> (tvz)
+\pst@dima=\dimen150
+\pst@dimb=\dimen151
+\pst@dimc=\dimen152
+\pst@dimd=\dimen153
+\pst@dimg=\dimen154
+\pst@dimh=\dimen155
+\pst@hbox=\box28
+\pst@boxg=\box29
+\pst@cnta=\count141
+\pst@cntb=\count142
+\pst@cntc=\count143
+\pst@cntd=\count144
+\pst@cntg=\count145
+\pst@cnth=\count146
+\pst@toks=\toks24
+(/usr/share/texmf-texlive/tex/generic/pstricks/pstricks.con)
+\psunit=\dimen156
+\psxunit=\dimen157
+\psyunit=\dimen158
+\pslinewidth=\dimen159
+\pst@customdefs=\toks25
+\pslinearc=\dimen160
+\everypsbox=\toks26
+\psframesep=\dimen161
+\pslabelsep=\dimen162
+\psk@shift=\dimen163
+\pst@shift=\dimen164
+\theoverlaybox=\box30
+)
+File: pstricks.tex 2006/12/22 v1.15 `PSTricks' (tvz)
+
+(/usr/share/texmf/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/etc/texmf/tex/latex/config/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Package option `override' ignored on input line 216.
+Package xcolor Info: Driver file: xetex.def on input line 225.
+LaTeX Info: Redefining \color on input line 702.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+))
+(/usr/share/texmf-texlive/tex/latex/listings/listings.sty
+\lst@mode=\count147
+\lst@gtempboxa=\box31
+\lst@token=\toks27
+\lst@length=\count148
+\lst@currlwidth=\dimen165
+\lst@column=\count149
+\lst@pos=\count150
+\lst@lostspace=\dimen166
+\lst@width=\dimen167
+\lst@newlines=\count151
+\lst@lineno=\count152
+\c@lstlisting=\count153
+\lst@maxwidth=\dimen168
+
+(/usr/share/texmf-texlive/tex/latex/listings/lstpatch.sty
+File: lstpatch.sty 2004/10/17 1.3b (Carsten Heinz)
+)
+(/usr/share/texmf-texlive/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2004/09/07 1.3 (Carsten Heinz)
+\c@lstnumber=\count154
+\lst@skipnumbers=\count155
+\lst@framebox=\box32
+)
+(/usr/share/texmf-texlive/tex/latex/listings/listings.cfg
+File: listings.cfg 2004/09/05 1.3 listings configuration
+))
+Package: listings 2004/10/17 1.3b (Carsten Heinz)
+
+(/usr/share/texmf-texlive/tex/latex/rotating/rotating.sty
+Package: rotating 1997/09/26, v2.13 Rotation package
+
+(/usr/share/texmf-texlive/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\c@r@tfl@t=\count156
+\rot@float@box=\box33
+)
+(/usr/share/texmf-texlive/tex/latex/exercise/exercise.sty
+Package: exercise 2004/09/05 v1.1 Exercise package (P.Pichaureau)
+\Exesep=\skip201
+\Exetopsep=\skip202
+\Exeparsep=\skip203
+\Exepartopsep=\skip204
+\Exeleftmargin=\skip205
+\Exerightmargin=\skip206
+\Exelabelwidth=\skip207
+\Exelabelsep=\skip208
+\ExerciseBefore=\skip209
+\QuestionBefore=\skip210
+\subQuestionBefore=\skip211
+\subsubQuestionBefore=\skip212
+\QuestionIndent=\skip213
+\subQuestionIndent=\skip214
+\subsubQuestionIndent=\skip215
+\c@Exercise=\count157
+\c@ExePart=\count158
+\c@Question=\count159
+\c@subQuestion=\count160
+\c@subsubQuestion=\count161
+\c@savedQuestion=\count162
+\c@savedsubQuestion=\count163
+\c@savedsubsubQuestion=\count164
+\@QuestionLevel=\count165
+\@Exercisebox=\box34
+\all@Exercisebox=\box35
+\temp@Exercisebox=\box36
+\all@Answerbox=\box37
+\temp@Answerbox=\box38
+\ExerciseDifficulty=\count166
+\QuestionDifficulty=\count167
+\subQuestionDifficulty=\count168
+\subsubQuestionDifficulty=\count169
+\ExePartDifficulty=\count170
+\@Answerbox=\box39
+\colonnesLevel=\count171
+\tempskipa=\skip216
+\tempskipb=\skip217
+\@savedmathindent=\skip218
+)
+Package fontspec Info: Gentium Book Basic scale = 0.94913 on input line 23.
+\c@zf@famc@Gentium Book Basic=\count172
+Package fontspec Info: Defining font family for "Gentium Book Basic" with optio
+ns [Scale=MatchLowercase,Mapping=tex-text,] on input line 23.
+Package fontspec Info: Gentium Book Basic scale = 0.94913 on input line 23.
+Package fontspec Info: Gentium Book Basic/B scale = 0.94913 on input line 23.
+Package fontspec Info: Gentium Book Basic/I scale = 0.94304 on input line 23.
+Package fontspec Info: Gentium Book Basic/BI scale = 0.94304 on input line 23.
+LaTeX Font Info:    Font shape `EU1/GentiumBookBasic(0)/m/n' will be
+(Font)              scaled to size 9.49127pt on input line 23.
+Package fontspec Info: Bitstream Vera Sans Mono scale = 0.78812 on input line 2
+4.
+\c@zf@famc@Bitstream Vera Sans Mono=\count173
+Package fontspec Info: Defining font family for "Bitstream Vera Sans Mono" with
+ options [Scale=MatchLowercase,Mapping=tex-text,] on input line 24.
+Package fontspec Info: Bitstream Vera Sans Mono scale = 0.78812 on input line 2
+4.
+Package fontspec Info: Bitstream Vera Sans Mono/B scale = 0.78812 on input line
+ 24.
+Package fontspec Info: Bitstream Vera Sans Mono/I scale = 0.78812 on input line
+ 24.
+Package fontspec Info: Bitstream Vera Sans Mono/BI scale = 0.78812 on input lin
+e 24.
+Package fontspec Info: Arial scale = 0.83116 on input line 25.
+\c@zf@famc@Arial=\count174
+Package fontspec Info: Defining font family for "Arial" with options [Scale=Mat
+chLowercase,Mapping=tex-text,] on input line 25.
+Package fontspec Info: Arial scale = 0.83116 on input line 25.
+Package fontspec Info: Arial/B scale = 0.83116 on input line 25.
+Package fontspec Info: Arial/I scale = 0.83116 on input line 25.
+Package fontspec Info: Arial/BI scale = 0.83116 on input line 25.
+\c@ProgrammingProblem=\count175
+
+(/usr/share/texmf-texlive/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2004/09/05 1.3 listings language file
+)
+
+******************************************************
+Stock height and width: 794.96999pt by 614.295pt
+Top and edge trims: 0.0pt and 0.0pt
+Page height and width: 794.96999pt by 614.295pt
+Text height and width: 693.5pt by 542.0pt
+Spine and edge margins: 36.135pt and 36.13501pt
+Upper and lower margins: 54.2025pt and 47.26749pt
+Headheight and headsep: 14.5pt and 19.8738pt
+Footskip: 29.0pt
+Columnsep and columnseprule: 10.0pt and 0.0pt
+Marginparsep and marginparwidth: 7.0pt and 102.0pt
+Sidecapsep and sidecapwidth: 7.0pt and 102.0pt
+Sidebarhsep and sidebarwidth: 7.0pt and 102.0pt
+Sidebarvsep and sidebartopsep: 14.5pt and 0.0pt
+Sidebarheight: 546.64995pt
+******************************************************
+
+(./familyWeekendLab.aux)
+\openout1 = `familyWeekendLab.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 91.
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 91.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 91.
+ (/usr/share/texmf-texlive/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 91.
+LaTeX Font Info:    Font shape `EU1/GentiumBookBasic(0)/m/n' will be
+(Font)              scaled to size 11.38953pt on input line 91.
+\symlegacymaths=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 91.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 91.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 91.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 91.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 91.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 91.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 91.
+LaTeX Font Info:    Redeclaring math accent \check on input line 91.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 91.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 91.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \colon on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 91.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 91.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 91.
+LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
+(Font)              `operators' in the math version `normal' on input line 91.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/lmr/m/n --> EU1/GentiumBookBasic(0)/m/n on input li
+ne 91.
+LaTeX Font Info:    Encoding `OT1' has changed to `EU1' for symbol font
+(Font)              `operators' in the math version `bold' on input line 91.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/lmr/bx/n --> EU1/GentiumBookBasic(0)/m/n on input l
+ine 91.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  EU1/GentiumBookBasic(0)/m/n --> EU1/GentiumBookBasic(0)
+/m/n on input line 91.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  EU1/GentiumBookBasic(0)/m/n --> EU1/GentiumBookBasic(0)
+/m/n on input line 91.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/lmr/m/it --> EU1/GentiumBookBasic(0)/m/it on input 
+line 91.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/lmr/bx/n --> EU1/GentiumBookBasic(0)/bx/n on input 
+line 91.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/lmss/m/n --> EU1/Arial(0)/m/n on input line 91.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/lmtt/m/n --> EU1/BitstreamVeraSansMono(0)/m/n on in
+put line 91.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  EU1/GentiumBookBasic(0)/m/n --> EU1/GentiumBookBasic(0)
+/bx/n on input line 91.
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
+(Font)                  EU1/GentiumBookBasic(0)/m/n --> EU1/GentiumBookBasic(0)
+/bx/n on input line 91.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/lmr/bx/it --> EU1/GentiumBookBasic(0)/bx/it on inpu
+t line 91.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/lmss/bx/n --> EU1/Arial(0)/bx/n on input line 91.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/lmtt/m/n --> EU1/BitstreamVeraSansMono(0)/bx/n on i
+nput line 91.
+LaTeX Font Info:    Font shape `EU1/GentiumBookBasic(0)/m/n' will be
+(Font)              scaled to size 19.68489pt on input line 94.
+LaTeX Font Info:    Font shape `EU1/GentiumBookBasic(0)/m/n' will be
+(Font)              scaled to size 13.66742pt on input line 94.
+LaTeX Font Info:    Font shape `EU1/GentiumBookBasic(0)/m/n' will be
+(Font)              scaled to size 6.64389pt on input line 94.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 94.
+
+(/usr/share/texmf/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2007/01/14 v1.3 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 94.
+
+
+(/usr/share/texmf/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2007/01/14 v1.3 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 94.
+
+
+(/usr/share/texmf/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2007/01/14 v1.3 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <14.4> on input line 94.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 94.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 94.
+
+
+LaTeX Warning: No \author given.
+
+LaTeX Font Info:    Font shape `EU1/BitstreamVeraSansMono(0)/m/n' will be
+(Font)              scaled to size 9.4574pt on input line 98.
+LaTeX Font Info:    Font shape `EU1/GentiumBookBasic(0)/m/it' will be
+(Font)              scaled to size 11.31647pt on input line 101.
+PAs de label
+LaTeX Font Info:    Font shape `EU1/GentiumBookBasic(0)/bx/n' will be
+(Font)              scaled to size 11.38953pt on input line 105.
+LaTeX Font Info:    Font shape `EU1/GentiumBookBasic(0)/m/n' will be
+(Font)              scaled to size 7.59302pt on input line 115.
+LaTeX Font Info:    Font shape `EU1/GentiumBookBasic(0)/m/n' will be
+(Font)              scaled to size 5.69476pt on input line 115.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 115.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 115.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 115.
+LaTeX Font Info:    Font shape `EU1/GentiumBookBasic(0)/m/n' will be
+(Font)              scaled to size 10.39293pt on input line 123.
+LaTeX Font Info:    Font shape `EU1/BitstreamVeraSansMono(0)/m/n' will be
+(Font)              scaled to size 8.62987pt on input line 123.
+ PAs de label
+LaTeX Font Info:    Font shape `EU1/BitstreamVeraSansMono(0)/m/it' will be
+(Font)              scaled to size 8.62987pt on input line 193.
+ PAs de label PAs de label
+LaTeX Font Info:    Font shape `EU1/BitstreamVeraSansMono(0)/bx/n' will be
+(Font)              scaled to size 8.62987pt on input line 243.
+
+Overfull \hbox (10.64238pt too wide) in paragraph at lines 351--360
+[][][][] \EU1/GentiumBookBasic(0)/m/n/12 will move the cursor down to the first
+ [][][][][][][] line, and also move the cursor in the [][][][][]
+ []
+
+PAs de label PAs de label PAs de label [1
+
+]
+LaTeX Font Info:    Font shape `EU1/GentiumBookBasic(0)/m/sl' undefined
+(Font)              using `EU1/GentiumBookBasic(0)/m/n' instead on input line 4
+47.
+ [2]
+LaTeX Font Info:    Font shape `EU1/GentiumBookBasic(0)/m/sl' will be
+(Font)              scaled to size 11.38953pt on input line 447.
+ [3] [4] [5]
+(./familyWeekendLab.aux)
+LaTeX Font Info:    Some font shapes were not available, defaults substituted.
+ ) 
+Here is how much of TeX's memory you used:
+ 11115 strings out of 94870
+ 164299 string characters out of 1173745
+ 373915 words of memory out of 1500000
+ 14176 multiletter control sequences out of 10000+50000
+ 9560 words of font info for 62 fonts, out of 1200000 for 2000
+ 605 hyphenation exceptions out of 8191
+ 38i,11n,72p,360b,1209s stack positions out of 5000i,500n,6000p,200000b,5000s
+
+Output written on familyWeekendLab.pdf (5 pages).

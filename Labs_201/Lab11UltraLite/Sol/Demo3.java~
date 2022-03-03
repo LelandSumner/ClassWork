@@ -1,0 +1,19 @@
+import java.util.*;
+
+
+public class Demo3 {
+
+    public static void main (String [] args) throws FileNotFoundException{
+	Scanner sc = new Scanner(System.in);
+	System.out.print("Enter the size of the array: (> 0)" );
+	int n = sc.nextInt();
+	System.out.print("Enter the end of the range of values (0-?): ");
+	int range = sc.nextInt();
+        int [] array = randomArray();
+        System.out.println(Arrays.toString(array));       
+    }
+
+    // put randomArray() here
+
+
+}

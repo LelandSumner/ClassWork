@@ -1,0 +1,11 @@
+#!/bin/bash
+
+CMD=$(basename $0)
+[ $# = 1 ] || {
+	echo "usage: $CMD <pair-file>"
+	exit 1
+}
+PAIR_FILE="$1"
+	
+cp class-pairings class-pairings-save
+pairs --new class && pairs class > $PAIR_FILE
